@@ -344,18 +344,23 @@ def copy_persona_library(persona_dir, unified_dir, library_name):
 
                 # Fix import paths for tests.* imports to include persona-specific directory
                 # e.g., "from tests.fixtures.test_data" -> "from tests.persona_name.fixtures.test_data"
-                if "from tests." in modified_content or "import tests." in modified_content:
-                    print(f"Fixing test import paths in {src_path} for persona-specific structure")
+                if (
+                    "from tests." in modified_content
+                    or "import tests." in modified_content
+                ):
+                    print(
+                        f"Fixing test import paths in {src_path} for persona-specific structure"
+                    )
                     # Fix from imports
                     modified_content = re.sub(
-                        r'from tests\.([^.\s]+)',
-                        rf'from tests.{persona_short_name}.\1',
+                        r"from tests\.([^.\s]+)",
+                        rf"from tests.{persona_short_name}.\1",
                         modified_content,
                     )
                     # Fix direct imports
                     modified_content = re.sub(
-                        r'import tests\.([^.\s]+)',
-                        rf'import tests.{persona_short_name}.\1',
+                        r"import tests\.([^.\s]+)",
+                        rf"import tests.{persona_short_name}.\1",
                         modified_content,
                     )
 
@@ -407,18 +412,23 @@ def copy_persona_library(persona_dir, unified_dir, library_name):
                                 modified_content = conftest_content
 
                             # Fix import paths for tests.* imports to include persona-specific directory
-                            if "from tests." in modified_content or "import tests." in modified_content:
-                                print(f"Fixing test import paths in nested {src_file} for persona-specific structure")
+                            if (
+                                "from tests." in modified_content
+                                or "import tests." in modified_content
+                            ):
+                                print(
+                                    f"Fixing test import paths in nested {src_file} for persona-specific structure"
+                                )
                                 # Fix from imports
                                 modified_content = re.sub(
-                                    r'from tests\.([^.\s]+)',
-                                    rf'from tests.{persona_short_name}.\1',
+                                    r"from tests\.([^.\s]+)",
+                                    rf"from tests.{persona_short_name}.\1",
                                     modified_content,
                                 )
                                 # Fix direct imports
                                 modified_content = re.sub(
-                                    r'import tests\.([^.\s]+)',
-                                    rf'import tests.{persona_short_name}.\1',
+                                    r"import tests\.([^.\s]+)",
+                                    rf"import tests.{persona_short_name}.\1",
                                     modified_content,
                                 )
 
@@ -544,10 +554,10 @@ def _parse_dependency_list(deps_content):
     """Parse a comma-separated list of dependencies from setup.py."""
     deps = []
     # Split by both commas and newlines to handle multi-line lists
-    for line in deps_content.replace('\n', ',').split(','):
+    for line in deps_content.replace("\n", ",").split(","):
         # Remove inline comments (everything after # on the same line)
-        dep = line.split('#')[0].strip().strip('"\'')
-        if dep and dep != '[' and dep != ']':
+        dep = line.split("#")[0].strip().strip("\"'")
+        if dep and dep != "[" and dep != "]":
             deps.append(dep)
     return deps
 
@@ -556,47 +566,45 @@ def extract_dependencies_from_setup_py(persona_dir, dependencies=None):
     """Extract dependencies from setup.py if it exists."""
     if dependencies is None:
         dependencies = _get_default_dependencies()
-    
+
     setup_path = persona_dir / "setup.py"
     if not setup_path.exists():
         return dependencies
-    
+
     try:
         with open(setup_path, "r") as f:
             setup_content = f.read()
-        
+
         # Extract install_requires dependencies
         install_requires_match = re.search(
-            r'install_requires\s*=\s*\[(.*?)\]', 
-            setup_content, 
-            re.DOTALL
+            r"install_requires\s*=\s*\[(.*?)\]", setup_content, re.DOTALL
         )
         if install_requires_match:
             deps = _parse_dependency_list(install_requires_match.group(1))
             dependencies["project"]["dependencies"].extend(deps)
             print(f"Extracted {len(deps)} dependencies from {setup_path}: {deps}")
-        
+
         # Extract extras_require optional dependencies
         extras_require_match = re.search(
-            r'extras_require\s*=\s*\{(.*?)\}', 
-            setup_content, 
-            re.DOTALL
+            r"extras_require\s*=\s*\{(.*?)\}", setup_content, re.DOTALL
         )
         if extras_require_match:
             extras_content = extras_require_match.group(1)
-            for line in extras_content.split('\n'):
+            for line in extras_content.split("\n"):
                 line = line.strip()
-                if ':' in line:
-                    key_part = line.split(':')[0].strip().strip('"\'')
-                    value_part = line.split(':', 1)[1].strip()
-                    if '[' in value_part and ']' in value_part:
-                        deps_match = re.search(r'\[(.*?)\]', value_part)
+                if ":" in line:
+                    key_part = line.split(":")[0].strip().strip("\"'")
+                    value_part = line.split(":", 1)[1].strip()
+                    if "[" in value_part and "]" in value_part:
+                        deps_match = re.search(r"\[(.*?)\]", value_part)
                         if deps_match:
                             deps_list = _parse_dependency_list(deps_match.group(1))
-                            dependencies["project"]["optional-dependencies"][key_part].extend(deps_list)
-        
+                            dependencies["project"]["optional-dependencies"][
+                                key_part
+                            ].extend(deps_list)
+
         return dependencies
-        
+
     except Exception as e:
         print(f"Error parsing setup.py in {persona_dir}: {e}")
         return dependencies
@@ -641,12 +649,12 @@ def extract_dependencies_from_pyproject(persona_dir):
                 dependencies["tool"][tool_name] = tool_config
 
         print(f"Extracted dependencies from {pyproject_path}")
-        
+
         # If no dependencies were found in pyproject.toml, try setup.py as fallback
         if not dependencies["project"]["dependencies"]:
             print(f"No dependencies found in {pyproject_path}, trying setup.py...")
             dependencies = extract_dependencies_from_setup_py(persona_dir, dependencies)
-        
+
         return dependencies
 
     except Exception as e:
@@ -767,11 +775,7 @@ def create_pyproject_toml(
             "description": f"Unified libraries for {library_name} with original package names preserved",
             "requires-python": ">=3.8",
         },
-        "tool": {
-            "setuptools": {
-                "packages": ["common"] + list(package_names)
-            }
-        },
+        "tool": {"setuptools": {"packages": ["common"] + list(package_names)}},
     }
 
     # Merge in dependencies if provided
