@@ -176,19 +176,6 @@ def extract_package_name(persona_dir):
         except Exception as e:
             print(f"Error parsing setup.py in {persona_dir}: {e}")
 
-    # Fallback: try to find a directory with __init__.py
-    for item in os.listdir(persona_dir):
-        item_path = persona_dir / item
-        if (
-            item_path.is_dir()
-            and not item.startswith(".")
-            and not item.endswith(".egg-info")
-            and item != "tests"
-        ):
-            if (item_path / "__init__.py").exists():
-                return item
-
-    # Final fallback - use directory name
     return None
 
 
@@ -209,61 +196,11 @@ def copy_persona_library(persona_dir, unified_dir, library_name):
         if potential_dir.exists() and potential_dir.is_dir():
             library_dir = potential_dir
 
-    # If we couldn't find the library dir by package name, try the old method
-    if not library_dir:
-        # Find the main library directory within the persona directory
-        library_dirs = []
-
-        # First, check if there's an actual Python package (directory with __init__.py)
-        for item in os.listdir(persona_dir):
-            item_path = persona_dir / item
-            if (
-                item_path.is_dir()
-                and not item.startswith(".")
-                and not item.endswith(".egg-info")
-                and item != "tests"
-            ):
-                # Check if it's a Python package
-                if (item_path / "__init__.py").exists():
-                    library_dirs.append(item_path)
-
-        # If no Python package found, look for any directory with Python files
-        if not library_dirs:
-            for item in os.listdir(persona_dir):
-                item_path = persona_dir / item
-                if (
-                    item_path.is_dir()
-                    and not item.startswith(".")
-                    and not item.endswith(".egg-info")
-                    and item != "tests"
-                ):
-                    # Check if it contains any Python files
-                    has_py_files = False
-                    for _, _, files in os.walk(item_path):
-                        if any(file.endswith(".py") for file in files):
-                            has_py_files = True
-                            break
-
-                    if has_py_files:
-                        library_dirs.append(item_path)
-
-        if not library_dirs:
-            print(f"No library directory found in {persona_dir}. Skipping.")
-            return None
-
-        library_dir = library_dirs[0]  # Use the first found library
-        library_dir_name = library_dir.name
-        # If we couldn't get a package name from pyproject.toml, use the directory name
-        if not package_name:
-            package_name = library_dir_name
-    else:
-        library_dir_name = library_dir.name
-
     persona_name = os.path.basename(persona_dir)
     persona_short_name = persona_name.replace(f"{library_name}_", "")
 
     print(
-        f"Found library directory '{library_dir_name}' in {persona_name} (package name: {package_name})"
+        f"Found library directory '{library_dir.name}' in {persona_name} (package name: {package_name})"
     )
 
     # Create the package directory in the unified project (using original package name)
