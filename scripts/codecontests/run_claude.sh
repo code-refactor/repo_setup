@@ -1,5 +1,3 @@
-mkdir -p results
-
 # Loop through all cluster directories
 for i in {0..7}; do
   CLUSTER_DIR="codecontests/cluster$i"
@@ -19,9 +17,6 @@ for i in {0..7}; do
 
     # Pop back to the original directory
     popd > /dev/null
-
-    # Evaluate pass rates after Claude processing
-    evaluate_cluster $i > results/cluster_${i}_results.txt
 
     echo "Completed $CLUSTER_DIR"
   else
