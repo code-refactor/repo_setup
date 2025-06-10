@@ -4,7 +4,7 @@ Process the code_contests dataset and format problems.
 This script:
 1. Loads problems from the code_contests dataset
 2. Loads cluster information from data/clusters.json
-3. Creates standardized problem directories in problems/cluster{i}/problem_name/
+3. Creates standardized problem directories in codecontests/cluster{i}/problem_name/
 4. Generates PROBLEM.md, main.py, and test files
 5. Creates run.sh script for each problem
 """
@@ -19,8 +19,6 @@ from datasets import load_dataset
 from minicode.formatter.problem_md import generate_problem_md
 from minicode.formatter.script_sh import generate_run_script
 from minicode.models.dataset import DatasetProblem
-
-# Import the models
 from minicode.models.problem import Problem, TestCase
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s")
@@ -29,9 +27,9 @@ logger = logging.getLogger(__name__)
 # Constants
 DATASET_NAME = "deepmind/code_contests"
 REPO_ROOT = Path(__file__).resolve().parents[2]
-PROBLEMS_DIR = REPO_ROOT / "problems"
+PROBLEMS_DIR = REPO_ROOT / "codecontests"
 CLUSTERS_PATH = REPO_ROOT / "data" / "clusters.json"
-INSTRUCTIONS_PATH = REPO_ROOT / "INSTRUCTIONS.md"
+INSTRUCTIONS_PATH = REPO_ROOT / "prompts" / "INSTRUCTIONS_CODECONTESTS.md"
 
 
 def load_clusters() -> dict[str, list[str]]:
