@@ -9,24 +9,26 @@ This script:
 5. Creates run.sh script for each problem
 """
 
+from datasets import load_dataset
 import json
 import logging
-import shutil
+import os
 from pathlib import Path
-
-from datasets import load_dataset
+import shutil
 
 from minicode.formatter.problem_md import generate_problem_md
 from minicode.formatter.script_sh import generate_run_script
 from minicode.models.dataset import DatasetProblem
 from minicode.models.problem import Problem, TestCase
 
+os.environ["HF_HUB_ENABLE_HF_TRANSFER"] = "1"
+
 logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s")
 logger = logging.getLogger(__name__)
 
 # Constants
 DATASET_NAME = "deepmind/code_contests"
-REPO_ROOT = Path(__file__).resolve().parents[2]
+REPO_ROOT = Path(__file__).resolve().parents[1]
 PROBLEMS_DIR = REPO_ROOT / "codecontests"
 CLUSTERS_PATH = REPO_ROOT / "data" / "clusters.json"
 INSTRUCTIONS_PATH = REPO_ROOT / "prompts" / "INSTRUCTIONS_CODECONTESTS.md"
