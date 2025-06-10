@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Setup script for cloning and refactoring repositories from the celinelee/minicode-repos dataset.
+Setup script for cloning and refactoring repositories MiniCode.large dataset.
 
 This script:
 1. Clones repositories from the 'large' dataset split, grouped by library name
@@ -22,7 +22,8 @@ Directory structure created:
       └── setup.py
 
 Usage:
-  python setup_large_repos.py    # Clone and process all libraries from the 'large' split
+  # Clone and process all libraries from the 'large' split
+  uv run python -m minicode.setup_large_repos
 """
 
 import os
