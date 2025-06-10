@@ -1,3 +1,7 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
 [project]
 name = "minicode"
 version = "0.1.0"
@@ -8,3 +12,7 @@ dependencies = [
     "datasets>=3.6.0",
     "tomli>=2.2.1",
 ]
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["minicode*"]
