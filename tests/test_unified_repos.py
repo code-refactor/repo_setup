@@ -41,7 +41,7 @@ def run_command(command, cwd, shell=True):
 
 def find_unified_directories():
     """Find all unified directories in large_repos/."""
-    base_dir = Path("../large_repos")
+    base_dir = Path("large_repos")
     unified_dirs = []
 
     if not base_dir.exists():

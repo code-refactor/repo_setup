@@ -28,7 +28,7 @@ logger = logging.getLogger(__name__)
 
 # Constants
 DATASET_NAME = "deepmind/code_contests"
-PROBLEMS_DIR = Path("../codecontests")
+PROBLEMS_DIR = Path("codecontests")
 CLUSTERS_PATH = REPO_ROOT / "data" / "clusters.json"
 INSTRUCTIONS_PATH = REPO_ROOT / "prompts" / "INSTRUCTIONS_CODECONTESTS.md"
 

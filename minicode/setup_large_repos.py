@@ -39,7 +39,7 @@ from datasets import load_dataset
 import subprocess
 
 
-BASE_DIR = Path("../large_repos")
+BASE_DIR = Path("large_repos")
 
 
 def setup_large_repos(target_dir, split):
@@ -609,7 +609,7 @@ def _get_default_merged_dependencies():
             "requires": ["setuptools>=42", "wheel"],
             "build-backend": "setuptools.build_meta",
         },
-        "project": {"dependencies": ["pytest", "pytest-json-report", "pytest-cov"], "optional-dependencies": {}},
+        "project": {"dependencies": ["setuptools", "pytest", "pytest-json-report", "pytest-cov"], "optional-dependencies": {}},
         "tool": {},
     }
 
@@ -625,12 +625,12 @@ def merge_dependencies(all_dependencies):
             "requires": ["setuptools>=42", "wheel"],
             "build-backend": "setuptools.build_meta",
         },
-        "project": {"dependencies": ["pytest", "pytest-json-report", "pytest-cov"], "optional-dependencies": defaultdict(list)},
+        "project": {"dependencies": ["setuptools", "pytest", "pytest-json-report", "pytest-cov"], "optional-dependencies": defaultdict(list)},
         "tool": defaultdict(dict),
     }
 
     # Set of unique dependencies to avoid duplicates
-    unique_deps = {"pytest", "pytest-json-report", "pytest-cov"}
+    unique_deps = {"setuptools", "pytest", "pytest-json-report", "pytest-cov"}
     unique_optional_deps = defaultdict(set)
 
     for deps in all_dependencies:
@@ -712,7 +712,7 @@ def create_pyproject_toml(
             "name": f"unified-{library_name}",
             "version": "0.1.0",
             "description": f"Unified libraries for {library_name} with original package names preserved",
-            "requires-python": ">=3.8",
+            "requires-python": ">=3.10",
         },
         "tool": {"setuptools": {"packages": ["common"] + list(package_names)}},
     }
@@ -852,7 +852,7 @@ setup(
     version="0.1.0",
     description="Unified libraries for {library_name} with original package names preserved",
     packages={packages_str},
-    python_requires=">=3.8",
+    python_requires=">=3.10",
 )
 """
 
