@@ -41,7 +41,7 @@ def run_command(command, cwd, shell=True):
 
 def find_unified_directories():
     """Find all unified directories in large_repos/."""
-    base_dir = Path("large_repos")
+    base_dir = Path("../large_repos")
     unified_dirs = []
 
     if not base_dir.exists():
@@ -85,7 +85,7 @@ def test_unified_repository(unified_dir):
     # Step 2: Install package in editable mode
     print("2. Installing package in editable mode...")
     # Use uv pip install which automatically uses the venv
-    install_cmd = "pip install -e ."
+    install_cmd = "uv pip install -e ."
     returncode, stdout, stderr = run_command(install_cmd, unified_dir)
     if returncode == 0:
         print("   ✓ Package installed successfully")
@@ -98,7 +98,7 @@ def test_unified_repository(unified_dir):
 
     # Step 3: Run pytest
     print("3. Running pytest...")
-    pytest_cmd = f"pytest -v --tb=short"
+    pytest_cmd = f"uv run pytest -v --tb=short"
     returncode, stdout, stderr = run_command(pytest_cmd, unified_dir)
 
     # Check for any errors in output

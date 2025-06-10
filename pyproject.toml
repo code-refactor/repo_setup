@@ -12,6 +12,7 @@ dependencies = [
     "datasets>=3.6.0",
     "hf-transfer>=0.1.9",
     "pydantic>=2.11.5",
+    "pytest>=8.4.0",
     "tomli>=2.2.1",
 ]
 

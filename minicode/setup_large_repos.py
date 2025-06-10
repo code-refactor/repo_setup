@@ -39,6 +39,9 @@ from datasets import load_dataset
 import subprocess
 
 
+BASE_DIR = Path("../large_repos")
+
+
 def setup_large_repos(target_dir, split):
     """Clone repositories from the specified split of the celinelee/minicode-repos dataset.
 
@@ -79,8 +82,7 @@ def setup_large_repos(target_dir, split):
 
 def create_unified_directory(library_name):
     """Create the unified directory structure for a library."""
-    base_dir = Path("large_repos")
-    library_dir = base_dir / library_name
+    library_dir = BASE_DIR / library_name
     unified_dir = library_dir / "unified"
 
     # Create required directories if they don't exist
@@ -96,17 +98,16 @@ def create_unified_directory(library_name):
     return unified_dir
 
 
-def find_persona_dirs(library_name, base_dir="large_repos"):
+def find_persona_dirs(library_name):
     """Find all persona directories for the specified library.
 
     Args:
         library_name: Name of the library to find persona directories for
-        base_dir: Base directory where to look for library directories (default: "large_repos")
 
     Returns:
         List of paths to persona directories
     """
-    library_dir = Path(base_dir) / library_name
+    library_dir = Path(BASE_DIR) / library_name
 
     if not library_dir.exists():
         print(f"Library directory {library_dir} does not exist")
@@ -608,7 +609,7 @@ def _get_default_merged_dependencies():
             "requires": ["setuptools>=42", "wheel"],
             "build-backend": "setuptools.build_meta",
         },
-        "project": {"dependencies": [], "optional-dependencies": {}},
+        "project": {"dependencies": ["pytest", "pytest-json-report", "pytest-cov"], "optional-dependencies": {}},
         "tool": {},
     }
 
@@ -624,12 +625,12 @@ def merge_dependencies(all_dependencies):
             "requires": ["setuptools>=42", "wheel"],
             "build-backend": "setuptools.build_meta",
         },
-        "project": {"dependencies": [], "optional-dependencies": defaultdict(list)},
+        "project": {"dependencies": ["pytest", "pytest-json-report", "pytest-cov"], "optional-dependencies": defaultdict(list)},
         "tool": defaultdict(dict),
     }
 
     # Set of unique dependencies to avoid duplicates
-    unique_deps = set()
+    unique_deps = {"pytest", "pytest-json-report", "pytest-cov"}
     unique_optional_deps = defaultdict(set)
 
     for deps in all_dependencies:
@@ -997,20 +998,18 @@ def process_library(library_name, library_paths=None):
 def main():
     """Main function to clone and process all libraries."""
     # Fixed parameters
-    base_dir = "large_repos"
     split = "large"
 
     # Clone all repositories from the large split
-    library_paths = setup_large_repos(base_dir, split)
+    library_paths = setup_large_repos(BASE_DIR, split)
 
     # Process all libraries found in the base directory
-    base_dir_path = Path(base_dir)
-    if not base_dir_path.exists() or not base_dir_path.is_dir():
-        print(f"Base directory {base_dir_path} does not exist or is not a directory")
+    if not BASE_DIR.exists() or not BASE_DIR.is_dir():
+        print(f"Base directory {BASE_DIR} does not exist or is not a directory")
         return
 
-    libraries = [d.name for d in base_dir_path.iterdir() if d.is_dir()]
-    print(f"Found {len(libraries)} libraries in {base_dir}")
+    libraries = [d.name for d in BASE_DIR.iterdir() if d.is_dir()]
+    print(f"Found {len(libraries)} libraries in {BASE_DIR}")
 
     for library_name in libraries:
         print(f"\nProcessing library: {library_name}")
