@@ -1,7 +1,7 @@
 [project]
-name = "repo-setup"
+name = "minicode"
 version = "0.1.0"
-description = "Add your description here"
+description = "Setup the minicode refactoring benchmark"
 readme = "README.md"
 requires-python = ">=3.10"
 dependencies = [
