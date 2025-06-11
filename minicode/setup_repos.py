@@ -1,7 +1,7 @@
 from datasets import load_dataset
 from multiprocessing import Pool, cpu_count, set_start_method
 from functools import partial
-import subprocess, os, glob, itertools, numpy as np
+import subprocess, os, glob, itertools, sys, re, numpy as np
 import shutil
 from thefuzz import fuzz
 from sklearn.cluster import AgglomerativeClustering
@@ -93,6 +93,110 @@ def sort_string_clusters(clusters, dist_matrix):
             avg_dists.append(avg)
     return [cluster for (_, cluster) in sorted(zip(avg_dists, clusters))]
 
+
+def _update_local_imports(new_test_file_path, persona_name, starter_repo_path):
+    with open(new_test_file_path, 'r') as f:
+        content = f.read()
+    # Find import statements (both regular imports and from imports)
+    import_pattern = re.compile(r'(?m)^\s*(from\s+|import\s+)([.\w]+)')
+    matches = import_pattern.findall(content)
+
+    modified_content = content
+    for match in matches:
+        import_type, module_path = match
+        if '.' not in module_path and module_path in sys.builtin_module_names:
+            continue
+                    
+        # Skip imports that already include the subdirectory
+        if persona_name in module_path:
+            continue
+
+        # Check if this is a relative import referring to a local module
+        module_file = module_path.replace('.', '/') + '.py'
+        if os.path.exists(os.path.join(starter_repo_path, persona_name, module_file)):
+            # This is a local module that needs to be updated
+            old_import = f"{import_type}{module_path}"
+            if import_type.strip() == 'import':
+                new_import = f"{import_type}{persona_name}.{module_path} as {module_path}"
+            else:
+                new_import = f"{import_type}{persona_name}.{module_path}"
+            modified_content = modified_content.replace(old_import, new_import)
+            continue
+
+        module_folder = module_path.replace('.', '/')
+        if os.path.exists(os.path.join(starter_repo_path, persona_name, module_folder)):
+            # This is a local module that needs to be updated
+            old_import = f"{import_type}{module_path}"
+            if import_type.strip() == 'import':
+                new_import = f"{import_type}{persona_name}.{module_path} as {module_path}"
+            else:
+                new_import = f"{import_type}{persona_name}.{module_path}"
+            modified_content = modified_content.replace(old_import, new_import)
+
+
+    # Write the updated content back to the file
+    if modified_content != content:
+        with open(new_test_file_path, 'w') as f:
+            f.write(modified_content)
+
+def _place_inits(repo_path):
+    init_file = os.path.join(repo_path, "unified", "__init__.py")
+    with open(init_file, 'w') as f:
+        f.write("")
+    init_file = os.path.join(repo_path, "unified", "tests", "__init__.py")
+    with open(init_file, 'w') as f:
+        f.write("")
+    
+    for persona_subdir in glob.glob(repo_path):
+        if not os.path.isdir(persona_subdir): continue
+        init_file = os.path.join(persona_subdir, "__init__.py")
+        with open(init_file, 'w') as f:
+            f.write("")
+
+def setup_for_refactor(grouped_dir):
+    """Move all test_*.py files into a unified test directory structure.
+
+    This function takes test files scattered throughout the repository and
+    moves them into a unified test directory at grouped_dir/unified/tests/
+    preserving their test names but organizing them consistently.
+    """
+    # Create unified test directory if it doesn't exist
+    unified_test_dir = os.path.join(grouped_dir, "unified", "tests")
+    os.makedirs(unified_test_dir, exist_ok=True)
+
+    # Find all test files in the repository (excluding those already in unified/tests)
+    test_files = []
+    for root, _, files in os.walk(grouped_dir):
+        if "unified/tests" in root:
+            continue  # Skip files already in unified/tests
+        persona_name = root[len(grouped_dir)+1:]
+        for file in files:
+            if file.startswith("test_") and file.endswith(".py"):
+                mod_filename = f"test_{persona_name}_{os.path.basename(file)[len('test_'):]}"
+                test_files.append((os.path.join(root, file), os.path.join(unified_test_dir, mod_filename), persona_name))
+
+    # Move each test file to the unified test directory with appropriate naming
+    for (test_file_orig, test_file_dest, persona_name) in test_files:
+        # copy the file 
+        shutil.copyfile(test_file_orig, test_file_dest)
+
+        # Update local import paths in the moved file. won't be perfect.
+        _update_local_imports(test_file_dest, persona_name, grouped_dir)
+
+        # place __init__.py everywhere needed
+        _place_inits(grouped_dir)
+
+    # setup.py file for treating the refactored one as a repo
+    with open(os.path.join(grouped_dir, "unified", "setup.py"), 'w') as wf:
+        wf.write(f"""from setuptools import setup, find_packages
+
+setup(
+    name='{grouped_dir}',
+    version='1.0.0',
+    packages=find_packages(),
+)""")
+
+
 def setup_grouped(target_dir, split, num_groups=3):
     ds = load_dataset("celinelee/minicode-repos", split=split)
     
@@ -116,6 +220,10 @@ def setup_grouped(target_dir, split, num_groups=3):
             if not os.path.exists(group_dir): os.makedirs(group_dir, exist_ok=True)
             for c_idx in cluster_indices:
                 shutil.move(library_personas[c_idx], os.path.join(group_dir, os.path.relpath(library_personas[c_idx], library_path)))
+
+            setup_for_refactor(group_dir)
+            breakpoint()
+        # todo remove now-empty folder
 
 if __name__ == "__main__":
     try:
