@@ -1,3 +1,18 @@
+"""
+Setup script for cloning and refactoring repositories MiniCode.small dataset.
+
+This script:
+1. Clones repositories from the 'small' dataset split, grouped by library name
+2. Creates a unified directory structure for each library
+3. Copies code from persona implementations to the unified directories
+4. Creates project files (setup.py) for each unified library
+5. Fixes import paths
+
+Usage:
+  # Clone and process all libraries from the 'large' split
+  uv run python -m minicode.setup_large_repos
+"""
+
 from datasets import load_dataset
 from multiprocessing import Pool, cpu_count, set_start_method
 from functools import partial
@@ -93,110 +108,218 @@ def sort_string_clusters(clusters, dist_matrix):
             avg_dists.append(avg)
     return [cluster for (_, cluster) in sorted(zip(avg_dists, clusters))]
 
+"""
+Directory structure created:
+- large_repos/{library_name}/
+  ├── [persona_repos]/           # Original cloned repositories
+  └── unified/                   # Unified library structure
+      ├── common/                # Common functionality
+      │   └── core/              # Core data structures and algorithms
+      ├── [package_name]/        # Original package names preserved
+      ├── tests/
+      │   └── [persona]/         # Tests for each persona
+      └── setup.py
+"""
 
-def _update_local_imports(new_test_file_path, persona_name, starter_repo_path):
-    with open(new_test_file_path, 'r') as f:
-        content = f.read()
-    # Find import statements (both regular imports and from imports)
-    import_pattern = re.compile(r'(?m)^\s*(from\s+|import\s+)([.\w]+)')
-    matches = import_pattern.findall(content)
-
-    modified_content = content
-    for match in matches:
-        import_type, module_path = match
-        if '.' not in module_path and module_path in sys.builtin_module_names:
-            continue
-                    
-        # Skip imports that already include the subdirectory
-        if persona_name in module_path:
-            continue
-
-        # Check if this is a relative import referring to a local module
-        module_file = module_path.replace('.', '/') + '.py'
-        if os.path.exists(os.path.join(starter_repo_path, persona_name, module_file)):
-            # This is a local module that needs to be updated
-            old_import = f"{import_type}{module_path}"
-            if import_type.strip() == 'import':
-                new_import = f"{import_type}{persona_name}.{module_path} as {module_path}"
-            else:
-                new_import = f"{import_type}{persona_name}.{module_path}"
-            modified_content = modified_content.replace(old_import, new_import)
-            continue
-
-        module_folder = module_path.replace('.', '/')
-        if os.path.exists(os.path.join(starter_repo_path, persona_name, module_folder)):
-            # This is a local module that needs to be updated
-            old_import = f"{import_type}{module_path}"
-            if import_type.strip() == 'import':
-                new_import = f"{import_type}{persona_name}.{module_path} as {module_path}"
-            else:
-                new_import = f"{import_type}{persona_name}.{module_path}"
-            modified_content = modified_content.replace(old_import, new_import)
-
-
-    # Write the updated content back to the file
-    if modified_content != content:
-        with open(new_test_file_path, 'w') as f:
-            f.write(modified_content)
-
-def _place_inits(repo_path):
-    init_file = os.path.join(repo_path, "unified", "__init__.py")
-    with open(init_file, 'w') as f:
-        f.write("")
-    init_file = os.path.join(repo_path, "unified", "tests", "__init__.py")
-    with open(init_file, 'w') as f:
-        f.write("")
-    
-    for persona_subdir in glob.glob(repo_path):
-        if not os.path.isdir(persona_subdir): continue
-        init_file = os.path.join(persona_subdir, "__init__.py")
-        with open(init_file, 'w') as f:
-            f.write("")
-
-def setup_for_refactor(grouped_dir):
-    """Move all test_*.py files into a unified test directory structure.
-
-    This function takes test files scattered throughout the repository and
-    moves them into a unified test directory at grouped_dir/unified/tests/
-    preserving their test names but organizing them consistently.
+def _rewrite_imports(file_path: str, persona: str, search_root: str):
     """
-    # Create unified test directory if it doesn't exist
-    unified_test_dir = os.path.join(grouped_dir, "unified", "tests")
-    os.makedirs(unified_test_dir, exist_ok=True)
+    Generic import-rewriter:
+    - prefixes any local imports with unified.<persona>.
+    - for `import module`, adds `as module` to preserve symbol names.
+    """
+    with open(file_path, 'r') as f:
+        content = f.read()
 
-    # Find all test files in the repository (excluding those already in unified/tests)
-    test_files = []
-    for root, _, files in os.walk(grouped_dir):
-        if "unified/tests" in root:
-            continue  # Skip files already in unified/tests
-        persona_name = root[len(grouped_dir)+1:]
-        for file in files:
-            if file.startswith("test_") and file.endswith(".py"):
-                mod_filename = f"test_{persona_name}_{os.path.basename(file)[len('test_'):]}"
-                test_files.append((os.path.join(root, file), os.path.join(unified_test_dir, mod_filename), persona_name))
+    def replace(match):
+        imp, mod = match.group(1), match.group(2)
+        # skip stdlib modules
+        if '.' not in mod and mod in sys.builtin_module_names:
+            return match.group(0)
+        # already namespaced?
+        if mod.startswith(f"{persona}.") or mod.startswith("unified."):
+            return match.group(0)
+        # check if this module exists in the search_root (either original or unified)
+        mod_py = os.path.join(search_root, persona, *mod.split('.')) + '.py'
+        mod_pkg = os.path.join(search_root, persona, *mod.split('.'))
+        if os.path.exists(mod_py) or os.path.isdir(mod_pkg):
+            if imp.strip() == 'import':
+                alias = mod.split('.')[-1]
+                return f"import unified.{persona}.{mod} as {alias}"
+            else:
+                return f"{imp}unified.{persona}.{mod}"
+        return match.group(0)
 
-    # Move each test file to the unified test directory with appropriate naming
-    for (test_file_orig, test_file_dest, persona_name) in test_files:
-        # copy the file 
-        shutil.copyfile(test_file_orig, test_file_dest)
+    pattern = re.compile(r'^\s*(from\s+|import\s+)([A-Za-z_]\w*(?:\.[A-Za-z_]\w*)*)', re.MULTILINE)
+    new_content = pattern.sub(replace, content)
 
-        # Update local import paths in the moved file. won't be perfect.
-        _update_local_imports(test_file_dest, persona_name, grouped_dir)
+    if new_content != content:
+        with open(file_path, 'w') as f:
+            f.write(new_content)
 
-        # place __init__.py everywhere needed
-        _place_inits(grouped_dir)
 
-    # setup.py file for treating the refactored one as a repo
-    with open(os.path.join(grouped_dir, "unified", "setup.py"), 'w') as wf:
-        wf.write(f"""from setuptools import setup, find_packages
+def _place_inits(unified_root: str):
+    """Ensure every directory under unified_root is a Python package."""
+    for dirpath, _, _ in os.walk(unified_root):
+        init = os.path.join(dirpath, "__init__.py")
+        if not os.path.exists(init):
+            open(init, "w").close()
+
+
+def setup_for_refactor(root_dir: str):
+    unified_dir = os.path.join(root_dir, "unified")
+    persona_dirs = [
+        d for d in os.listdir(root_dir)
+        if os.path.isdir(os.path.join(root_dir, d)) and d != "unified"
+    ]
+
+    # 1) Clear/Create unified area
+    if os.path.exists(unified_dir):
+        shutil.rmtree(unified_dir)
+    os.makedirs(unified_dir)
+
+    # 2) Copy each persona package (excluding tests)
+    for persona in persona_dirs:
+        src = os.path.join(root_dir, persona)
+        dst = os.path.join(unified_dir, persona)
+        shutil.copytree(
+            src, dst,
+            ignore=shutil.ignore_patterns("test_*.py", "__pycache__")
+        )
+        # 2a) Rewrite imports inside the source code
+        for py in glob.glob(os.path.join(dst, "**", "*.py"), recursive=True):
+            _rewrite_imports(py, persona, unified_dir)
+
+    # 3) Create common/ if needed
+    os.makedirs(os.path.join(unified_dir, "common"), exist_ok=True)
+
+    # 4) Gather & move all test_*.py into unified/tests/
+    tests_dest = os.path.join(unified_dir, "tests")
+    os.makedirs(tests_dest, exist_ok=True)
+
+    for persona in persona_dirs:
+        persona_src = os.path.join(root_dir, persona)
+        for dirpath, _, files in os.walk(persona_src):
+            for fn in files:
+                if fn.startswith("test_") and fn.endswith(".py"):
+                    orig = os.path.join(dirpath, fn)
+                    new_name = f"test_{persona}_{fn[len('test_'):]}"
+                    dst = os.path.join(tests_dest, new_name)
+                    shutil.copy2(orig, dst)
+                    _rewrite_imports(dst, persona, root_dir)
+
+    # 5) Inject __init__.py everywhere under unified/
+    _place_inits(unified_dir)
+
+    # 6) Write setup.py for unified package
+    with open(os.path.join(unified_dir, "setup.py"), "w") as f:
+        f.write(f"""from setuptools import setup, find_packages
 
 setup(
-    name='{grouped_dir}',
-    version='1.0.0',
+    name=\"{os.path.basename(root_dir)}\",
+    version=\"1.0.0\",
     packages=find_packages(),
-)""")
+)
+""")
+def _rewrite_imports(file_path: str, persona: str, search_root: str):
+    """
+    Generic import-rewriter:
+    - prefixes any local imports with unified.<persona>.
+    - for `import module`, adds `as module` to preserve symbol names.
+    """
+    with open(file_path, 'r') as f:
+        content = f.read()
+
+    def replace(match):
+        imp, mod = match.group(1), match.group(2)
+        # skip stdlib modules
+        if '.' not in mod and mod in sys.builtin_module_names:
+            return match.group(0)
+        # already namespaced?
+        if mod.startswith(f"{persona}.") or mod.startswith("unified."):
+            return match.group(0)
+        # check if this module exists in the search_root (either original or unified)
+        mod_py = os.path.join(search_root, persona, *mod.split('.')) + '.py'
+        mod_pkg = os.path.join(search_root, persona, *mod.split('.'))
+        if os.path.exists(mod_py) or os.path.isdir(mod_pkg):
+            if imp.strip() == 'import':
+                alias = mod.split('.')[-1]
+                return f"import unified.{persona}.{mod} as {alias}"
+            else:
+                return f"{imp}unified.{persona}.{mod}"
+        return match.group(0)
+
+    pattern = re.compile(r'^\s*(from\s+|import\s+)([A-Za-z_]\w*(?:\.[A-Za-z_]\w*)*)', re.MULTILINE)
+    new_content = pattern.sub(replace, content)
+
+    if new_content != content:
+        with open(file_path, 'w') as f:
+            f.write(new_content)
 
 
+def _place_inits(unified_root: str):
+    """Ensure every directory under unified_root is a Python package."""
+    for dirpath, _, _ in os.walk(unified_root):
+        init = os.path.join(dirpath, "__init__.py")
+        if not os.path.exists(init):
+            open(init, "w").close()
+
+
+def setup_for_refactor(root_dir: str):
+    unified_dir = os.path.join(root_dir, "unified")
+    persona_dirs = [
+        d for d in os.listdir(root_dir)
+        if os.path.isdir(os.path.join(root_dir, d)) and d != "unified"
+    ]
+
+    # 1) Clear/Create unified area
+    if os.path.exists(unified_dir):
+        shutil.rmtree(unified_dir)
+    os.makedirs(unified_dir)
+
+    # 2) Copy each persona package (excluding tests)
+    for persona in persona_dirs:
+        src = os.path.join(root_dir, persona)
+        dst = os.path.join(unified_dir, persona)
+        shutil.copytree(
+            src, dst,
+            ignore=shutil.ignore_patterns("test_*.py", "__pycache__")
+        )
+        # 2a) Rewrite imports inside the source code
+        for py in glob.glob(os.path.join(dst, "**", "*.py"), recursive=True):
+            _rewrite_imports(py, persona, unified_dir)
+
+    # 3) Create common/ if needed
+    os.makedirs(os.path.join(unified_dir, "common"), exist_ok=True)
+
+    # 4) Gather & move all test_*.py into unified/tests/
+    tests_dest = os.path.join(unified_dir, "tests")
+    os.makedirs(tests_dest, exist_ok=True)
+
+    for persona in persona_dirs:
+        persona_src = os.path.join(root_dir, persona)
+        for dirpath, _, files in os.walk(persona_src):
+            for fn in files:
+                if fn.startswith("test_") and fn.endswith(".py"):
+                    orig = os.path.join(dirpath, fn)
+                    new_name = f"test_{persona}_{fn[len('test_'):]}"
+                    dst = os.path.join(tests_dest, new_name)
+                    shutil.copy2(orig, dst)
+                    _rewrite_imports(dst, persona, root_dir)
+
+    # 5) Inject __init__.py everywhere under unified/
+    _place_inits(unified_dir)
+
+    # 6) Write setup.py for unified package
+    with open(os.path.join(unified_dir, "setup.py"), "w") as f:
+        f.write(f"""from setuptools import setup, find_packages
+
+setup(
+    name=\"{os.path.basename(root_dir)}\",
+    version=\"1.0.0\",
+    packages=find_packages(),
+)
+""")
+        
 def setup_grouped(target_dir, split, num_groups=3):
     ds = load_dataset("celinelee/minicode-repos", split=split)
     
@@ -204,9 +327,9 @@ def setup_grouped(target_dir, split, num_groups=3):
     library_paths = set()
     for ex in ds:
         target_subdir = os.path.join(target_dir, ex["library_name"])
-        if not os.path.exists(target_subdir): os.makedirs(target_subdir, exist_ok=True)
+        # if not os.path.exists(target_subdir): os.makedirs(target_subdir, exist_ok=True)
         library_paths.add(target_subdir)
-        subprocess.run(["git", "clone", ex["github_link"]], cwd=target_subdir)
+        # subprocess.run(["git", "clone", ex["github_link"]], cwd=target_subdir)
     
     # then rearrange into group_size
     for library_path in library_paths:
