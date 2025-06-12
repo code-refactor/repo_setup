@@ -1,5 +1,6 @@
 #!/bin/bash
 # must be run from repo base directory
+source .env
 
 if [ $# -ne 1 ]; then
     echo "Usage: $0 <directory_name>"
@@ -29,8 +30,6 @@ cp -r $directory $new_directory
 rm -f "$new_directory/LIBRARYBENCH_metrics.json"
 rm -f "$new_directory/report.json"
 rm -f "$new_directory/test_output.txt"
-
-echo "Following the instructions in $base_dir/prompts/REFACTOR_INSTRUCTIONS.md..."
 
 # Push into the target directory
 pushd "$new_directory" >/dev/null

@@ -1,5 +1,6 @@
 #!/bin/bash
 # must be run from repo base directory
+source .env
 
 if [ $# -ne 1 ]; then
     echo "Usage: $0 <directory_name>"
