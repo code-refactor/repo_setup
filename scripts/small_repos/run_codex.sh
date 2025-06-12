@@ -17,7 +17,7 @@ fi
 
 # Run scoring script on initial repository
 echo "Running scoring script on initial repository..."
-uv run python -m minicode.score_small_repos --directory "$directory" --enable_logprobs
+python -m minicode.score_small_repos --directory "$directory" --enable_logprobs
 
 # remember where we started
 base_dir="$PWD"
@@ -40,7 +40,7 @@ echo "Following the instructions in $base_dir/prompts/REFACTOR_INSTRUCTIONS.md..
 
 echo "Running codex planner"
 # Codex plan
-codex --approval-mode full-auto \
+codex --approval-mode full-auto -q \
   "Follow the instructions in ../../../prompts/REFACTOR_INSTRUCTIONS.md. Only write PLAN.md. Give the file structure. Do not implement any code. Do not give example usage code."
 
 # Setup testing environment
@@ -50,7 +50,7 @@ uv pip install -e .
 
 echo "Running codex impl"
 # Codex implement
-codex --approval-mode full-auto \
+codex --approval-mode full-auto -q \
   "Read the instructions in ../../../prompts/REFACTOR_INSTRUCTIONS.md. Follow the implementation plan and file structure proposed in PLAN.md. IMPORTANT: Create, modify, and reference files ONLY in this current working subdirectory ($new_directory/unified) and nowhere else. Do NOT import from any other subdirectories in $new_directory except for what is here in unified/. Implement ALL code and update ALL test file imports until this whole subfolder is a functional standalone repository. Do not stop to ask for confirmation; keep going until the final implementation passes all tests using pytest tests/."
 
 popd >/dev/null
@@ -70,7 +70,7 @@ pytest tests/ --json-report --json-report-file=report.json --continue-on-collect
 
 echo "Running final-check codex impl"
 # Codex implement
-codex --approval-mode full-auto \
+codex --approval-mode full-auto -q \
   "Read the pytest results in test_output.txt. If they indicate pytest failures, fix them. Stick to the implementation plan and file structure proposed in PLAN.md. IMPORTANT: Create and modify files ONLY in this current working subdirectory ($new_directory/unified) and nowhere else. Implement ALL code and update ALL test file imports until this whole subfolder is a functional standalone repository. Do not stop to ask for confirmation; keep going until the final implementation passes all tests using pytest tests/. If there are no errors, exit."
 
 pytest tests/ --json-report --json-report-file=report.json --continue-on-collection-errors > test_output.txt 2>&1
