@@ -19,3 +19,12 @@ uv run python -m minicode.setup_repos
 ```
 uv run python -m minicode.setup_large_repos
 ```
+
+
+## Run agent baseline
+
+2. Small repositories
+```
+bash scripts/small_repos/run_codex.sh
+bash scripts/small_repos/run_claude.sh
+```

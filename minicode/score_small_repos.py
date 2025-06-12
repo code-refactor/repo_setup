@@ -163,9 +163,9 @@ def compute_metrics(directory, model, enable_logprobs=False):
 
 # === IMPORTED LIBRARY CODE END ===
 
+# === MAIN SOURCE CODE START ===
 """
-            code = f"""# === MAIN SOURCE CODE START ===
-{code}
+            code = f"""{code}
 # === MAIN SOURCE CODE END ===
 """
         full_text = codebank + code
