@@ -1,7 +1,22 @@
+"""
+Setup script for cloning and refactoring repositories MiniCode.small dataset.
+
+This script:
+1. Clones repositories from the 'small' dataset split, grouped by library name
+2. Creates a unified directory structure for each library
+3. Copies code from persona implementations to the unified directories
+4. Creates project files (setup.py) for each unified library
+5. Fixes import paths
+
+Usage:
+  # Clone and process all libraries from the 'large' split
+  uv run python -m minicode.setup_large_repos
+"""
+
 from datasets import load_dataset
 from multiprocessing import Pool, cpu_count, set_start_method
 from functools import partial
-import subprocess, os, glob, itertools, numpy as np
+import subprocess, os, glob, itertools, sys, re, numpy as np
 import shutil
 from thefuzz import fuzz
 from sklearn.cluster import AgglomerativeClustering
@@ -93,6 +108,138 @@ def sort_string_clusters(clusters, dist_matrix):
             avg_dists.append(avg)
     return [cluster for (_, cluster) in sorted(zip(avg_dists, clusters))]
 
+"""
+Directory structure created:
+- small_repos/{library_name}/
+  ├── [persona_repos]/           # Original cloned repositories
+  └── unified/                   # Unified library structure
+      ├── common/                # Common functionality
+      │   └── core/              # Core data structures and algorithms
+      ├── [package_name]/        # Original package names preserved
+      ├── tests/
+      │   └── [persona]/         # Tests for each persona
+      ├── pyproject.toml
+      └── setup.py
+"""
+
+        
+def _rewrite_imports(file_path: str, persona: str, search_root: str):
+    """
+    Generic import-rewriter:
+    - prefixes any local imports with unified.<persona>.
+    - for `import module`, adds `as module` to preserve symbol names.
+    """
+    with open(file_path, 'r') as f:
+        content = f.read()
+
+    def replace(match):
+        imp, mod = match.group(1), match.group(2)
+        # skip stdlib modules
+        if '.' not in mod and mod in sys.builtin_module_names:
+            return match.group(0)
+        # already namespaced?
+        if mod.startswith(f"{persona}.") or mod.startswith("unified."):
+            return match.group(0)
+        # check if this module exists in the search_root (either original or unified)
+        mod_py = os.path.join(search_root, persona, *mod.split('.')) + '.py'
+        mod_pkg = os.path.join(search_root, persona, *mod.split('.'))
+        if os.path.exists(mod_py) or os.path.isdir(mod_pkg):
+            if imp.strip() == 'import':
+                alias = mod.split('.')[-1]
+                return f"import unified.{persona}.{mod} as {alias}"
+            else:
+                return f"{imp}unified.{persona}.{mod}"
+        return match.group(0)
+
+    pattern = re.compile(r'^(\s*from\s+|import\s+)([A-Za-z_]\w*(?:\.[A-Za-z_]\w*)*)', re.MULTILINE)
+    new_content = pattern.sub(replace, content)
+
+    if new_content != content:
+        with open(file_path, 'w') as f:
+            f.write(new_content)
+
+
+def _place_inits(unified_root: str):
+    """Ensure every directory under unified_root is a Python package."""
+    for dirpath, _, _ in os.walk(unified_root):
+        init = os.path.join(dirpath, "__init__.py")
+        if not os.path.exists(init):
+            open(init, "w").close()
+
+
+def setup_for_refactor(root_dir: str):
+    unified_dir = os.path.join(root_dir, "unified")
+    persona_dirs = [
+        d for d in os.listdir(root_dir)
+        if os.path.isdir(os.path.join(root_dir, d)) and d != "unified"
+    ]
+
+    # 1) Clear/Create unified area
+    if os.path.exists(unified_dir):
+        shutil.rmtree(unified_dir)
+    os.makedirs(unified_dir)
+
+    # 2) Copy each persona package (excluding tests)
+    for persona in persona_dirs:
+        src = os.path.join(root_dir, persona)
+        dst = os.path.join(unified_dir, persona)
+        shutil.copytree(
+            src, dst,
+            ignore=shutil.ignore_patterns("test_*.py", "__pycache__")
+        )
+        # 2a) Rewrite imports inside the source code
+        for py in glob.glob(os.path.join(dst, "**", "*.py"), recursive=True):
+            _rewrite_imports(py, persona, unified_dir)
+
+    # 3) Create common/ if needed
+    os.makedirs(os.path.join(unified_dir, "common"), exist_ok=True)
+
+    # 4) Gather & move all test_*.py into unified/tests/
+    tests_dest = os.path.join(unified_dir, "tests")
+    os.makedirs(tests_dest, exist_ok=True)
+
+    for persona in persona_dirs:
+        persona_src = os.path.join(root_dir, persona)
+        for dirpath, _, files in os.walk(persona_src):
+            for fn in files:
+                if fn.startswith("test_") and fn.endswith(".py"):
+                    orig = os.path.join(dirpath, fn)
+                    new_name = f"test_{persona}_{fn[len('test_'):]}"
+                    dst = os.path.join(tests_dest, new_name)
+                    shutil.copy2(orig, dst)
+                    _rewrite_imports(dst, persona, root_dir)
+
+    # 5) Inject __init__.py everywhere under unified/
+    _place_inits(unified_dir)
+
+    # 6) Write setup.py for unified package
+    with open(os.path.join(unified_dir, "setup.py"), "w") as f:
+        f.write(f"""from setuptools import setup, find_packages
+
+setup(
+    name=\"{os.path.basename(root_dir)}\",
+    version=\"1.0.0\",
+    packages=find_packages(),
+)
+""")
+        
+
+    # 7) Write pyproject.toml for unified package
+    pyproject = f"""[build-system]
+requires = ["setuptools>=42", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "{os.path.basename(root_dir)}"
+version = "1.0.0"
+description = "Unified package for merged {root_dir[:-2]} repositories"
+readme = "README.md"
+requires-python = ">=3.7"
+dependencies = []
+"""
+    with open(os.path.join(unified_dir, "pyproject.toml"), "w") as f:
+        f.write(pyproject)
+        
 def setup_grouped(target_dir, split, num_groups=3):
     ds = load_dataset("celinelee/minicode-repos", split=split)
     
@@ -116,6 +263,9 @@ def setup_grouped(target_dir, split, num_groups=3):
             if not os.path.exists(group_dir): os.makedirs(group_dir, exist_ok=True)
             for c_idx in cluster_indices:
                 shutil.move(library_personas[c_idx], os.path.join(group_dir, os.path.relpath(library_personas[c_idx], library_path)))
+
+            setup_for_refactor(group_dir)
+        # todo remove now-empty folder
 
 if __name__ == "__main__":
     try:
