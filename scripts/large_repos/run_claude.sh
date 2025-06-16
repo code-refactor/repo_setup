@@ -1,4 +1,6 @@
 #!/bin/bash
+source .env
+
 # must be run from the unified project's parent directory
 
 if [ $# -ne 1 ]; then
