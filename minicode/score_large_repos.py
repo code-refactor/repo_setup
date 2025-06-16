@@ -342,9 +342,6 @@ def main(args):
         args.directory,
         f"LIBRARYBENCH_metrics{'_nolp' if not args.enable_logprobs else ''}.json",
     )
-    if os.path.exists(output_file):
-        if input("metrics file already exists... skip? [y/]").strip() == "y":
-            return
     logprobs_dict, total_logprob, metrics_dict, total_tokens = compute_metrics(
         args.directory,
         args.model,
