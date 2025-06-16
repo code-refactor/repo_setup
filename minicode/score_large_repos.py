@@ -148,7 +148,7 @@ def get_imported_code(file_path, directory):
 
 
 def compute_metrics(
-    directory, model, enable_logprobs=False, condition_on_codebank=True
+    directory: str, model: str, enable_logprobs: bool, condition_on_codebank: bool, skip_unified: bool,
 ):
     enc = tiktoken.get_encoding("cl100k_base")  # hacky, for qwen2.5 models
     directory = Path(directory)
@@ -158,6 +158,8 @@ def compute_metrics(
     codes = {}
     for file in directory.rglob("*.py"):
         if file.name.startswith("test_"):
+            continue
+        if skip_unified and "unified" in str(file):
             continue
         if ".venv" in str(file):
             continue
@@ -348,6 +350,7 @@ def main(args):
         args.model,
         enable_logprobs=args.enable_logprobs,
         condition_on_codebank=args.condition_on_codebank,
+        skip_unified=args.skip_unified,
     )
 
     metrics = package_all_metrics(
@@ -380,9 +383,16 @@ if __name__ == "__main__":
         default=False,
         help="turn on logprob conditioning on codebank",
     )
+    parser.add_argument(
+        "--skip_unified",
+        action="store_true",
+        default=False,
+        help="skip the unified repo that includes the task-specific libraries and common library",
+    )
     args = parser.parse_args()
 
     main(args)
 
 # ---- Example usage ----
-# python score.py --directory workflow_orchestration/unified --model deepseek-ai/DeepSeek-V3 --enable_logprobs
+# python score.py --directory large_repos/workflow_orchestration/unified --model deepseek-ai/DeepSeek-V3 --enable_logprobs
+# python score.py --directory large_repos/workflow_orchestration --model deepseek-ai/DeepSeek-V3 --enable_logprobs --skip_unified

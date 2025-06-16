@@ -12,6 +12,8 @@ for i in {0..7}; do
     # Push into the cluster directory
     pushd "$CLUSTER_DIR" > /dev/null
 
+    bash scripts/codecontests/run_cluster_tests.sh $i > results/codecontests/cluster${i}_tests_original.txt
+
     # Run Claude with instructions from cluster directory
     claude --dangerously-skip-permissions -p "Read the instructions in INSTRUCTIONS.md. Be sure to read all the solutions to get an idea of what the library should look like. Then make a plan for the library in PLAN.md. Then implement the library in library.py while refactoring the solutions in the current directory. As you are refactoring solutions, run tests as described in INSTRUCTIONS.md to ensure they are correct. If tests fail, you are free to examine the inputs and outputs. Continue editing the library as you refactor solutions. Make sure solutions that use any changed library functions still pass. Your goal is to make the library and solutions as compact as possible."
     # Twice for laziness
