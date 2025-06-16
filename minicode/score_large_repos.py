@@ -391,5 +391,5 @@ if __name__ == "__main__":
     main(args)
 
 # ---- Example usage ----
-# python score.py --directory large_repos/workflow_orchestration/unified --model deepseek-ai/DeepSeek-V3 --enable_logprobs
-# python score.py --directory large_repos/workflow_orchestration --model deepseek-ai/DeepSeek-V3 --enable_logprobs --skip_unified
+# python score.py --directory large_repos/workflow_orchestration/unified --enable_logprobs
+# python score.py --directory large_repos/workflow_orchestration --enable_logprobs --skip_unified
