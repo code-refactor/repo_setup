@@ -27,7 +27,8 @@ for i in {0..7}; do
     # score test results
     bash scripts/codecontests/run_cluster_tests.sh $i > results/codecontests/cluster${i}_tests.txt
     # score compression
-    uv run minicode/score_codecontests.py --cluster_name cluster${i} --enable_logprobs > results/codecontests/cluster${i}_compression.txt
+    uv run minicode/score_codecontests.py --cluster_name cluster${i} --enable_logprobs > results/codecontests/cluster${i}_compression.log
+    mv cluster${i}_comparison_metrics.json results/codecontests/cluster${i}_compression.json
 
     echo "Completed $CLUSTER_DIR"
   else
