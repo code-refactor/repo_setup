@@ -27,7 +27,7 @@ source .venv/bin/activate
 pip install -e .
 
 # collect initial repo status
-pytest tests/ --json-report --json-report-file=report.json --continue-on-collection-errors > test_output_original.txt 2>&1
+pytest tests/ --json-report --json-report-file=report_original.json --continue-on-collection-errors > test_output_original.txt 2>&1
 
 echo "Following the instructions in REFACTOR.md..."
 # Run Claude Code and tell it to follow instructions
