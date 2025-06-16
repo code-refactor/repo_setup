@@ -11,7 +11,7 @@ fi
 
 directory="$1"
 
-if [ ! -d "$directory" ]; then
+if [ ! -d "large_repos/$directory" ]; then
     echo "Error: Directory '$directory' does not exist"
     exit 1
 fi
