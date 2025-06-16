@@ -21,5 +21,7 @@ uv run python -m minicode.score_large_repos --directory "large_repos/$directory"
 
 cp large_repos/$directory/unified/test_output_original.txt results/large_repos/$directory/test_output_original.txt
 cp large_repos/$directory/unified/test_output.txt results/large_repos/$directory/test_output.txt
+cp large_repos/$directory/unified/report_original.json results/large_repos/$directory/report_original.json
+cp large_repos/$directory/unified/report.json results/large_repos/$directory/report.json
 
 echo "Done scoring!"
