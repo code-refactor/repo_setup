@@ -1,0 +1,162 @@
+{
+  "command_line_task_manager": {
+    "original": {
+      "log_prob": -53499.96,
+      "total_tokens": 133678,
+      "cyclomatic_complexity": 2921,
+      "tests_passed": 416,
+      "total_tests": 416
+    },
+    "unified": {
+      "log_prob": -66874.93,
+      "total_tokens": 161762,
+      "cyclomatic_complexity": 3946,
+      "tests_passed": 416,
+      "total_tests": 416
+    }
+  },
+  "concurrent_task_scheduler": {
+    "original": {
+      "log_prob": -91872.06,
+      "total_tokens": 165806,
+      "cyclomatic_complexity": 3935,
+      "tests_passed": 352,
+      "total_tests": 358
+    },
+    "unified": {
+      "log_prob": -112154.0,
+      "total_tokens": 195336,
+      "cyclomatic_complexity": 4762,
+      "tests_passed": 283,
+      "total_tests": 358
+    }
+  },
+  "file_system_analyzer": {
+    "original": {
+      "log_prob": -43884.93,
+      "total_tokens": 71328,
+      "cyclomatic_complexity": 1338,
+      "tests_passed": 106,
+      "total_tests": 107
+    },
+    "unified": {
+      "log_prob": -57288.04,
+      "total_tokens": 88754,
+      "cyclomatic_complexity": 1793,
+      "tests_passed": 107,
+      "total_tests": 107
+    }
+  },
+  "in_memory_database": {
+    "original": {
+      "log_prob": -36570.87,
+      "total_tokens": 74070,
+      "cyclomatic_complexity": 1671,
+      "tests_passed": 308,
+      "total_tests": 308
+    },
+    "unified": {
+      "log_prob": -47915.31,
+      "total_tokens": 95477,
+      "cyclomatic_complexity": 2356,
+      "tests_passed": 308,
+      "total_tests": 308
+    }
+  },
+  "incremental_backup_system": {
+    "original": {
+      "log_prob": -41729.65,
+      "total_tokens": 80240,
+      "cyclomatic_complexity": 1482,
+      "tests_passed": 182,
+      "total_tests": 194
+    },
+    "unified": {
+      "log_prob": -63472.75,
+      "total_tokens": 112536,
+      "cyclomatic_complexity": 2168,
+      "tests_passed": 125,
+      "total_tests": 194
+    }
+  },
+  "personal_finance_tracker": {
+    "original": {
+      "log_prob": -43394.93,
+      "total_tokens": 72962,
+      "cyclomatic_complexity": 1482,
+      "tests_passed": 153,
+      "total_tests": 153
+    },
+    "unified": {
+      "log_prob": -93292.29,
+      "total_tokens": 156600,
+      "cyclomatic_complexity": 3335,
+      "tests_passed": 97,
+      "total_tests": 153
+    }
+  },
+  "personal_knowledge_management": {
+    "original": {
+      "log_prob": -32366.77,
+      "total_tokens": 76079,
+      "cyclomatic_complexity": 1832,
+      "tests_passed": 257,
+      "total_tests": 257
+    },
+    "unified": {
+      "log_prob": -42449.18,
+      "total_tokens": 94768,
+      "cyclomatic_complexity": 2597,
+      "tests_passed": 205,
+      "total_tests": 257
+    }
+  },
+  "query_language_interpreter": {
+    "original": {
+      "log_prob": -52291.37,
+      "total_tokens": 89921,
+      "cyclomatic_complexity": 2105,
+      "tests_passed": 213,
+      "total_tests": 213
+    },
+    "unified": {
+      "log_prob": -74328.41,
+      "total_tokens": 127324,
+      "cyclomatic_complexity": 3076,
+      "tests_passed": 213,
+      "total_tests": 213
+    }
+  },
+  "text_editor": {
+    "original": {
+      "log_prob": -37654.76,
+      "total_tokens": 69979,
+      "cyclomatic_complexity": 1323,
+      "tests_passed": 199,
+      "total_tests": 199
+    },
+    "unified": {
+      "log_prob": -55565.12,
+      "total_tokens": 102288,
+      "cyclomatic_complexity": 2308,
+      "tests_passed": 199,
+      "total_tests": 199
+    }
+  },
+  "virtual_machine_emulator": {
+    "original": {
+      "log_prob": -57477.37,
+      "total_tokens": 119594,
+      "cyclomatic_complexity": 2283,
+      "tests_passed": 210,
+      "total_tests": 210
+    },
+    "unified": {
+      "log_prob": -78800.98,
+      "total_tokens": 156741,
+      "cyclomatic_complexity": 3303,
+      "tests_passed": 210,
+      "total_tests": 210
+    }
+  }
+}

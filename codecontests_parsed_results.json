@@ -1,0 +1,162 @@
+{
+  "cluster0": {
+    "original": {
+      "log_prob": -11745.853102659594,
+      "total_tokens": 9088,
+      "cyclomatic_complexity": 95,
+      "tests_passed": 240,
+      "total_tests": 299,
+      "problems_passed": 20,
+      "total_problems": 30
+    },
+    "refactored": {
+      "log_prob": -9901.530770173626,
+      "total_tokens": 11121,
+      "cyclomatic_complexity": 138,
+      "tests_passed": 240,
+      "total_tests": 299,
+      "problems_passed": 20,
+      "total_problems": 30
+    }
+  },
+  "cluster1": {
+    "original": {
+      "log_prob": -13431.860138924318,
+      "total_tokens": 12531,
+      "cyclomatic_complexity": 255,
+      "tests_passed": 269,
+      "total_tests": 300,
+      "problems_passed": 26,
+      "total_problems": 30
+    },
+    "refactored": {
+      "log_prob": -8214.419840486544,
+      "total_tokens": 11325,
+      "cyclomatic_complexity": 298,
+      "tests_passed": 290,
+      "total_tests": 300,
+      "problems_passed": 29,
+      "total_problems": 30
+    }
+  },
+  "cluster2": {
+    "original": {
+      "log_prob": -15012.767473427193,
+      "total_tokens": 14087,
+      "cyclomatic_complexity": 376,
+      "tests_passed": 267,
+      "total_tests": 300,
+      "problems_passed": 25,
+      "total_problems": 30
+    },
+    "refactored": {
+      "log_prob": -10522.65830821019,
+      "total_tokens": 14270,
+      "cyclomatic_complexity": 356,
+      "tests_passed": 279,
+      "total_tests": 300,
+      "problems_passed": 25,
+      "total_problems": 30
+    }
+  },
+  "cluster3": {
+    "original": {
+      "log_prob": -13348.817303755308,
+      "total_tokens": 14261,
+      "cyclomatic_complexity": 246,
+      "tests_passed": 271,
+      "total_tests": 300,
+      "problems_passed": 25,
+      "total_problems": 30
+    },
+    "refactored": {
+      "log_prob": -11937.043508682014,
+      "total_tokens": 13433,
+      "cyclomatic_complexity": 197,
+      "tests_passed": 242,
+      "total_tests": 300,
+      "problems_passed": 23,
+      "total_problems": 30
+    }
+  },
+  "cluster4": {
+    "original": {
+      "log_prob": -14665.162927108895,
+      "total_tokens": 17693,
+      "cyclomatic_complexity": 336,
+      "tests_passed": 242,
+      "total_tests": 300,
+      "problems_passed": 22,
+      "total_problems": 30
+    },
+    "refactored": {
+      "log_prob": -12801.21453795607,
+      "total_tokens": 18684,
+      "cyclomatic_complexity": 352,
+      "tests_passed": 246,
+      "total_tests": 300,
+      "problems_passed": 23,
+      "total_problems": 30
+    }
+  },
+  "cluster5": {
+    "original": {
+      "log_prob": -12790.109756074104,
+      "total_tokens": 12588,
+      "cyclomatic_complexity": 286,
+      "tests_passed": 276,
+      "total_tests": 300,
+      "problems_passed": 26,
+      "total_problems": 30
+    },
+    "refactored": {
+      "log_prob": -9167.854732996817,
+      "total_tokens": 10416,
+      "cyclomatic_complexity": 155,
+      "tests_passed": 298,
+      "total_tests": 300,
+      "problems_passed": 29,
+      "total_problems": 30
+    }
+  },
+  "cluster6": {
+    "original": {
+      "log_prob": -13540.408161483172,
+      "total_tokens": 11020,
+      "cyclomatic_complexity": 131,
+      "tests_passed": 163,
+      "total_tests": 300,
+      "problems_passed": 14,
+      "total_problems": 30
+    },
+    "refactored": {
+      "log_prob": -10492.00218044043,
+      "total_tokens": 11177,
+      "cyclomatic_complexity": 143,
+      "tests_passed": 172,
+      "total_tests": 300,
+      "problems_passed": 15,
+      "total_problems": 30
+    }
+  },
+  "cluster7": {
+    "original": {
+      "log_prob": -12393.726814396583,
+      "total_tokens": 12301,
+      "cyclomatic_complexity": 180,
+      "tests_passed": 240,
+      "total_tests": 300,
+      "problems_passed": 20,
+      "total_problems": 30
+    },
+    "refactored": {
+      "log_prob": -9304.253398254765,
+      "total_tokens": 11625,
+      "cyclomatic_complexity": 150,
+      "tests_passed": 257,
+      "total_tests": 300,
+      "problems_passed": 22,
+      "total_problems": 30
+    }
+  }
+}
