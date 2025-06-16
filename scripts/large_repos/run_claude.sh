@@ -43,16 +43,13 @@ deactivate
 # Pop back to the original directory
 popd
 
+echo "Done refactoring!"
+
 # Collect all results
 mkdir -p results/large_repos/$directory
 
 # Run scoring script
 
 echo "Running scoring script on refactored repository..."
-uv run python -m minicode.score_large_repos --directory "large_repos/$directory/unified" --enable_logprobs > results/large_repos/$directory/score_unified.txt
-uv run python -m minicode.score_large_repos --directory "large_repos/$directory" --enable_logprobs  --skip_unified > results/large_repos/$directory/score_original.txt
+bash scripts/large_repos/run_score.sh $directory
 
-cp large_repos/$directory/unified/test_output_original.txt results/large_repos/$directory/test_output_original.txt
-cp large_repos/$directory/unified/test_output.txt results/large_repos/$directory/test_output.txt
-
-echo "Done!"
