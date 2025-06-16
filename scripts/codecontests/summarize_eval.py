@@ -99,7 +99,7 @@ def parse_cluster_results(cluster_name: str, results_dir: Path) -> Dict:
 
 def main():
     """Main function to parse all codecontests results."""
-    results_dir = Path('/home/justinchiu_cohere_com/minicode/results/codecontests')
+    results_dir = Path('results/codecontests')
     all_results = {}
     
     # Get all cluster files
