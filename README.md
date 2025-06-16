@@ -39,3 +39,6 @@ bash scripts/small_repos/run_claude.sh
 ```
 bash scripts/large_repos/run_claude.sh
 ```
+
+## Other
+* Repositories were synthesized via Claude 3.7 and Claude Code [here](https://github.com/justinchiu-test/librarybench)
