@@ -121,11 +121,11 @@ def main():
             print(f"Error parsing {project_name}: {e}")
 
     # Print summary table
-    print("\n" + "=" * 120)
+    print("\n" + "=" * 140)
     print(
-        f"{'Project':<30} {'Type':<10} {'Tests Passed':<12} {'Total Tests':<12} {'Log Prob':<15} {'Tokens':<10} {'Complexity':<10}"
+        f"{'Project':<30} {'Type':<10} {'Tests Passed':<12} {'Total Tests':<12} {'Log Prob':<15} {'Tokens':<10} {'Complexity':<10} {'LogP Ratio':<10} {'Token Ratio':<12}"
     )
-    print("=" * 120)
+    print("=" * 140)
 
     for project_name in sorted(all_results.keys()):
         project_data = all_results[project_name]
@@ -143,14 +143,34 @@ def main():
             tokens = data.get("total_tokens", "N/A")
             complexity = data.get("cyclomatic_complexity", "N/A")
 
+            # Calculate ratios for unified rows
+            logp_ratio = ""
+            token_ratio = ""
+            if repo_type == "unified":
+                orig_data = project_data["original"]
+                if (
+                    data.get("log_prob") is not None
+                    and orig_data.get("log_prob") is not None
+                    and orig_data.get("log_prob") != 0
+                ):
+                    logp_ratio = f"{data['log_prob'] / orig_data['log_prob']:.3f}"
+                if (
+                    data.get("total_tokens") is not None
+                    and orig_data.get("total_tokens") is not None
+                    and orig_data.get("total_tokens") != 0
+                ):
+                    token_ratio = (
+                        f"{data['total_tokens'] / orig_data['total_tokens']:.3f}"
+                    )
+
             print(
-                f"{project_name:<30} {repo_type:<10} {tests_passed:<12} {total_tests:<12} {log_prob:<15} {tokens:<10} {complexity:<10}"
+                f"{project_name:<30} {repo_type:<10} {tests_passed:<12} {total_tests:<12} {log_prob:<15} {tokens:<10} {complexity:<10} {logp_ratio:<10} {token_ratio:<12}"
             )
 
     # Calculate totals
-    print("\n" + "=" * 120)
+    print("\n" + "=" * 140)
     print("TOTALS:")
-    print("=" * 120)
+    print("=" * 140)
 
     for repo_type in ["original", "unified"]:
         total_tests_passed = 0
@@ -174,8 +194,27 @@ def main():
                 total_complexity_all += data["cyclomatic_complexity"]
                 valid_projects += 1
 
+        # Calculate overall ratios for totals
+        total_logp_ratio = ""
+        total_token_ratio = ""
+        if repo_type == "unified":
+            # Calculate totals for original to get ratios
+            orig_total_log_prob = 0.0
+            orig_total_tokens = 0
+            for project_data in all_results.values():
+                orig_data = project_data["original"]
+                if orig_data.get("log_prob") is not None:
+                    orig_total_log_prob += orig_data["log_prob"]
+                if orig_data.get("total_tokens") is not None:
+                    orig_total_tokens += orig_data["total_tokens"]
+
+            if orig_total_log_prob != 0:
+                total_logp_ratio = f"{total_log_prob / orig_total_log_prob:.3f}"
+            if orig_total_tokens != 0:
+                total_token_ratio = f"{total_tokens_all / orig_total_tokens:.3f}"
+
         print(
-            f"{'TOTAL ' + repo_type.upper():<30} {'':<10} {total_tests_passed:<12} {total_tests_all:<12} {total_log_prob:<15.2f} {total_tokens_all:<10} {total_complexity_all:<10}"
+            f"{'TOTAL ' + repo_type.upper():<30} {'':<10} {total_tests_passed:<12} {total_tests_all:<12} {total_log_prob:<15.2f} {total_tokens_all:<10} {total_complexity_all:<10} {total_logp_ratio:<10} {total_token_ratio:<12}"
         )
 
     # Save detailed results to JSON
