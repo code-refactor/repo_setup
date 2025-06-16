@@ -1,0 +1,47 @@
+Processing cluster: cluster3
+Refactored code path: codecontests/cluster3
+Original code path:   codecontests_original/cluster3
+LLM Model: Qwen/Qwen2.5-7B-Instruct-Turbo
+Logprobs Enabled: True
+Output file: cluster3_comparison_metrics.json
+
+--- Processing Refactored Files ---
+Processing library file: codecontests/cluster3/library.py
+[WARN] Tiktoken encoding_for_model failed for Qwen/Qwen2.5-7B-Instruct-Turbo. Trying fallback 'cl100k_base'.
+[WARN] Tiktoken encoding_for_model failed for Qwen/Qwen2.5-7B-Instruct-Turbo. Trying fallback 'cl100k_base'.
+[WARN] Tiktoken encoding_for_model failed for Qwen/Qwen2.5-7B-Instruct-Turbo. Trying fallback 'cl100k_base'.
+[WARN] Tiktoken encoding_for_model failed for Qwen/Qwen2.5-7B-Instruct-Turbo. Trying fallback 'cl100k_base'.
+[WARN] Tiktoken encoding_for_model failed for Qwen/Qwen2.5-7B-Instruct-Turbo. Trying fallback 'cl100k_base'.
+[WARN] Tiktoken encoding_for_model failed for Qwen/Qwen2.5-7B-Instruct-Turbo. Trying fallback 'cl100k_base'.
+[WARN] Tiktoken encoding_for_model failed for Qwen/Qwen2.5-7B-Instruct-Turbo. Trying fallback 'cl100k_base'.
+[WARN] Tiktoken encoding_for_model failed for Qwen/Qwen2.5-7B-Instruct-Turbo. Trying fallback 'cl100k_base'.
+[WARN] Tiktoken encoding_for_model failed for Qwen/Qwen2.5-7B-Instruct-Turbo. Trying fallback 'cl100k_base'.
+[WARN] Tiktoken encoding_for_model failed for Qwen/Qwen2.5-7B-Instruct-Turbo. Trying fallback 'cl100k_base'.
+[WARN] Tiktoken encoding_for_model failed for Qwen/Qwen2.5-7B-Instruct-Turbo. Trying fallback 'cl100k_base'.
+[WARN] Tiktoken encoding_for_model failed for Qwen/Qwen2.5-7B-Instruct-Turbo. Trying fallback 'cl100k_base'.
+[WARN] Tiktoken encoding_for_model failed for Qwen/Qwen2.5-7B-Instruct-Turbo. Trying fallback 'cl100k_base'.
+[WARN] Tiktoken encoding_for_model failed for Qwen/Qwen2.5-7B-Instruct-Turbo. Trying fallback 'cl100k_base'.
+[WARN] Tiktoken encoding_for_model failed for Qwen/Qwen2.5-7B-Instruct-Turbo. Trying fallback 'cl100k_base'.
+[WARN] Tiktoken encoding_for_model failed for Qwen/Qwen2.5-7B-Instruct-Turbo. Trying fallback 'cl100k_base'.
+[WARN] Tiktoken encoding_for_model failed for Qwen/Qwen2.5-7B-Instruct-Turbo. Trying fallback 'cl100k_base'.
+[WARN] Tiktoken encoding_for_model failed for Qwen/Qwen2.5-7B-Instruct-Turbo. Trying fallback 'cl100k_base'.
+[WARN] Tiktoken encoding_for_model failed for Qwen/Qwen2.5-7B-Instruct-Turbo. Trying fallback 'cl100k_base'.
+[WARN] Tiktoken encoding_for_model failed for Qwen/Qwen2.5-7B-Instruct-Turbo. Trying fallback 'cl100k_base'.
+[WARN] Tiktoken encoding_for_model failed for Qwen/Qwen2.5-7B-Instruct-Turbo. Trying fallback 'cl100k_base'.
+[WARN] Tiktoken encoding_for_model failed for Qwen/Qwen2.5-7B-Instruct-Turbo. Trying fallback 'cl100k_base'.
+[WARN] Tiktoken encoding_for_model failed for Qwen/Qwen2.5-7B-Instruct-Turbo. Trying fallback 'cl100k_base'.
+[WARN] Tiktoken encoding_for_model failed for Qwen/Qwen2.5-7B-Instruct-Turbo. Trying fallback 'cl100k_base'.
+[WARN] Tiktoken encoding_for_model failed for Qwen/Qwen2.5-7B-Instruct-Turbo. Trying fallback 'cl100k_base'.
+[WARN] Tiktoken encoding_for_model failed for Qwen/Qwen2.5-7B-Instruct-Turbo. Trying fallback 'cl100k_base'.
+[WARN] Tiktoken encoding_for_model failed for Qwen/Qwen2.5-7B-Instruct-Turbo. Trying fallback 'cl100k_base'.
+[WARN] Tiktoken encoding_for_model failed for Qwen/Qwen2.5-7B-Instruct-Turbo. Trying fallback 'cl100k_base'.
+[WARN] Tiktoken encoding_for_model failed for Qwen/Qwen2.5-7B-Instruct-Turbo. Trying fallback 'cl100k_base'.
+[WARN] Tiktoken encoding_for_model failed for Qwen/Qwen2.5-7B-Instruct-Turbo. Trying fallback 'cl100k_base'.
+
+--- Processing Original Files ---
+
+--- Calculating Ratios ---
+
+--- Packaging Results ---
+
+Results successfully written to cluster3_comparison_metrics.json

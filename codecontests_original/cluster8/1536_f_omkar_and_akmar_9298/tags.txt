@@ -1,0 +1,9 @@
+chinese remainder theorem
+combinatorics
+constructive algorithms
+fft
+games
+geometry
+math
+meet-in-the-middle
+string suffix structures

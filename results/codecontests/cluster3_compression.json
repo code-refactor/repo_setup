@@ -1,0 +1,951 @@
+{
+    "cluster_name": "cluster3",
+    "model": "Qwen/Qwen2.5-7B-Instruct-Turbo",
+    "logprobs_enabled": true,
+    "refactored_library": {
+        "file_path": "codecontests/cluster3/library.py",
+        "metrics": {
+            "loc": 4,
+            "sloc": 0,
+            "lloc": 1,
+            "comments": 0,
+            "multi": 4,
+            "blank": 0,
+            "cyclomatic": 0
+        },
+        "logprobs": -239.8450585607466,
+        "tokens": 50
+    },
+    "refactored_programs": {
+        "1281_e_jeremy_bearimy_9704": {
+            "file_path": "codecontests/cluster3/1281_e_jeremy_bearimy_9704/main.py",
+            "metrics": {
+                "loc": 51,
+                "sloc": 46,
+                "lloc": 46,
+                "comments": 1,
+                "multi": 0,
+                "blank": 4,
+                "cyclomatic": 11
+            },
+            "logprobs": -343.9092234612123,
+            "tokens": 364,
+            "problem_name": "1281_e_jeremy_bearimy_9704"
+        },
+        "538_e_demiurges_play_again_12023": {
+            "file_path": "codecontests/cluster3/538_e_demiurges_play_again_12023/main.py",
+            "metrics": {
+                "loc": 56,
+                "sloc": 50,
+                "lloc": 50,
+                "comments": 2,
+                "multi": 0,
+                "blank": 4,
+                "cyclomatic": 13
+            },
+            "logprobs": -308.8057530769934,
+            "tokens": 413,
+            "problem_name": "538_e_demiurges_play_again_12023"
+        },
+        "1056_d_decorate_apple_tree_1782": {
+            "file_path": "codecontests/cluster3/1056_d_decorate_apple_tree_1782/main.py",
+            "metrics": {
+                "loc": 14,
+                "sloc": 12,
+                "lloc": 13,
+                "comments": 9,
+                "multi": 0,
+                "blank": 1,
+                "cyclomatic": 0
+            },
+            "logprobs": -486.5492527595142,
+            "tokens": 244,
+            "problem_name": "1056_d_decorate_apple_tree_1782"
+        },
+        "275_d_zero_tree_12948": {
+            "file_path": "codecontests/cluster3/275_d_zero_tree_12948/main.py",
+            "metrics": {
+                "loc": 55,
+                "sloc": 45,
+                "lloc": 45,
+                "comments": 5,
+                "multi": 0,
+                "blank": 5,
+                "cyclomatic": 1
+            },
+            "logprobs": -472.2221718057176,
+            "tokens": 446,
+            "problem_name": "275_d_zero_tree_12948"
+        },
+        "1336_a_linova_and_kingdom_8768": {
+            "file_path": "codecontests/cluster3/1336_a_linova_and_kingdom_8768/main.py",
+            "metrics": {
+                "loc": 99,
+                "sloc": 77,
+                "lloc": 82,
+                "comments": 2,
+                "multi": 0,
+                "blank": 20,
+                "cyclomatic": 23
+            },
+            "logprobs": -323.0935072927259,
+            "tokens": 728,
+            "problem_name": "1336_a_linova_and_kingdom_8768"
+        },
+        "1332_f_independent_set_12309": {
+            "file_path": "codecontests/cluster3/1332_f_independent_set_12309/main.py",
+            "metrics": {
+                "loc": 62,
+                "sloc": 54,
+                "lloc": 54,
+                "comments": 1,
+                "multi": 0,
+                "blank": 7,
+                "cyclomatic": 7
+            },
+            "logprobs": -431.13900492431816,
+            "tokens": 555,
+            "problem_name": "1332_f_independent_set_12309"
+        },
+        "1540_b_tree_array_3053": {
+            "file_path": "codecontests/cluster3/1540_b_tree_array_3053/main.py",
+            "metrics": {
+                "loc": 70,
+                "sloc": 60,
+                "lloc": 62,
+                "comments": 1,
+                "multi": 0,
+                "blank": 9,
+                "cyclomatic": 0
+            },
+            "logprobs": -521.4197432590022,
+            "tokens": 574,
+            "problem_name": "1540_b_tree_array_3053"
+        },
+        "461_b_appleman_and_tree_11604": {
+            "file_path": "codecontests/cluster3/461_b_appleman_and_tree_11604/main.py",
+            "metrics": {
+                "loc": 63,
+                "sloc": 41,
+                "lloc": 37,
+                "comments": 2,
+                "multi": 0,
+                "blank": 20,
+                "cyclomatic": 14
+            },
+            "logprobs": -448.9081370957534,
+            "tokens": 418,
+            "problem_name": "461_b_appleman_and_tree_11604"
+        },
+        "543_d_road_improvement_5673": {
+            "file_path": "codecontests/cluster3/543_d_road_improvement_5673/main.py",
+            "metrics": {
+                "loc": 134,
+                "sloc": 114,
+                "lloc": 111,
+                "comments": 3,
+                "multi": 0,
+                "blank": 17,
+                "cyclomatic": 40
+            },
+            "logprobs": -739.9595856289889,
+            "tokens": 1000,
+            "problem_name": "543_d_road_improvement_5673"
+        },
+        "846_e_chemistry_in_berland_60": {
+            "file_path": "codecontests/cluster3/846_e_chemistry_in_berland_60/main.py",
+            "metrics": {
+                "loc": 40,
+                "sloc": 25,
+                "lloc": 25,
+                "comments": 12,
+                "multi": 0,
+                "blank": 3,
+                "cyclomatic": 7
+            },
+            "logprobs": -338.5825157224756,
+            "tokens": 346,
+            "problem_name": "846_e_chemistry_in_berland_60"
+        },
+        "1498_f_christmas_game_5029": {
+            "file_path": "codecontests/cluster3/1498_f_christmas_game_5029/main.py",
+            "metrics": {
+                "loc": 67,
+                "sloc": 49,
+                "lloc": 49,
+                "comments": 4,
+                "multi": 0,
+                "blank": 14,
+                "cyclomatic": 0
+            },
+            "logprobs": -439.78066563009855,
+            "tokens": 473,
+            "problem_name": "1498_f_christmas_game_5029"
+        },
+        "1280_c_jeremy_bearimy_11057": {
+            "file_path": "codecontests/cluster3/1280_c_jeremy_bearimy_11057/main.py",
+            "metrics": {
+                "loc": 45,
+                "sloc": 39,
+                "lloc": 40,
+                "comments": 3,
+                "multi": 0,
+                "blank": 5,
+                "cyclomatic": 0
+            },
+            "logprobs": -346.1316895066302,
+            "tokens": 431,
+            "problem_name": "1280_c_jeremy_bearimy_11057"
+        },
+        "23_e_tree_4723": {
+            "file_path": "codecontests/cluster3/23_e_tree_4723/main.py",
+            "metrics": {
+                "loc": 66,
+                "sloc": 55,
+                "lloc": 55,
+                "comments": 2,
+                "multi": 0,
+                "blank": 9,
+                "cyclomatic": 10
+            },
+            "logprobs": -473.26785082378717,
+            "tokens": 490,
+            "problem_name": "23_e_tree_4723"
+        },
+        "1528_a_parsas_humongous_tree_10236": {
+            "file_path": "codecontests/cluster3/1528_a_parsas_humongous_tree_10236/main.py",
+            "metrics": {
+                "loc": 56,
+                "sloc": 42,
+                "lloc": 48,
+                "comments": 12,
+                "multi": 0,
+                "blank": 5,
+                "cyclomatic": 11
+            },
+            "logprobs": -398.2593802020109,
+            "tokens": 461,
+            "problem_name": "1528_a_parsas_humongous_tree_10236"
+        },
+        "696_b_puzzles_9008": {
+            "file_path": "codecontests/cluster3/696_b_puzzles_9008/main.py",
+            "metrics": {
+                "loc": 20,
+                "sloc": 18,
+                "lloc": 18,
+                "comments": 1,
+                "multi": 0,
+                "blank": 1,
+                "cyclomatic": 0
+            },
+            "logprobs": -213.40392362054396,
+            "tokens": 202,
+            "problem_name": "696_b_puzzles_9008"
+        },
+        "1092_f_tree_with_maximum_cost_8028": {
+            "file_path": "codecontests/cluster3/1092_f_tree_with_maximum_cost_8028/main.py",
+            "metrics": {
+                "loc": 63,
+                "sloc": 57,
+                "lloc": 58,
+                "comments": 1,
+                "multi": 0,
+                "blank": 5,
+                "cyclomatic": 4
+            },
+            "logprobs": -365.3996353469105,
+            "tokens": 486,
+            "problem_name": "1092_f_tree_with_maximum_cost_8028"
+        },
+        "1076_e_vasya_and_a_tree_11985": {
+            "file_path": "codecontests/cluster3/1076_e_vasya_and_a_tree_11985/main.py",
+            "metrics": {
+                "loc": 122,
+                "sloc": 96,
+                "lloc": 102,
+                "comments": 1,
+                "multi": 0,
+                "blank": 25,
+                "cyclomatic": 22
+            },
+            "logprobs": -352.88950588246485,
+            "tokens": 837,
+            "problem_name": "1076_e_vasya_and_a_tree_11985"
+        },
+        "1499_f_diameter_cuts_11692": {
+            "file_path": "codecontests/cluster3/1499_f_diameter_cuts_11692/main.py",
+            "metrics": {
+                "loc": 51,
+                "sloc": 39,
+                "lloc": 42,
+                "comments": 1,
+                "multi": 0,
+                "blank": 11,
+                "cyclomatic": 5
+            },
+            "logprobs": -330.4877743391648,
+            "tokens": 395,
+            "problem_name": "1499_f_diameter_cuts_11692"
+        },
+        "1084_d_the_fair_nut_and_the_best_path_3448": {
+            "file_path": "codecontests/cluster3/1084_d_the_fair_nut_and_the_best_path_3448/main.py",
+            "metrics": {
+                "loc": 46,
+                "sloc": 42,
+                "lloc": 44,
+                "comments": 3,
+                "multi": 0,
+                "blank": 1,
+                "cyclomatic": 0
+            },
+            "logprobs": -414.7560710803384,
+            "tokens": 367,
+            "problem_name": "1084_d_the_fair_nut_and_the_best_path_3448"
+        },
+        "700_b_connecting_universities_5263": {
+            "file_path": "codecontests/cluster3/700_b_connecting_universities_5263/main.py",
+            "metrics": {
+                "loc": 81,
+                "sloc": 36,
+                "lloc": 36,
+                "comments": 3,
+                "multi": 0,
+                "blank": 42,
+                "cyclomatic": 7
+            },
+            "logprobs": -411.6141453146051,
+            "tokens": 365,
+            "problem_name": "700_b_connecting_universities_5263"
+        },
+        "1187_e_tree_painting_12718": {
+            "file_path": "codecontests/cluster3/1187_e_tree_painting_12718/main.py",
+            "metrics": {
+                "loc": 64,
+                "sloc": 51,
+                "lloc": 51,
+                "comments": 1,
+                "multi": 0,
+                "blank": 12,
+                "cyclomatic": 0
+            },
+            "logprobs": -287.0215422960643,
+            "tokens": 378,
+            "problem_name": "1187_e_tree_painting_12718"
+        },
+        "1153_d_serval_and_rooted_tree_2202": {
+            "file_path": "codecontests/cluster3/1153_d_serval_and_rooted_tree_2202/main.py",
+            "metrics": {
+                "loc": 19,
+                "sloc": 17,
+                "lloc": 18,
+                "comments": 1,
+                "multi": 0,
+                "blank": 1,
+                "cyclomatic": 0
+            },
+            "logprobs": -211.3109908131901,
+            "tokens": 207,
+            "problem_name": "1153_d_serval_and_rooted_tree_2202"
+        },
+        "697_d_puzzles_7551": {
+            "file_path": "codecontests/cluster3/697_d_puzzles_7551/main.py",
+            "metrics": {
+                "loc": 44,
+                "sloc": 36,
+                "lloc": 36,
+                "comments": 1,
+                "multi": 0,
+                "blank": 7,
+                "cyclomatic": 9
+            },
+            "logprobs": -218.7110941498285,
+            "tokens": 285,
+            "problem_name": "697_d_puzzles_7551"
+        },
+        "1083_a_the_fair_nut_and_the_best_path_12817": {
+            "file_path": "codecontests/cluster3/1083_a_the_fair_nut_and_the_best_path_12817/main.py",
+            "metrics": {
+                "loc": 45,
+                "sloc": 40,
+                "lloc": 40,
+                "comments": 1,
+                "multi": 0,
+                "blank": 4,
+                "cyclomatic": 12
+            },
+            "logprobs": -235.48145603847013,
+            "tokens": 346,
+            "problem_name": "1083_a_the_fair_nut_and_the_best_path_12817"
+        },
+        "1453_e_dog_snacks_5757": {
+            "file_path": "codecontests/cluster3/1453_e_dog_snacks_5757/main.py",
+            "metrics": {
+                "loc": 121,
+                "sloc": 93,
+                "lloc": 100,
+                "comments": 14,
+                "multi": 0,
+                "blank": 14,
+                "cyclomatic": 20
+            },
+            "logprobs": -581.8128607099457,
+            "tokens": 1014,
+            "problem_name": "1453_e_dog_snacks_5757"
+        },
+        "274_b_zero_tree_3163": {
+            "file_path": "codecontests/cluster3/274_b_zero_tree_3163/main.py",
+            "metrics": {
+                "loc": 42,
+                "sloc": 39,
+                "lloc": 44,
+                "comments": 2,
+                "multi": 0,
+                "blank": 1,
+                "cyclomatic": 0
+            },
+            "logprobs": -349.2152884730505,
+            "tokens": 470,
+            "problem_name": "274_b_zero_tree_3163"
+        },
+        "80_e_beavermuncher0xff_11410": {
+            "file_path": "codecontests/cluster3/80_e_beavermuncher0xff_11410/main.py",
+            "metrics": {
+                "loc": 67,
+                "sloc": 50,
+                "lloc": 52,
+                "comments": 2,
+                "multi": 0,
+                "blank": 16,
+                "cyclomatic": 1
+            },
+            "logprobs": -426.0429435830821,
+            "tokens": 494,
+            "problem_name": "80_e_beavermuncher0xff_11410"
+        },
+        "735_e_ostap_and_tree_2037": {
+            "file_path": "codecontests/cluster3/735_e_ostap_and_tree_2037/main.py",
+            "metrics": {
+                "loc": 42,
+                "sloc": 36,
+                "lloc": 36,
+                "comments": 1,
+                "multi": 0,
+                "blank": 5,
+                "cyclomatic": 6
+            },
+            "logprobs": -314.32375146403126,
+            "tokens": 497,
+            "problem_name": "735_e_ostap_and_tree_2037"
+        },
+        "1436_d_bandit_in_a_city_4611": {
+            "file_path": "codecontests/cluster3/1436_d_bandit_in_a_city_4611/main.py",
+            "metrics": {
+                "loc": 24,
+                "sloc": 16,
+                "lloc": 16,
+                "comments": 5,
+                "multi": 0,
+                "blank": 3,
+                "cyclomatic": 0
+            },
+            "logprobs": -260.3034523614207,
+            "tokens": 224,
+            "problem_name": "1436_d_bandit_in_a_city_4611"
+        },
+        "1324_f_maximum_white_subtree_3668": {
+            "file_path": "codecontests/cluster3/1324_f_maximum_white_subtree_3668/main.py",
+            "metrics": {
+                "loc": 134,
+                "sloc": 106,
+                "lloc": 110,
+                "comments": 3,
+                "multi": 0,
+                "blank": 25,
+                "cyclomatic": 23
+            },
+            "logprobs": -331.76295179472726,
+            "tokens": 935,
+            "problem_name": "1324_f_maximum_white_subtree_3668"
+        }
+    },
+    "original_programs": {
+        "1281_e_jeremy_bearimy_9704": {
+            "file_path": "codecontests_original/cluster3/1281_e_jeremy_bearimy_9704/main.py",
+            "metrics": {
+                "loc": 51,
+                "sloc": 46,
+                "lloc": 46,
+                "comments": 1,
+                "multi": 0,
+                "blank": 4,
+                "cyclomatic": 11
+            },
+            "logprobs": -414.619013198046,
+            "tokens": 358,
+            "problem_name": "1281_e_jeremy_bearimy_9704"
+        },
+        "538_e_demiurges_play_again_12023": {
+            "file_path": "codecontests_original/cluster3/538_e_demiurges_play_again_12023/main.py",
+            "metrics": {
+                "loc": 56,
+                "sloc": 50,
+                "lloc": 50,
+                "comments": 2,
+                "multi": 0,
+                "blank": 4,
+                "cyclomatic": 13
+            },
+            "logprobs": -380.521483333367,
+            "tokens": 407,
+            "problem_name": "538_e_demiurges_play_again_12023"
+        },
+        "1056_d_decorate_apple_tree_1782": {
+            "file_path": "codecontests_original/cluster3/1056_d_decorate_apple_tree_1782/main.py",
+            "metrics": {
+                "loc": 14,
+                "sloc": 12,
+                "lloc": 13,
+                "comments": 9,
+                "multi": 0,
+                "blank": 1,
+                "cyclomatic": 0
+            },
+            "logprobs": -551.4400609064616,
+            "tokens": 238,
+            "problem_name": "1056_d_decorate_apple_tree_1782"
+        },
+        "275_d_zero_tree_12948": {
+            "file_path": "codecontests_original/cluster3/275_d_zero_tree_12948/main.py",
+            "metrics": {
+                "loc": 55,
+                "sloc": 45,
+                "lloc": 45,
+                "comments": 5,
+                "multi": 0,
+                "blank": 5,
+                "cyclomatic": 1
+            },
+            "logprobs": -514.9754228472316,
+            "tokens": 440,
+            "problem_name": "275_d_zero_tree_12948"
+        },
+        "1336_a_linova_and_kingdom_8768": {
+            "file_path": "codecontests_original/cluster3/1336_a_linova_and_kingdom_8768/main.py",
+            "metrics": {
+                "loc": 99,
+                "sloc": 77,
+                "lloc": 82,
+                "comments": 2,
+                "multi": 0,
+                "blank": 20,
+                "cyclomatic": 23
+            },
+            "logprobs": -391.7343454204721,
+            "tokens": 721,
+            "problem_name": "1336_a_linova_and_kingdom_8768"
+        },
+        "1332_f_independent_set_12309": {
+            "file_path": "codecontests_original/cluster3/1332_f_independent_set_12309/main.py",
+            "metrics": {
+                "loc": 62,
+                "sloc": 54,
+                "lloc": 54,
+                "comments": 1,
+                "multi": 0,
+                "blank": 7,
+                "cyclomatic": 7
+            },
+            "logprobs": -487.60606729147065,
+            "tokens": 549,
+            "problem_name": "1332_f_independent_set_12309"
+        },
+        "1540_b_tree_array_3053": {
+            "file_path": "codecontests_original/cluster3/1540_b_tree_array_3053/main.py",
+            "metrics": {
+                "loc": 70,
+                "sloc": 60,
+                "lloc": 62,
+                "comments": 1,
+                "multi": 0,
+                "blank": 9,
+                "cyclomatic": 0
+            },
+            "logprobs": -594.3678118173675,
+            "tokens": 568,
+            "problem_name": "1540_b_tree_array_3053"
+        },
+        "461_b_appleman_and_tree_11604": {
+            "file_path": "codecontests_original/cluster3/461_b_appleman_and_tree_11604/main.py",
+            "metrics": {
+                "loc": 63,
+                "sloc": 41,
+                "lloc": 37,
+                "comments": 2,
+                "multi": 0,
+                "blank": 20,
+                "cyclomatic": 14
+            },
+            "logprobs": -494.3119197581966,
+            "tokens": 411,
+            "problem_name": "461_b_appleman_and_tree_11604"
+        },
+        "543_d_road_improvement_5673": {
+            "file_path": "codecontests_original/cluster3/543_d_road_improvement_5673/main.py",
+            "metrics": {
+                "loc": 134,
+                "sloc": 114,
+                "lloc": 111,
+                "comments": 3,
+                "multi": 0,
+                "blank": 17,
+                "cyclomatic": 40
+            },
+            "logprobs": -813.1995618081487,
+            "tokens": 994,
+            "problem_name": "543_d_road_improvement_5673"
+        },
+        "846_e_chemistry_in_berland_60": {
+            "file_path": "codecontests_original/cluster3/846_e_chemistry_in_berland_60/main.py",
+            "metrics": {
+                "loc": 40,
+                "sloc": 25,
+                "lloc": 25,
+                "comments": 12,
+                "multi": 0,
+                "blank": 3,
+                "cyclomatic": 7
+            },
+            "logprobs": -407.441975699419,
+            "tokens": 340,
+            "problem_name": "846_e_chemistry_in_berland_60"
+        },
+        "1498_f_christmas_game_5029": {
+            "file_path": "codecontests_original/cluster3/1498_f_christmas_game_5029/main.py",
+            "metrics": {
+                "loc": 67,
+                "sloc": 49,
+                "lloc": 49,
+                "comments": 4,
+                "multi": 0,
+                "blank": 14,
+                "cyclomatic": 0
+            },
+            "logprobs": -498.95913039088845,
+            "tokens": 467,
+            "problem_name": "1498_f_christmas_game_5029"
+        },
+        "1280_c_jeremy_bearimy_11057": {
+            "file_path": "codecontests_original/cluster3/1280_c_jeremy_bearimy_11057/main.py",
+            "metrics": {
+                "loc": 45,
+                "sloc": 39,
+                "lloc": 40,
+                "comments": 3,
+                "multi": 0,
+                "blank": 5,
+                "cyclomatic": 0
+            },
+            "logprobs": -427.76530051502937,
+            "tokens": 425,
+            "problem_name": "1280_c_jeremy_bearimy_11057"
+        },
+        "23_e_tree_4723": {
+            "file_path": "codecontests_original/cluster3/23_e_tree_4723/main.py",
+            "metrics": {
+                "loc": 66,
+                "sloc": 55,
+                "lloc": 55,
+                "comments": 2,
+                "multi": 0,
+                "blank": 9,
+                "cyclomatic": 10
+            },
+            "logprobs": -542.5246628187331,
+            "tokens": 484,
+            "problem_name": "23_e_tree_4723"
+        },
+        "1528_a_parsas_humongous_tree_10236": {
+            "file_path": "codecontests_original/cluster3/1528_a_parsas_humongous_tree_10236/main.py",
+            "metrics": {
+                "loc": 56,
+                "sloc": 42,
+                "lloc": 48,
+                "comments": 12,
+                "multi": 0,
+                "blank": 5,
+                "cyclomatic": 11
+            },
+            "logprobs": -463.4465904522853,
+            "tokens": 455,
+            "problem_name": "1528_a_parsas_humongous_tree_10236"
+        },
+        "696_b_puzzles_9008": {
+            "file_path": "codecontests_original/cluster3/696_b_puzzles_9008/main.py",
+            "metrics": {
+                "loc": 20,
+                "sloc": 18,
+                "lloc": 18,
+                "comments": 1,
+                "multi": 0,
+                "blank": 1,
+                "cyclomatic": 0
+            },
+            "logprobs": -274.9008457462943,
+            "tokens": 196,
+            "problem_name": "696_b_puzzles_9008"
+        },
+        "1092_f_tree_with_maximum_cost_8028": {
+            "file_path": "codecontests_original/cluster3/1092_f_tree_with_maximum_cost_8028/main.py",
+            "metrics": {
+                "loc": 63,
+                "sloc": 57,
+                "lloc": 58,
+                "comments": 1,
+                "multi": 0,
+                "blank": 5,
+                "cyclomatic": 4
+            },
+            "logprobs": -442.53800620454086,
+            "tokens": 480,
+            "problem_name": "1092_f_tree_with_maximum_cost_8028"
+        },
+        "1076_e_vasya_and_a_tree_11985": {
+            "file_path": "codecontests_original/cluster3/1076_e_vasya_and_a_tree_11985/main.py",
+            "metrics": {
+                "loc": 122,
+                "sloc": 96,
+                "lloc": 102,
+                "comments": 1,
+                "multi": 0,
+                "blank": 25,
+                "cyclomatic": 22
+            },
+            "logprobs": -425.493736189994,
+            "tokens": 830,
+            "problem_name": "1076_e_vasya_and_a_tree_11985"
+        },
+        "1499_f_diameter_cuts_11692": {
+            "file_path": "codecontests_original/cluster3/1499_f_diameter_cuts_11692/main.py",
+            "metrics": {
+                "loc": 51,
+                "sloc": 39,
+                "lloc": 42,
+                "comments": 1,
+                "multi": 0,
+                "blank": 11,
+                "cyclomatic": 5
+            },
+            "logprobs": -402.77659957268514,
+            "tokens": 389,
+            "problem_name": "1499_f_diameter_cuts_11692"
+        },
+        "1084_d_the_fair_nut_and_the_best_path_3448": {
+            "file_path": "codecontests_original/cluster3/1084_d_the_fair_nut_and_the_best_path_3448/main.py",
+            "metrics": {
+                "loc": 46,
+                "sloc": 42,
+                "lloc": 44,
+                "comments": 3,
+                "multi": 0,
+                "blank": 1,
+                "cyclomatic": 0
+            },
+            "logprobs": -470.2676592229293,
+            "tokens": 361,
+            "problem_name": "1084_d_the_fair_nut_and_the_best_path_3448"
+        },
+        "700_b_connecting_universities_5263": {
+            "file_path": "codecontests_original/cluster3/700_b_connecting_universities_5263/main.py",
+            "metrics": {
+                "loc": 81,
+                "sloc": 36,
+                "lloc": 36,
+                "comments": 3,
+                "multi": 0,
+                "blank": 42,
+                "cyclomatic": 7
+            },
+            "logprobs": -467.46318255507276,
+            "tokens": 358,
+            "problem_name": "700_b_connecting_universities_5263"
+        },
+        "1187_e_tree_painting_12718": {
+            "file_path": "codecontests_original/cluster3/1187_e_tree_painting_12718/main.py",
+            "metrics": {
+                "loc": 64,
+                "sloc": 51,
+                "lloc": 51,
+                "comments": 1,
+                "multi": 0,
+                "blank": 12,
+                "cyclomatic": 0
+            },
+            "logprobs": -361.0947818816712,
+            "tokens": 372,
+            "problem_name": "1187_e_tree_painting_12718"
+        },
+        "1153_d_serval_and_rooted_tree_2202": {
+            "file_path": "codecontests_original/cluster3/1153_d_serval_and_rooted_tree_2202/main.py",
+            "metrics": {
+                "loc": 19,
+                "sloc": 17,
+                "lloc": 18,
+                "comments": 1,
+                "multi": 0,
+                "blank": 1,
+                "cyclomatic": 0
+            },
+            "logprobs": -273.164817209827,
+            "tokens": 201,
+            "problem_name": "1153_d_serval_and_rooted_tree_2202"
+        },
+        "697_d_puzzles_7551": {
+            "file_path": "codecontests_original/cluster3/697_d_puzzles_7551/main.py",
+            "metrics": {
+                "loc": 44,
+                "sloc": 36,
+                "lloc": 36,
+                "comments": 1,
+                "multi": 0,
+                "blank": 7,
+                "cyclomatic": 9
+            },
+            "logprobs": -293.0198688657383,
+            "tokens": 279,
+            "problem_name": "697_d_puzzles_7551"
+        },
+        "1083_a_the_fair_nut_and_the_best_path_12817": {
+            "file_path": "codecontests_original/cluster3/1083_a_the_fair_nut_and_the_best_path_12817/main.py",
+            "metrics": {
+                "loc": 45,
+                "sloc": 40,
+                "lloc": 40,
+                "comments": 1,
+                "multi": 0,
+                "blank": 4,
+                "cyclomatic": 12
+            },
+            "logprobs": -300.9471043556577,
+            "tokens": 340,
+            "problem_name": "1083_a_the_fair_nut_and_the_best_path_12817"
+        },
+        "1453_e_dog_snacks_5757": {
+            "file_path": "codecontests_original/cluster3/1453_e_dog_snacks_5757/main.py",
+            "metrics": {
+                "loc": 121,
+                "sloc": 93,
+                "lloc": 100,
+                "comments": 14,
+                "multi": 0,
+                "blank": 14,
+                "cyclomatic": 20
+            },
+            "logprobs": -627.096099506845,
+            "tokens": 1008,
+            "problem_name": "1453_e_dog_snacks_5757"
+        },
+        "274_b_zero_tree_3163": {
+            "file_path": "codecontests_original/cluster3/274_b_zero_tree_3163/main.py",
+            "metrics": {
+                "loc": 42,
+                "sloc": 39,
+                "lloc": 44,
+                "comments": 2,
+                "multi": 0,
+                "blank": 1,
+                "cyclomatic": 0
+            },
+            "logprobs": -411.5473650703094,
+            "tokens": 464,
+            "problem_name": "274_b_zero_tree_3163"
+        },
+        "80_e_beavermuncher0xff_11410": {
+            "file_path": "codecontests_original/cluster3/80_e_beavermuncher0xff_11410/main.py",
+            "metrics": {
+                "loc": 67,
+                "sloc": 50,
+                "lloc": 52,
+                "comments": 2,
+                "multi": 0,
+                "blank": 16,
+                "cyclomatic": 1
+            },
+            "logprobs": -503.8639090810398,
+            "tokens": 488,
+            "problem_name": "80_e_beavermuncher0xff_11410"
+        },
+        "735_e_ostap_and_tree_2037": {
+            "file_path": "codecontests_original/cluster3/735_e_ostap_and_tree_2037/main.py",
+            "metrics": {
+                "loc": 42,
+                "sloc": 36,
+                "lloc": 36,
+                "comments": 1,
+                "multi": 0,
+                "blank": 5,
+                "cyclomatic": 6
+            },
+            "logprobs": -380.0043024958998,
+            "tokens": 491,
+            "problem_name": "735_e_ostap_and_tree_2037"
+        },
+        "1436_d_bandit_in_a_city_4611": {
+            "file_path": "codecontests_original/cluster3/1436_d_bandit_in_a_city_4611/main.py",
+            "metrics": {
+                "loc": 24,
+                "sloc": 16,
+                "lloc": 16,
+                "comments": 5,
+                "multi": 0,
+                "blank": 3,
+                "cyclomatic": 0
+            },
+            "logprobs": -324.20623923872057,
+            "tokens": 218,
+            "problem_name": "1436_d_bandit_in_a_city_4611"
+        },
+        "1324_f_maximum_white_subtree_3668": {
+            "file_path": "codecontests_original/cluster3/1324_f_maximum_white_subtree_3668/main.py",
+            "metrics": {
+                "loc": 134,
+                "sloc": 106,
+                "lloc": 110,
+                "comments": 3,
+                "multi": 0,
+                "blank": 25,
+                "cyclomatic": 23
+            },
+            "logprobs": -407.51944030096865,
+            "tokens": 929,
+            "problem_name": "1324_f_maximum_white_subtree_3668"
+        }
+    },
+    "aggregated_metrics_refactored": {
+        "logprobs": -11616.410927017812,
+        "tokens": 14495,
+        "loc": 1867,
+        "sloc": 1481,
+        "lloc": 1521,
+        "comments": 100,
+        "multi": 4,
+        "blank": 296,
+        "cyclomatic": 246
+    },
+    "aggregated_metrics_original": {
+        "logprobs": -13348.817303755308,
+        "tokens": 14261,
+        "loc": 1863,
+        "sloc": 1481,
+        "lloc": 1520,
+        "comments": 100,
+        "multi": 0,
+        "blank": 296,
+        "cyclomatic": 246
+    },
+    "comparison_ratios": {
+        "tokens_refactored_div_original": 1.01640838650866,
+        "logprobs_refactored_div_original": 0.8702202346982356,
+        "avg_logprob_per_token_original": -0.9360365545021603,
+        "avg_logprob_per_token_refactored": -0.801408135703195
+    }
+}

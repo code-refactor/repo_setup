@@ -1,0 +1,951 @@
+{
+    "cluster_name": "cluster4",
+    "model": "Qwen/Qwen2.5-7B-Instruct-Turbo",
+    "logprobs_enabled": true,
+    "refactored_library": {
+        "file_path": "codecontests/cluster4/library.py",
+        "metrics": {
+            "loc": 4,
+            "sloc": 0,
+            "lloc": 1,
+            "comments": 0,
+            "multi": 4,
+            "blank": 0,
+            "cyclomatic": 0
+        },
+        "logprobs": -240.98537218856941,
+        "tokens": 50
+    },
+    "refactored_programs": {
+        "499_c_crazy_town_6399": {
+            "file_path": "codecontests/cluster4/499_c_crazy_town_6399/main.py",
+            "metrics": {
+                "loc": 24,
+                "sloc": 22,
+                "lloc": 22,
+                "comments": 1,
+                "multi": 0,
+                "blank": 1,
+                "cyclomatic": 0
+            },
+            "logprobs": -255.14726184018963,
+            "tokens": 239,
+            "problem_name": "499_c_crazy_town_6399"
+        },
+        "749_b_parallelogram_is_back_2975": {
+            "file_path": "codecontests/cluster4/749_b_parallelogram_is_back_2975/main.py",
+            "metrics": {
+                "loc": 16,
+                "sloc": 13,
+                "lloc": 13,
+                "comments": 1,
+                "multi": 0,
+                "blank": 2,
+                "cyclomatic": 0
+            },
+            "logprobs": -177.23346842117718,
+            "tokens": 154,
+            "problem_name": "749_b_parallelogram_is_back_2975"
+        },
+        "1163_c2_power_transmission_hard_edition_12093": {
+            "file_path": "codecontests/cluster4/1163_c2_power_transmission_hard_edition_12093/main.py",
+            "metrics": {
+                "loc": 34,
+                "sloc": 25,
+                "lloc": 25,
+                "comments": 1,
+                "multi": 0,
+                "blank": 8,
+                "cyclomatic": 0
+            },
+            "logprobs": -224.89904645114666,
+            "tokens": 261,
+            "problem_name": "1163_c2_power_transmission_hard_edition_12093"
+        },
+        "464_b_restore_cube__2130": {
+            "file_path": "codecontests/cluster4/464_b_restore_cube__2130/main.py",
+            "metrics": {
+                "loc": 33,
+                "sloc": 27,
+                "lloc": 33,
+                "comments": 1,
+                "multi": 0,
+                "blank": 5,
+                "cyclomatic": 0
+            },
+            "logprobs": -399.4906649925162,
+            "tokens": 349,
+            "problem_name": "464_b_restore_cube__2130"
+        },
+        "659_d_bicycle_race_5157": {
+            "file_path": "codecontests/cluster4/659_d_bicycle_race_5157/main.py",
+            "metrics": {
+                "loc": 14,
+                "sloc": 12,
+                "lloc": 15,
+                "comments": 1,
+                "multi": 0,
+                "blank": 1,
+                "cyclomatic": 0
+            },
+            "logprobs": -200.0910000732746,
+            "tokens": 189,
+            "problem_name": "659_d_bicycle_race_5157"
+        },
+        "498_a_crazy_town_4318": {
+            "file_path": "codecontests/cluster4/498_a_crazy_town_4318/main.py",
+            "metrics": {
+                "loc": 17,
+                "sloc": 15,
+                "lloc": 15,
+                "comments": 1,
+                "multi": 0,
+                "blank": 1,
+                "cyclomatic": 0
+            },
+            "logprobs": -199.27713000513086,
+            "tokens": 179,
+            "problem_name": "498_a_crazy_town_4318"
+        },
+        "1046_i_say_hello_9380": {
+            "file_path": "codecontests/cluster4/1046_i_say_hello_9380/main.py",
+            "metrics": {
+                "loc": 70,
+                "sloc": 46,
+                "lloc": 49,
+                "comments": 5,
+                "multi": 0,
+                "blank": 17,
+                "cyclomatic": 11
+            },
+            "logprobs": -571.0128991565366,
+            "tokens": 563,
+            "problem_name": "1046_i_say_hello_9380"
+        },
+        "32_e_hideandseek_3373": {
+            "file_path": "codecontests/cluster4/32_e_hideandseek_3373/main.py",
+            "metrics": {
+                "loc": 55,
+                "sloc": 53,
+                "lloc": 53,
+                "comments": 1,
+                "multi": 0,
+                "blank": 1,
+                "cyclomatic": 19
+            },
+            "logprobs": -457.6830973815315,
+            "tokens": 913,
+            "problem_name": "32_e_hideandseek_3373"
+        },
+        "889_d_symmetric_projections_6832": {
+            "file_path": "codecontests/cluster4/889_d_symmetric_projections_6832/main.py",
+            "metrics": {
+                "loc": 124,
+                "sloc": 91,
+                "lloc": 91,
+                "comments": 3,
+                "multi": 0,
+                "blank": 30,
+                "cyclomatic": 33
+            },
+            "logprobs": -650.5004057838676,
+            "tokens": 804,
+            "problem_name": "889_d_symmetric_projections_6832"
+        },
+        "183_b_zoo_1910": {
+            "file_path": "codecontests/cluster4/183_b_zoo_1910/main.py",
+            "metrics": {
+                "loc": 75,
+                "sloc": 42,
+                "lloc": 48,
+                "comments": 29,
+                "multi": 0,
+                "blank": 4,
+                "cyclomatic": 7
+            },
+            "logprobs": -935.3757697695087,
+            "tokens": 816,
+            "problem_name": "183_b_zoo_1910"
+        },
+        "552_d_vanya_and_triangles_5048": {
+            "file_path": "codecontests/cluster4/552_d_vanya_and_triangles_5048/main.py",
+            "metrics": {
+                "loc": 25,
+                "sloc": 23,
+                "lloc": 26,
+                "comments": 1,
+                "multi": 0,
+                "blank": 1,
+                "cyclomatic": 0
+            },
+            "logprobs": -223.6399632648756,
+            "tokens": 208,
+            "problem_name": "552_d_vanya_and_triangles_5048"
+        },
+        "136_d_rectangle_and_square_9500": {
+            "file_path": "codecontests/cluster4/136_d_rectangle_and_square_9500/main.py",
+            "metrics": {
+                "loc": 69,
+                "sloc": 53,
+                "lloc": 53,
+                "comments": 1,
+                "multi": 0,
+                "blank": 15,
+                "cyclomatic": 19
+            },
+            "logprobs": -392.1874505546817,
+            "tokens": 548,
+            "problem_name": "136_d_rectangle_and_square_9500"
+        },
+        "886_f_symmetric_projections_6728": {
+            "file_path": "codecontests/cluster4/886_f_symmetric_projections_6728/main.py",
+            "metrics": {
+                "loc": 124,
+                "sloc": 91,
+                "lloc": 91,
+                "comments": 3,
+                "multi": 0,
+                "blank": 30,
+                "cyclomatic": 33
+            },
+            "logprobs": -650.5004057838676,
+            "tokens": 804,
+            "problem_name": "886_f_symmetric_projections_6728"
+        },
+        "598_f_cut_length_4738": {
+            "file_path": "codecontests/cluster4/598_f_cut_length_4738/main.py",
+            "metrics": {
+                "loc": 34,
+                "sloc": 29,
+                "lloc": 30,
+                "comments": 1,
+                "multi": 0,
+                "blank": 4,
+                "cyclomatic": 12
+            },
+            "logprobs": -410.5789064136897,
+            "tokens": 409,
+            "problem_name": "598_f_cut_length_4738"
+        },
+        "2_c_commentator_problem_4414": {
+            "file_path": "codecontests/cluster4/2_c_commentator_problem_4414/main.py",
+            "metrics": {
+                "loc": 139,
+                "sloc": 115,
+                "lloc": 121,
+                "comments": 9,
+                "multi": 0,
+                "blank": 15,
+                "cyclomatic": 17
+            },
+            "logprobs": -678.1336795923413,
+            "tokens": 1746,
+            "problem_name": "2_c_commentator_problem_4414"
+        },
+        "165_a_supercentral_point_7945": {
+            "file_path": "codecontests/cluster4/165_a_supercentral_point_7945/main.py",
+            "metrics": {
+                "loc": 24,
+                "sloc": 22,
+                "lloc": 22,
+                "comments": 1,
+                "multi": 0,
+                "blank": 1,
+                "cyclomatic": 0
+            },
+            "logprobs": -166.1539596356945,
+            "tokens": 263,
+            "problem_name": "165_a_supercentral_point_7945"
+        },
+        "1163_c1_power_transmission_easy_edition_2411": {
+            "file_path": "codecontests/cluster4/1163_c1_power_transmission_easy_edition_2411/main.py",
+            "metrics": {
+                "loc": 43,
+                "sloc": 32,
+                "lloc": 32,
+                "comments": 1,
+                "multi": 0,
+                "blank": 10,
+                "cyclomatic": 3
+            },
+            "logprobs": -300.32615896497964,
+            "tokens": 353,
+            "problem_name": "1163_c1_power_transmission_easy_edition_2411"
+        },
+        "334_b_eight_point_sets_7016": {
+            "file_path": "codecontests/cluster4/334_b_eight_point_sets_7016/main.py",
+            "metrics": {
+                "loc": 18,
+                "sloc": 16,
+                "lloc": 16,
+                "comments": 1,
+                "multi": 0,
+                "blank": 1,
+                "cyclomatic": 0
+            },
+            "logprobs": -214.1769880070875,
+            "tokens": 291,
+            "problem_name": "334_b_eight_point_sets_7016"
+        },
+        "13_b_letter_a_6066": {
+            "file_path": "codecontests/cluster4/13_b_letter_a_6066/main.py",
+            "metrics": {
+                "loc": 93,
+                "sloc": 72,
+                "lloc": 71,
+                "comments": 1,
+                "multi": 0,
+                "blank": 20,
+                "cyclomatic": 18
+            },
+            "logprobs": -500.06482493620814,
+            "tokens": 837,
+            "problem_name": "13_b_letter_a_6066"
+        },
+        "961_d_pair_of_lines_12769": {
+            "file_path": "codecontests/cluster4/961_d_pair_of_lines_12769/main.py",
+            "metrics": {
+                "loc": 49,
+                "sloc": 41,
+                "lloc": 41,
+                "comments": 1,
+                "multi": 0,
+                "blank": 7,
+                "cyclomatic": 9
+            },
+            "logprobs": -306.6967987722405,
+            "tokens": 482,
+            "problem_name": "961_d_pair_of_lines_12769"
+        },
+        "618_c_constellation_3489": {
+            "file_path": "codecontests/cluster4/618_c_constellation_3489/main.py",
+            "metrics": {
+                "loc": 24,
+                "sloc": 17,
+                "lloc": 23,
+                "comments": 1,
+                "multi": 0,
+                "blank": 6,
+                "cyclomatic": 0
+            },
+            "logprobs": -269.2730793838805,
+            "tokens": 285,
+            "problem_name": "618_c_constellation_3489"
+        },
+        "1468_f_full_turn_7213": {
+            "file_path": "codecontests/cluster4/1468_f_full_turn_7213/main.py",
+            "metrics": {
+                "loc": 85,
+                "sloc": 62,
+                "lloc": 71,
+                "comments": 11,
+                "multi": 0,
+                "blank": 12,
+                "cyclomatic": 21
+            },
+            "logprobs": -404.35131405969076,
+            "tokens": 752,
+            "problem_name": "1468_f_full_turn_7213"
+        },
+        "407_a_triangle_11184": {
+            "file_path": "codecontests/cluster4/407_a_triangle_11184/main.py",
+            "metrics": {
+                "loc": 120,
+                "sloc": 102,
+                "lloc": 106,
+                "comments": 2,
+                "multi": 0,
+                "blank": 16,
+                "cyclomatic": 28
+            },
+            "logprobs": -388.16894329484063,
+            "tokens": 867,
+            "problem_name": "407_a_triangle_11184"
+        },
+        "617_d_polyline_7236": {
+            "file_path": "codecontests/cluster4/617_d_polyline_7236/main.py",
+            "metrics": {
+                "loc": 60,
+                "sloc": 43,
+                "lloc": 44,
+                "comments": 1,
+                "multi": 15,
+                "blank": 1,
+                "cyclomatic": 0
+            },
+            "logprobs": -314.30725373390794,
+            "tokens": 586,
+            "problem_name": "617_d_polyline_7236"
+        },
+        "135_b_rectangle_and_square_9812": {
+            "file_path": "codecontests/cluster4/135_b_rectangle_and_square_9812/main.py",
+            "metrics": {
+                "loc": 52,
+                "sloc": 50,
+                "lloc": 50,
+                "comments": 1,
+                "multi": 0,
+                "blank": 1,
+                "cyclomatic": 9
+            },
+            "logprobs": -374.02916302424984,
+            "tokens": 664,
+            "problem_name": "135_b_rectangle_and_square_9812"
+        },
+        "630_o_arrow_1929": {
+            "file_path": "codecontests/cluster4/630_o_arrow_1929/main.py",
+            "metrics": {
+                "loc": 219,
+                "sloc": 168,
+                "lloc": 167,
+                "comments": 1,
+                "multi": 0,
+                "blank": 50,
+                "cyclomatic": 56
+            },
+            "logprobs": -1249.972077364912,
+            "tokens": 2105,
+            "problem_name": "630_o_arrow_1929"
+        },
+        "1271_c_shawarma_tent_643": {
+            "file_path": "codecontests/cluster4/1271_c_shawarma_tent_643/main.py",
+            "metrics": {
+                "loc": 54,
+                "sloc": 45,
+                "lloc": 45,
+                "comments": 2,
+                "multi": 0,
+                "blank": 7,
+                "cyclomatic": 0
+            },
+            "logprobs": -271.1247343768338,
+            "tokens": 323,
+            "problem_name": "1271_c_shawarma_tent_643"
+        },
+        "934_e_a_colourful_prospect_3399": {
+            "file_path": "codecontests/cluster4/934_e_a_colourful_prospect_3399/main.py",
+            "metrics": {
+                "loc": 138,
+                "sloc": 121,
+                "lloc": 121,
+                "comments": 8,
+                "multi": 0,
+                "blank": 9,
+                "cyclomatic": 39
+            },
+            "logprobs": -854.7119606610793,
+            "tokens": 1377,
+            "problem_name": "934_e_a_colourful_prospect_3399"
+        },
+        "514_b_han_solo_and_lazer_gun_9314": {
+            "file_path": "codecontests/cluster4/514_b_han_solo_and_lazer_gun_9314/main.py",
+            "metrics": {
+                "loc": 26,
+                "sloc": 19,
+                "lloc": 19,
+                "comments": 4,
+                "multi": 0,
+                "blank": 4,
+                "cyclomatic": 0
+            },
+            "logprobs": -262.3640989248178,
+            "tokens": 234,
+            "problem_name": "514_b_han_solo_and_lazer_gun_9314"
+        },
+        "850_a_five_dimensional_points_3812": {
+            "file_path": "codecontests/cluster4/850_a_five_dimensional_points_3812/main.py",
+            "metrics": {
+                "loc": 42,
+                "sloc": 37,
+                "lloc": 37,
+                "comments": 1,
+                "multi": 0,
+                "blank": 4,
+                "cyclomatic": 2
+            },
+            "logprobs": -359.6273108548994,
+            "tokens": 272,
+            "problem_name": "850_a_five_dimensional_points_3812"
+        }
+    },
+    "original_programs": {
+        "499_c_crazy_town_6399": {
+            "file_path": "codecontests_original/cluster4/499_c_crazy_town_6399/main.py",
+            "metrics": {
+                "loc": 24,
+                "sloc": 22,
+                "lloc": 22,
+                "comments": 1,
+                "multi": 0,
+                "blank": 1,
+                "cyclomatic": 0
+            },
+            "logprobs": -306.3116244256101,
+            "tokens": 233,
+            "problem_name": "499_c_crazy_town_6399"
+        },
+        "749_b_parallelogram_is_back_2975": {
+            "file_path": "codecontests_original/cluster4/749_b_parallelogram_is_back_2975/main.py",
+            "metrics": {
+                "loc": 16,
+                "sloc": 13,
+                "lloc": 13,
+                "comments": 1,
+                "multi": 0,
+                "blank": 2,
+                "cyclomatic": 0
+            },
+            "logprobs": -255.71697795115205,
+            "tokens": 148,
+            "problem_name": "749_b_parallelogram_is_back_2975"
+        },
+        "1163_c2_power_transmission_hard_edition_12093": {
+            "file_path": "codecontests_original/cluster4/1163_c2_power_transmission_hard_edition_12093/main.py",
+            "metrics": {
+                "loc": 34,
+                "sloc": 25,
+                "lloc": 25,
+                "comments": 1,
+                "multi": 0,
+                "blank": 8,
+                "cyclomatic": 0
+            },
+            "logprobs": -300.5193490001551,
+            "tokens": 255,
+            "problem_name": "1163_c2_power_transmission_hard_edition_12093"
+        },
+        "464_b_restore_cube__2130": {
+            "file_path": "codecontests_original/cluster4/464_b_restore_cube__2130/main.py",
+            "metrics": {
+                "loc": 33,
+                "sloc": 27,
+                "lloc": 33,
+                "comments": 1,
+                "multi": 0,
+                "blank": 5,
+                "cyclomatic": 0
+            },
+            "logprobs": -467.9685515344807,
+            "tokens": 343,
+            "problem_name": "464_b_restore_cube__2130"
+        },
+        "659_d_bicycle_race_5157": {
+            "file_path": "codecontests_original/cluster4/659_d_bicycle_race_5157/main.py",
+            "metrics": {
+                "loc": 14,
+                "sloc": 12,
+                "lloc": 15,
+                "comments": 1,
+                "multi": 0,
+                "blank": 1,
+                "cyclomatic": 0
+            },
+            "logprobs": -270.7484822293258,
+            "tokens": 183,
+            "problem_name": "659_d_bicycle_race_5157"
+        },
+        "498_a_crazy_town_4318": {
+            "file_path": "codecontests_original/cluster4/498_a_crazy_town_4318/main.py",
+            "metrics": {
+                "loc": 17,
+                "sloc": 15,
+                "lloc": 15,
+                "comments": 1,
+                "multi": 0,
+                "blank": 1,
+                "cyclomatic": 0
+            },
+            "logprobs": -264.7862289116272,
+            "tokens": 173,
+            "problem_name": "498_a_crazy_town_4318"
+        },
+        "1046_i_say_hello_9380": {
+            "file_path": "codecontests_original/cluster4/1046_i_say_hello_9380/main.py",
+            "metrics": {
+                "loc": 70,
+                "sloc": 46,
+                "lloc": 49,
+                "comments": 5,
+                "multi": 0,
+                "blank": 17,
+                "cyclomatic": 11
+            },
+            "logprobs": -641.8330965104196,
+            "tokens": 557,
+            "problem_name": "1046_i_say_hello_9380"
+        },
+        "32_e_hideandseek_3373": {
+            "file_path": "codecontests_original/cluster4/32_e_hideandseek_3373/main.py",
+            "metrics": {
+                "loc": 55,
+                "sloc": 53,
+                "lloc": 53,
+                "comments": 1,
+                "multi": 0,
+                "blank": 1,
+                "cyclomatic": 19
+            },
+            "logprobs": -517.6506317857519,
+            "tokens": 907,
+            "problem_name": "32_e_hideandseek_3373"
+        },
+        "889_d_symmetric_projections_6832": {
+            "file_path": "codecontests_original/cluster4/889_d_symmetric_projections_6832/main.py",
+            "metrics": {
+                "loc": 124,
+                "sloc": 91,
+                "lloc": 91,
+                "comments": 3,
+                "multi": 0,
+                "blank": 30,
+                "cyclomatic": 33
+            },
+            "logprobs": -730.0827213844759,
+            "tokens": 798,
+            "problem_name": "889_d_symmetric_projections_6832"
+        },
+        "183_b_zoo_1910": {
+            "file_path": "codecontests_original/cluster4/183_b_zoo_1910/main.py",
+            "metrics": {
+                "loc": 75,
+                "sloc": 42,
+                "lloc": 48,
+                "comments": 29,
+                "multi": 0,
+                "blank": 4,
+                "cyclomatic": 7
+            },
+            "logprobs": -991.4744277683907,
+            "tokens": 810,
+            "problem_name": "183_b_zoo_1910"
+        },
+        "552_d_vanya_and_triangles_5048": {
+            "file_path": "codecontests_original/cluster4/552_d_vanya_and_triangles_5048/main.py",
+            "metrics": {
+                "loc": 25,
+                "sloc": 23,
+                "lloc": 26,
+                "comments": 1,
+                "multi": 0,
+                "blank": 1,
+                "cyclomatic": 0
+            },
+            "logprobs": -276.2952317308227,
+            "tokens": 202,
+            "problem_name": "552_d_vanya_and_triangles_5048"
+        },
+        "136_d_rectangle_and_square_9500": {
+            "file_path": "codecontests_original/cluster4/136_d_rectangle_and_square_9500/main.py",
+            "metrics": {
+                "loc": 69,
+                "sloc": 53,
+                "lloc": 53,
+                "comments": 1,
+                "multi": 0,
+                "blank": 15,
+                "cyclomatic": 19
+            },
+            "logprobs": -473.1228776946063,
+            "tokens": 542,
+            "problem_name": "136_d_rectangle_and_square_9500"
+        },
+        "886_f_symmetric_projections_6728": {
+            "file_path": "codecontests_original/cluster4/886_f_symmetric_projections_6728/main.py",
+            "metrics": {
+                "loc": 124,
+                "sloc": 91,
+                "lloc": 91,
+                "comments": 3,
+                "multi": 0,
+                "blank": 30,
+                "cyclomatic": 33
+            },
+            "logprobs": -730.0827213844759,
+            "tokens": 798,
+            "problem_name": "886_f_symmetric_projections_6728"
+        },
+        "598_f_cut_length_4738": {
+            "file_path": "codecontests_original/cluster4/598_f_cut_length_4738/main.py",
+            "metrics": {
+                "loc": 34,
+                "sloc": 29,
+                "lloc": 30,
+                "comments": 1,
+                "multi": 0,
+                "blank": 4,
+                "cyclomatic": 12
+            },
+            "logprobs": -471.7594618697993,
+            "tokens": 403,
+            "problem_name": "598_f_cut_length_4738"
+        },
+        "2_c_commentator_problem_4414": {
+            "file_path": "codecontests_original/cluster4/2_c_commentator_problem_4414/main.py",
+            "metrics": {
+                "loc": 139,
+                "sloc": 115,
+                "lloc": 121,
+                "comments": 9,
+                "multi": 0,
+                "blank": 15,
+                "cyclomatic": 17
+            },
+            "logprobs": -740.2978806442086,
+            "tokens": 1740,
+            "problem_name": "2_c_commentator_problem_4414"
+        },
+        "165_a_supercentral_point_7945": {
+            "file_path": "codecontests_original/cluster4/165_a_supercentral_point_7945/main.py",
+            "metrics": {
+                "loc": 24,
+                "sloc": 22,
+                "lloc": 22,
+                "comments": 1,
+                "multi": 0,
+                "blank": 1,
+                "cyclomatic": 0
+            },
+            "logprobs": -226.0314726711887,
+            "tokens": 257,
+            "problem_name": "165_a_supercentral_point_7945"
+        },
+        "1163_c1_power_transmission_easy_edition_2411": {
+            "file_path": "codecontests_original/cluster4/1163_c1_power_transmission_easy_edition_2411/main.py",
+            "metrics": {
+                "loc": 43,
+                "sloc": 32,
+                "lloc": 32,
+                "comments": 1,
+                "multi": 0,
+                "blank": 10,
+                "cyclomatic": 3
+            },
+            "logprobs": -355.5478769572731,
+            "tokens": 347,
+            "problem_name": "1163_c1_power_transmission_easy_edition_2411"
+        },
+        "334_b_eight_point_sets_7016": {
+            "file_path": "codecontests_original/cluster4/334_b_eight_point_sets_7016/main.py",
+            "metrics": {
+                "loc": 18,
+                "sloc": 16,
+                "lloc": 16,
+                "comments": 1,
+                "multi": 0,
+                "blank": 1,
+                "cyclomatic": 0
+            },
+            "logprobs": -284.8250496543634,
+            "tokens": 285,
+            "problem_name": "334_b_eight_point_sets_7016"
+        },
+        "13_b_letter_a_6066": {
+            "file_path": "codecontests_original/cluster4/13_b_letter_a_6066/main.py",
+            "metrics": {
+                "loc": 93,
+                "sloc": 72,
+                "lloc": 71,
+                "comments": 1,
+                "multi": 0,
+                "blank": 20,
+                "cyclomatic": 18
+            },
+            "logprobs": -563.2563814833824,
+            "tokens": 831,
+            "problem_name": "13_b_letter_a_6066"
+        },
+        "961_d_pair_of_lines_12769": {
+            "file_path": "codecontests_original/cluster4/961_d_pair_of_lines_12769/main.py",
+            "metrics": {
+                "loc": 49,
+                "sloc": 41,
+                "lloc": 41,
+                "comments": 1,
+                "multi": 0,
+                "blank": 7,
+                "cyclomatic": 9
+            },
+            "logprobs": -385.630277050301,
+            "tokens": 476,
+            "problem_name": "961_d_pair_of_lines_12769"
+        },
+        "618_c_constellation_3489": {
+            "file_path": "codecontests_original/cluster4/618_c_constellation_3489/main.py",
+            "metrics": {
+                "loc": 24,
+                "sloc": 17,
+                "lloc": 23,
+                "comments": 1,
+                "multi": 0,
+                "blank": 6,
+                "cyclomatic": 0
+            },
+            "logprobs": -323.82792329656047,
+            "tokens": 279,
+            "problem_name": "618_c_constellation_3489"
+        },
+        "1468_f_full_turn_7213": {
+            "file_path": "codecontests_original/cluster4/1468_f_full_turn_7213/main.py",
+            "metrics": {
+                "loc": 85,
+                "sloc": 62,
+                "lloc": 71,
+                "comments": 11,
+                "multi": 0,
+                "blank": 12,
+                "cyclomatic": 21
+            },
+            "logprobs": -467.68006124230357,
+            "tokens": 746,
+            "problem_name": "1468_f_full_turn_7213"
+        },
+        "407_a_triangle_11184": {
+            "file_path": "codecontests_original/cluster4/407_a_triangle_11184/main.py",
+            "metrics": {
+                "loc": 120,
+                "sloc": 102,
+                "lloc": 106,
+                "comments": 2,
+                "multi": 0,
+                "blank": 16,
+                "cyclomatic": 28
+            },
+            "logprobs": -458.4844966187475,
+            "tokens": 861,
+            "problem_name": "407_a_triangle_11184"
+        },
+        "617_d_polyline_7236": {
+            "file_path": "codecontests_original/cluster4/617_d_polyline_7236/main.py",
+            "metrics": {
+                "loc": 60,
+                "sloc": 43,
+                "lloc": 44,
+                "comments": 1,
+                "multi": 15,
+                "blank": 1,
+                "cyclomatic": 0
+            },
+            "logprobs": -379.08188483071814,
+            "tokens": 580,
+            "problem_name": "617_d_polyline_7236"
+        },
+        "135_b_rectangle_and_square_9812": {
+            "file_path": "codecontests_original/cluster4/135_b_rectangle_and_square_9812/main.py",
+            "metrics": {
+                "loc": 52,
+                "sloc": 50,
+                "lloc": 50,
+                "comments": 1,
+                "multi": 0,
+                "blank": 1,
+                "cyclomatic": 9
+            },
+            "logprobs": -426.45068061295837,
+            "tokens": 658,
+            "problem_name": "135_b_rectangle_and_square_9812"
+        },
+        "630_o_arrow_1929": {
+            "file_path": "codecontests_original/cluster4/630_o_arrow_1929/main.py",
+            "metrics": {
+                "loc": 219,
+                "sloc": 168,
+                "lloc": 167,
+                "comments": 1,
+                "multi": 0,
+                "blank": 50,
+                "cyclomatic": 56
+            },
+            "logprobs": -1320.5125914769621,
+            "tokens": 2099,
+            "problem_name": "630_o_arrow_1929"
+        },
+        "1271_c_shawarma_tent_643": {
+            "file_path": "codecontests_original/cluster4/1271_c_shawarma_tent_643/main.py",
+            "metrics": {
+                "loc": 54,
+                "sloc": 45,
+                "lloc": 45,
+                "comments": 2,
+                "multi": 0,
+                "blank": 7,
+                "cyclomatic": 0
+            },
+            "logprobs": -353.60010625042565,
+            "tokens": 318,
+            "problem_name": "1271_c_shawarma_tent_643"
+        },
+        "934_e_a_colourful_prospect_3399": {
+            "file_path": "codecontests_original/cluster4/934_e_a_colourful_prospect_3399/main.py",
+            "metrics": {
+                "loc": 138,
+                "sloc": 121,
+                "lloc": 121,
+                "comments": 8,
+                "multi": 0,
+                "blank": 9,
+                "cyclomatic": 39
+            },
+            "logprobs": -912.3764497034142,
+            "tokens": 1371,
+            "problem_name": "934_e_a_colourful_prospect_3399"
+        },
+        "514_b_han_solo_and_lazer_gun_9314": {
+            "file_path": "codecontests_original/cluster4/514_b_han_solo_and_lazer_gun_9314/main.py",
+            "metrics": {
+                "loc": 26,
+                "sloc": 19,
+                "lloc": 19,
+                "comments": 4,
+                "multi": 0,
+                "blank": 4,
+                "cyclomatic": 0
+            },
+            "logprobs": -334.5114056931662,
+            "tokens": 228,
+            "problem_name": "514_b_han_solo_and_lazer_gun_9314"
+        },
+        "850_a_five_dimensional_points_3812": {
+            "file_path": "codecontests_original/cluster4/850_a_five_dimensional_points_3812/main.py",
+            "metrics": {
+                "loc": 42,
+                "sloc": 37,
+                "lloc": 37,
+                "comments": 1,
+                "multi": 0,
+                "blank": 4,
+                "cyclomatic": 2
+            },
+            "logprobs": -434.69600474182937,
+            "tokens": 265,
+            "problem_name": "850_a_five_dimensional_points_3812"
+        }
+    },
+    "aggregated_metrics_refactored": {
+        "logprobs": -12902.08518766823,
+        "tokens": 17923,
+        "loc": 1904,
+        "sloc": 1504,
+        "lloc": 1551,
+        "comments": 96,
+        "multi": 19,
+        "blank": 284,
+        "cyclomatic": 336
+    },
+    "aggregated_metrics_original": {
+        "logprobs": -14665.162927108895,
+        "tokens": 17693,
+        "loc": 1900,
+        "sloc": 1504,
+        "lloc": 1550,
+        "comments": 96,
+        "multi": 15,
+        "blank": 284,
+        "cyclomatic": 336
+    },
+    "comparison_ratios": {
+        "tokens_refactored_div_original": 1.0129994913242526,
+        "logprobs_refactored_div_original": 0.8797778280266103,
+        "avg_logprob_per_token_original": -0.8288680793030517,
+        "avg_logprob_per_token_refactored": -0.7198619197493852
+    }
+}

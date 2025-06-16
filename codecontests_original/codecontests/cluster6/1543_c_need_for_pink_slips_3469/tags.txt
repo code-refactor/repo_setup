@@ -1,0 +1,6 @@
+bitmasks
+brute force
+dfs and similar
+implementation
+math
+probabilities

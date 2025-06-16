@@ -1,0 +1,6 @@
+constructive algorithms
+dfs and similar
+dp
+graphs
+greedy
+shortest paths

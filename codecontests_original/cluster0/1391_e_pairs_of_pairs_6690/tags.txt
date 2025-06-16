@@ -1,0 +1,5 @@
+constructive algorithms
+dfs and similar
+graphs
+greedy
+trees

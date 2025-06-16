@@ -1,0 +1,218 @@
+Running tests for codecontests/cluster4...
+
+====================================
+Testing problem: 1046_i_say_hello_9380
+====================================
+✅ Problem 1046_i_say_hello_9380: Results: 10/10 tests passed
+
+====================================
+Testing problem: 1163_c1_power_transmission_easy_edition_2411
+====================================
+✅ Problem 1163_c1_power_transmission_easy_edition_2411: Results: 10/10 tests passed
+
+====================================
+Testing problem: 1163_c2_power_transmission_hard_edition_12093
+====================================
+✅ Problem 1163_c2_power_transmission_hard_edition_12093: Results: 10/10 tests passed
+
+====================================
+Testing problem: 1271_c_shawarma_tent_643
+====================================
+✅ Problem 1271_c_shawarma_tent_643: Results: 10/10 tests passed
+
+====================================
+Testing problem: 135_b_rectangle_and_square_9812
+====================================
+✅ Problem 135_b_rectangle_and_square_9812: Results: 10/10 tests passed
+
+====================================
+Testing problem: 136_d_rectangle_and_square_9500
+====================================
+❌ Problem 136_d_rectangle_and_square_9500: Results: 6/10 tests passed
+Sample errors:
+Test #1: FAILED ❌
+Test #3: FAILED ❌
+Test #6: FAILED ❌
+Test #9: FAILED ❌
+...
+
+====================================
+Testing problem: 13_b_letter_a_6066
+====================================
+✅ Problem 13_b_letter_a_6066: Results: 10/10 tests passed
+
+====================================
+Testing problem: 1468_f_full_turn_7213
+====================================
+✅ Problem 1468_f_full_turn_7213: Results: 10/10 tests passed
+
+====================================
+Testing problem: 165_a_supercentral_point_7945
+====================================
+✅ Problem 165_a_supercentral_point_7945: Results: 10/10 tests passed
+
+====================================
+Testing problem: 183_b_zoo_1910
+====================================
+✅ Problem 183_b_zoo_1910: Results: 10/10 tests passed
+
+====================================
+Testing problem: 2_c_commentator_problem_4414
+====================================
+❌ Problem 2_c_commentator_problem_4414: Results: 0/10 tests passed
+Sample errors:
+Test #1: FAILED ❌
+Test #2: FAILED ❌
+Test #3: FAILED ❌
+Test #4: FAILED ❌
+Test #5: FAILED ❌
+...
+
+====================================
+Testing problem: 32_e_hideandseek_3373
+====================================
+✅ Problem 32_e_hideandseek_3373: Results: 10/10 tests passed
+
+====================================
+Testing problem: 334_b_eight_point_sets_7016
+====================================
+✅ Problem 334_b_eight_point_sets_7016: Results: 10/10 tests passed
+
+====================================
+Testing problem: 407_a_triangle_11184
+====================================
+❌ Problem 407_a_triangle_11184: Results: 2/10 tests passed
+Sample errors:
+Test #1: FAILED ❌
+Test #2: FAILED ❌
+Test #4: FAILED ❌
+Test #6: FAILED ❌
+Test #7: FAILED ❌
+...
+
+====================================
+Testing problem: 464_b_restore_cube__2130
+====================================
+❌ Problem 464_b_restore_cube__2130: Results: 7/10 tests passed
+Sample errors:
+Test #7: FAILED ❌
+Test #8: FAILED ❌
+Test #10: FAILED ❌
+...
+
+====================================
+Testing problem: 498_a_crazy_town_4318
+====================================
+✅ Problem 498_a_crazy_town_4318: Results: 10/10 tests passed
+
+====================================
+Testing problem: 499_c_crazy_town_6399
+====================================
+✅ Problem 499_c_crazy_town_6399: Results: 10/10 tests passed
+
+====================================
+Testing problem: 514_b_han_solo_and_lazer_gun_9314
+====================================
+✅ Problem 514_b_han_solo_and_lazer_gun_9314: Results: 10/10 tests passed
+
+====================================
+Testing problem: 552_d_vanya_and_triangles_5048
+====================================
+✅ Problem 552_d_vanya_and_triangles_5048: Results: 10/10 tests passed
+
+====================================
+Testing problem: 598_f_cut_length_4738
+====================================
+❌ Problem 598_f_cut_length_4738: Results: 1/10 tests passed
+Sample errors:
+Test #1: FAILED ❌
+Test #2: FAILED ❌
+Test #3: FAILED ❌
+Test #4: FAILED ❌
+Test #5: FAILED ❌
+...
+
+====================================
+Testing problem: 617_d_polyline_7236
+====================================
+✅ Problem 617_d_polyline_7236: Results: 10/10 tests passed
+
+====================================
+Testing problem: 618_c_constellation_3489
+====================================
+❌ Problem 618_c_constellation_3489: Results: 1/10 tests passed
+Sample errors:
+Test #1: FAILED ❌
+Test #2: FAILED ❌
+Test #3: FAILED ❌
+Test #5: FAILED ❌
+Test #6: FAILED ❌
+...
+
+====================================
+Testing problem: 630_o_arrow_1929
+====================================
+❌ Problem 630_o_arrow_1929: Results: 0/10 tests passed
+Sample errors:
+Test #1: FAILED ❌
+Test #2: FAILED ❌
+Test #3: FAILED ❌
+Test #4: FAILED ❌
+Test #5: FAILED ❌
+...
+
+====================================
+Testing problem: 659_d_bicycle_race_5157
+====================================
+✅ Problem 659_d_bicycle_race_5157: Results: 10/10 tests passed
+
+====================================
+Testing problem: 749_b_parallelogram_is_back_2975
+====================================
+❌ Problem 749_b_parallelogram_is_back_2975: Results: 5/10 tests passed
+Sample errors:
+Test #1: FAILED ❌
+Test #3: FAILED ❌
+Test #4: FAILED ❌
+Test #6: FAILED ❌
+Test #10: FAILED ❌
+...
+
+====================================
+Testing problem: 850_a_five_dimensional_points_3812
+====================================
+✅ Problem 850_a_five_dimensional_points_3812: Results: 10/10 tests passed
+
+====================================
+Testing problem: 886_f_symmetric_projections_6728
+====================================
+✅ Problem 886_f_symmetric_projections_6728: Results: 10/10 tests passed
+
+====================================
+Testing problem: 889_d_symmetric_projections_6832
+====================================
+✅ Problem 889_d_symmetric_projections_6832: Results: 10/10 tests passed
+
+====================================
+Testing problem: 934_e_a_colourful_prospect_3399
+====================================
+✅ Problem 934_e_a_colourful_prospect_3399: Results: 10/10 tests passed
+
+====================================
+Testing problem: 961_d_pair_of_lines_12769
+====================================
+✅ Problem 961_d_pair_of_lines_12769: Results: 10/10 tests passed
+
+====================================
+Final Results: 22/30 problems passed all tests
+====================================
+Problems with failing tests:
+- 136_d_rectangle_and_square_9500
+- 2_c_commentator_problem_4414
+- 407_a_triangle_11184
+- 464_b_restore_cube__2130
+- 598_f_cut_length_4738
+- 618_c_constellation_3489
+- 630_o_arrow_1929
+- 749_b_parallelogram_is_back_2975
+⚠️ Some problems in cluster4 failed tests.

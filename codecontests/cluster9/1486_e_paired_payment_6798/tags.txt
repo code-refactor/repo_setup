@@ -1,0 +1,7 @@
+binary search
+brute force
+constructive algorithms
+dp
+flows
+graphs
+shortest paths

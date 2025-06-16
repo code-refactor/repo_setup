@@ -1,0 +1,163 @@
+# 690_D2. The Wall (medium)
+
+**ID:** 690_d2_the_wall_medium_2243
+**Difficulty:** 10
+
+## Description
+
+Heidi the Cow is aghast: cracks in the northern Wall? Zombies gathering outside, forming groups, preparing their assault? This must not happen! Quickly, she fetches her HC2 (Handbook of Crazy Constructions) and looks for the right chapter:
+
+How to build a wall:
+
+  1. Take a set of bricks.
+  2. Select one of the possible wall designs. Computing the number of possible designs is left as an exercise to the reader.
+  3. Place bricks on top of each other, according to the chosen design.
+
+
+
+This seems easy enough. But Heidi is a Coding Cow, not a Constructing Cow. Her mind keeps coming back to point 2b. Despite the imminent danger of a zombie onslaught, she wonders just how many possible walls she could build with up to n bricks.
+
+A wall is a set of wall segments as defined in the easy version. How many different walls can be constructed such that the wall consists of at least 1 and at most n bricks? Two walls are different if there exist a column c and a row r such that one wall has a brick in this spot, and the other does not.
+
+Along with n, you will be given C, the width of the wall (as defined in the easy version). Return the number of different walls modulo 106 + 3.
+
+Input
+
+The first line contains two space-separated integers n and C, 1 ≤ n ≤ 500000, 1 ≤ C ≤ 200000.
+
+Output
+
+Print the number of different walls that Heidi could build, modulo 106 + 3.
+
+Examples
+
+Input
+
+5 1
+
+
+Output
+
+5
+
+
+Input
+
+2 2
+
+
+Output
+
+5
+
+
+Input
+
+3 2
+
+
+Output
+
+9
+
+
+Input
+
+11 5
+
+
+Output
+
+4367
+
+
+Input
+
+37 63
+
+
+Output
+
+230574
+
+Note
+
+The number 106 + 3 is prime.
+
+In the second sample case, the five walls are: 
+    
+    
+      
+                B        B  
+    B., .B, BB, B., and .B  
+    
+
+In the third sample case, the nine walls are the five as in the second sample case and in addition the following four: 
+    
+    
+      
+    B    B  
+    B    B  B        B  
+    B., .B, BB, and BB  
+    
+
+## Categories
+
+- combinatorics
+
+## Source
+
+Codeforces
+
+## Examples
+
+### Example 1
+
+**Input**:
+```
+37 63
+```
+
+**Output**:
+```
+230574
+```
+
+### Example 2
+
+**Input**:
+```
+11 5
+```
+
+**Output**:
+```
+4367
+```
+
+### Example 3
+
+**Input**:
+```
+3 2
+```
+
+**Output**:
+```
+9
+```
+
+
+## Testing
+
+Run the solution with:
+
+```bash
+./run.sh
+```
+
+Or test with a specific input file:
+
+```bash
+uv run main.py < tests/input_1.txt
+```

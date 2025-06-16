@@ -1,0 +1,6 @@
+bitmasks
+constructive algorithms
+dfs and similar
+greedy
+math
+trees
