@@ -1,0 +1,63 @@
+Processed unified/conftest.py: logprob=-252.22, tokens=52
+Processed unified/setup.py: logprob=-320.08, tokens=147
+Processed unified/gamevault/utils.py: logprob=-878.92, tokens=1264
+Processed unified/gamevault/__init__.py: logprob=-570.02, tokens=1535
+Processed unified/gamevault/models.py: logprob=-1239.99, tokens=3191
+Processed unified/gamevault/config.py: logprob=-1734.07, tokens=4757
+Processed unified/common/__init__.py: logprob=-391.17, tokens=4883
+Processed unified/creative_vault/utils.py: logprob=-1561.84, tokens=7238
+Processed unified/creative_vault/__init__.py: logprob=-510.62, tokens=7476
+Processed unified/creative_vault/interfaces.py: logprob=-1154.30, tokens=9610
+Processed unified/creative_vault/__main__.py: logprob=-1407.19, tokens=12103
+Processed unified/gamevault/platform_config/__init__.py: logprob=-312.96, tokens=12188
+Processed unified/gamevault/platform_config/manager.py: logprob=-2189.28, tokens=17683
+Processed unified/gamevault/asset_optimization/deduplication.py: logprob=-1103.56, tokens=19815
+Processed unified/gamevault/asset_optimization/compressor.py: logprob=-811.77, tokens=21193
+Processed unified/gamevault/asset_optimization/__init__.py: logprob=-427.01, tokens=21464
+Processed unified/gamevault/asset_optimization/manager.py: logprob=-1752.63, tokens=23810
+Processed unified/gamevault/asset_optimization/chunking.py: logprob=-1355.58, tokens=26348
+Processed unified/gamevault/feedback_system/__init__.py: logprob=-307.81, tokens=26462
+Processed unified/gamevault/feedback_system/manager.py: logprob=-1055.00, tokens=28970
+Processed unified/gamevault/feedback_system/analysis.py: logprob=-1540.88, tokens=31443
+Processed unified/gamevault/feedback_system/database.py: logprob=-1228.29, tokens=35063
+Processed unified/gamevault/backup_engine/version_tracker.py: logprob=-1146.36, tokens=37361
+Processed unified/gamevault/backup_engine/__init__.py: logprob=-404.71, tokens=37539
+Processed unified/gamevault/backup_engine/chunker.py: logprob=-966.12, tokens=38954
+Processed unified/gamevault/backup_engine/storage.py: logprob=-1141.46, tokens=41002
+Processed unified/gamevault/backup_engine/engine.py: logprob=-2200.08, tokens=44184
+Processed unified/gamevault/milestone_management/__init__.py: logprob=-300.61, tokens=44262
+Processed unified/gamevault/milestone_management/manager.py: logprob=-1559.35, tokens=47325
+Processed unified/gamevault/playtest_recorder/__init__.py: logprob=-339.38, tokens=47454
+Processed unified/gamevault/playtest_recorder/recorder.py: logprob=-1201.55, tokens=49803
+Processed unified/gamevault/playtest_recorder/storage.py: logprob=-1215.39, tokens=53074
+Processed unified/gamevault/playtest_recorder/analysis.py: logprob=-1121.75, tokens=55868
+Processed unified/tests/digital_artist/conftest.py: logprob=-940.72, tokens=57432
+Processed unified/tests/game_developer/conftest.py: logprob=-236.31, tokens=57595
+Processed unified/common/core/compression.py: logprob=-864.31, tokens=59113
+Processed unified/common/core/__init__.py: logprob=-1170.51, tokens=60050
+Processed unified/common/core/models.py: logprob=-1717.18, tokens=62943
+Processed unified/common/core/file_utils.py: logprob=-1182.10, tokens=65268
+Processed unified/common/core/backup_engine.py: logprob=-1786.99, tokens=69264
+Processed unified/common/core/assets.py: logprob=-1316.85, tokens=71273
+Processed unified/common/core/visual.py: logprob=-972.88, tokens=72639
+Processed unified/common/core/storage.py: logprob=-1452.13, tokens=76075
+Processed unified/common/core/exceptions.py: logprob=-307.59, tokens=76311
+Processed unified/common/core/workspace.py: logprob=-1116.56, tokens=78574
+Processed unified/common/core/config.py: logprob=-1263.52, tokens=80510
+Processed unified/common/core/chunking.py: logprob=-1418.43, tokens=83383
+Processed unified/common/core/hashing.py: logprob=-707.36, tokens=84752
+Processed unified/creative_vault/visual_diff/diff_generator.py: logprob=-2006.66, tokens=89398
+Processed unified/creative_vault/workspace_capture/environment_capture.py: logprob=-1908.09, tokens=93701
+Processed unified/creative_vault/timeline/timeline_manager.py: logprob=-2461.87, tokens=98498
+Processed unified/creative_vault/backup_engine/incremental_backup.py: logprob=-2152.89, tokens=102009
+Processed unified/creative_vault/element_extraction/extractor.py: logprob=-1750.93, tokens=106807
+Processed unified/creative_vault/asset_tracker/reference_tracker.py: logprob=-3036.93, tokens=112536
+
+=== Summary ===
+Full Repo Log Probability: -63472.75
+Total Tokens: 112536
+Total Logical LOC (LLOC): 6823
+Total Source LOC (SLOC): 8445
+Total Cyclomatic Complexity: 2168
+Total Internal Imports: 0
+Written metrics to large_repos/incremental_backup_system/unified/LIBRARYBENCH_metrics.json

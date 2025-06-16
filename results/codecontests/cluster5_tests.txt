@@ -1,0 +1,167 @@
+Running tests for codecontests/cluster5...
+
+====================================
+Testing problem: 1003_f_abbreviation_11357
+====================================
+✅ Problem 1003_f_abbreviation_11357: Results: 10/10 tests passed
+
+====================================
+Testing problem: 1093_f_vasya_and_array_10216
+====================================
+✅ Problem 1093_f_vasya_and_array_10216: Results: 10/10 tests passed
+
+====================================
+Testing problem: 1120_c_compress_string_7093
+====================================
+✅ Problem 1120_c_compress_string_7093: Results: 10/10 tests passed
+
+====================================
+Testing problem: 1129_c_morse_code_3034
+====================================
+✅ Problem 1129_c_morse_code_3034: Results: 10/10 tests passed
+
+====================================
+Testing problem: 1131_e_string_multiplication_636
+====================================
+✅ Problem 1131_e_string_multiplication_636: Results: 10/10 tests passed
+
+====================================
+Testing problem: 1149_b_three_religions_220
+====================================
+✅ Problem 1149_b_three_religions_220: Results: 10/10 tests passed
+
+====================================
+Testing problem: 1183_h_subsequences_hard_version_3870
+====================================
+✅ Problem 1183_h_subsequences_hard_version_3870: Results: 10/10 tests passed
+
+====================================
+Testing problem: 1188_c_array_beauty_9595
+====================================
+✅ Problem 1188_c_array_beauty_9595: Results: 10/10 tests passed
+
+====================================
+Testing problem: 118_d_caesars_legions_2724
+====================================
+✅ Problem 118_d_caesars_legions_2724: Results: 10/10 tests passed
+
+====================================
+Testing problem: 126_b_password_13138
+====================================
+✅ Problem 126_b_password_13138: Results: 10/10 tests passed
+
+====================================
+Testing problem: 1303_e_erase_subsequences_10330
+====================================
+✅ Problem 1303_e_erase_subsequences_10330: Results: 10/10 tests passed
+
+====================================
+Testing problem: 1337_e_kaavi_and_magic_spell_10539
+====================================
+✅ Problem 1337_e_kaavi_and_magic_spell_10539: Results: 10/10 tests passed
+
+====================================
+Testing problem: 1422_e_minlexes_13041
+====================================
+✅ Problem 1422_e_minlexes_13041: Results: 10/10 tests passed
+
+====================================
+Testing problem: 1499_e_chaotic_merge_7526
+====================================
+✅ Problem 1499_e_chaotic_merge_7526: Results: 10/10 tests passed
+
+====================================
+Testing problem: 14_e_camels_3676
+====================================
+✅ Problem 14_e_camels_3676: Results: 10/10 tests passed
+
+====================================
+Testing problem: 404_d_minesweeper_1d_2023
+====================================
+✅ Problem 404_d_minesweeper_1d_2023: Results: 10/10 tests passed
+
+====================================
+Testing problem: 44_h_phone_number_12435
+====================================
+✅ Problem 44_h_phone_number_12435: Results: 10/10 tests passed
+
+====================================
+Testing problem: 476_e_dreamoon_and_strings_2026
+====================================
+✅ Problem 476_e_dreamoon_and_strings_2026: Results: 10/10 tests passed
+
+====================================
+Testing problem: 477_c_dreamoon_and_strings_12540
+====================================
+✅ Problem 477_c_dreamoon_and_strings_12540: Results: 10/10 tests passed
+
+====================================
+Testing problem: 597_c_subsequences_6091
+====================================
+✅ Problem 597_c_subsequences_6091: Results: 10/10 tests passed
+
+====================================
+Testing problem: 61_e_enemy_is_weak_2240
+====================================
+✅ Problem 61_e_enemy_is_weak_2240: Results: 10/10 tests passed
+
+====================================
+Testing problem: 633_c_spy_syndrome_2_3594
+====================================
+❌ Problem 633_c_spy_syndrome_2_3594: Results: 8/10 tests passed
+Sample errors:
+Test #4: FAILED ❌
+Test #8: FAILED ❌
+...
+
+====================================
+Testing problem: 653_b_bear_and_compressing_5990
+====================================
+✅ Problem 653_b_bear_and_compressing_5990: Results: 10/10 tests passed
+
+====================================
+Testing problem: 666_a_reberland_linguistics_4325
+====================================
+✅ Problem 666_a_reberland_linguistics_4325: Results: 10/10 tests passed
+
+====================================
+Testing problem: 667_c_reberland_linguistics_6406
+====================================
+✅ Problem 667_c_reberland_linguistics_6406: Results: 10/10 tests passed
+
+====================================
+Testing problem: 682_d_alyona_and_strings_1931
+====================================
+✅ Problem 682_d_alyona_and_strings_1931: Results: 10/10 tests passed
+
+====================================
+Testing problem: 774_h_repairing_of_string_9638
+====================================
+✅ Problem 774_h_repairing_of_string_9638: Results: 10/10 tests passed
+
+====================================
+Testing problem: 805_d_minimum_number_of_steps_8284
+====================================
+✅ Problem 805_d_minimum_number_of_steps_8284: Results: 10/10 tests passed
+
+====================================
+Testing problem: 900_e_maximum_questions_7560
+====================================
+✅ Problem 900_e_maximum_questions_7560: Results: 10/10 tests passed
+
+====================================
+Testing problem: 91_a_newspaper_headline_6625
+====================================
+✅ Problem 91_a_newspaper_headline_6625: Results: 10/10 tests passed
+
+====================================
+Testing problem: __pycache__
+====================================
+Error: run.sh script not found for problem __pycache__
+
+====================================
+Final Results: 29/30 problems passed all tests
+====================================
+Problems with failing tests:
+- 633_c_spy_syndrome_2_3594
+⚠️ Some problems in cluster5 failed tests.

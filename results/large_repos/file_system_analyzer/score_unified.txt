@@ -1,0 +1,66 @@
+Processed unified/conftest.py: logprob=-249.77, tokens=53
+Processed unified/setup.py: logprob=-302.76, tokens=153
+Processed unified/file_system_analyzer/scanner.py: logprob=-1599.66, tokens=2798
+Processed unified/file_system_analyzer/__init__.py: logprob=-260.34, tokens=2861
+Processed unified/file_system_analyzer_db_admin/__init__.py: logprob=-256.66, tokens=2932
+Processed unified/file_system_analyzer_db_admin/main.py: logprob=-1279.67, tokens=5082
+Processed unified/common/__init__.py: logprob=-291.70, tokens=5160
+Processed unified/file_system_analyzer/reporting/__init__.py: logprob=-223.84, tokens=5223
+Processed unified/file_system_analyzer/reporting/reports.py: logprob=-1196.17, tokens=6829
+Processed unified/file_system_analyzer/reporting/frameworks.py: logprob=-1372.90, tokens=9422
+Processed unified/file_system_analyzer/detection/scanner.py: logprob=-1926.60, tokens=12483
+Processed unified/file_system_analyzer/detection/__init__.py: logprob=-206.65, tokens=12531
+Processed unified/file_system_analyzer/detection/patterns.py: logprob=-1281.17, tokens=15034
+Processed unified/file_system_analyzer/custody/__init__.py: logprob=-251.60, tokens=15095
+Processed unified/file_system_analyzer/custody/evidence.py: logprob=-1576.57, tokens=17680
+Processed unified/file_system_analyzer/utils/__init__.py: logprob=-207.62, tokens=17719
+Processed unified/file_system_analyzer/utils/crypto.py: logprob=-706.51, tokens=19022
+Processed unified/file_system_analyzer/audit/logger.py: logprob=-1573.98, tokens=21405
+Processed unified/file_system_analyzer/audit/__init__.py: logprob=-269.39, tokens=21460
+Processed unified/file_system_analyzer/differential/__init__.py: logprob=-226.90, tokens=21516
+Processed unified/file_system_analyzer/differential/analyzer.py: logprob=-1322.10, tokens=24061
+Processed unified/file_system_analyzer_db_admin/interfaces/export.py: logprob=-245.04, tokens=24129
+Processed unified/file_system_analyzer_db_admin/interfaces/__init__.py: logprob=-254.10, tokens=24188
+Processed unified/file_system_analyzer_db_admin/interfaces/api.py: logprob=-1707.60, tokens=28247
+Processed unified/file_system_analyzer_db_admin/interfaces/filesystem.py: logprob=-1507.58, tokens=30109
+Processed unified/file_system_analyzer_db_admin/transaction_log_analysis/__init__.py: logprob=-241.05, tokens=30171
+Processed unified/file_system_analyzer_db_admin/transaction_log_analysis/log_analyzer.py: logprob=-3636.53, tokens=36434
+Processed unified/file_system_analyzer_db_admin/utils/__init__.py: logprob=-195.60, tokens=36472
+Processed unified/file_system_analyzer_db_admin/utils/types.py: logprob=-689.13, tokens=37417
+Processed unified/file_system_analyzer_db_admin/utils/file_utils.py: logprob=-923.13, tokens=38587
+Processed unified/file_system_analyzer_db_admin/backup_compression/__init__.py: logprob=-225.47, tokens=38641
+Processed unified/file_system_analyzer_db_admin/backup_compression/compression_analyzer.py: logprob=-3542.20, tokens=45683
+Processed unified/file_system_analyzer_db_admin/tablespace_fragmentation/__init__.py: logprob=-256.92, tokens=45738
+Processed unified/file_system_analyzer_db_admin/tablespace_fragmentation/fragmentation_analyzer.py: logprob=-3121.64, tokens=51100
+Processed unified/file_system_analyzer_db_admin/index_efficiency/__init__.py: logprob=-232.38, tokens=51153
+Processed unified/file_system_analyzer_db_admin/index_efficiency/index_analyzer.py: logprob=-3538.91, tokens=56944
+Processed unified/file_system_analyzer_db_admin/db_file_recognition/detector.py: logprob=-1581.26, tokens=59559
+Processed unified/file_system_analyzer_db_admin/db_file_recognition/__init__.py: logprob=-229.05, tokens=59613
+Processed unified/file_system_analyzer_db_admin/db_file_recognition/file_patterns.py: logprob=-1268.98, tokens=61519
+Processed unified/tests/security_auditor/conftest.py: logprob=-763.54, tokens=62661
+Processed unified/tests/security_auditor/__init__.py: logprob=-195.56, tokens=62699
+Processed unified/tests/db_admin/conftest.py: logprob=-1929.35, tokens=67366
+Processed unified/common/core/__init__.py: logprob=-331.55, tokens=67476
+Processed unified/common/core/analysis/base.py: logprob=-1088.00, tokens=69461
+Processed unified/common/core/analysis/__init__.py: logprob=-249.16, tokens=69569
+Processed unified/common/core/analysis/caching.py: logprob=-955.02, tokens=70994
+Processed unified/common/core/filesystem/scanner.py: logprob=-1438.84, tokens=73484
+Processed unified/common/core/filesystem/__init__.py: logprob=-229.99, tokens=73552
+Processed unified/common/core/export/__init__.py: logprob=-189.73, tokens=73608
+Processed unified/common/core/export/interfaces.py: logprob=-2288.14, tokens=77705
+Processed unified/common/core/types/enums.py: logprob=-409.24, tokens=78059
+Processed unified/common/core/types/__init__.py: logprob=-283.88, tokens=78197
+Processed unified/common/core/types/models.py: logprob=-931.10, tokens=79129
+Processed unified/common/core/patterns/__init__.py: logprob=-452.62, tokens=79385
+Processed unified/common/core/patterns/compiler.py: logprob=-1895.79, tokens=82340
+Processed unified/common/core/patterns/engine.py: logprob=-1603.28, tokens=85258
+Processed unified/common/core/patterns/validators.py: logprob=-2074.16, tokens=88754
+
+=== Summary ===
+Full Repo Log Probability: -57288.04
+Total Tokens: 88754
+Total Logical LOC (LLOC): 5221
+Total Source LOC (SLOC): 7339
+Total Cyclomatic Complexity: 1793
+Total Internal Imports: 0
+Written metrics to large_repos/file_system_analyzer/unified/LIBRARYBENCH_metrics.json

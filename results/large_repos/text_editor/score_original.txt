@@ -1,0 +1,48 @@
+Processed text_editor/text_editor_writer/run_tests.py: logprob=-430.81, tokens=521
+Processed text_editor/text_editor_student/conftest.py: logprob=-203.53, tokens=571
+Processed text_editor/text_editor_student/setup.py: logprob=-210.49, tokens=663
+Processed text_editor/text_editor_writer/tests/conftest.py: logprob=-612.64, tokens=1208
+Processed text_editor/text_editor_writer/src/writer_text_editor/navigation.py: logprob=-2062.49, tokens=7487
+Processed text_editor/text_editor_writer/src/writer_text_editor/document.py: logprob=-626.88, tokens=8992
+Processed text_editor/text_editor_writer/src/writer_text_editor/client.py: logprob=-1573.18, tokens=11191
+Processed text_editor/text_editor_writer/src/writer_text_editor/revision.py: logprob=-1358.46, tokens=15144
+Processed text_editor/text_editor_writer/src/writer_text_editor/__init__.py: logprob=-436.10, tokens=15378
+Processed text_editor/text_editor_writer/src/writer_text_editor/statistics.py: logprob=-1952.95, tokens=19233
+Processed text_editor/text_editor_writer/src/writer_text_editor/focus.py: logprob=-716.88, tokens=20330
+Processed text_editor/text_editor_writer/src/writer_text_editor/narrative.py: logprob=-2431.09, tokens=24318
+Processed text_editor/text_editor_writer/src/writer_text_editor/utils/__init__.py: logprob=-194.09, tokens=24355
+Processed text_editor/text_editor_student/text_editor/__init__.py: logprob=-189.32, tokens=24387
+Processed text_editor/text_editor_student/tests/__init__.py: logprob=-172.24, tokens=24425
+Processed text_editor/text_editor_student/text_editor/features/__init__.py: logprob=-207.91, tokens=24457
+Processed text_editor/text_editor_student/text_editor/features/models.py: logprob=-903.13, tokens=25887
+Processed text_editor/text_editor_student/text_editor/features/manager.py: logprob=-1583.14, tokens=28592
+Processed text_editor/text_editor_student/text_editor/features/integration.py: logprob=-1587.07, tokens=31213
+Processed text_editor/text_editor_student/text_editor/study/__init__.py: logprob=-199.41, tokens=31245
+Processed text_editor/text_editor_student/text_editor/study/models.py: logprob=-1419.96, tokens=34210
+Processed text_editor/text_editor_student/text_editor/study/manager.py: logprob=-1854.94, tokens=38094
+Processed text_editor/text_editor_student/text_editor/interview/problems.py: logprob=-1723.08, tokens=44165
+Processed text_editor/text_editor_student/text_editor/interview/__init__.py: logprob=-194.66, tokens=44197
+Processed text_editor/text_editor_student/text_editor/interview/models.py: logprob=-831.58, tokens=45810
+Processed text_editor/text_editor_student/text_editor/interview/manager.py: logprob=-2071.95, tokens=49304
+Processed text_editor/text_editor_student/text_editor/learning/__init__.py: logprob=-196.22, tokens=49336
+Processed text_editor/text_editor_student/text_editor/learning/models.py: logprob=-757.70, tokens=50464
+Processed text_editor/text_editor_student/text_editor/learning/manager.py: logprob=-2771.84, tokens=56309
+Processed text_editor/text_editor_student/text_editor/core/cursor.py: logprob=-504.59, tokens=57439
+Processed text_editor/text_editor_student/text_editor/core/__init__.py: logprob=-197.41, tokens=57472
+Processed text_editor/text_editor_student/text_editor/core/history.py: logprob=-507.41, tokens=58539
+Processed text_editor/text_editor_student/text_editor/core/editor.py: logprob=-1138.75, tokens=61238
+Processed text_editor/text_editor_student/text_editor/core/buffer.py: logprob=-762.32, tokens=62730
+Processed text_editor/text_editor_student/text_editor/core/file_manager.py: logprob=-527.47, tokens=63500
+Processed text_editor/text_editor_student/text_editor/customization/__init__.py: logprob=-198.07, tokens=63532
+Processed text_editor/text_editor_student/text_editor/customization/models.py: logprob=-675.06, tokens=64498
+Processed text_editor/text_editor_student/text_editor/customization/manager.py: logprob=-2384.01, tokens=68076
+Processed text_editor/text_editor_student/text_editor/customization/playground.py: logprob=-1285.93, tokens=69979
+
+=== Summary ===
+Full Repo Log Probability: -37654.76
+Total Tokens: 69979
+Total Logical LOC (LLOC): 4324
+Total Source LOC (SLOC): 5899
+Total Cyclomatic Complexity: 1323
+Total Internal Imports: 0
+Written metrics to large_repos/text_editor/LIBRARYBENCH_metrics.json

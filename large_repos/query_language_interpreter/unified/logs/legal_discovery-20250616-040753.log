@@ -1,0 +1,6 @@
+2025-06-16 04:07:53,002 [INFO] legal_discovery - Parsing query: CONTAINS(content, 'agreement', 'liability') (interpreter.py:154)
+2025-06-16 04:07:53,002 [INFO] legal_discovery - Parsing query: CONTAINS(content, 'agreement', 'liability') (interpreter.py:154)
+2025-06-16 04:07:53,002 [INFO] legal_discovery - Parsing query: NEAR('statute', 'limitations', 10, 'WORDS') (interpreter.py:154)
+2025-06-16 04:07:53,002 [INFO] legal_discovery - Parsing query: NEAR('statute', 'limitations', 10, 'WORDS') (interpreter.py:154)
+2025-06-16 04:07:53,002 [INFO] legal_discovery - Parsing query: legal memorandum (interpreter.py:154)
+2025-06-16 04:07:53,002 [INFO] legal_discovery - Parsing query: legal memorandum (interpreter.py:154)

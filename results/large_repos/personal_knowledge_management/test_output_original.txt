@@ -1,0 +1,213 @@
+============================= test session starts ==============================
+platform linux -- Python 3.10.11, pytest-8.3.5, pluggy-1.5.0
+rootdir: /home/justinchiu_cohere_com/minicode/large_repos/personal_knowledge_management/unified
+configfile: pyproject.toml
+plugins: anyio-4.9.0, metadata-3.1.1, json-report-1.5.0, cov-6.1.1
+collected 257 items
+
+tests/academic_researcher/citations/test_formatter_edge_cases.py ....... [  2%]
+....                                                                     [  4%]
+tests/academic_researcher/citations/test_formatters.py ...........       [  8%]
+tests/academic_researcher/citations/test_parser_edge_cases.py ........   [ 11%]
+tests/academic_researcher/citations/test_parsers.py ......               [ 14%]
+tests/academic_researcher/core/test_brain.py .............               [ 19%]
+tests/academic_researcher/core/test_models.py ................           [ 25%]
+tests/academic_researcher/core/test_storage.py ...............           [ 31%]
+tests/academic_researcher/experiments/test_template_functions.py .....   [ 33%]
+tests/academic_researcher/experiments/test_templates.py ......           [ 35%]
+tests/academic_researcher/grants/test_export.py ....                     [ 36%]
+tests/academic_researcher/grants/test_export_functions.py .....          [ 38%]
+tests/academic_researcher/test_bidirectional_linking.py ........         [ 42%]
+tests/academic_researcher/test_citation_accuracy.py .......              [ 44%]
+tests/academic_researcher/test_cli.py ......                             [ 47%]
+tests/academic_researcher/test_collaboration.py ...........              [ 51%]
+tests/academic_researcher/test_experiment_templates.py ............      [ 56%]
+tests/academic_researcher/test_grant_proposals.py ..........             [ 59%]
+tests/academic_researcher/test_main.py ..                                [ 60%]
+tests/academic_researcher/test_performance_optimized.py ...              [ 61%]
+tests/academic_researcher/test_research_questions.py ........            [ 64%]
+tests/academic_researcher/test_workflows.py .....                        [ 66%]
+tests/product_manager/competitive_analysis/test_system.py .............. [ 72%]
+.....                                                                    [ 74%]
+tests/product_manager/decision_registry/test_registry.py ..............  [ 79%]
+tests/product_manager/feedback_analysis/test_engine.py ................. [ 86%]
+                                                                         [ 86%]
+tests/product_manager/prioritization/test_framework.py ...............   [ 92%]
+tests/product_manager/stakeholder_insights/test_manager.py ............. [ 97%]
+.......                                                                  [100%]
+
+=============================== warnings summary ===============================
+tests/academic_researcher/test_experiment_templates.py::TestExperimentTemplates::test_experiment_status_updates
+  /home/justinchiu_cohere_com/.pyenv/versions/3.10.11/lib/python3.10/site-packages/pydantic/main.py:463: UserWarning: Pydantic serializer warnings:
+    PydanticSerializationUnexpectedValue(Expected `datetime` - serialized value may not be as expected [input_value='2023-06-01', input_type=str])
+    return self.__pydantic_serializer__.to_python(
+
+tests/academic_researcher/test_experiment_templates.py::TestExperimentTemplates::test_experiment_status_updates
+  /home/justinchiu_cohere_com/.pyenv/versions/3.10.11/lib/python3.10/site-packages/pydantic/main.py:463: UserWarning: Pydantic serializer warnings:
+    PydanticSerializationUnexpectedValue(Expected `datetime` - serialized value may not be as expected [input_value='2023-06-01', input_type=str])
+    PydanticSerializationUnexpectedValue(Expected `datetime` - serialized value may not be as expected [input_value='2023-08-15', input_type=str])
+    return self.__pydantic_serializer__.to_python(
+
+tests/product_manager/decision_registry/test_registry.py::TestDecisionRegistry::test_link_related_decisions
+  /home/justinchiu_cohere_com/.pyenv/versions/3.10.11/lib/python3.10/site-packages/pydantic/main.py:519: UserWarning: Pydantic serializer warnings:
+    PydanticSerializationUnexpectedValue(Expected `uuid` - serialized value may not be as expected [input_value='4de574ee-1691-46ba-a081-cf2e6d3cef01', input_type=str])
+    return self.__pydantic_serializer__.to_json(
+
+tests/product_manager/decision_registry/test_registry.py::TestDecisionRegistry::test_link_related_decisions
+  /home/justinchiu_cohere_com/.pyenv/versions/3.10.11/lib/python3.10/site-packages/pydantic/main.py:519: UserWarning: Pydantic serializer warnings:
+    PydanticSerializationUnexpectedValue(Expected `uuid` - serialized value may not be as expected [input_value='14183164-cc1e-4a38-a451-180a09b7c11f', input_type=str])
+    return self.__pydantic_serializer__.to_json(
+
+tests/product_manager/decision_registry/test_registry.py::TestDecisionRegistry::test_build_decision_graph
+  /home/justinchiu_cohere_com/.pyenv/versions/3.10.11/lib/python3.10/site-packages/pydantic/main.py:519: UserWarning: Pydantic serializer warnings:
+    PydanticSerializationUnexpectedValue(Expected `uuid` - serialized value may not be as expected [input_value='30362e8a-36a1-4ce1-8039-efae78774428', input_type=str])
+    return self.__pydantic_serializer__.to_json(
+
+tests/product_manager/decision_registry/test_registry.py::TestDecisionRegistry::test_build_decision_graph
+  /home/justinchiu_cohere_com/.pyenv/versions/3.10.11/lib/python3.10/site-packages/pydantic/main.py:519: UserWarning: Pydantic serializer warnings:
+    PydanticSerializationUnexpectedValue(Expected `uuid` - serialized value may not be as expected [input_value='4415724d-1319-494a-a86e-5724f8487e1f', input_type=str])
+    return self.__pydantic_serializer__.to_json(
+
+tests/product_manager/feedback_analysis/test_engine.py::TestFeedbackAnalysisEngine::test_performance_with_large_dataset
+  /home/justinchiu_cohere_com/.pyenv/versions/3.10.11/lib/python3.10/site-packages/sklearn/base.py:1389: ConvergenceWarning: Number of distinct clusters (2) found smaller than n_clusters (5). Possibly due to duplicate points in X.
+    return fit_method(estimator, *args, **kwargs)
+
+tests/product_manager/prioritization/test_framework.py::TestPrioritizationFramework::test_map_strategic_alignment
+  /home/justinchiu_cohere_com/.pyenv/versions/3.10.11/lib/python3.10/site-packages/pydantic/main.py:519: UserWarning: Pydantic serializer warnings:
+    PydanticSerializationUnexpectedValue(Expected `uuid` - serialized value may not be as expected [input_value='98c65684-4af3-4bb5-9bef-dd1cd1f9ce86', input_type=str])
+    PydanticSerializationUnexpectedValue(Expected `uuid` - serialized value may not be as expected [input_value='3652b8d6-b60d-4d0f-9d47-d8fb6c215390', input_type=str])
+    PydanticSerializationUnexpectedValue(Expected `uuid` - serialized value may not be as expected [input_value='e0aabb36-365f-4224-aebb-677617609a1c', input_type=str])
+    return self.__pydantic_serializer__.to_json(
+
+tests/product_manager/prioritization/test_framework.py::TestPrioritizationFramework::test_calculate_strategic_score
+  /home/justinchiu_cohere_com/.pyenv/versions/3.10.11/lib/python3.10/site-packages/pydantic/main.py:519: UserWarning: Pydantic serializer warnings:
+    PydanticSerializationUnexpectedValue(Expected `uuid` - serialized value may not be as expected [input_value='cc7ed92d-0e20-484f-934f-bae8703f9a0a', input_type=str])
+    PydanticSerializationUnexpectedValue(Expected `uuid` - serialized value may not be as expected [input_value='ca34c0ef-28f4-48a6-9194-54ee16e7915e', input_type=str])
+    PydanticSerializationUnexpectedValue(Expected `uuid` - serialized value may not be as expected [input_value='3e03686e-f95c-4cda-9bd4-e39da704db54', input_type=str])
+    return self.__pydantic_serializer__.to_json(
+
+tests/product_manager/prioritization/test_framework.py::TestPrioritizationFramework::test_prioritize_features_weighted
+  /home/justinchiu_cohere_com/.pyenv/versions/3.10.11/lib/python3.10/site-packages/pydantic/main.py:519: UserWarning: Pydantic serializer warnings:
+    PydanticSerializationUnexpectedValue(Expected `uuid` - serialized value may not be as expected [input_value='5e7de1a3-cf79-431e-9413-71e4d0b5e8b1', input_type=str])
+    PydanticSerializationUnexpectedValue(Expected `uuid` - serialized value may not be as expected [input_value='b0cd6346-b08d-4004-9e44-594801238990', input_type=str])
+    return self.__pydantic_serializer__.to_json(
+
+tests/product_manager/prioritization/test_framework.py::TestPrioritizationFramework::test_prioritize_features_other_models
+  /home/justinchiu_cohere_com/.pyenv/versions/3.10.11/lib/python3.10/site-packages/pydantic/main.py:519: UserWarning: Pydantic serializer warnings:
+    PydanticSerializationUnexpectedValue(Expected `uuid` - serialized value may not be as expected [input_value='c7820f41-33ee-43bd-b060-c9894c99244d', input_type=str])
+    PydanticSerializationUnexpectedValue(Expected `uuid` - serialized value may not be as expected [input_value='231f47b5-4a34-4874-9722-2d0db5016824', input_type=str])
+    return self.__pydantic_serializer__.to_json(
+
+tests/product_manager/prioritization/test_framework.py::TestPrioritizationFramework::test_performance_with_large_dataset
+  /home/justinchiu_cohere_com/.pyenv/versions/3.10.11/lib/python3.10/site-packages/pydantic/main.py:519: UserWarning: Pydantic serializer warnings:
+    PydanticSerializationUnexpectedValue(Expected `uuid` - serialized value may not be as expected [input_value='8ccf6f1c-5937-4211-84c9-fc871be55cb4', input_type=str])
+    PydanticSerializationUnexpectedValue(Expected `uuid` - serialized value may not be as expected [input_value='3581b95a-5dc6-4d78-b2c3-4f6c22fc8654', input_type=str])
+    PydanticSerializationUnexpectedValue(Expected `uuid` - serialized value may not be as expected [input_value='526f0737-3cc8-4834-abed-f0f9bb61a767', input_type=str])
+    PydanticSerializationUnexpectedValue(Expected `uuid` - serialized value may not be as expected [input_value='3a023a4d-8017-48aa-a781-7fbb00b68128', input_type=str])
+    PydanticSerializationUnexpectedValue(Expected `uuid` - serialized value may not be as expected [input_value='020fb9a1-6669-40aa-b114-be2f81ea632a', input_type=str])
+    return self.__pydantic_serializer__.to_json(
+
+tests/product_manager/prioritization/test_framework.py::TestPrioritizationFramework::test_performance_with_large_dataset
+  /home/justinchiu_cohere_com/.pyenv/versions/3.10.11/lib/python3.10/site-packages/pydantic/main.py:519: UserWarning: Pydantic serializer warnings:
+    PydanticSerializationUnexpectedValue(Expected `uuid` - serialized value may not be as expected [input_value='8ccf6f1c-5937-4211-84c9-fc871be55cb4', input_type=str])
+    return self.__pydantic_serializer__.to_json(
+
+tests/product_manager/prioritization/test_framework.py::TestPrioritizationFramework::test_performance_with_large_dataset
+  /home/justinchiu_cohere_com/.pyenv/versions/3.10.11/lib/python3.10/site-packages/pydantic/main.py:519: UserWarning: Pydantic serializer warnings:
+    PydanticSerializationUnexpectedValue(Expected `uuid` - serialized value may not be as expected [input_value='8ccf6f1c-5937-4211-84c9-fc871be55cb4', input_type=str])
+    PydanticSerializationUnexpectedValue(Expected `uuid` - serialized value may not be as expected [input_value='3581b95a-5dc6-4d78-b2c3-4f6c22fc8654', input_type=str])
+    return self.__pydantic_serializer__.to_json(
+
+tests/product_manager/prioritization/test_framework.py::TestPrioritizationFramework::test_performance_with_large_dataset
+  /home/justinchiu_cohere_com/.pyenv/versions/3.10.11/lib/python3.10/site-packages/pydantic/main.py:519: UserWarning: Pydantic serializer warnings:
+    PydanticSerializationUnexpectedValue(Expected `uuid` - serialized value may not be as expected [input_value='8ccf6f1c-5937-4211-84c9-fc871be55cb4', input_type=str])
+    PydanticSerializationUnexpectedValue(Expected `uuid` - serialized value may not be as expected [input_value='526f0737-3cc8-4834-abed-f0f9bb61a767', input_type=str])
+    return self.__pydantic_serializer__.to_json(
+
+tests/product_manager/prioritization/test_framework.py::TestPrioritizationFramework::test_performance_with_large_dataset
+  /home/justinchiu_cohere_com/.pyenv/versions/3.10.11/lib/python3.10/site-packages/pydantic/main.py:519: UserWarning: Pydantic serializer warnings:
+    PydanticSerializationUnexpectedValue(Expected `uuid` - serialized value may not be as expected [input_value='8ccf6f1c-5937-4211-84c9-fc871be55cb4', input_type=str])
+    PydanticSerializationUnexpectedValue(Expected `uuid` - serialized value may not be as expected [input_value='3581b95a-5dc6-4d78-b2c3-4f6c22fc8654', input_type=str])
+    PydanticSerializationUnexpectedValue(Expected `uuid` - serialized value may not be as expected [input_value='3a023a4d-8017-48aa-a781-7fbb00b68128', input_type=str])
+    return self.__pydantic_serializer__.to_json(
+
+tests/product_manager/prioritization/test_framework.py::TestPrioritizationFramework::test_performance_with_large_dataset
+  /home/justinchiu_cohere_com/.pyenv/versions/3.10.11/lib/python3.10/site-packages/pydantic/main.py:519: UserWarning: Pydantic serializer warnings:
+    PydanticSerializationUnexpectedValue(Expected `uuid` - serialized value may not be as expected [input_value='8ccf6f1c-5937-4211-84c9-fc871be55cb4', input_type=str])
+    PydanticSerializationUnexpectedValue(Expected `uuid` - serialized value may not be as expected [input_value='020fb9a1-6669-40aa-b114-be2f81ea632a', input_type=str])
+    return self.__pydantic_serializer__.to_json(
+
+tests/product_manager/prioritization/test_framework.py::TestPrioritizationFramework::test_performance_with_large_dataset
+  /home/justinchiu_cohere_com/.pyenv/versions/3.10.11/lib/python3.10/site-packages/pydantic/main.py:519: UserWarning: Pydantic serializer warnings:
+    PydanticSerializationUnexpectedValue(Expected `uuid` - serialized value may not be as expected [input_value='8ccf6f1c-5937-4211-84c9-fc871be55cb4', input_type=str])
+    PydanticSerializationUnexpectedValue(Expected `uuid` - serialized value may not be as expected [input_value='3581b95a-5dc6-4d78-b2c3-4f6c22fc8654', input_type=str])
+    PydanticSerializationUnexpectedValue(Expected `uuid` - serialized value may not be as expected [input_value='526f0737-3cc8-4834-abed-f0f9bb61a767', input_type=str])
+    return self.__pydantic_serializer__.to_json(
+
+tests/product_manager/prioritization/test_framework.py::TestPrioritizationFramework::test_performance_with_large_dataset
+  /home/justinchiu_cohere_com/.pyenv/versions/3.10.11/lib/python3.10/site-packages/pydantic/main.py:519: UserWarning: Pydantic serializer warnings:
+    PydanticSerializationUnexpectedValue(Expected `uuid` - serialized value may not be as expected [input_value='8ccf6f1c-5937-4211-84c9-fc871be55cb4', input_type=str])
+    PydanticSerializationUnexpectedValue(Expected `uuid` - serialized value may not be as expected [input_value='3581b95a-5dc6-4d78-b2c3-4f6c22fc8654', input_type=str])
+    PydanticSerializationUnexpectedValue(Expected `uuid` - serialized value may not be as expected [input_value='020fb9a1-6669-40aa-b114-be2f81ea632a', input_type=str])
+    return self.__pydantic_serializer__.to_json(
+
+tests/product_manager/prioritization/test_framework.py::TestPrioritizationFramework::test_performance_with_large_dataset
+  /home/justinchiu_cohere_com/.pyenv/versions/3.10.11/lib/python3.10/site-packages/pydantic/main.py:519: UserWarning: Pydantic serializer warnings:
+    PydanticSerializationUnexpectedValue(Expected `uuid` - serialized value may not be as expected [input_value='8ccf6f1c-5937-4211-84c9-fc871be55cb4', input_type=str])
+    PydanticSerializationUnexpectedValue(Expected `uuid` - serialized value may not be as expected [input_value='3581b95a-5dc6-4d78-b2c3-4f6c22fc8654', input_type=str])
+    PydanticSerializationUnexpectedValue(Expected `uuid` - serialized value may not be as expected [input_value='526f0737-3cc8-4834-abed-f0f9bb61a767', input_type=str])
+    PydanticSerializationUnexpectedValue(Expected `uuid` - serialized value may not be as expected [input_value='3a023a4d-8017-48aa-a781-7fbb00b68128', input_type=str])
+    return self.__pydantic_serializer__.to_json(
+
+tests/product_manager/prioritization/test_framework.py::TestPrioritizationFramework::test_performance_with_large_dataset
+  /home/justinchiu_cohere_com/.pyenv/versions/3.10.11/lib/python3.10/site-packages/pydantic/main.py:519: UserWarning: Pydantic serializer warnings:
+    PydanticSerializationUnexpectedValue(Expected `uuid` - serialized value may not be as expected [input_value='8ccf6f1c-5937-4211-84c9-fc871be55cb4', input_type=str])
+    PydanticSerializationUnexpectedValue(Expected `uuid` - serialized value may not be as expected [input_value='526f0737-3cc8-4834-abed-f0f9bb61a767', input_type=str])
+    PydanticSerializationUnexpectedValue(Expected `uuid` - serialized value may not be as expected [input_value='020fb9a1-6669-40aa-b114-be2f81ea632a', input_type=str])
+    return self.__pydantic_serializer__.to_json(
+
+tests/product_manager/prioritization/test_framework.py::TestPrioritizationFramework::test_performance_with_large_dataset
+  /home/justinchiu_cohere_com/.pyenv/versions/3.10.11/lib/python3.10/site-packages/pydantic/main.py:519: UserWarning: Pydantic serializer warnings:
+    PydanticSerializationUnexpectedValue(Expected `uuid` - serialized value may not be as expected [input_value='8ccf6f1c-5937-4211-84c9-fc871be55cb4', input_type=str])
+    PydanticSerializationUnexpectedValue(Expected `uuid` - serialized value may not be as expected [input_value='3581b95a-5dc6-4d78-b2c3-4f6c22fc8654', input_type=str])
+    PydanticSerializationUnexpectedValue(Expected `uuid` - serialized value may not be as expected [input_value='3a023a4d-8017-48aa-a781-7fbb00b68128', input_type=str])
+    PydanticSerializationUnexpectedValue(Expected `uuid` - serialized value may not be as expected [input_value='020fb9a1-6669-40aa-b114-be2f81ea632a', input_type=str])
+    return self.__pydantic_serializer__.to_json(
+
+tests/product_manager/prioritization/test_framework.py::TestPrioritizationFramework::test_performance_with_large_dataset
+  /home/justinchiu_cohere_com/.pyenv/versions/3.10.11/lib/python3.10/site-packages/pydantic/main.py:519: UserWarning: Pydantic serializer warnings:
+    PydanticSerializationUnexpectedValue(Expected `uuid` - serialized value may not be as expected [input_value='8ccf6f1c-5937-4211-84c9-fc871be55cb4', input_type=str])
+    PydanticSerializationUnexpectedValue(Expected `uuid` - serialized value may not be as expected [input_value='3581b95a-5dc6-4d78-b2c3-4f6c22fc8654', input_type=str])
+    PydanticSerializationUnexpectedValue(Expected `uuid` - serialized value may not be as expected [input_value='526f0737-3cc8-4834-abed-f0f9bb61a767', input_type=str])
+    PydanticSerializationUnexpectedValue(Expected `uuid` - serialized value may not be as expected [input_value='020fb9a1-6669-40aa-b114-be2f81ea632a', input_type=str])
+    return self.__pydantic_serializer__.to_json(
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+--------------------------------- JSON report ----------------------------------
+report saved to: report.json
+================================ tests coverage ================================
+_______________ coverage: platform linux, python 3.10.11-final-0 _______________
+
+Name                                                         Stmts   Miss  Cover   Missing
+------------------------------------------------------------------------------------------
+researchbrain/__init__.py                                        0      0   100%
+researchbrain/__main__.py                                        3      1    67%   6
+researchbrain/citations/__init__.py                              0      0   100%
+researchbrain/citations/formatters.py                          371     60    84%   19, 101, 153, 192, 197-201, 207, 217, 254, 258, 263-267, 273, 283, 315, 329, 331, 337, 383, 385-389, 397, 429, 438-442, 444-448, 456, 477, 479, 481, 483, 485, 487, 513-514, 561-574, 606
+researchbrain/citations/parsers.py                             225     38    83%   43, 47, 67, 76, 111, 128, 157, 164, 170-171, 177, 211-220, 262, 270, 275-278, 281, 295-296, 332-341, 346
+researchbrain/cli.py                                           692    515    26%   239, 241, 243, 247, 249, 253, 265-267, 289-401, 411-530, 540-670, 681-682, 685-701, 705-717, 720-732, 735-782, 785-810, 833-1032, 1042-1073, 1091-1198, 1208-1235, 1239
+researchbrain/collaboration/__init__.py                          0      0   100%
+researchbrain/core/__init__.py                                   0      0   100%
+researchbrain/core/brain.py                                    711    226    68%   48, 51, 54, 57, 60, 66, 70, 74-75, 81, 85-105, 113-123, 127-141, 145-146, 150-158, 165-173, 213, 245, 255-289, 295-303, 306-310, 332, 343-353, 357-359, 363-365, 400, 460, 464-469, 478-481, 485, 543, 674, 713, 728, 757, 812, 817, 854, 858, 872, 882, 1011, 1033-1036, 1064, 1085, 1106, 1129, 1152-1154, 1169-1170, 1208, 1226-1231, 1250, 1252, 1254, 1274, 1323, 1331, 1367-1378, 1396, 1429, 1458-1479, 1488-1541, 1554, 1562-1563, 1585-1586, 1616-1664
+researchbrain/core/models.py                                   161      0   100%
+researchbrain/core/storage.py                                  443     82    81%   75, 169-171, 198, 219, 223, 236-237, 241-244, 255-259, 265-268, 277, 304, 306, 308, 315-316, 323-334, 433-435, 475-478, 520, 562, 619-622, 628-629, 654, 667, 694-697, 703-704, 794, 854-877, 888-889, 898-900, 913-922
+researchbrain/experiments/__init__.py                            0      0   100%
+researchbrain/experiments/template_definitions/__init__.py       0      0   100%
+researchbrain/experiments/templates.py                          76     11    86%   24-26, 42-43, 53-54, 70, 78-79, 127-130
+researchbrain/grants/__init__.py                                 0      0   100%
+researchbrain/grants/export.py                                  63      1    98%   251
+researchbrain/notes/__init__.py                                  0      0   100%
+researchbrain/research/__init__.py                               0      0   100%
+------------------------------------------------------------------------------------------
+TOTAL                                                         2745    934    66%
+======================= 257 passed, 23 warnings in 7.87s =======================

@@ -1,0 +1,6 @@
+brute force
+combinatorics
+data structures
+geometry
+math
+sortings

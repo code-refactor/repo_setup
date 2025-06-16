@@ -1,0 +1,193 @@
+Running tests for codecontests/cluster2...
+
+====================================
+Testing problem: 1000_e_we_need_more_bosses_8440
+====================================
+✅ Problem 1000_e_we_need_more_bosses_8440: Results: 10/10 tests passed
+
+====================================
+Testing problem: 103_b_cthulhu_4280
+====================================
+✅ Problem 103_b_cthulhu_4280: Results: 10/10 tests passed
+
+====================================
+Testing problem: 104_c_cthulhu_10214
+====================================
+✅ Problem 104_c_cthulhu_10214: Results: 10/10 tests passed
+
+====================================
+Testing problem: 1169_b_pairs_11885
+====================================
+✅ Problem 1169_b_pairs_11885: Results: 10/10 tests passed
+
+====================================
+Testing problem: 1217_d_coloring_edges_7410
+====================================
+❌ Problem 1217_d_coloring_edges_7410: Results: 4/10 tests passed
+Sample errors:
+Test #1: FAILED ❌
+Test #3: FAILED ❌
+Test #4: FAILED ❌
+Test #5: FAILED ❌
+Test #7: FAILED ❌
+...
+
+====================================
+Testing problem: 1242_b_01_mst_10223
+====================================
+✅ Problem 1242_b_01_mst_10223: Results: 10/10 tests passed
+
+====================================
+Testing problem: 1243_d_01_mst_12097
+====================================
+✅ Problem 1243_d_01_mst_12097: Results: 10/10 tests passed
+
+====================================
+Testing problem: 1249_b1_books_exchange_easy_version_7099
+====================================
+✅ Problem 1249_b1_books_exchange_easy_version_7099: Results: 10/10 tests passed
+
+====================================
+Testing problem: 1263_d_secret_passwords_6164
+====================================
+✅ Problem 1263_d_secret_passwords_6164: Results: 10/10 tests passed
+
+====================================
+Testing problem: 1277_e_two_fairs_122
+====================================
+✅ Problem 1277_e_two_fairs_122: Results: 10/10 tests passed
+
+====================================
+Testing problem: 1521_d_nastia_plays_with_a_tree_11693
+====================================
+❌ Problem 1521_d_nastia_plays_with_a_tree_11693: Results: 9/10 tests passed
+Sample errors:
+Test #1: FAILED ❌
+...
+
+====================================
+Testing problem: 1534_f1_falling_sand_easy_version_9507
+====================================
+✅ Problem 1534_f1_falling_sand_easy_version_9507: Results: 10/10 tests passed
+
+====================================
+Testing problem: 156_d_clues_3678
+====================================
+✅ Problem 156_d_clues_3678: Results: 10/10 tests passed
+
+====================================
+Testing problem: 216_b_forming_teams_6387
+====================================
+✅ Problem 216_b_forming_teams_6387: Results: 10/10 tests passed
+
+====================================
+Testing problem: 217_a_ice_skating_2223
+====================================
+✅ Problem 217_a_ice_skating_2223: Results: 10/10 tests passed
+
+====================================
+Testing problem: 27_b_tournament_1914
+====================================
+❌ Problem 27_b_tournament_1914: Results: 2/10 tests passed
+Sample errors:
+Test #2: FAILED ❌
+Test #4: FAILED ❌
+Test #5: FAILED ❌
+Test #6: FAILED ❌
+Test #7: FAILED ❌
+...
+
+====================================
+Testing problem: 445_b_dzy_loves_chemistry_1921
+====================================
+✅ Problem 445_b_dzy_loves_chemistry_1921: Results: 10/10 tests passed
+
+====================================
+Testing problem: 45_h_road_problem_460
+====================================
+❌ Problem 45_h_road_problem_460: Results: 2/10 tests passed
+Sample errors:
+Test #1: FAILED ❌
+Test #2: FAILED ❌
+Test #3: FAILED ❌
+Test #5: FAILED ❌
+Test #6: FAILED ❌
+...
+
+====================================
+Testing problem: 505_b_mr_kitayutas_colorful_graph_984
+====================================
+✅ Problem 505_b_mr_kitayutas_colorful_graph_984: Results: 10/10 tests passed
+
+====================================
+Testing problem: 505_d_mr_kitayutas_technology_879
+====================================
+✅ Problem 505_d_mr_kitayutas_technology_879: Results: 10/10 tests passed
+
+====================================
+Testing problem: 510_b_fox_and_two_dots_2444
+====================================
+✅ Problem 510_b_fox_and_two_dots_2444: Results: 10/10 tests passed
+
+====================================
+Testing problem: 653_e_bear_and_forgotten_tree_2_10362
+====================================
+✅ Problem 653_e_bear_and_forgotten_tree_2_10362: Results: 10/10 tests passed
+
+====================================
+Testing problem: 659_e_new_reform_13276
+====================================
+✅ Problem 659_e_new_reform_13276: Results: 10/10 tests passed
+
+====================================
+Testing problem: 690_c1_brain_network_easy_6407
+====================================
+✅ Problem 690_c1_brain_network_easy_6407: Results: 10/10 tests passed
+
+====================================
+Testing problem: 745_c_hongcow_builds_a_nation_7762
+====================================
+✅ Problem 745_c_hongcow_builds_a_nation_7762: Results: 10/10 tests passed
+
+====================================
+Testing problem: 771_a_bear_and_friendship_condition_2351
+====================================
+✅ Problem 771_a_bear_and_friendship_condition_2351: Results: 10/10 tests passed
+
+====================================
+Testing problem: 791_b_bear_and_friendship_condition_8388
+====================================
+❌ Problem 791_b_bear_and_friendship_condition_8388: Results: 0/10 tests passed
+Sample errors:
+Test #1: FAILED ❌
+Test #2: FAILED ❌
+Test #3: FAILED ❌
+Test #4: FAILED ❌
+Test #5: FAILED ❌
+...
+
+====================================
+Testing problem: 920_e_connected_components_167
+====================================
+✅ Problem 920_e_connected_components_167: Results: 10/10 tests passed
+
+====================================
+Testing problem: 977_e_cyclic_components_8291
+====================================
+✅ Problem 977_e_cyclic_components_8291: Results: 10/10 tests passed
+
+====================================
+Testing problem: 9_e_interesting_graph_and_apples_483
+====================================
+✅ Problem 9_e_interesting_graph_and_apples_483: Results: 10/10 tests passed
+
+====================================
+Final Results: 25/30 problems passed all tests
+====================================
+Problems with failing tests:
+- 1217_d_coloring_edges_7410
+- 1521_d_nastia_plays_with_a_tree_11693
+- 27_b_tournament_1914
+- 45_h_road_problem_460
+- 791_b_bear_and_friendship_condition_8388
+⚠️ Some problems in cluster2 failed tests.

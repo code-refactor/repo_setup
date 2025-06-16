@@ -1,0 +1,57 @@
+Processed personal_finance_tracker/personal_finance_tracker_socially_responsible_investor/conftest.py: logprob=-1881.46, tokens=3693
+Processed personal_finance_tracker/personal_finance_tracker_socially_responsible_investor/setup.py: logprob=-214.98, tokens=3824
+Processed personal_finance_tracker/personal_finance_tracker_freelancer/setup.py: logprob=-190.50, tokens=3921
+Processed personal_finance_tracker/personal_finance_tracker_socially_responsible_investor/ethical_finance/__init__.py: logprob=-214.29, tokens=3972
+Processed personal_finance_tracker/personal_finance_tracker_socially_responsible_investor/ethical_finance/models.py: logprob=-1275.17, tokens=5655
+Processed personal_finance_tracker/personal_finance_tracker_socially_responsible_investor/tests/__init__.py: logprob=-178.24, tokens=5691
+Processed personal_finance_tracker/personal_finance_tracker_socially_responsible_investor/ethical_finance/impact_measurement/__init__.py: logprob=-208.65, tokens=5730
+Processed personal_finance_tracker/personal_finance_tracker_socially_responsible_investor/ethical_finance/impact_measurement/impact.py: logprob=-2929.87, tokens=11504
+Processed personal_finance_tracker/personal_finance_tracker_socially_responsible_investor/ethical_finance/ethical_screening/__init__.py: logprob=-184.61, tokens=11545
+Processed personal_finance_tracker/personal_finance_tracker_socially_responsible_investor/ethical_finance/ethical_screening/screening.py: logprob=-1717.04, tokens=15308
+Processed personal_finance_tracker/personal_finance_tracker_socially_responsible_investor/ethical_finance/values_budgeting/__init__.py: logprob=-204.58, tokens=15347
+Processed personal_finance_tracker/personal_finance_tracker_socially_responsible_investor/ethical_finance/values_budgeting/budgeting.py: logprob=-4822.55, tokens=24427
+Processed personal_finance_tracker/personal_finance_tracker_socially_responsible_investor/ethical_finance/portfolio_analysis/__init__.py: logprob=-187.23, tokens=24465
+Processed personal_finance_tracker/personal_finance_tracker_socially_responsible_investor/ethical_finance/portfolio_analysis/analysis.py: logprob=-4100.52, tokens=33215
+Processed personal_finance_tracker/personal_finance_tracker_socially_responsible_investor/ethical_finance/shareholder_advocacy/advocacy.py: logprob=-2254.57, tokens=37781
+Processed personal_finance_tracker/personal_finance_tracker_socially_responsible_investor/ethical_finance/shareholder_advocacy/__init__.py: logprob=-197.84, tokens=37820
+Processed personal_finance_tracker/personal_finance_tracker_socially_responsible_investor/tests/test_portfolio_analysis/__init__.py: logprob=-175.68, tokens=37856
+Processed personal_finance_tracker/personal_finance_tracker_socially_responsible_investor/tests/test_ethical_screening/__init__.py: logprob=-176.29, tokens=37892
+Processed personal_finance_tracker/personal_finance_tracker_socially_responsible_investor/tests/test_shareholder_advocacy/__init__.py: logprob=-193.69, tokens=37928
+Processed personal_finance_tracker/personal_finance_tracker_socially_responsible_investor/tests/test_values_budgeting/__init__.py: logprob=-196.68, tokens=37966
+Processed personal_finance_tracker/personal_finance_tracker_socially_responsible_investor/tests/test_impact_measurement/__init__.py: logprob=-183.86, tokens=38002
+Processed personal_finance_tracker/personal_finance_tracker_freelancer/personal_finance_tracker/__init__.py: logprob=-253.53, tokens=38073
+Processed personal_finance_tracker/personal_finance_tracker_freelancer/tests/conftest.py: logprob=-1464.89, tokens=40655
+Processed personal_finance_tracker/personal_finance_tracker_freelancer/tests/__init__.py: logprob=-188.09, tokens=40692
+Processed personal_finance_tracker/personal_finance_tracker_freelancer/personal_finance_tracker/models/common.py: logprob=-744.09, tokens=41969
+Processed personal_finance_tracker/personal_finance_tracker_freelancer/personal_finance_tracker/models/__init__.py: logprob=-199.83, tokens=42008
+Processed personal_finance_tracker/personal_finance_tracker_freelancer/personal_finance_tracker/income/__init__.py: logprob=-241.67, tokens=42063
+Processed personal_finance_tracker/personal_finance_tracker_freelancer/personal_finance_tracker/income/models.py: logprob=-623.60, tokens=42835
+Processed personal_finance_tracker/personal_finance_tracker_freelancer/personal_finance_tracker/income/income_manager.py: logprob=-1961.13, tokens=46169
+Processed personal_finance_tracker/personal_finance_tracker_freelancer/personal_finance_tracker/projection/__init__.py: logprob=-250.40, tokens=46222
+Processed personal_finance_tracker/personal_finance_tracker_freelancer/personal_finance_tracker/projection/models.py: logprob=-859.76, tokens=47362
+Processed personal_finance_tracker/personal_finance_tracker_freelancer/personal_finance_tracker/projection/financial_projector.py: logprob=-2510.08, tokens=52241
+Processed personal_finance_tracker/personal_finance_tracker_freelancer/personal_finance_tracker/expense/categorizer.py: logprob=-1390.19, tokens=55305
+Processed personal_finance_tracker/personal_finance_tracker_freelancer/personal_finance_tracker/expense/__init__.py: logprob=-261.70, tokens=55359
+Processed personal_finance_tracker/personal_finance_tracker_freelancer/personal_finance_tracker/expense/models.py: logprob=-809.77, tokens=56544
+Processed personal_finance_tracker/personal_finance_tracker_freelancer/personal_finance_tracker/project/__init__.py: logprob=-253.16, tokens=56597
+Processed personal_finance_tracker/personal_finance_tracker_freelancer/personal_finance_tracker/project/models.py: logprob=-644.60, tokens=57417
+Processed personal_finance_tracker/personal_finance_tracker_freelancer/personal_finance_tracker/project/profitability_analyzer.py: logprob=-1472.18, tokens=60855
+Processed personal_finance_tracker/personal_finance_tracker_freelancer/personal_finance_tracker/tax/__init__.py: logprob=-249.10, tokens=60914
+Processed personal_finance_tracker/personal_finance_tracker_freelancer/personal_finance_tracker/tax/models.py: logprob=-792.40, tokens=61907
+Processed personal_finance_tracker/personal_finance_tracker_freelancer/personal_finance_tracker/tax/tax_manager.py: logprob=-2925.02, tokens=68068
+Processed personal_finance_tracker/personal_finance_tracker_freelancer/tests/income/__init__.py: logprob=-185.69, tokens=68104
+Processed personal_finance_tracker/personal_finance_tracker_freelancer/tests/projection/__init__.py: logprob=-191.07, tokens=68140
+Processed personal_finance_tracker/personal_finance_tracker_freelancer/tests/projection/_test_financial_projector_simple.py: logprob=-709.91, tokens=68806
+Processed personal_finance_tracker/personal_finance_tracker_freelancer/tests/expense/__init__.py: logprob=-190.98, tokens=68843
+Processed personal_finance_tracker/personal_finance_tracker_freelancer/tests/project/__init__.py: logprob=-192.86, tokens=68880
+Processed personal_finance_tracker/personal_finance_tracker_freelancer/tests/tax/__init__.py: logprob=-189.00, tokens=68916
+Processed personal_finance_tracker/personal_finance_tracker_freelancer/tests/tax/_test_tax_manager_full.py: logprob=-1951.94, tokens=72962
+
+=== Summary ===
+Full Repo Log Probability: -43394.93
+Total Tokens: 72962
+Total Logical LOC (LLOC): 4306
+Total Source LOC (SLOC): 6068
+Total Cyclomatic Complexity: 1482
+Total Internal Imports: 0
+Written metrics to large_repos/personal_finance_tracker/LIBRARYBENCH_metrics.json

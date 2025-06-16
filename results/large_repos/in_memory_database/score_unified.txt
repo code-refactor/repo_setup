@@ -1,0 +1,54 @@
+Processed unified/conftest.py: logprob=-245.39, tokens=52
+Processed unified/setup.py: logprob=-289.92, tokens=145
+Processed unified/syncdb/client.py: logprob=-3035.30, tokens=5354
+Processed unified/syncdb/__init__.py: logprob=-731.38, tokens=5674
+Processed unified/common/__init__.py: logprob=-230.56, tokens=5737
+Processed unified/vectordb/__init__.py: logprob=-399.40, tokens=5906
+Processed unified/syncdb/sync/manual_sync.py: logprob=-542.10, tokens=6529
+Processed unified/syncdb/sync/change_tracker.py: logprob=-1121.53, tokens=8453
+Processed unified/syncdb/sync/conflict_resolution.py: logprob=-1215.24, tokens=11001
+Processed unified/syncdb/sync/sync_protocol.py: logprob=-3193.56, tokens=16862
+Processed unified/syncdb/db/schema.py: logprob=-670.89, tokens=17671
+Processed unified/syncdb/db/database.py: logprob=-1782.72, tokens=21078
+Processed unified/syncdb/schema/schema_manager.py: logprob=-1913.87, tokens=25958
+Processed unified/syncdb/compression/type_compressor.py: logprob=-1460.62, tokens=29826
+Processed unified/syncdb/power/power_manager.py: logprob=-1814.70, tokens=33106
+Processed unified/tests/ml_engineer/conftest.py: logprob=-383.25, tokens=33430
+Processed unified/tests/ml_engineer/__init__.py: logprob=-166.74, tokens=33465
+Processed unified/tests/mobile_developer/conftest.py: logprob=-935.72, tokens=34717
+Processed unified/tests/mobile_developer/performance/simple_conflict_test.py: logprob=-1209.88, tokens=35948
+Processed unified/common/core/utils.py: logprob=-860.13, tokens=37774
+Processed unified/common/core/base.py: logprob=-837.88, tokens=39369
+Processed unified/common/core/__init__.py: logprob=-1025.77, tokens=40475
+Processed unified/common/core/factory.py: logprob=-1222.48, tokens=43062
+Processed unified/common/core/collections.py: logprob=-1088.80, tokens=46095
+Processed unified/common/core/exceptions.py: logprob=-804.39, tokens=48219
+Processed unified/common/core/performance.py: logprob=-1372.74, tokens=51196
+Processed unified/common/core/config.py: logprob=-1417.76, tokens=54618
+Processed unified/common/core/math_ops.py: logprob=-981.59, tokens=57331
+Processed unified/vectordb/experiment/__init__.py: logprob=-207.29, tokens=57390
+Processed unified/vectordb/experiment/ab_test.py: logprob=-1664.29, tokens=62843
+Processed unified/vectordb/transform/pipeline.py: logprob=-1019.37, tokens=65431
+Processed unified/vectordb/transform/operations.py: logprob=-1319.92, tokens=70342
+Processed unified/vectordb/transform/__init__.py: logprob=-211.98, tokens=70441
+Processed unified/vectordb/batch/processor.py: logprob=-1949.96, tokens=74804
+Processed unified/vectordb/batch/__init__.py: logprob=-188.80, tokens=74853
+Processed unified/vectordb/core/__init__.py: logprob=-215.85, tokens=74936
+Processed unified/vectordb/core/vector.py: logprob=-754.20, tokens=76356
+Processed unified/vectordb/core/distance.py: logprob=-792.01, tokens=78033
+Processed unified/vectordb/indexing/__init__.py: logprob=-199.31, tokens=78108
+Processed unified/vectordb/indexing/approximate_nn.py: logprob=-1568.94, tokens=80995
+Processed unified/vectordb/indexing/index.py: logprob=-1378.19, tokens=83435
+Processed unified/vectordb/feature_store/__init__.py: logprob=-206.51, tokens=83520
+Processed unified/vectordb/feature_store/version.py: logprob=-1266.74, tokens=86503
+Processed unified/vectordb/feature_store/lineage.py: logprob=-1419.58, tokens=90137
+Processed unified/vectordb/feature_store/store.py: logprob=-2598.06, tokens=95477
+
+=== Summary ===
+Full Repo Log Probability: -47915.31
+Total Tokens: 95477
+Total Logical LOC (LLOC): 6435
+Total Source LOC (SLOC): 7000
+Total Cyclomatic Complexity: 2356
+Total Internal Imports: 0
+Written metrics to large_repos/in_memory_database/unified/LIBRARYBENCH_metrics.json

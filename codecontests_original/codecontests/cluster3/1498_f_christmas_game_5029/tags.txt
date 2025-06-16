@@ -1,0 +1,7 @@
+bitmasks
+data structures
+dfs and similar
+dp
+games
+math
+trees

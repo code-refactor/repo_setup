@@ -1,0 +1,65 @@
+Processed unified/conftest.py: logprob=-239.76, tokens=51
+Processed unified/setup.py: logprob=-287.96, tokens=142
+Processed unified/text_editor/__init__.py: logprob=-422.14, tokens=326
+Processed unified/common/__init__.py: logprob=-238.40, tokens=404
+Processed unified/writer_text_editor/navigation.py: logprob=-2509.73, tokens=7341
+Processed unified/writer_text_editor/document.py: logprob=-1209.37, tokens=9716
+Processed unified/writer_text_editor/client.py: logprob=-3002.30, tokens=13944
+Processed unified/writer_text_editor/revision.py: logprob=-1683.53, tokens=18400
+Processed unified/writer_text_editor/__init__.py: logprob=-436.02, tokens=18634
+Processed unified/writer_text_editor/statistics.py: logprob=-2319.59, tokens=23100
+Processed unified/writer_text_editor/focus.py: logprob=-1037.88, tokens=24852
+Processed unified/writer_text_editor/narrative.py: logprob=-2431.09, tokens=28840
+Processed unified/text_editor/features/__init__.py: logprob=-207.91, tokens=28872
+Processed unified/text_editor/features/models.py: logprob=-903.13, tokens=30302
+Processed unified/text_editor/features/manager.py: logprob=-1583.14, tokens=33007
+Processed unified/text_editor/features/integration.py: logprob=-1587.07, tokens=35628
+Processed unified/text_editor/study/__init__.py: logprob=-199.41, tokens=35660
+Processed unified/text_editor/study/models.py: logprob=-1419.93, tokens=38625
+Processed unified/text_editor/study/manager.py: logprob=-2422.68, tokens=42873
+Processed unified/text_editor/interview/problems.py: logprob=-1723.08, tokens=48944
+Processed unified/text_editor/interview/__init__.py: logprob=-194.86, tokens=48976
+Processed unified/text_editor/interview/models.py: logprob=-831.95, tokens=50589
+Processed unified/text_editor/interview/manager.py: logprob=-2071.95, tokens=54083
+Processed unified/text_editor/learning/__init__.py: logprob=-196.22, tokens=54115
+Processed unified/text_editor/learning/models.py: logprob=-757.70, tokens=55243
+Processed unified/text_editor/learning/manager.py: logprob=-2794.36, tokens=61081
+Processed unified/text_editor/core/__init__.py: logprob=-344.60, tokens=61199
+Processed unified/text_editor/core/editor.py: logprob=-1110.94, tokens=63124
+Processed unified/text_editor/customization/__init__.py: logprob=-198.07, tokens=63156
+Processed unified/text_editor/customization/models.py: logprob=-675.06, tokens=64122
+Processed unified/text_editor/customization/manager.py: logprob=-2384.01, tokens=67700
+Processed unified/text_editor/customization/playground.py: logprob=-1285.93, tokens=69603
+Processed unified/tests/writer/conftest.py: logprob=-607.65, tokens=70144
+Processed unified/tests/student/conftest.py: logprob=-203.53, tokens=70194
+Processed unified/tests/student/__init__.py: logprob=-173.17, tokens=70232
+Processed unified/common/analytics/__init__.py: logprob=-211.90, tokens=70327
+Processed unified/common/analytics/progress.py: logprob=-1343.05, tokens=73084
+Processed unified/common/analytics/stats.py: logprob=-803.67, tokens=75080
+Processed unified/common/analytics/metrics.py: logprob=-986.62, tokens=77203
+Processed unified/common/interfaces/document.py: logprob=-719.50, tokens=78960
+Processed unified/common/interfaces/__init__.py: logprob=-212.50, tokens=79039
+Processed unified/common/interfaces/editor.py: logprob=-575.74, tokens=80287
+Processed unified/common/interfaces/plugin.py: logprob=-1140.54, tokens=82790
+Processed unified/common/utils/__init__.py: logprob=-220.89, tokens=82887
+Processed unified/common/utils/serialization.py: logprob=-995.68, tokens=85002
+Processed unified/common/utils/threading.py: logprob=-1126.09, tokens=87875
+Processed unified/common/utils/validation.py: logprob=-1142.17, tokens=90327
+Processed unified/common/core/cursor.py: logprob=-661.00, tokens=92056
+Processed unified/common/core/__init__.py: logprob=-371.91, tokens=92241
+Processed unified/common/core/models.py: logprob=-652.24, tokens=93430
+Processed unified/common/core/history.py: logprob=-770.41, tokens=94690
+Processed unified/common/core/editor.py: logprob=-1085.58, tokens=97206
+Processed unified/common/core/buffer.py: logprob=-786.59, tokens=98751
+Processed unified/common/core/search.py: logprob=-978.13, tokens=100717
+Processed unified/common/core/file_manager.py: logprob=-892.69, tokens=102251
+Processed unified/writer_text_editor/utils/__init__.py: logprob=-194.09, tokens=102288
+
+=== Summary ===
+Full Repo Log Probability: -55565.12
+Total Tokens: 102288
+Total Logical LOC (LLOC): 7510
+Total Source LOC (SLOC): 8824
+Total Cyclomatic Complexity: 2308
+Total Internal Imports: 0
+Written metrics to large_repos/text_editor/unified/LIBRARYBENCH_metrics.json

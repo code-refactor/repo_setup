@@ -1,0 +1,143 @@
+# 1243_D. 0-1 MST
+
+**ID:** 1243_d_01_mst_12097
+**Difficulty:** 10
+
+## Description
+
+Ujan has a lot of useless stuff in his drawers, a considerable part of which are his math notebooks: it is time to sort them out. This time he found an old dusty graph theory notebook with a description of a graph.
+
+It is an undirected weighted graph on n vertices. It is a complete graph: each pair of vertices is connected by an edge. The weight of each edge is either 0 or 1; exactly m edges have weight 1, and all others have weight 0.
+
+Since Ujan doesn't really want to organize his notes, he decided to find the weight of the minimum spanning tree of the graph. (The weight of a spanning tree is the sum of all its edges.) Can you find the answer for Ujan so he stops procrastinating?
+
+Input
+
+The first line of the input contains two integers n and m (1 ≤ n ≤ 10^5, 0 ≤ m ≤ min((n(n-1))/(2),10^5)), the number of vertices and the number of edges of weight 1 in the graph. 
+
+The i-th of the next m lines contains two integers a_i and b_i (1 ≤ a_i, b_i ≤ n, a_i ≠ b_i), the endpoints of the i-th edge of weight 1.
+
+It is guaranteed that no edge appears twice in the input.
+
+Output
+
+Output a single integer, the weight of the minimum spanning tree of the graph.
+
+Examples
+
+Input
+
+
+6 11
+1 3
+1 4
+1 5
+1 6
+2 3
+2 4
+2 5
+2 6
+3 4
+3 5
+3 6
+
+
+Output
+
+
+2
+
+
+Input
+
+
+3 0
+
+
+Output
+
+
+0
+
+Note
+
+The graph from the first sample is shown below. Dashed edges have weight 0, other edges have weight 1. One of the minimum spanning trees is highlighted in orange and has total weight 2.
+
+<image>
+
+In the second sample, all edges have weight 0 so any spanning tree has total weight 0.
+
+## Categories
+
+- dfs and similar
+- dsu
+- graphs
+- sortings
+
+## Source
+
+Codeforces
+
+## Examples
+
+### Example 1
+
+**Input**:
+```
+6 11
+1 3
+1 4
+1 5
+1 6
+2 3
+2 4
+2 5
+2 6
+3 4
+3 5
+3 6
+```
+
+**Output**:
+```
+2
+```
+
+### Example 2
+
+**Input**:
+```
+3 0
+```
+
+**Output**:
+```
+0
+```
+
+### Example 3
+
+**Input**:
+```
+2 0
+```
+
+**Output**:
+```
+0
+```
+
+
+## Testing
+
+Run the solution with:
+
+```bash
+./run.sh
+```
+
+Or test with a specific input file:
+
+```bash
+uv run main.py < tests/input_1.txt
+```

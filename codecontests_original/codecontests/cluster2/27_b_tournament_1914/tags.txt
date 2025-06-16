@@ -1,0 +1,4 @@
+bitmasks
+brute force
+dfs and similar
+greedy

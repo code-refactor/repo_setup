@@ -1,0 +1,519 @@
+{
+    "total_logprobs": -37654.76447303974,
+    "total_tokens": 69979,
+    "text_editor/text_editor_student/text_editor/interview/__init__.py": {
+        "logprobs": -194.660500765034,
+        "metrics": {
+            "loc": 1,
+            "sloc": 0,
+            "lloc": 0,
+            "comments": 1,
+            "multi": 0,
+            "blank": 0,
+            "cyclomatic": 0,
+            "internal_imports": []
+        }
+    },
+    "text_editor/text_editor_student/text_editor/core/__init__.py": {
+        "logprobs": -197.410414338293,
+        "metrics": {
+            "loc": 1,
+            "sloc": 0,
+            "lloc": 0,
+            "comments": 1,
+            "multi": 0,
+            "blank": 0,
+            "cyclomatic": 0,
+            "internal_imports": []
+        }
+    },
+    "text_editor/text_editor_student/text_editor/features/integration.py": {
+        "logprobs": -1587.0690107689345,
+        "metrics": {
+            "loc": 370,
+            "sloc": 149,
+            "lloc": 165,
+            "comments": 32,
+            "multi": 108,
+            "blank": 76,
+            "cyclomatic": 61,
+            "internal_imports": []
+        }
+    },
+    "text_editor/text_editor_writer/src/writer_text_editor/statistics.py": {
+        "logprobs": -1952.9523454975879,
+        "metrics": {
+            "loc": 469,
+            "sloc": 324,
+            "lloc": 297,
+            "comments": 38,
+            "multi": 0,
+            "blank": 94,
+            "cyclomatic": 80,
+            "internal_imports": []
+        }
+    },
+    "text_editor/text_editor_student/text_editor/study/__init__.py": {
+        "logprobs": -199.41026139278,
+        "metrics": {
+            "loc": 1,
+            "sloc": 0,
+            "lloc": 0,
+            "comments": 1,
+            "multi": 0,
+            "blank": 0,
+            "cyclomatic": 0,
+            "internal_imports": []
+        }
+    },
+    "text_editor/text_editor_writer/src/writer_text_editor/utils/__init__.py": {
+        "logprobs": -194.08857965925,
+        "metrics": {
+            "loc": 1,
+            "sloc": 0,
+            "lloc": 1,
+            "comments": 0,
+            "multi": 0,
+            "blank": 0,
+            "cyclomatic": 0,
+            "internal_imports": []
+        }
+    },
+    "text_editor/text_editor_student/conftest.py": {
+        "logprobs": -203.528954500875,
+        "metrics": {
+            "loc": 6,
+            "sloc": 1,
+            "lloc": 2,
+            "comments": 1,
+            "multi": 3,
+            "blank": 1,
+            "cyclomatic": 0,
+            "internal_imports": []
+        }
+    },
+    "text_editor/text_editor_student/text_editor/core/editor.py": {
+        "logprobs": -1138.7514199787295,
+        "metrics": {
+            "loc": 348,
+            "sloc": 186,
+            "lloc": 183,
+            "comments": 14,
+            "multi": 96,
+            "blank": 48,
+            "cyclomatic": 51,
+            "internal_imports": []
+        }
+    },
+    "text_editor/text_editor_writer/run_tests.py": {
+        "logprobs": -430.8142110440632,
+        "metrics": {
+            "loc": 72,
+            "sloc": 51,
+            "lloc": 42,
+            "comments": 8,
+            "multi": 0,
+            "blank": 12,
+            "cyclomatic": 6,
+            "internal_imports": []
+        }
+    },
+    "text_editor/text_editor_student/text_editor/learning/models.py": {
+        "logprobs": -757.7017440856034,
+        "metrics": {
+            "loc": 165,
+            "sloc": 75,
+            "lloc": 120,
+            "comments": 5,
+            "multi": 56,
+            "blank": 31,
+            "cyclomatic": 16,
+            "internal_imports": []
+        }
+    },
+    "text_editor/text_editor_student/text_editor/features/manager.py": {
+        "logprobs": -1583.13891823614,
+        "metrics": {
+            "loc": 389,
+            "sloc": 250,
+            "lloc": 104,
+            "comments": 20,
+            "multi": 68,
+            "blank": 54,
+            "cyclomatic": 41,
+            "internal_imports": []
+        }
+    },
+    "text_editor/text_editor_student/text_editor/core/file_manager.py": {
+        "logprobs": -527.4651400945446,
+        "metrics": {
+            "loc": 119,
+            "sloc": 43,
+            "lloc": 51,
+            "comments": 4,
+            "multi": 41,
+            "blank": 31,
+            "cyclomatic": 15,
+            "internal_imports": []
+        }
+    },
+    "text_editor/text_editor_student/text_editor/interview/models.py": {
+        "logprobs": -831.5752662907428,
+        "metrics": {
+            "loc": 230,
+            "sloc": 116,
+            "lloc": 175,
+            "comments": 8,
+            "multi": 66,
+            "blank": 39,
+            "cyclomatic": 27,
+            "internal_imports": []
+        }
+    },
+    "text_editor/text_editor_student/text_editor/__init__.py": {
+        "logprobs": -189.316673517416,
+        "metrics": {
+            "loc": 1,
+            "sloc": 0,
+            "lloc": 0,
+            "comments": 1,
+            "multi": 0,
+            "blank": 0,
+            "cyclomatic": 0,
+            "internal_imports": []
+        }
+    },
+    "text_editor/text_editor_writer/src/writer_text_editor/focus.py": {
+        "logprobs": -716.8821240693708,
+        "metrics": {
+            "loc": 163,
+            "sloc": 108,
+            "lloc": 110,
+            "comments": 4,
+            "multi": 0,
+            "blank": 37,
+            "cyclomatic": 27,
+            "internal_imports": []
+        }
+    },
+    "text_editor/text_editor_student/text_editor/core/cursor.py": {
+        "logprobs": -504.5851348529697,
+        "metrics": {
+            "loc": 149,
+            "sloc": 62,
+            "lloc": 77,
+            "comments": 10,
+            "multi": 45,
+            "blank": 28,
+            "cyclomatic": 20,
+            "internal_imports": []
+        }
+    },
+    "text_editor/text_editor_student/text_editor/core/buffer.py": {
+        "logprobs": -762.3179839003878,
+        "metrics": {
+            "loc": 197,
+            "sloc": 66,
+            "lloc": 87,
+            "comments": 19,
+            "multi": 68,
+            "blank": 43,
+            "cyclomatic": 25,
+            "internal_imports": []
+        }
+    },
+    "text_editor/text_editor_student/text_editor/features/models.py": {
+        "logprobs": -903.1267122857079,
+        "metrics": {
+            "loc": 189,
+            "sloc": 105,
+            "lloc": 116,
+            "comments": 7,
+            "multi": 41,
+            "blank": 30,
+            "cyclomatic": 36,
+            "internal_imports": []
+        }
+    },
+    "text_editor/text_editor_student/text_editor/customization/playground.py": {
+        "logprobs": -1285.926381861373,
+        "metrics": {
+            "loc": 304,
+            "sloc": 116,
+            "lloc": 110,
+            "comments": 18,
+            "multi": 105,
+            "blank": 62,
+            "cyclomatic": 30,
+            "internal_imports": []
+        }
+    },
+    "text_editor/text_editor_student/text_editor/study/models.py": {
+        "logprobs": -1419.9609994649697,
+        "metrics": {
+            "loc": 447,
+            "sloc": 223,
+            "lloc": 230,
+            "comments": 25,
+            "multi": 125,
+            "blank": 83,
+            "cyclomatic": 69,
+            "internal_imports": []
+        }
+    },
+    "text_editor/text_editor_student/setup.py": {
+        "logprobs": -210.4881712299838,
+        "metrics": {
+            "loc": 12,
+            "sloc": 11,
+            "lloc": 2,
+            "comments": 0,
+            "multi": 0,
+            "blank": 1,
+            "cyclomatic": 0,
+            "internal_imports": []
+        }
+    },
+    "text_editor/text_editor_writer/src/writer_text_editor/__init__.py": {
+        "logprobs": -436.09535649877535,
+        "metrics": {
+            "loc": 21,
+            "sloc": 17,
+            "lloc": 10,
+            "comments": 0,
+            "multi": 0,
+            "blank": 3,
+            "cyclomatic": 0,
+            "internal_imports": []
+        }
+    },
+    "text_editor/text_editor_student/text_editor/features/__init__.py": {
+        "logprobs": -207.910825491114,
+        "metrics": {
+            "loc": 1,
+            "sloc": 0,
+            "lloc": 0,
+            "comments": 1,
+            "multi": 0,
+            "blank": 0,
+            "cyclomatic": 0,
+            "internal_imports": []
+        }
+    },
+    "text_editor/text_editor_writer/src/writer_text_editor/client.py": {
+        "logprobs": -1573.1839042524427,
+        "metrics": {
+            "loc": 302,
+            "sloc": 201,
+            "lloc": 168,
+            "comments": 8,
+            "multi": 0,
+            "blank": 61,
+            "cyclomatic": 43,
+            "internal_imports": []
+        }
+    },
+    "text_editor/text_editor_student/text_editor/interview/manager.py": {
+        "logprobs": -2071.9528748802204,
+        "metrics": {
+            "loc": 549,
+            "sloc": 283,
+            "lloc": 188,
+            "comments": 51,
+            "multi": 106,
+            "blank": 113,
+            "cyclomatic": 60,
+            "internal_imports": []
+        }
+    },
+    "text_editor/text_editor_student/text_editor/customization/manager.py": {
+        "logprobs": -2384.011746951359,
+        "metrics": {
+            "loc": 504,
+            "sloc": 285,
+            "lloc": 165,
+            "comments": 29,
+            "multi": 104,
+            "blank": 82,
+            "cyclomatic": 63,
+            "internal_imports": []
+        }
+    },
+    "text_editor/text_editor_student/text_editor/interview/problems.py": {
+        "logprobs": -1723.0847229656042,
+        "metrics": {
+            "loc": 809,
+            "sloc": 682,
+            "lloc": 17,
+            "comments": 9,
+            "multi": 29,
+            "blank": 97,
+            "cyclomatic": 8,
+            "internal_imports": []
+        }
+    },
+    "text_editor/text_editor_writer/tests/conftest.py": {
+        "logprobs": -612.6441248261364,
+        "metrics": {
+            "loc": 62,
+            "sloc": 41,
+            "lloc": 40,
+            "comments": 6,
+            "multi": 0,
+            "blank": 12,
+            "cyclomatic": 3,
+            "internal_imports": []
+        }
+    },
+    "text_editor/text_editor_student/text_editor/customization/__init__.py": {
+        "logprobs": -198.066987633913,
+        "metrics": {
+            "loc": 1,
+            "sloc": 0,
+            "lloc": 0,
+            "comments": 1,
+            "multi": 0,
+            "blank": 0,
+            "cyclomatic": 0,
+            "internal_imports": []
+        }
+    },
+    "text_editor/text_editor_student/text_editor/core/history.py": {
+        "logprobs": -507.4120948273885,
+        "metrics": {
+            "loc": 161,
+            "sloc": 72,
+            "lloc": 72,
+            "comments": 5,
+            "multi": 60,
+            "blank": 27,
+            "cyclomatic": 15,
+            "internal_imports": []
+        }
+    },
+    "text_editor/text_editor_student/text_editor/learning/manager.py": {
+        "logprobs": -2771.843086406233,
+        "metrics": {
+            "loc": 825,
+            "sloc": 579,
+            "lloc": 139,
+            "comments": 35,
+            "multi": 100,
+            "blank": 119,
+            "cyclomatic": 54,
+            "internal_imports": []
+        }
+    },
+    "text_editor/text_editor_writer/src/writer_text_editor/navigation.py": {
+        "logprobs": -2062.4914242383566,
+        "metrics": {
+            "loc": 947,
+            "sloc": 612,
+            "lloc": 532,
+            "comments": 130,
+            "multi": 0,
+            "blank": 189,
+            "cyclomatic": 167,
+            "internal_imports": []
+        }
+    },
+    "text_editor/text_editor_student/text_editor/customization/models.py": {
+        "logprobs": -675.0564331912673,
+        "metrics": {
+            "loc": 155,
+            "sloc": 65,
+            "lloc": 98,
+            "comments": 0,
+            "multi": 56,
+            "blank": 32,
+            "cyclomatic": 25,
+            "internal_imports": []
+        }
+    },
+    "text_editor/text_editor_student/tests/__init__.py": {
+        "logprobs": -172.2433837649065,
+        "metrics": {
+            "loc": 3,
+            "sloc": 0,
+            "lloc": 1,
+            "comments": 0,
+            "multi": 3,
+            "blank": 0,
+            "cyclomatic": 0,
+            "internal_imports": []
+        }
+    },
+    "text_editor/text_editor_writer/src/writer_text_editor/narrative.py": {
+        "logprobs": -2431.093749539516,
+        "metrics": {
+            "loc": 523,
+            "sloc": 371,
+            "lloc": 313,
+            "comments": 56,
+            "multi": 0,
+            "blank": 85,
+            "cyclomatic": 113,
+            "internal_imports": []
+        }
+    },
+    "text_editor/text_editor_student/text_editor/study/manager.py": {
+        "logprobs": -1854.9388392780033,
+        "metrics": {
+            "loc": 614,
+            "sloc": 290,
+            "lloc": 235,
+            "comments": 41,
+            "multi": 160,
+            "blank": 125,
+            "cyclomatic": 90,
+            "internal_imports": []
+        }
+    },
+    "text_editor/text_editor_writer/src/writer_text_editor/revision.py": {
+        "logprobs": -1358.4568216574219,
+        "metrics": {
+            "loc": 560,
+            "sloc": 382,
+            "lloc": 308,
+            "comments": 63,
+            "multi": 0,
+            "blank": 99,
+            "cyclomatic": 130,
+            "internal_imports": []
+        }
+    },
+    "text_editor/text_editor_student/text_editor/learning/__init__.py": {
+        "logprobs": -196.223334789465,
+        "metrics": {
+            "loc": 1,
+            "sloc": 0,
+            "lloc": 0,
+            "comments": 1,
+            "multi": 0,
+            "blank": 0,
+            "cyclomatic": 0,
+            "internal_imports": []
+        }
+    },
+    "text_editor/text_editor_writer/src/writer_text_editor/document.py": {
+        "logprobs": -626.8838140128587,
+        "metrics": {
+            "loc": 194,
+            "sloc": 133,
+            "lloc": 166,
+            "comments": 2,
+            "multi": 0,
+            "blank": 35,
+            "cyclomatic": 48,
+            "internal_imports": []
+        }
+    },
+    "total_loc": 9866,
+    "total_sloc": 5899,
+    "total_lloc": 4324,
+    "total_comments": 655,
+    "total_multi": 1440,
+    "total_blank": 1749,
+    "total_cyclomatic": 1323,
+    "total_internal_imports": 0
+}

@@ -1,0 +1,10 @@
+setuptools
+pytest
+pytest-json-report
+pytest-cov
+
+[test]
+pytest
+pytest-json-report
+pytest>=7.0.0
+pytest-json-report>=1.5.0

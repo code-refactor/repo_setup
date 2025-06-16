@@ -1,0 +1,37 @@
+Processed unified/conftest.py: logprob=-249.88, tokens=53
+Processed unified/setup.py: logprob=-310.15, tokens=148
+Processed unified/productmind/models.py: logprob=-1698.87, tokens=2785
+Processed unified/common/__init__.py: logprob=-248.21, tokens=2862
+Processed unified/researchbrain/cli.py: logprob=-2737.98, tokens=13828
+Processed unified/researchbrain/__main__.py: logprob=-193.74, tokens=13885
+Processed unified/productmind/decision_registry/registry.py: logprob=-2152.35, tokens=19525
+Processed unified/productmind/prioritization/framework.py: logprob=-2874.27, tokens=25447
+Processed unified/productmind/stakeholder_insights/manager.py: logprob=-2397.98, tokens=32438
+Processed unified/productmind/competitive_analysis/system.py: logprob=-2319.83, tokens=38323
+Processed unified/productmind/feedback_analysis/engine.py: logprob=-2311.82, tokens=43361
+Processed unified/tests/product_manager/conftest.py: logprob=-378.53, tokens=43479
+Processed unified/tests/academic_researcher/failing_tests.py: logprob=-178.84, tokens=43528
+Processed unified/tests/academic_researcher/conftest.py: logprob=-284.78, tokens=43735
+Processed unified/common/core/utils.py: logprob=-1397.73, tokens=47109
+Processed unified/common/core/export.py: logprob=-1531.69, tokens=50481
+Processed unified/common/core/__init__.py: logprob=-518.01, tokens=50913
+Processed unified/common/core/models.py: logprob=-819.45, tokens=52278
+Processed unified/common/core/storage.py: logprob=-1181.19, tokens=55297
+Processed unified/common/core/analysis.py: logprob=-1441.17, tokens=58268
+Processed unified/common/core/relationships.py: logprob=-1466.48, tokens=61398
+Processed unified/researchbrain/grants/export.py: logprob=-1236.31, tokens=63196
+Processed unified/researchbrain/core/brain.py: logprob=-5207.35, tokens=75779
+Processed unified/researchbrain/core/models.py: logprob=-2048.68, tokens=78283
+Processed unified/researchbrain/core/storage.py: logprob=-3215.93, tokens=84866
+Processed unified/researchbrain/experiments/templates.py: logprob=-1175.09, tokens=87778
+Processed unified/researchbrain/citations/parsers.py: logprob=-1714.01, tokens=90573
+Processed unified/researchbrain/citations/formatters.py: logprob=-1158.85, tokens=94768
+
+=== Summary ===
+Full Repo Log Probability: -42449.18
+Total Tokens: 94768
+Total Logical LOC (LLOC): 7039
+Total Source LOC (SLOC): 8078
+Total Cyclomatic Complexity: 2597
+Total Internal Imports: 0
+Written metrics to large_repos/personal_knowledge_management/unified/LIBRARYBENCH_metrics.json

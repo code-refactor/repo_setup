@@ -1,0 +1,164 @@
+============================= test session starts ==============================
+platform linux -- Python 3.10.11, pytest-8.3.5, pluggy-1.5.0
+rootdir: /home/justinchiu_cohere_com/minicode/large_repos/concurrent_task_scheduler/unified
+configfile: pyproject.toml
+plugins: anyio-4.9.0, metadata-3.1.1, json-report-1.5.0, cov-6.1.1
+collected 358 items
+
+tests/render_farm_manager/integration/test_audit_logging.py ...          [  0%]
+tests/render_farm_manager/integration/test_circular_dependency_patch.py . [  1%]
+                                                                         [  1%]
+tests/render_farm_manager/integration/test_energy_modes.py ..            [  1%]
+tests/render_farm_manager/integration/test_energy_modes_fixed.py .       [  1%]
+tests/render_farm_manager/integration/test_error_recovery.py ...         [  2%]
+tests/render_farm_manager/integration/test_error_recovery_fixed.py .     [  3%]
+tests/render_farm_manager/integration/test_error_recovery_fixed_complete.py . [  3%]
+.                                                                        [  3%]
+tests/render_farm_manager/integration/test_error_recovery_fixed_full.py . [  3%]
+..                                                                       [  4%]
+tests/render_farm_manager/integration/test_fault_tolerance.py .          [  4%]
+tests/render_farm_manager/integration/test_fault_tolerance_fixed.py .    [  5%]
+tests/render_farm_manager/integration/test_job_dependencies.py ...       [  5%]
+tests/render_farm_manager/integration/test_job_dependencies_fixed.py ..  [  6%]
+tests/render_farm_manager/integration/test_job_dependencies_fixed_direct.py . [  6%]
+..                                                                       [  7%]
+tests/render_farm_manager/integration/test_job_dependencies_fixed_direct_complete.py . [  7%]
+.                                                                        [  7%]
+tests/render_farm_manager/integration/test_job_dependencies_fixed_full.py . [  8%]
+..                                                                       [  8%]
+tests/render_farm_manager/integration/test_job_dependencies_scheduling_patch.py . [  8%]
+                                                                         [  8%]
+tests/render_farm_manager/integration/test_job_dependencies_simple.py .. [  9%]
+                                                                         [  9%]
+tests/render_farm_manager/integration/test_job_dependencies_simple_fixed.py . [  9%]
+.                                                                        [ 10%]
+tests/render_farm_manager/integration/test_job_dependencies_simple_patched.py . [ 10%]
+.                                                                        [ 10%]
+tests/render_farm_manager/integration/test_job_dependencies_with_monkey_patch.py . [ 10%]
+                                                                         [ 10%]
+tests/render_farm_manager/integration/test_job_dependencies_with_monkey_patch_all.py . [ 11%]
+..                                                                       [ 11%]
+tests/render_farm_manager/integration/test_priority_inheritance_patch.py . [ 12%]
+                                                                         [ 12%]
+tests/render_farm_manager/integration/test_render_farm_manager.py ...... [ 13%]
+......                                                                   [ 15%]
+tests/render_farm_manager/performance/test_performance.py ...            [ 16%]
+tests/render_farm_manager/unit/test_deadline_scheduler.py ...........    [ 19%]
+tests/render_farm_manager/unit/test_deadline_scheduler_fixed.py .        [ 19%]
+tests/render_farm_manager/unit/test_deadline_scheduler_full.py .         [ 19%]
+tests/render_farm_manager/unit/test_energy_optimizer.py ...........      [ 22%]
+tests/render_farm_manager/unit/test_node_specialization.py ...........   [ 25%]
+tests/render_farm_manager/unit/test_progressive_renderer.py ............ [ 29%]
+                                                                         [ 29%]
+tests/render_farm_manager/unit/test_resource_borrowing.py ..             [ 29%]
+tests/render_farm_manager/unit/test_resource_borrowing_fixed.py ..       [ 30%]
+tests/render_farm_manager/unit/test_resource_partitioner.py ..........   [ 33%]
+tests/scientific_computing/dependency_tracking/test_dependency_tracker.py . [ 33%]
+................................                                         [ 42%]
+tests/scientific_computing/failure_resilience/test_checkpoint_manager.py . [ 42%]
+......x..x.                                                              [ 45%]
+tests/scientific_computing/failure_resilience/test_failure_detector.py . [ 46%]
+...................                                                      [ 51%]
+tests/scientific_computing/failure_resilience/test_failure_resilience.py . [ 51%]
+......................x                                                  [ 58%]
+tests/scientific_computing/failure_resilience/test_resilience_coordinator.py . [ 58%]
+............Xx                                                           [ 62%]
+tests/scientific_computing/job_management/test_long_running_job_manager.py . [ 62%]
+..................                                                       [ 67%]
+tests/scientific_computing/resource_forecasting/test_data_collector.py . [ 67%]
+.......                                                                  [ 69%]
+tests/scientific_computing/resource_forecasting/test_forecaster.py ..... [ 71%]
+..                                                                       [ 71%]
+tests/scientific_computing/resource_forecasting/test_optimizer.py ...... [ 73%]
+..                                                                       [ 74%]
+tests/scientific_computing/resource_forecasting/test_reporter.py ......  [ 75%]
+tests/scientific_computing/scenario_management/test_advanced_priority_management.py . [ 75%]
+................                                                         [ 80%]
+tests/scientific_computing/scenario_management/test_comparator.py ...... [ 82%]
+...                                                                      [ 82%]
+tests/scientific_computing/scenario_management/test_evaluator.py ....... [ 84%]
+.                                                                        [ 85%]
+tests/scientific_computing/scenario_management/test_priority_manager.py . [ 85%]
+..........                                                               [ 88%]
+tests/scientific_computing/scenario_management/test_scenario_management_integration.py . [ 88%]
+.F.                                                                      [ 89%]
+tests/scientific_computing/scenario_management/test_scenario_model.py .. [ 89%]
+...............                                                          [ 94%]
+tests/scientific_computing/test_full_system_integration.py ....          [ 95%]
+tests/scientific_computing/test_priority_manager.py .............        [ 98%]
+tests/scientific_computing/test_scenario_management_integration.py ....  [100%]
+
+=================================== FAILURES ===================================
+______ TestScenarioManagementIntegration.test_priority_manager_adaptation ______
+
+self = <tests.scientific_computing.scenario_management.test_scenario_management_integration.TestScenarioManagementIntegration object at 0x7fb2ec7e1450>
+integrated_system = {'comparator': <concurrent_task_scheduler.scenario_management.comparator.ScenarioComparator object at 0x7fb2ec1b7880>,..., 'manager': <concurrent_task_scheduler.scenario_management.priority_manager.PriorityManager object at 0x7fb2ec1b53f0>}
+sample_scenarios = [Scenario(id='high-accuracy-scenario', name='High Accuracy Climate Model', description='A climate model focused on acc...80955, 'memory': 154.81904761904764}, researcher_ids=[], related_scenarios=set(), research_objectives=[], metadata={})]
+
+    def test_priority_manager_adaptation(self, integrated_system, sample_scenarios):
+        """Test the priority manager's ability to adapt to changing scenario promise."""
+        evaluator = integrated_system["evaluator"]
+        comparator = integrated_system["comparator"]
+        manager = integrated_system["manager"]
+    
+        # Initial evaluation and resource allocation
+        for scenario in sample_scenarios:
+            evaluator.evaluate_scenario(scenario)
+            manager.update_scenario_priority(scenario)
+    
+        manager.reallocate_resources(sample_scenarios)
+    
+        # Record initial state
+        initial_priorities = {s.id: s.priority_score for s in sample_scenarios}
+        initial_resources = {
+            s.id: sum(s.resource_allocation.values()) for s in sample_scenarios
+        }
+    
+        # Change scientific promise of scenarios to reverse their ranking
+        # Make the lowest priority scenario much better
+        sorted_by_priority = sorted(
+            sample_scenarios,
+            key=lambda s: s.priority_score
+        )
+    
+        lowest_priority = sorted_by_priority[0]
+        highest_priority = sorted_by_priority[-1]
+    
+        # Dramatically improve lowest priority scenario metrics
+        for metric in lowest_priority.scientific_metrics.values():
+            metric.value = min(1.0, metric.value + 0.3)
+    
+        # Reduce highest priority scenario metrics
+        for metric in highest_priority.scientific_metrics.values():
+            metric.value = max(0.2, metric.value - 0.3)
+    
+        # Recompute all priorities to adjust to new scientific promise
+        manager.recompute_all_priorities(sample_scenarios)
+    
+        # Reallocate resources
+        manager.reallocate_resources(sample_scenarios)
+    
+        # Check adaptation - priorities should have reversed
+>       assert lowest_priority.priority_score > initial_priorities[lowest_priority.id]
+E       AssertionError: assert 0.4 > 0.4
+E        +  where 0.4 = Scenario(id='novel-scenario', name='Novel Climate Model Approach', description='An experimental approach to climate mo...380955, 'memory': 154.81904761904764}, researcher_ids=[], related_scenarios=set(), research_objectives=[], metadata={}).priority_score
+
+tests/scientific_computing/scenario_management/test_scenario_management_integration.py:422: AssertionError
+=============================== warnings summary ===============================
+../../../../.pyenv/versions/3.10.11/lib/python3.10/site-packages/pydantic/_internal/_config.py:323
+  /home/justinchiu_cohere_com/.pyenv/versions/3.10.11/lib/python3.10/site-packages/pydantic/_internal/_config.py:323: PydanticDeprecatedSince20: Support for class-based `config` is deprecated, use ConfigDict instead. Deprecated in Pydantic V2.0 to be removed in V3.0. See Pydantic V2 Migration Guide at https://errors.pydantic.dev/2.11/migration/
+    warnings.warn(DEPRECATION_MESSAGE, DeprecationWarning)
+
+tests/scientific_computing/resource_forecasting/test_data_collector.py: 5 warnings
+tests/scientific_computing/resource_forecasting/test_forecaster.py: 21 warnings
+tests/scientific_computing/resource_forecasting/test_optimizer.py: 5 warnings
+tests/scientific_computing/resource_forecasting/test_reporter.py: 25 warnings
+  /home/justinchiu_cohere_com/minicode/large_repos/concurrent_task_scheduler/unified/concurrent_task_scheduler/resource_forecasting/data_collector.py:466: FutureWarning: 'H' is deprecated and will be removed in a future version, please use 'h' instead.
+    aggregated = df.resample(freq).agg(agg_dict)
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+--------------------------------- JSON report ----------------------------------
+report saved to: report.json
+=========================== short test summary info ============================
+FAILED tests/scientific_computing/scenario_management/test_scenario_management_integration.py::TestScenarioManagementIntegration::test_priority_manager_adaptation
+====== 1 failed, 352 passed, 4 xfailed, 1 xpassed, 57 warnings in 26.64s =======

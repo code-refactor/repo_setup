@@ -1,0 +1,4 @@
+brute force
+dfs and similar
+dp
+strings

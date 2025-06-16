@@ -1,0 +1,48 @@
+Processed incremental_backup_system/incremental_backup_system_digital_artist/setup.py: logprob=-345.35, tokens=189
+Processed incremental_backup_system/incremental_backup_system_game_developer/setup.py: logprob=-342.65, tokens=393
+Processed incremental_backup_system/incremental_backup_system_digital_artist/tests/conftest.py: logprob=-940.57, tokens=1957
+Processed incremental_backup_system/incremental_backup_system_digital_artist/creative_vault/utils.py: logprob=-1182.13, tokens=4069
+Processed incremental_backup_system/incremental_backup_system_digital_artist/creative_vault/interfaces.py: logprob=-994.91, tokens=6137
+Processed incremental_backup_system/incremental_backup_system_digital_artist/creative_vault/__main__.py: logprob=-1324.25, tokens=8596
+Processed incremental_backup_system/incremental_backup_system_digital_artist/creative_vault/visual_diff/diff_generator.py: logprob=-1460.74, tokens=12372
+Processed incremental_backup_system/incremental_backup_system_digital_artist/creative_vault/workspace_capture/environment_capture.py: logprob=-1865.94, tokens=16662
+Processed incremental_backup_system/incremental_backup_system_digital_artist/creative_vault/timeline/timeline_manager.py: logprob=-2108.28, tokens=20992
+Processed incremental_backup_system/incremental_backup_system_digital_artist/creative_vault/backup_engine/incremental_backup.py: logprob=-1432.39, tokens=23654
+Processed incremental_backup_system/incremental_backup_system_digital_artist/creative_vault/element_extraction/extractor.py: logprob=-1706.92, tokens=28435
+Processed incremental_backup_system/incremental_backup_system_digital_artist/creative_vault/asset_tracker/reference_tracker.py: logprob=-2396.26, tokens=33459
+Processed incremental_backup_system/incremental_backup_system_game_developer/gamevault/utils.py: logprob=-636.21, tokens=34688
+Processed incremental_backup_system/incremental_backup_system_game_developer/gamevault/__init__.py: logprob=-295.43, tokens=34761
+Processed incremental_backup_system/incremental_backup_system_game_developer/gamevault/models.py: logprob=-863.58, tokens=35932
+Processed incremental_backup_system/incremental_backup_system_game_developer/gamevault/config.py: logprob=-848.60, tokens=36810
+Processed incremental_backup_system/incremental_backup_system_game_developer/tests/conftest.py: logprob=-236.37, tokens=36973
+Processed incremental_backup_system/incremental_backup_system_game_developer/gamevault/platform_config/__init__.py: logprob=-312.96, tokens=37058
+Processed incremental_backup_system/incremental_backup_system_game_developer/gamevault/platform_config/manager.py: logprob=-2189.28, tokens=42553
+Processed incremental_backup_system/incremental_backup_system_game_developer/gamevault/asset_optimization/deduplication.py: logprob=-1103.56, tokens=44685
+Processed incremental_backup_system/incremental_backup_system_game_developer/gamevault/asset_optimization/compressor.py: logprob=-810.85, tokens=46063
+Processed incremental_backup_system/incremental_backup_system_game_developer/gamevault/asset_optimization/__init__.py: logprob=-427.01, tokens=46334
+Processed incremental_backup_system/incremental_backup_system_game_developer/gamevault/asset_optimization/manager.py: logprob=-1664.98, tokens=48652
+Processed incremental_backup_system/incremental_backup_system_game_developer/gamevault/asset_optimization/chunking.py: logprob=-1355.51, tokens=51190
+Processed incremental_backup_system/incremental_backup_system_game_developer/gamevault/feedback_system/__init__.py: logprob=-307.81, tokens=51304
+Processed incremental_backup_system/incremental_backup_system_game_developer/gamevault/feedback_system/manager.py: logprob=-1054.88, tokens=53812
+Processed incremental_backup_system/incremental_backup_system_game_developer/gamevault/feedback_system/analysis.py: logprob=-1540.85, tokens=56285
+Processed incremental_backup_system/incremental_backup_system_game_developer/gamevault/feedback_system/database.py: logprob=-1228.29, tokens=59905
+Processed incremental_backup_system/incremental_backup_system_game_developer/gamevault/backup_engine/version_tracker.py: logprob=-1082.20, tokens=62143
+Processed incremental_backup_system/incremental_backup_system_game_developer/gamevault/backup_engine/__init__.py: logprob=-340.38, tokens=62307
+Processed incremental_backup_system/incremental_backup_system_game_developer/gamevault/backup_engine/chunker.py: logprob=-969.30, tokens=63863
+Processed incremental_backup_system/incremental_backup_system_game_developer/gamevault/backup_engine/storage.py: logprob=-1065.02, tokens=65880
+Processed incremental_backup_system/incremental_backup_system_game_developer/gamevault/backup_engine/engine.py: logprob=-1558.13, tokens=68556
+Processed incremental_backup_system/incremental_backup_system_game_developer/gamevault/milestone_management/__init__.py: logprob=-300.61, tokens=68634
+Processed incremental_backup_system/incremental_backup_system_game_developer/gamevault/milestone_management/manager.py: logprob=-1559.35, tokens=71697
+Processed incremental_backup_system/incremental_backup_system_game_developer/gamevault/playtest_recorder/__init__.py: logprob=-339.38, tokens=71826
+Processed incremental_backup_system/incremental_backup_system_game_developer/gamevault/playtest_recorder/recorder.py: logprob=-1201.55, tokens=74175
+Processed incremental_backup_system/incremental_backup_system_game_developer/gamevault/playtest_recorder/storage.py: logprob=-1215.39, tokens=77446
+Processed incremental_backup_system/incremental_backup_system_game_developer/gamevault/playtest_recorder/analysis.py: logprob=-1121.75, tokens=80240
+
+=== Summary ===
+Full Repo Log Probability: -41729.65
+Total Tokens: 80240
+Total Logical LOC (LLOC): 4587
+Total Source LOC (SLOC): 5831
+Total Cyclomatic Complexity: 1482
+Total Internal Imports: 0
+Written metrics to large_repos/incremental_backup_system/LIBRARYBENCH_metrics.json

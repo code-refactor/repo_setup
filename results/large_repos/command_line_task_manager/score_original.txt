@@ -1,0 +1,64 @@
+Processed command_line_task_manager/command_line_task_manager_researcher/conftest.py: logprob=-571.25, tokens=503
+Processed command_line_task_manager/command_line_task_manager_researcher/run_tests.py: logprob=-756.22, tokens=1601
+Processed command_line_task_manager/command_line_task_manager_researcher/setup.py: logprob=-361.61, tokens=1887
+Processed command_line_task_manager/command_line_task_manager_security_analyst/setup.py: logprob=-244.12, tokens=2057
+Processed command_line_task_manager/command_line_task_manager_researcher/researchtrack/experiment_tracking/visualizer.py: logprob=-1967.44, tokens=6400
+Processed command_line_task_manager/command_line_task_manager_researcher/researchtrack/experiment_tracking/__init__.py: logprob=-352.35, tokens=6615
+Processed command_line_task_manager/command_line_task_manager_researcher/researchtrack/experiment_tracking/service.py: logprob=-1858.87, tokens=11931
+Processed command_line_task_manager/command_line_task_manager_researcher/researchtrack/experiment_tracking/models.py: logprob=-607.55, tokens=13260
+Processed command_line_task_manager/command_line_task_manager_researcher/researchtrack/experiment_tracking/storage.py: logprob=-716.17, tokens=15749
+Processed command_line_task_manager/command_line_task_manager_researcher/researchtrack/task_management/__init__.py: logprob=-320.98, tokens=15866
+Processed command_line_task_manager/command_line_task_manager_researcher/researchtrack/task_management/service.py: logprob=-1774.63, tokens=25048
+Processed command_line_task_manager/command_line_task_manager_researcher/researchtrack/task_management/models.py: logprob=-695.93, tokens=26601
+Processed command_line_task_manager/command_line_task_manager_researcher/researchtrack/task_management/storage.py: logprob=-655.42, tokens=28537
+Processed command_line_task_manager/command_line_task_manager_researcher/researchtrack/export/formatter.py: logprob=-689.69, tokens=29861
+Processed command_line_task_manager/command_line_task_manager_researcher/researchtrack/export/__init__.py: logprob=-412.46, tokens=30076
+Processed command_line_task_manager/command_line_task_manager_researcher/researchtrack/export/service.py: logprob=-603.36, tokens=31142
+Processed command_line_task_manager/command_line_task_manager_researcher/researchtrack/export/models.py: logprob=-612.83, tokens=31861
+Processed command_line_task_manager/command_line_task_manager_researcher/researchtrack/export/storage.py: logprob=-361.49, tokens=32434
+Processed command_line_task_manager/command_line_task_manager_researcher/researchtrack/bibliography/formatter.py: logprob=-2340.43, tokens=40561
+Processed command_line_task_manager/command_line_task_manager_researcher/researchtrack/bibliography/__init__.py: logprob=-263.40, tokens=40730
+Processed command_line_task_manager/command_line_task_manager_researcher/researchtrack/bibliography/service.py: logprob=-1918.58, tokens=46885
+Processed command_line_task_manager/command_line_task_manager_researcher/researchtrack/bibliography/models.py: logprob=-771.97, tokens=48551
+Processed command_line_task_manager/command_line_task_manager_researcher/researchtrack/bibliography/importer.py: logprob=-1883.50, tokens=54417
+Processed command_line_task_manager/command_line_task_manager_researcher/researchtrack/bibliography/storage.py: logprob=-606.25, tokens=56435
+Processed command_line_task_manager/command_line_task_manager_researcher/researchtrack/environment/__init__.py: logprob=-281.15, tokens=56591
+Processed command_line_task_manager/command_line_task_manager_researcher/researchtrack/environment/service.py: logprob=-2790.02, tokens=68081
+Processed command_line_task_manager/command_line_task_manager_researcher/researchtrack/environment/models.py: logprob=-858.69, tokens=70071
+Processed command_line_task_manager/command_line_task_manager_researcher/researchtrack/environment/storage.py: logprob=-575.50, tokens=71753
+Processed command_line_task_manager/command_line_task_manager_researcher/researchtrack/dataset_versioning/__init__.py: logprob=-913.87, tokens=73074
+Processed command_line_task_manager/command_line_task_manager_researcher/researchtrack/dataset_versioning/service.py: logprob=-2301.79, tokens=81487
+Processed command_line_task_manager/command_line_task_manager_researcher/researchtrack/dataset_versioning/models.py: logprob=-965.10, tokens=83514
+Processed command_line_task_manager/command_line_task_manager_researcher/researchtrack/dataset_versioning/storage.py: logprob=-1394.24, tokens=88308
+Processed command_line_task_manager/command_line_task_manager_researcher/tests/experiment_tracking/__init__.py: logprob=-171.04, tokens=88344
+Processed command_line_task_manager/command_line_task_manager_security_analyst/securetask/__init__.py: logprob=-293.04, tokens=88432
+Processed command_line_task_manager/command_line_task_manager_security_analyst/tests/conftest.py: logprob=-567.37, tokens=89009
+Processed command_line_task_manager/command_line_task_manager_security_analyst/securetask/findings/__init__.py: logprob=-193.18, tokens=89047
+Processed command_line_task_manager/command_line_task_manager_security_analyst/securetask/findings/models.py: logprob=-879.50, tokens=90520
+Processed command_line_task_manager/command_line_task_manager_security_analyst/securetask/findings/repository.py: logprob=-1142.30, tokens=92549
+Processed command_line_task_manager/command_line_task_manager_security_analyst/securetask/reporting/redaction.py: logprob=-1800.02, tokens=96100
+Processed command_line_task_manager/command_line_task_manager_security_analyst/securetask/reporting/__init__.py: logprob=-201.06, tokens=96139
+Processed command_line_task_manager/command_line_task_manager_security_analyst/securetask/reporting/generator.py: logprob=-3635.18, tokens=107296
+Processed command_line_task_manager/command_line_task_manager_security_analyst/securetask/evidence/__init__.py: logprob=-194.33, tokens=107334
+Processed command_line_task_manager/command_line_task_manager_security_analyst/securetask/evidence/models.py: logprob=-785.90, tokens=108360
+Processed command_line_task_manager/command_line_task_manager_security_analyst/securetask/evidence/vault.py: logprob=-1997.94, tokens=112453
+Processed command_line_task_manager/command_line_task_manager_security_analyst/securetask/utils/__init__.py: logprob=-196.84, tokens=112490
+Processed command_line_task_manager/command_line_task_manager_security_analyst/securetask/utils/crypto.py: logprob=-504.47, tokens=113211
+Processed command_line_task_manager/command_line_task_manager_security_analyst/securetask/utils/validation.py: logprob=-460.56, tokens=113710
+Processed command_line_task_manager/command_line_task_manager_security_analyst/securetask/compliance/__init__.py: logprob=-197.25, tokens=113749
+Processed command_line_task_manager/command_line_task_manager_security_analyst/securetask/compliance/repository.py: logprob=-1684.61, tokens=118071
+Processed command_line_task_manager/command_line_task_manager_security_analyst/securetask/compliance/frameworks.py: logprob=-1175.22, tokens=121155
+Processed command_line_task_manager/command_line_task_manager_security_analyst/securetask/cvss/calculator.py: logprob=-1814.89, tokens=126273
+Processed command_line_task_manager/command_line_task_manager_security_analyst/securetask/cvss/__init__.py: logprob=-182.60, tokens=126310
+Processed command_line_task_manager/command_line_task_manager_security_analyst/securetask/remediation/__init__.py: logprob=-197.27, tokens=126348
+Processed command_line_task_manager/command_line_task_manager_security_analyst/securetask/remediation/workflow.py: logprob=-1618.90, tokens=129235
+Processed command_line_task_manager/command_line_task_manager_security_analyst/securetask/remediation/tracker.py: logprob=-2179.64, tokens=133678
+
+=== Summary ===
+Full Repo Log Probability: -53499.96
+Total Tokens: 133678
+Total Logical LOC (LLOC): 7964
+Total Source LOC (SLOC): 9937
+Total Cyclomatic Complexity: 2921
+Total Internal Imports: 0
+Written metrics to large_repos/command_line_task_manager/LIBRARYBENCH_metrics.json

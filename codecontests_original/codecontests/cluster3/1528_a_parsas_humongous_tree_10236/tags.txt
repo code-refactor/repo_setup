@@ -1,0 +1,5 @@
+dfs and similar
+divide and conquer
+dp
+greedy
+trees

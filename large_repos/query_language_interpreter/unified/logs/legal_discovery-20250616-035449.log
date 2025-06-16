@@ -1,0 +1,6 @@
+2025-06-16 03:54:49,945 [INFO] legal_discovery - Parsing query: agreement (interpreter.py:154)
+2025-06-16 03:54:49,946 [INFO] legal_discovery - Executing legal query: 6eafe666-24c4-4e04-9ce8-7e42e0ddadb4 (interpreter.py:270)
+2025-06-16 03:54:49,946 [INFO] legal_discovery - Query 6eafe666-24c4-4e04-9ce8-7e42e0ddadb4 executed in 0.00s with 1 hits (interpreter.py:300)
+2025-06-16 03:54:49,946 [INFO] legal_discovery - Parsing query: agreement (interpreter.py:154)
+2025-06-16 03:54:49,946 [INFO] legal_discovery - Executing legal query: 971bd850-1077-4f25-874e-2e0f999287db (interpreter.py:270)
+2025-06-16 03:54:49,946 [INFO] legal_discovery - Query 971bd850-1077-4f25-874e-2e0f999287db executed in 0.00s with 1 hits (interpreter.py:300)

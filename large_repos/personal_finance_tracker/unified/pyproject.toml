@@ -1,0 +1,30 @@
+[build-system]
+requires = ["setuptools>=42", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "unified-personal_finance_tracker"
+version = "0.1.0"
+description = "Unified libraries for personal_finance_tracker with original package names preserved"
+requires-python = ">=3.10"
+dependencies = ["setuptools", "pytest", "pytest-json-report", "pytest-cov", "pydantic>=2.0.0", "pandas>=1.5.0", "numpy>=1.20.0", "pytest>=7.0.0", "pytest-json-report>=1.5.0", "numpy>=1.22.0", "pandas>=1.4.0", "pydantic>=1.9.0", "python-dateutil>=2.8.2", "psutil>=5.9.0"]
+
+[tool.setuptools]
+packages = ["common", "personal_finance_tracker", "ethical_finance"]
+
+[tool.pytest]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = "test_*.py"
+python_functions = "test_*"
+
+[tool.ruff]
+line-length = 88
+target-version = "py38"
+
+[tool.pyright]
+include = ["personal_finance_tracker"]
+exclude = ["**/__pycache__", "**/.pytest_cache"]
+typeCheckingMode = "strict"
+reportMissingTypeStubs = false

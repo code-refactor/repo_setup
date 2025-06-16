@@ -1,0 +1,52 @@
+Processed virtual_machine_emulator/virtual_machine_emulator_parallel_researcher/debug_run.py: logprob=-587.73, tokens=630
+Processed virtual_machine_emulator/virtual_machine_emulator_parallel_researcher/debug_sched.py: logprob=-553.08, tokens=1120
+Processed virtual_machine_emulator/virtual_machine_emulator_parallel_researcher/setup.py: logprob=-239.88, tokens=1222
+Processed virtual_machine_emulator/virtual_machine_emulator_parallel_researcher/debug_vm.py: logprob=-628.96, tokens=1752
+Processed virtual_machine_emulator/virtual_machine_emulator_security_researcher/run_tests.py: logprob=-335.73, tokens=2019
+Processed virtual_machine_emulator/virtual_machine_emulator_parallel_researcher/vm_emulator/__init__.py: logprob=-213.13, tokens=2068
+Processed virtual_machine_emulator/virtual_machine_emulator_parallel_researcher/tests/__init__.py: logprob=-171.86, tokens=2104
+Processed virtual_machine_emulator/virtual_machine_emulator_parallel_researcher/vm_emulator/scheduling/__init__.py: logprob=-192.23, tokens=2140
+Processed virtual_machine_emulator/virtual_machine_emulator_parallel_researcher/vm_emulator/scheduling/scheduler.py: logprob=-2670.25, tokens=9014
+Processed virtual_machine_emulator/virtual_machine_emulator_parallel_researcher/vm_emulator/memory/__init__.py: logprob=-194.56, tokens=9049
+Processed virtual_machine_emulator/virtual_machine_emulator_parallel_researcher/vm_emulator/memory/coherence.py: logprob=-3103.24, tokens=16025
+Processed virtual_machine_emulator/virtual_machine_emulator_parallel_researcher/vm_emulator/memory/patterns.py: logprob=-2671.75, tokens=22473
+Processed virtual_machine_emulator/virtual_machine_emulator_parallel_researcher/vm_emulator/memory/cache.py: logprob=-2101.62, tokens=27711
+Processed virtual_machine_emulator/virtual_machine_emulator_parallel_researcher/vm_emulator/threading/__init__.py: logprob=-181.71, tokens=27747
+Processed virtual_machine_emulator/virtual_machine_emulator_parallel_researcher/vm_emulator/threading/thread_manager.py: logprob=-1461.14, tokens=31288
+Processed virtual_machine_emulator/virtual_machine_emulator_parallel_researcher/vm_emulator/threading/thread.py: logprob=-783.14, tokens=32512
+Processed virtual_machine_emulator/virtual_machine_emulator_parallel_researcher/vm_emulator/visualization/__init__.py: logprob=-198.22, tokens=32547
+Processed virtual_machine_emulator/virtual_machine_emulator_parallel_researcher/vm_emulator/visualization/trace.py: logprob=-1943.93, tokens=38556
+Processed virtual_machine_emulator/virtual_machine_emulator_parallel_researcher/vm_emulator/core/program.py: logprob=-570.13, tokens=39591
+Processed virtual_machine_emulator/virtual_machine_emulator_parallel_researcher/vm_emulator/core/processor.py: logprob=-1486.18, tokens=41896
+Processed virtual_machine_emulator/virtual_machine_emulator_parallel_researcher/vm_emulator/core/state.py: logprob=-1863.81, tokens=45585
+Processed virtual_machine_emulator/virtual_machine_emulator_parallel_researcher/vm_emulator/core/__init__.py: logprob=-208.89, tokens=45625
+Processed virtual_machine_emulator/virtual_machine_emulator_parallel_researcher/vm_emulator/core/race.py: logprob=-2096.46, tokens=50050
+Processed virtual_machine_emulator/virtual_machine_emulator_parallel_researcher/vm_emulator/core/vm.py: logprob=-3503.27, tokens=56474
+Processed virtual_machine_emulator/virtual_machine_emulator_parallel_researcher/vm_emulator/core/instruction.py: logprob=-541.69, tokens=57556
+Processed virtual_machine_emulator/virtual_machine_emulator_parallel_researcher/vm_emulator/core/latency.py: logprob=-1706.45, tokens=62383
+Processed virtual_machine_emulator/virtual_machine_emulator_parallel_researcher/vm_emulator/core/memory.py: logprob=-701.08, tokens=63771
+Processed virtual_machine_emulator/virtual_machine_emulator_parallel_researcher/vm_emulator/synchronization/__init__.py: logprob=-188.79, tokens=63814
+Processed virtual_machine_emulator/virtual_machine_emulator_parallel_researcher/vm_emulator/synchronization/primitives.py: logprob=-1761.11, tokens=69703
+Processed virtual_machine_emulator/virtual_machine_emulator_parallel_researcher/vm_emulator/synchronization/manager.py: logprob=-1339.54, tokens=75189
+Processed virtual_machine_emulator/virtual_machine_emulator_parallel_researcher/vm_emulator/patterns/__init__.py: logprob=-191.57, tokens=75225
+Processed virtual_machine_emulator/virtual_machine_emulator_parallel_researcher/vm_emulator/patterns/algorithms.py: logprob=-2678.31, tokens=81731
+Processed virtual_machine_emulator/virtual_machine_emulator_parallel_researcher/vm_emulator/metrics/__init__.py: logprob=-178.48, tokens=81766
+Processed virtual_machine_emulator/virtual_machine_emulator_parallel_researcher/vm_emulator/metrics/performance.py: logprob=-2024.77, tokens=86541
+Processed virtual_machine_emulator/virtual_machine_emulator_security_researcher/tests/conftest.py: logprob=-652.57, tokens=87068
+Processed virtual_machine_emulator/virtual_machine_emulator_security_researcher/tests/__init__.py: logprob=-195.87, tokens=87106
+Processed virtual_machine_emulator/virtual_machine_emulator_security_researcher/src/secure_vm/visualization.py: logprob=-2444.28, tokens=91037
+Processed virtual_machine_emulator/virtual_machine_emulator_security_researcher/src/secure_vm/emulator.py: logprob=-2654.24, tokens=95654
+Processed virtual_machine_emulator/virtual_machine_emulator_security_researcher/src/secure_vm/scenarios.py: logprob=-4101.48, tokens=104469
+Processed virtual_machine_emulator/virtual_machine_emulator_security_researcher/src/secure_vm/__init__.py: logprob=-319.13, tokens=104560
+Processed virtual_machine_emulator/virtual_machine_emulator_security_researcher/src/secure_vm/cpu.py: logprob=-2595.30, tokens=109777
+Processed virtual_machine_emulator/virtual_machine_emulator_security_researcher/src/secure_vm/attacks.py: logprob=-3453.00, tokens=115931
+Processed virtual_machine_emulator/virtual_machine_emulator_security_researcher/src/secure_vm/memory.py: logprob=-1788.81, tokens=119594
+
+=== Summary ===
+Full Repo Log Probability: -57477.37
+Total Tokens: 119594
+Total Logical LOC (LLOC): 6841
+Total Source LOC (SLOC): 9114
+Total Cyclomatic Complexity: 2283
+Total Internal Imports: 0
+Written metrics to large_repos/virtual_machine_emulator/LIBRARYBENCH_metrics.json

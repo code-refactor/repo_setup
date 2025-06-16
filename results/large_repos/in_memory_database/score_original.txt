@@ -1,0 +1,44 @@
+Processed in_memory_database/in_memory_database_mobile_developer/setup.py: logprob=-302.14, tokens=297
+Processed in_memory_database/in_memory_database_ml_engineer/run_tests.py: logprob=-448.37, tokens=844
+Processed in_memory_database/in_memory_database_mobile_developer/syncdb/client.py: logprob=-2850.89, tokens=5997
+Processed in_memory_database/in_memory_database_mobile_developer/syncdb/__init__.py: logprob=-731.38, tokens=6317
+Processed in_memory_database/in_memory_database_mobile_developer/tests/conftest.py: logprob=-935.72, tokens=7569
+Processed in_memory_database/in_memory_database_mobile_developer/syncdb/sync/manual_sync.py: logprob=-542.10, tokens=8192
+Processed in_memory_database/in_memory_database_mobile_developer/syncdb/sync/change_tracker.py: logprob=-923.92, tokens=10033
+Processed in_memory_database/in_memory_database_mobile_developer/syncdb/sync/conflict_resolution.py: logprob=-1215.24, tokens=12581
+Processed in_memory_database/in_memory_database_mobile_developer/syncdb/sync/sync_protocol.py: logprob=-3204.32, tokens=18441
+Processed in_memory_database/in_memory_database_mobile_developer/syncdb/db/schema.py: logprob=-525.46, tokens=19155
+Processed in_memory_database/in_memory_database_mobile_developer/syncdb/db/database.py: logprob=-1426.40, tokens=22326
+Processed in_memory_database/in_memory_database_mobile_developer/syncdb/schema/schema_manager.py: logprob=-1913.87, tokens=27206
+Processed in_memory_database/in_memory_database_mobile_developer/syncdb/compression/type_compressor.py: logprob=-1460.65, tokens=31074
+Processed in_memory_database/in_memory_database_mobile_developer/syncdb/power/power_manager.py: logprob=-1814.70, tokens=34354
+Processed in_memory_database/in_memory_database_mobile_developer/tests/performance/simple_conflict_test.py: logprob=-1209.88, tokens=35585
+Processed in_memory_database/in_memory_database_ml_engineer/tests/conftest.py: logprob=-383.25, tokens=35909
+Processed in_memory_database/in_memory_database_ml_engineer/tests/__init__.py: logprob=-166.74, tokens=35944
+Processed in_memory_database/in_memory_database_ml_engineer/vectordb/__init__.py: logprob=-399.68, tokens=36113
+Processed in_memory_database/in_memory_database_ml_engineer/vectordb/experiment/__init__.py: logprob=-207.29, tokens=36172
+Processed in_memory_database/in_memory_database_ml_engineer/vectordb/experiment/ab_test.py: logprob=-1664.29, tokens=41625
+Processed in_memory_database/in_memory_database_ml_engineer/vectordb/transform/pipeline.py: logprob=-1019.37, tokens=44213
+Processed in_memory_database/in_memory_database_ml_engineer/vectordb/transform/operations.py: logprob=-1319.92, tokens=49124
+Processed in_memory_database/in_memory_database_ml_engineer/vectordb/transform/__init__.py: logprob=-211.98, tokens=49223
+Processed in_memory_database/in_memory_database_ml_engineer/vectordb/batch/processor.py: logprob=-1949.97, tokens=53586
+Processed in_memory_database/in_memory_database_ml_engineer/vectordb/batch/__init__.py: logprob=-188.80, tokens=53635
+Processed in_memory_database/in_memory_database_ml_engineer/vectordb/core/__init__.py: logprob=-215.85, tokens=53718
+Processed in_memory_database/in_memory_database_ml_engineer/vectordb/core/vector.py: logprob=-655.68, tokens=55266
+Processed in_memory_database/in_memory_database_ml_engineer/vectordb/core/distance.py: logprob=-609.27, tokens=56857
+Processed in_memory_database/in_memory_database_ml_engineer/vectordb/indexing/__init__.py: logprob=-199.31, tokens=56932
+Processed in_memory_database/in_memory_database_ml_engineer/vectordb/indexing/approximate_nn.py: logprob=-1568.94, tokens=59819
+Processed in_memory_database/in_memory_database_ml_engineer/vectordb/indexing/index.py: logprob=-1121.45, tokens=62153
+Processed in_memory_database/in_memory_database_ml_engineer/vectordb/feature_store/__init__.py: logprob=-206.51, tokens=62238
+Processed in_memory_database/in_memory_database_ml_engineer/vectordb/feature_store/version.py: logprob=-1199.76, tokens=65168
+Processed in_memory_database/in_memory_database_ml_engineer/vectordb/feature_store/lineage.py: logprob=-1419.49, tokens=68802
+Processed in_memory_database/in_memory_database_ml_engineer/vectordb/feature_store/store.py: logprob=-2358.25, tokens=74070
+
+=== Summary ===
+Full Repo Log Probability: -36570.87
+Total Tokens: 74070
+Total Logical LOC (LLOC): 4565
+Total Source LOC (SLOC): 5211
+Total Cyclomatic Complexity: 1671
+Total Internal Imports: 0
+Written metrics to large_repos/in_memory_database/LIBRARYBENCH_metrics.json

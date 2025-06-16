@@ -1,0 +1,75 @@
+============================= test session starts ==============================
+platform linux -- Python 3.10.11, pytest-8.3.5, pluggy-1.5.0
+rootdir: /home/justinchiu_cohere_com/minicode/large_repos/query_language_interpreter/unified
+configfile: pyproject.toml
+plugins: anyio-4.9.0, metadata-3.1.1, json-report-1.5.0, cov-6.1.1
+collected 213 items
+
+tests/data_privacy_officer/access_logging/test_logger.py ...........     [  5%]
+tests/data_privacy_officer/anonymization/test_anonymizer.py ............ [ 10%]
+....                                                                     [ 12%]
+tests/data_privacy_officer/data_minimization/test_minimizer.py ......... [ 16%]
+...                                                                      [ 18%]
+tests/data_privacy_officer/integration/test_scenarios.py .....           [ 20%]
+tests/data_privacy_officer/pii_detection/test_detector.py ...........    [ 25%]
+tests/data_privacy_officer/pii_detection/test_scanner.py .........       [ 30%]
+tests/data_privacy_officer/policy_enforcement/test_enforcer.py ......... [ 34%]
+                                                                         [ 34%]
+tests/data_privacy_officer/policy_enforcement/test_policy.py ........... [ 39%]
+.                                                                        [ 39%]
+tests/data_privacy_officer/query_engine/test_engine.py ...........       [ 45%]
+tests/data_privacy_officer/query_engine/test_parser.py ...........       [ 50%]
+tests/legal_discovery_specialist/test_communication_analysis/test_analyzer.py . [ 50%]
+.......                                                                  [ 53%]
+tests/legal_discovery_specialist/test_communication_analysis/test_models.py . [ 54%]
+......                                                                   [ 57%]
+tests/legal_discovery_specialist/test_core/test_document.py .....        [ 59%]
+tests/legal_discovery_specialist/test_core/test_interpreter.py .......   [ 62%]
+tests/legal_discovery_specialist/test_core/test_query.py .............   [ 69%]
+tests/legal_discovery_specialist/test_document_analysis/test_analyzer.py . [ 69%]
+.........                                                                [ 73%]
+tests/legal_discovery_specialist/test_document_analysis/test_proximity.py . [ 74%]
+........                                                                 [ 77%]
+tests/legal_discovery_specialist/test_integration/test_integration.py .. [ 78%]
+.....                                                                    [ 81%]
+tests/legal_discovery_specialist/test_ontology/test_models.py ....       [ 83%]
+tests/legal_discovery_specialist/test_ontology/test_service.py ......    [ 85%]
+tests/legal_discovery_specialist/test_privilege/test_detector.py ....... [ 89%]
+.....                                                                    [ 91%]
+tests/legal_discovery_specialist/test_privilege/test_models.py ....      [ 93%]
+tests/legal_discovery_specialist/test_temporal/test_manager.py ......... [ 97%]
+                                                                         [ 97%]
+tests/legal_discovery_specialist/test_temporal/test_models.py .....      [100%]
+
+=============================== warnings summary ===============================
+privacy_query_interpreter/policy_enforcement/policy.py:60
+  /home/justinchiu_cohere_com/minicode/large_repos/query_language_interpreter/unified/privacy_query_interpreter/policy_enforcement/policy.py:60: PydanticDeprecatedSince20: Pydantic V1 style `@root_validator` validators are deprecated. You should migrate to Pydantic V2 style `@model_validator` validators, see the migration guide for more details. Deprecated in Pydantic V2.0 to be removed in V3.0. See Pydantic V2 Migration Guide at https://errors.pydantic.dev/2.11/migration/
+    @root_validator(skip_on_failure=True)
+
+privacy_query_interpreter/policy_enforcement/policy.py:112
+  /home/justinchiu_cohere_com/minicode/large_repos/query_language_interpreter/unified/privacy_query_interpreter/policy_enforcement/policy.py:112: PydanticDeprecatedSince20: Pydantic V1 style `@validator` validators are deprecated. You should migrate to Pydantic V2 style `@field_validator` validators, see the migration guide for more details. Deprecated in Pydantic V2.0 to be removed in V3.0. See Pydantic V2 Migration Guide at https://errors.pydantic.dev/2.11/migration/
+    @validator("prohibited_joins", pre=True)
+
+../../../../.pyenv/versions/3.10.11/lib/python3.10/site-packages/pydantic/_internal/_config.py:323: 14 warnings
+  /home/justinchiu_cohere_com/.pyenv/versions/3.10.11/lib/python3.10/site-packages/pydantic/_internal/_config.py:323: PydanticDeprecatedSince20: Support for class-based `config` is deprecated, use ConfigDict instead. Deprecated in Pydantic V2.0 to be removed in V3.0. See Pydantic V2 Migration Guide at https://errors.pydantic.dev/2.11/migration/
+    warnings.warn(DEPRECATION_MESSAGE, DeprecationWarning)
+
+tests/data_privacy_officer/policy_enforcement/test_policy.py::TestPolicyDefinitions::test_data_policy_to_dict
+tests/data_privacy_officer/policy_enforcement/test_policy.py::TestPolicyDefinitions::test_policy_set_to_dict
+  /home/justinchiu_cohere_com/minicode/large_repos/query_language_interpreter/unified/privacy_query_interpreter/policy_enforcement/policy.py:135: PydanticDeprecatedSince20: The `dict` method is deprecated; use `model_dump` instead. Deprecated in Pydantic V2.0 to be removed in V3.0. See Pydantic V2 Migration Guide at https://errors.pydantic.dev/2.11/migration/
+    return self.dict(exclude_none=True)
+
+tests/legal_discovery_specialist/test_ontology/test_service.py::test_load_ontology_from_file
+  /home/justinchiu_cohere_com/minicode/large_repos/query_language_interpreter/unified/legal_discovery_interpreter/ontology/service.py:49: PydanticDeprecatedSince20: The `parse_obj` method is deprecated; use `model_validate` instead. Deprecated in Pydantic V2.0 to be removed in V3.0. See Pydantic V2 Migration Guide at https://errors.pydantic.dev/2.11/migration/
+    ontology = LegalOntology.parse_obj(ontology_data)
+
+tests/legal_discovery_specialist/test_privilege/test_detector.py::test_generate_privilege_log
+tests/legal_discovery_specialist/test_privilege/test_detector.py::test_generate_privilege_log
+tests/legal_discovery_specialist/test_privilege/test_detector.py::test_generate_privilege_log
+  /home/justinchiu_cohere_com/minicode/large_repos/query_language_interpreter/unified/legal_discovery_interpreter/privilege/detector.py:566: PydanticDeprecatedSince20: The `dict` method is deprecated; use `model_dump` instead. Deprecated in Pydantic V2.0 to be removed in V3.0. See Pydantic V2 Migration Guide at https://errors.pydantic.dev/2.11/migration/
+    log['entries'][doc_id] = result.dict()
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+--------------------------------- JSON report ----------------------------------
+report saved to: report.json
+======================= 213 passed, 22 warnings in 2.83s =======================

@@ -1,0 +1,50 @@
+Processed file_system_analyzer/file_system_analyzer_db_admin/setup.py: logprob=-317.91, tokens=221
+Processed file_system_analyzer/file_system_analyzer_security_auditor/setup.py: logprob=-227.47, tokens=351
+Processed file_system_analyzer/file_system_analyzer_db_admin/file_system_analyzer_db_admin/__init__.py: logprob=-256.66, tokens=422
+Processed file_system_analyzer/file_system_analyzer_db_admin/file_system_analyzer_db_admin/main.py: logprob=-1279.67, tokens=2572
+Processed file_system_analyzer/file_system_analyzer_db_admin/tests/conftest.py: logprob=-1929.35, tokens=7239
+Processed file_system_analyzer/file_system_analyzer_db_admin/file_system_analyzer_db_admin/interfaces/export.py: logprob=-1830.44, tokens=10744
+Processed file_system_analyzer/file_system_analyzer_db_admin/file_system_analyzer_db_admin/interfaces/__init__.py: logprob=-254.74, tokens=10803
+Processed file_system_analyzer/file_system_analyzer_db_admin/file_system_analyzer_db_admin/interfaces/api.py: logprob=-1707.60, tokens=14862
+Processed file_system_analyzer/file_system_analyzer_db_admin/file_system_analyzer_db_admin/interfaces/filesystem.py: logprob=-1507.58, tokens=16724
+Processed file_system_analyzer/file_system_analyzer_db_admin/file_system_analyzer_db_admin/transaction_log_analysis/__init__.py: logprob=-241.05, tokens=16786
+Processed file_system_analyzer/file_system_analyzer_db_admin/file_system_analyzer_db_admin/transaction_log_analysis/log_analyzer.py: logprob=-3636.53, tokens=23049
+Processed file_system_analyzer/file_system_analyzer_db_admin/file_system_analyzer_db_admin/utils/__init__.py: logprob=-195.60, tokens=23087
+Processed file_system_analyzer/file_system_analyzer_db_admin/file_system_analyzer_db_admin/utils/types.py: logprob=-689.13, tokens=24032
+Processed file_system_analyzer/file_system_analyzer_db_admin/file_system_analyzer_db_admin/utils/file_utils.py: logprob=-1063.99, tokens=25889
+Processed file_system_analyzer/file_system_analyzer_db_admin/file_system_analyzer_db_admin/backup_compression/__init__.py: logprob=-225.47, tokens=25943
+Processed file_system_analyzer/file_system_analyzer_db_admin/file_system_analyzer_db_admin/backup_compression/compression_analyzer.py: logprob=-3542.20, tokens=32985
+Processed file_system_analyzer/file_system_analyzer_db_admin/file_system_analyzer_db_admin/tablespace_fragmentation/__init__.py: logprob=-256.92, tokens=33040
+Processed file_system_analyzer/file_system_analyzer_db_admin/file_system_analyzer_db_admin/tablespace_fragmentation/fragmentation_analyzer.py: logprob=-3121.64, tokens=38402
+Processed file_system_analyzer/file_system_analyzer_db_admin/file_system_analyzer_db_admin/index_efficiency/__init__.py: logprob=-232.38, tokens=38455
+Processed file_system_analyzer/file_system_analyzer_db_admin/file_system_analyzer_db_admin/index_efficiency/index_analyzer.py: logprob=-3538.91, tokens=44246
+Processed file_system_analyzer/file_system_analyzer_db_admin/file_system_analyzer_db_admin/db_file_recognition/detector.py: logprob=-1402.29, tokens=46732
+Processed file_system_analyzer/file_system_analyzer_db_admin/file_system_analyzer_db_admin/db_file_recognition/__init__.py: logprob=-229.79, tokens=46786
+Processed file_system_analyzer/file_system_analyzer_db_admin/file_system_analyzer_db_admin/db_file_recognition/file_patterns.py: logprob=-1268.98, tokens=48692
+Processed file_system_analyzer/file_system_analyzer_security_auditor/file_system_analyzer/scanner.py: logprob=-1599.66, tokens=51337
+Processed file_system_analyzer/file_system_analyzer_security_auditor/file_system_analyzer/__init__.py: logprob=-260.34, tokens=51400
+Processed file_system_analyzer/file_system_analyzer_security_auditor/tests/conftest.py: logprob=-763.54, tokens=52542
+Processed file_system_analyzer/file_system_analyzer_security_auditor/tests/__init__.py: logprob=-196.60, tokens=52580
+Processed file_system_analyzer/file_system_analyzer_security_auditor/file_system_analyzer/reporting/__init__.py: logprob=-223.84, tokens=52643
+Processed file_system_analyzer/file_system_analyzer_security_auditor/file_system_analyzer/reporting/reports.py: logprob=-1195.75, tokens=54249
+Processed file_system_analyzer/file_system_analyzer_security_auditor/file_system_analyzer/reporting/frameworks.py: logprob=-1372.90, tokens=56842
+Processed file_system_analyzer/file_system_analyzer_security_auditor/file_system_analyzer/detection/scanner.py: logprob=-1690.98, tokens=59750
+Processed file_system_analyzer/file_system_analyzer_security_auditor/file_system_analyzer/detection/__init__.py: logprob=-207.23, tokens=59798
+Processed file_system_analyzer/file_system_analyzer_security_auditor/file_system_analyzer/detection/patterns.py: logprob=-1281.17, tokens=62301
+Processed file_system_analyzer/file_system_analyzer_security_auditor/file_system_analyzer/custody/__init__.py: logprob=-252.25, tokens=62362
+Processed file_system_analyzer/file_system_analyzer_security_auditor/file_system_analyzer/custody/evidence.py: logprob=-1576.57, tokens=64947
+Processed file_system_analyzer/file_system_analyzer_security_auditor/file_system_analyzer/utils/__init__.py: logprob=-208.68, tokens=64986
+Processed file_system_analyzer/file_system_analyzer_security_auditor/file_system_analyzer/utils/crypto.py: logprob=-706.51, tokens=66289
+Processed file_system_analyzer/file_system_analyzer_security_auditor/file_system_analyzer/audit/logger.py: logprob=-1573.98, tokens=68672
+Processed file_system_analyzer/file_system_analyzer_security_auditor/file_system_analyzer/audit/__init__.py: logprob=-269.39, tokens=68727
+Processed file_system_analyzer/file_system_analyzer_security_auditor/file_system_analyzer/differential/__init__.py: logprob=-227.15, tokens=68783
+Processed file_system_analyzer/file_system_analyzer_security_auditor/file_system_analyzer/differential/analyzer.py: logprob=-1322.10, tokens=71328
+
+=== Summary ===
+Full Repo Log Probability: -43884.93
+Total Tokens: 71328
+Total Logical LOC (LLOC): 3911
+Total Source LOC (SLOC): 5863
+Total Cyclomatic Complexity: 1338
+Total Internal Imports: 0
+Written metrics to large_repos/file_system_analyzer/LIBRARYBENCH_metrics.json

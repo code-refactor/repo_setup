@@ -1,0 +1,5 @@
+binary search
+dfs and similar
+graphs
+greedy
+trees

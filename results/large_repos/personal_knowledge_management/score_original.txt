@@ -1,0 +1,29 @@
+Processed personal_knowledge_management/personal_knowledge_management_academic_researcher/run_tests.py: logprob=-531.36, tokens=372
+Processed personal_knowledge_management/personal_knowledge_management_academic_researcher/setup.py: logprob=-370.22, tokens=760
+Processed personal_knowledge_management/personal_knowledge_management_product_manager/productmind/models.py: logprob=-1098.84, tokens=2616
+Processed personal_knowledge_management/personal_knowledge_management_product_manager/tests/conftest.py: logprob=-354.52, tokens=2732
+Processed personal_knowledge_management/personal_knowledge_management_product_manager/productmind/decision_registry/registry.py: logprob=-2152.10, tokens=8372
+Processed personal_knowledge_management/personal_knowledge_management_product_manager/productmind/prioritization/framework.py: logprob=-2874.27, tokens=14294
+Processed personal_knowledge_management/personal_knowledge_management_product_manager/productmind/stakeholder_insights/manager.py: logprob=-2397.98, tokens=21285
+Processed personal_knowledge_management/personal_knowledge_management_product_manager/productmind/competitive_analysis/system.py: logprob=-2319.83, tokens=27170
+Processed personal_knowledge_management/personal_knowledge_management_product_manager/productmind/feedback_analysis/engine.py: logprob=-2311.82, tokens=32208
+Processed personal_knowledge_management/personal_knowledge_management_academic_researcher/tests/failing_tests.py: logprob=-178.84, tokens=32257
+Processed personal_knowledge_management/personal_knowledge_management_academic_researcher/tests/conftest.py: logprob=-284.78, tokens=32464
+Processed personal_knowledge_management/personal_knowledge_management_academic_researcher/researchbrain/cli.py: logprob=-2737.98, tokens=43430
+Processed personal_knowledge_management/personal_knowledge_management_academic_researcher/researchbrain/__main__.py: logprob=-192.56, tokens=43487
+Processed personal_knowledge_management/personal_knowledge_management_academic_researcher/researchbrain/grants/export.py: logprob=-1236.35, tokens=45285
+Processed personal_knowledge_management/personal_knowledge_management_academic_researcher/researchbrain/core/brain.py: logprob=-4896.89, tokens=57614
+Processed personal_knowledge_management/personal_knowledge_management_academic_researcher/researchbrain/core/models.py: logprob=-1398.05, tokens=59629
+Processed personal_knowledge_management/personal_knowledge_management_academic_researcher/researchbrain/core/storage.py: logprob=-2982.43, tokens=66177
+Processed personal_knowledge_management/personal_knowledge_management_academic_researcher/researchbrain/experiments/templates.py: logprob=-1175.09, tokens=69089
+Processed personal_knowledge_management/personal_knowledge_management_academic_researcher/researchbrain/citations/parsers.py: logprob=-1714.01, tokens=71884
+Processed personal_knowledge_management/personal_knowledge_management_academic_researcher/researchbrain/citations/formatters.py: logprob=-1158.85, tokens=76079
+
+=== Summary ===
+Full Repo Log Probability: -32366.77
+Total Tokens: 76079
+Total Logical LOC (LLOC): 5341
+Total Source LOC (SLOC): 6401
+Total Cyclomatic Complexity: 1832
+Total Internal Imports: 0
+Written metrics to large_repos/personal_knowledge_management/LIBRARYBENCH_metrics.json

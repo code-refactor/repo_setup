@@ -1,0 +1,7 @@
+3
+ababc
+abcba
+fdded
+defed
+ababbfeded
+abddebafed

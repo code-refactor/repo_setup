@@ -1,0 +1,277 @@
+Running tests for codecontests/cluster6...
+
+====================================
+Testing problem: 108_d_basketball_team_11673
+====================================
+❌ Problem 108_d_basketball_team_11673: Results: 9/10 tests passed
+Sample errors:
+Test #3: FAILED ❌
+...
+
+====================================
+Testing problem: 1111_d_destroy_the_colony_7405
+====================================
+✅ Problem 1111_d_destroy_the_colony_7405: Results: 10/10 tests passed
+
+====================================
+Testing problem: 1172_c1_nauuo_and_pictures_easy_version_2723
+====================================
+✅ Problem 1172_c1_nauuo_and_pictures_easy_version_2723: Results: 10/10 tests passed
+
+====================================
+Testing problem: 1172_c2_nauuo_and_pictures_hard_version_13029
+====================================
+✅ Problem 1172_c2_nauuo_and_pictures_hard_version_13029: Results: 10/10 tests passed
+
+====================================
+Testing problem: 1187_f_expected_square_beauty_12302
+====================================
+✅ Problem 1187_f_expected_square_beauty_12302: Results: 10/10 tests passed
+
+====================================
+Testing problem: 1245_e_hyakugoku_and_ladders_2311
+====================================
+❌ Problem 1245_e_hyakugoku_and_ladders_2311: Results: 0/10 tests passed
+Sample errors:
+Test #1: FAILED ❌
+Test #2: FAILED ❌
+Test #3: FAILED ❌
+Test #4: FAILED ❌
+Test #5: FAILED ❌
+...
+
+====================================
+Testing problem: 1264_c_beautiful_mirrors_with_queries_6684
+====================================
+❌ Problem 1264_c_beautiful_mirrors_with_queries_6684: Results: 0/10 tests passed
+Sample errors:
+Test #1: FAILED ❌
+Test #2: FAILED ❌
+Test #3: FAILED ❌
+Traceback (most recent call last):
+ValueError: not enough values to unpack (expected 2, got 1)
+...
+
+====================================
+Testing problem: 1349_d_slime_and_biscuits_751
+====================================
+✅ Problem 1349_d_slime_and_biscuits_751: Results: 10/10 tests passed
+
+====================================
+Testing problem: 145_c_lucky_subsequence_8670
+====================================
+✅ Problem 145_c_lucky_subsequence_8670: Results: 10/10 tests passed
+
+====================================
+Testing problem: 1461_c_random_events_9295
+====================================
+❌ Problem 1461_c_random_events_9295: Results: 0/10 tests passed
+Sample errors:
+Test #1: FAILED ❌
+Test #2: FAILED ❌
+Test #3: FAILED ❌
+Test #4: FAILED ❌
+Test #5: FAILED ❌
+...
+
+====================================
+Testing problem: 1475_e_advertising_agency_1071
+====================================
+✅ Problem 1475_e_advertising_agency_1071: Results: 10/10 tests passed
+
+====================================
+Testing problem: 148_d_bag_of_mice_3571
+====================================
+✅ Problem 148_d_bag_of_mice_3571: Results: 10/10 tests passed
+
+====================================
+Testing problem: 1541_d_tree_array_2740
+====================================
+✅ Problem 1541_d_tree_array_2740: Results: 10/10 tests passed
+
+====================================
+Testing problem: 1543_c_need_for_pink_slips_3469
+====================================
+❌ Problem 1543_c_need_for_pink_slips_3469: Results: 0/10 tests passed
+Sample errors:
+Test #1: FAILED ❌
+Test #2: FAILED ❌
+Test #3: FAILED ❌
+Test #4: FAILED ❌
+Test #5: FAILED ❌
+...
+
+====================================
+Testing problem: 160_c_find_pair_12111
+====================================
+✅ Problem 160_c_find_pair_12111: Results: 10/10 tests passed
+
+====================================
+Testing problem: 167_b_wizards_and_huge_prize_1597
+====================================
+❌ Problem 167_b_wizards_and_huge_prize_1597: Results: 0/10 tests passed
+Sample errors:
+Test #1: FAILED ❌
+Test #2: FAILED ❌
+Test #3: FAILED ❌
+Test #4: FAILED ❌
+Test #5: FAILED ❌
+...
+
+====================================
+Testing problem: 261_b_maxim_and_restaurant_4932
+====================================
+❌ Problem 261_b_maxim_and_restaurant_4932: Results: 0/10 tests passed
+Sample errors:
+Test #1: FAILED ❌
+Test #2: FAILED ❌
+Test #3: FAILED ❌
+Test #4: FAILED ❌
+Test #5: FAILED ❌
+...
+
+====================================
+Testing problem: 262_d_maxim_and_restaurant_7013
+====================================
+❌ Problem 262_d_maxim_and_restaurant_7013: Results: 0/10 tests passed
+Sample errors:
+Test #1: FAILED ❌
+Test #2: FAILED ❌
+Test #3: FAILED ❌
+Test #4: FAILED ❌
+Test #5: FAILED ❌
+...
+
+====================================
+Testing problem: 28_c_bath_queue_2018
+====================================
+❌ Problem 28_c_bath_queue_2018: Results: 6/10 tests passed
+Sample errors:
+Test #3: FAILED ❌
+Test #5: FAILED ❌
+Test #8: FAILED ❌
+Test #10: FAILED ❌
+...
+
+====================================
+Testing problem: 442_b_andrey_and_problem_4212
+====================================
+❌ Problem 442_b_andrey_and_problem_4212: Results: 2/10 tests passed
+Sample errors:
+Test #1: FAILED ❌
+Test #2: FAILED ❌
+Test #3: FAILED ❌
+Test #4: FAILED ❌
+Test #7: FAILED ❌
+...
+
+====================================
+Testing problem: 50_d_bombing_7752
+====================================
+❌ Problem 50_d_bombing_7752: Results: 0/10 tests passed
+Sample errors:
+Test #1: FAILED ❌
+Test #2: FAILED ❌
+Test #3: FAILED ❌
+Test #4: FAILED ❌
+Test #5: FAILED ❌
+...
+
+====================================
+Testing problem: 518_d_ilya_and_escalator_1612
+====================================
+✅ Problem 518_d_ilya_and_escalator_1612: Results: 10/10 tests passed
+
+====================================
+Testing problem: 521_d_shop_3485
+====================================
+❌ Problem 521_d_shop_3485: Results: 5/10 tests passed
+Sample errors:
+Test #1: FAILED ❌
+Test #2: FAILED ❌
+Test #5: FAILED ❌
+Test #7: FAILED ❌
+Test #8: FAILED ❌
+...
+
+====================================
+Testing problem: 540_d_bad_luck_island_6817
+====================================
+❌ Problem 540_d_bad_luck_island_6817: Results: 0/10 tests passed
+Sample errors:
+Test #1: FAILED ❌
+Test #2: FAILED ❌
+Test #3: FAILED ❌
+Test #4: FAILED ❌
+Test #5: FAILED ❌
+...
+
+====================================
+Testing problem: 54_c_first_digit_law_6609
+====================================
+❌ Problem 54_c_first_digit_law_6609: Results: 0/10 tests passed
+Sample errors:
+Test #1: FAILED ❌
+Test #2: FAILED ❌
+Test #3: FAILED ❌
+Test #4: FAILED ❌
+Test #5: FAILED ❌
+...
+
+====================================
+Testing problem: 623_d_birthday_6300
+====================================
+❌ Problem 623_d_birthday_6300: Results: 0/10 tests passed
+Sample errors:
+Test #1: FAILED ❌
+Test #2: FAILED ❌
+Test #3: FAILED ❌
+Test #4: FAILED ❌
+Test #5: FAILED ❌
+...
+
+====================================
+Testing problem: 785_d_anton_and_school__2_9951
+====================================
+✅ Problem 785_d_anton_and_school__2_9951: Results: 10/10 tests passed
+
+====================================
+Testing problem: 817_b_makes_and_the_product_1937
+====================================
+✅ Problem 817_b_makes_and_the_product_1937: Results: 10/10 tests passed
+
+====================================
+Testing problem: 908_d_new_year_and_arbitrary_arrangement_7769
+====================================
+✅ Problem 908_d_new_year_and_arbitrary_arrangement_7769: Results: 10/10 tests passed
+
+====================================
+Testing problem: 9_a_die_roll_1319
+====================================
+✅ Problem 9_a_die_roll_1319: Results: 10/10 tests passed
+
+====================================
+Testing problem: __pycache__
+====================================
+Error: run.sh script not found for problem __pycache__
+
+====================================
+Final Results: 15/30 problems passed all tests
+====================================
+Problems with failing tests:
+- 108_d_basketball_team_11673
+- 1245_e_hyakugoku_and_ladders_2311
+- 1264_c_beautiful_mirrors_with_queries_6684
+- 1461_c_random_events_9295
+- 1543_c_need_for_pink_slips_3469
+- 167_b_wizards_and_huge_prize_1597
+- 261_b_maxim_and_restaurant_4932
+- 262_d_maxim_and_restaurant_7013
+- 28_c_bath_queue_2018
+- 442_b_andrey_and_problem_4212
+- 50_d_bombing_7752
+- 521_d_shop_3485
+- 540_d_bad_luck_island_6817
+- 54_c_first_digit_law_6609
+- 623_d_birthday_6300
+⚠️ Some problems in cluster6 failed tests.

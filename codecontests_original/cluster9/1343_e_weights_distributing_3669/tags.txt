@@ -1,0 +1,5 @@
+brute force
+graphs
+greedy
+shortest paths
+sortings

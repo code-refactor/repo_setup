@@ -1,0 +1,4 @@
+brute force
+combinatorics
+constructive algorithms
+math

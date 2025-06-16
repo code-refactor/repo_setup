@@ -1,0 +1,170 @@
+Running tests for codecontests/cluster1...
+
+====================================
+Testing problem: 1068_b_lcm_2510
+====================================
+✅ Problem 1068_b_lcm_2510: Results: 10/10 tests passed
+
+====================================
+Testing problem: 1076_b_divisor_subtraction_738
+====================================
+✅ Problem 1076_b_divisor_subtraction_738: Results: 10/10 tests passed
+
+====================================
+Testing problem: 1091_c_new_year_and_the_sphere_transmission_1262
+====================================
+✅ Problem 1091_c_new_year_and_the_sphere_transmission_1262: Results: 10/10 tests passed
+
+====================================
+Testing problem: 1110_c_meaningless_operations_3658
+====================================
+✅ Problem 1110_c_meaningless_operations_3658: Results: 10/10 tests passed
+
+====================================
+Testing problem: 1141_a_game_23_2618
+====================================
+✅ Problem 1141_a_game_23_2618: Results: 10/10 tests passed
+
+====================================
+Testing problem: 1228_c_primes_and_multiplication_13032
+====================================
+✅ Problem 1228_c_primes_and_multiplication_13032: Results: 10/10 tests passed
+
+====================================
+Testing problem: 1242_a_tile_painting_5747
+====================================
+✅ Problem 1242_a_tile_painting_5747: Results: 10/10 tests passed
+
+====================================
+Testing problem: 1243_c_tile_painting_2415
+====================================
+✅ Problem 1243_c_tile_painting_2415: Results: 10/10 tests passed
+
+====================================
+Testing problem: 1294_c_product_of_three_numbers_4292
+====================================
+✅ Problem 1294_c_product_of_three_numbers_4292: Results: 10/10 tests passed
+
+====================================
+Testing problem: 1295_d_same_gcds_6373
+====================================
+✅ Problem 1295_d_same_gcds_6373: Results: 10/10 tests passed
+
+====================================
+Testing problem: 1343_a_candies_8456
+====================================
+✅ Problem 1343_a_candies_8456: Results: 10/10 tests passed
+
+====================================
+Testing problem: 1360_d_buying_shovels_6584
+====================================
+✅ Problem 1360_d_buying_shovels_6584: Results: 10/10 tests passed
+
+====================================
+Testing problem: 1362_a_johnny_and_ancient_computer_1692
+====================================
+✅ Problem 1362_a_johnny_and_ancient_computer_1692: Results: 10/10 tests passed
+
+====================================
+Testing problem: 1374_b_multiply_by_2_divide_by_6_231
+====================================
+✅ Problem 1374_b_multiply_by_2_divide_by_6_231: Results: 10/10 tests passed
+
+====================================
+Testing problem: 1444_a_division_6380
+====================================
+✅ Problem 1444_a_division_6380: Results: 10/10 tests passed
+
+====================================
+Testing problem: 1454_d_number_into_sequence_7733
+====================================
+✅ Problem 1454_d_number_into_sequence_7733: Results: 10/10 tests passed
+
+====================================
+Testing problem: 150_a_win_or_freeze_5134
+====================================
+✅ Problem 150_a_win_or_freeze_5134: Results: 10/10 tests passed
+
+====================================
+Testing problem: 151_c_win_or_freeze_133
+====================================
+✅ Problem 151_c_win_or_freeze_133: Results: 10/10 tests passed
+
+====================================
+Testing problem: 177_b1_rectangular_game_2533
+====================================
+✅ Problem 177_b1_rectangular_game_2533: Results: 10/10 tests passed
+
+====================================
+Testing problem: 271_e_three_horses_3683
+====================================
+✅ Problem 271_e_three_horses_3683: Results: 10/10 tests passed
+
+====================================
+Testing problem: 288_c_polo_the_penguin_and_xor_operation_9826
+====================================
+✅ Problem 288_c_polo_the_penguin_and_xor_operation_9826: Results: 10/10 tests passed
+
+====================================
+Testing problem: 371_b_fox_dividing_cheese_352
+====================================
+✅ Problem 371_b_fox_dividing_cheese_352: Results: 10/10 tests passed
+
+====================================
+Testing problem: 487_c_prefix_product_sequence_2443
+====================================
+✅ Problem 487_c_prefix_product_sequence_2443: Results: 10/10 tests passed
+
+====================================
+Testing problem: 576_a_vasya_and_petyas_game_7650
+====================================
+✅ Problem 576_a_vasya_and_petyas_game_7650: Results: 10/10 tests passed
+
+====================================
+Testing problem: 680_c_bear_and_prime_100_4430
+====================================
+❌ Problem 680_c_bear_and_prime_100_4430: Results: 0/10 tests passed
+Sample errors:
+Test #1: FAILED ❌
+Test #2: FAILED ❌
+Test #3: FAILED ❌
+Test #4: FAILED ❌
+Test #5: FAILED ❌
+...
+
+====================================
+Testing problem: 762_a_kth_divisor_5057
+====================================
+✅ Problem 762_a_kth_divisor_5057: Results: 10/10 tests passed
+
+====================================
+Testing problem: 803_f_coprime_subsequences_8909
+====================================
+✅ Problem 803_f_coprime_subsequences_8909: Results: 10/10 tests passed
+
+====================================
+Testing problem: 893_e_counting_arrays_6936
+====================================
+✅ Problem 893_e_counting_arrays_6936: Results: 10/10 tests passed
+
+====================================
+Testing problem: 98_b_help_king_3609
+====================================
+✅ Problem 98_b_help_king_3609: Results: 10/10 tests passed
+
+====================================
+Testing problem: 99_d_help_king_8501
+====================================
+✅ Problem 99_d_help_king_8501: Results: 10/10 tests passed
+
+====================================
+Testing problem: __pycache__
+====================================
+Error: run.sh script not found for problem __pycache__
+
+====================================
+Final Results: 29/30 problems passed all tests
+====================================
+Problems with failing tests:
+- 680_c_bear_and_prime_100_4430
+⚠️ Some problems in cluster1 failed tests.

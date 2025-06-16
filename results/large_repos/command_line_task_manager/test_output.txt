@@ -1,0 +1,82 @@
+============================= test session starts ==============================
+platform linux -- Python 3.10.11, pytest-8.3.5, pluggy-1.5.0
+rootdir: /home/justinchiu_cohere_com/minicode/large_repos/command_line_task_manager/unified
+configfile: pyproject.toml
+plugins: anyio-4.9.0, metadata-3.1.1, json-report-1.5.0, cov-6.1.1
+collected 416 items
+
+tests/researcher/bibliography/test_formatter.py .......                  [  1%]
+tests/researcher/bibliography/test_importer.py ........                  [  3%]
+tests/researcher/bibliography/test_models.py .................           [  7%]
+tests/researcher/bibliography/test_service.py ....................       [ 12%]
+tests/researcher/bibliography/test_storage.py ...........                [ 15%]
+tests/researcher/dataset_versioning/test_models.py ...............       [ 18%]
+tests/researcher/dataset_versioning/test_service.py .................... [ 23%]
+                                                                         [ 23%]
+tests/researcher/dataset_versioning/test_storage.py ............         [ 26%]
+tests/researcher/environment/test_models.py .............                [ 29%]
+tests/researcher/environment/test_service.py .................           [ 33%]
+tests/researcher/environment/test_storage.py ........                    [ 35%]
+tests/researcher/experiment_tracking/test_models.py ..........           [ 37%]
+tests/researcher/experiment_tracking/test_service.py ................... [ 42%]
+..                                                                       [ 43%]
+tests/researcher/experiment_tracking/test_storage.py ................... [ 47%]
+.....                                                                    [ 48%]
+tests/researcher/experiment_tracking/test_visualizer.py ..........       [ 51%]
+tests/researcher/export/test_formatter.py ...........                    [ 53%]
+tests/researcher/export/test_models.py .........                         [ 56%]
+tests/researcher/export/test_service.py ..........                       [ 58%]
+tests/researcher/export/test_storage.py ........                         [ 60%]
+tests/researcher/integration/test_multitask_workflow.py .                [ 60%]
+tests/researcher/integration/test_research_workflow.py .                 [ 60%]
+tests/researcher/performance/test_bibliography_performance.py ..         [ 61%]
+tests/researcher/performance/test_dataset_versioning_performance.py .... [ 62%]
+.                                                                        [ 62%]
+tests/researcher/performance/test_environment_performance.py .....       [ 63%]
+tests/researcher/performance/test_experiment_tracking_performance.py ... [ 64%]
+.                                                                        [ 64%]
+tests/researcher/performance/test_export_performance.py ....             [ 65%]
+tests/researcher/performance/test_integration_performance.py .           [ 65%]
+tests/researcher/performance/test_task_management_performance.py ....    [ 66%]
+tests/researcher/task_management/test_models.py .............            [ 69%]
+tests/researcher/task_management/test_service.py ...................     [ 74%]
+tests/researcher/task_management/test_storage.py ...............         [ 78%]
+tests/security_analyst/compliance/test_compliance.py ..........          [ 80%]
+tests/security_analyst/cvss/test_cvss.py ........                        [ 82%]
+tests/security_analyst/evidence/test_evidence.py ..........              [ 84%]
+tests/security_analyst/findings/test_findings.py ........                [ 86%]
+tests/security_analyst/remediation/test_remediation.py ............      [ 89%]
+tests/security_analyst/reporting/test_redaction.py ........              [ 91%]
+tests/security_analyst/reporting/test_reporting.py ..........            [ 93%]
+tests/security_analyst/test_integration.py ...                           [ 94%]
+tests/security_analyst/test_stress.py ......                             [ 96%]
+tests/security_analyst/utils/test_crypto.py .........                    [ 98%]
+tests/security_analyst/utils/test_validation.py .......                  [100%]
+==== TEST RESULTS SUMMARY ====
+Total: 416
+Passed: 416
+Failed: 0
+Skipped: 0
+Errors: 0
+Duration: 0.00s
+=============================
+
+
+
+=============================== warnings summary ===============================
+common/core/models.py:124
+  /home/justinchiu_cohere_com/minicode/large_repos/command_line_task_manager/unified/common/core/models.py:124: PydanticDeprecatedSince20: Pydantic V1 style `@validator` validators are deprecated. You should migrate to Pydantic V2 style `@field_validator` validators, see the migration guide for more details. Deprecated in Pydantic V2.0 to be removed in V3.0. See Pydantic V2 Migration Guide at https://errors.pydantic.dev/2.11/migration/
+    @validator('content')
+
+../../../../.pyenv/versions/3.10.11/lib/python3.10/site-packages/pydantic/_internal/_fields.py:198
+  /home/justinchiu_cohere_com/.pyenv/versions/3.10.11/lib/python3.10/site-packages/pydantic/_internal/_fields.py:198: UserWarning: Field name "schema" in "Dataset" shadows an attribute in parent "BaseModel"
+    warnings.warn(
+
+../../../../.pyenv/versions/3.10.11/lib/python3.10/site-packages/pydantic/_internal/_fields.py:198
+  /home/justinchiu_cohere_com/.pyenv/versions/3.10.11/lib/python3.10/site-packages/pydantic/_internal/_fields.py:198: UserWarning: Field name "schema" in "DatasetVersion" shadows an attribute in parent "BaseModel"
+    warnings.warn(
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+--------------------------------- JSON report ----------------------------------
+report saved to: report.json
+======================= 416 passed, 3 warnings in 13.98s =======================

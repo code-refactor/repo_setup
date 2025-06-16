@@ -1,0 +1,4 @@
+bitmasks
+brute force
+dp
+greedy

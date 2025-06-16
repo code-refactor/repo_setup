@@ -1,0 +1,216 @@
+Running tests for codecontests/cluster7...
+
+====================================
+Testing problem: 1016_d_vasya_and_the_matrix_3445
+====================================
+✅ Problem 1016_d_vasya_and_the_matrix_3445: Results: 10/10 tests passed
+
+====================================
+Testing problem: 1031_e_triple_flips_11983
+====================================
+❌ Problem 1031_e_triple_flips_11983: Results: 4/10 tests passed
+Sample errors:
+Test #2: FAILED ❌
+Test #6: FAILED ❌
+Test #7: FAILED ❌
+Test #8: FAILED ❌
+Test #9: FAILED ❌
+...
+
+====================================
+Testing problem: 1054_d_changing_array_9485
+====================================
+✅ Problem 1054_d_changing_array_9485: Results: 10/10 tests passed
+
+====================================
+Testing problem: 1071_c_triple_flips_5739
+====================================
+❌ Problem 1071_c_triple_flips_5739: Results: 7/10 tests passed
+Sample errors:
+Test #1: FAILED ❌
+Test #7: FAILED ❌
+Test #10: FAILED ❌
+...
+
+====================================
+Testing problem: 1113_c_sasha_and_a_bit_of_relax_8341
+====================================
+✅ Problem 1113_c_sasha_and_a_bit_of_relax_8341: Results: 10/10 tests passed
+
+====================================
+Testing problem: 1151_b_dima_and_a_bad_xor_6990
+====================================
+✅ Problem 1151_b_dima_and_a_bad_xor_6990: Results: 10/10 tests passed
+
+====================================
+Testing problem: 1163_e_magical_permutation_2099
+====================================
+✅ Problem 1163_e_magical_permutation_2099: Results: 10/10 tests passed
+
+====================================
+Testing problem: 1174_d_ehab_and_the_expected_xor_problem_10531
+====================================
+✅ Problem 1174_d_ehab_and_the_expected_xor_problem_10531: Results: 10/10 tests passed
+
+====================================
+Testing problem: 1323_d_present_959
+====================================
+✅ Problem 1323_d_present_959: Results: 10/10 tests passed
+
+====================================
+Testing problem: 1325_d_ehab_the_xorcist_11372
+====================================
+✅ Problem 1325_d_ehab_the_xorcist_11372: Results: 10/10 tests passed
+
+====================================
+Testing problem: 1362_b_johnny_and_his_hobbies_8248
+====================================
+✅ Problem 1362_b_johnny_and_his_hobbies_8248: Results: 10/10 tests passed
+
+====================================
+Testing problem: 1394_b_boboniu_walks_on_graph_6794
+====================================
+✅ Problem 1394_b_boboniu_walks_on_graph_6794: Results: 10/10 tests passed
+
+====================================
+Testing problem: 1416_c_xor_inverse_4402
+====================================
+✅ Problem 1416_c_xor_inverse_4402: Results: 10/10 tests passed
+
+====================================
+Testing problem: 1427_e_xum_2840
+====================================
+❌ Problem 1427_e_xum_2840: Results: 0/10 tests passed
+Sample errors:
+Test #1: FAILED ❌
+Test #2: FAILED ❌
+Test #3: FAILED ❌
+Test #4: FAILED ❌
+Test #5: FAILED ❌
+...
+
+====================================
+Testing problem: 1438_d_powerful_ksenia_5652
+====================================
+❌ Problem 1438_d_powerful_ksenia_5652: Results: 4/10 tests passed
+Sample errors:
+Test #1: FAILED ❌
+Test #3: FAILED ❌
+Test #4: FAILED ❌
+Test #5: FAILED ❌
+Test #8: FAILED ❌
+...
+
+====================================
+Testing problem: 1516_b_agaga_xooorrr_3468
+====================================
+✅ Problem 1516_b_agaga_xooorrr_3468: Results: 10/10 tests passed
+
+====================================
+Testing problem: 1534_e_lost_array_11486
+====================================
+❌ Problem 1534_e_lost_array_11486: Results: 1/10 tests passed
+Sample errors:
+Traceback (most recent call last):
+ValueError: invalid literal for int() with base 10: ''
+Test #2: Error running solution! Exit code: 1
+Traceback (most recent call last):
+ValueError: invalid literal for int() with base 10: '949490681 476940754 49124973'
+...
+
+====================================
+Testing problem: 1547_d_cogrowing_sequence_6488
+====================================
+✅ Problem 1547_d_cogrowing_sequence_6488: Results: 10/10 tests passed
+
+====================================
+Testing problem: 15_c_industrial_nim_12943
+====================================
+✅ Problem 15_c_industrial_nim_12943: Results: 10/10 tests passed
+
+====================================
+Testing problem: 289_e_polo_the_penguin_and_xor_operation_6598
+====================================
+✅ Problem 289_e_polo_the_penguin_and_xor_operation_6598: Results: 10/10 tests passed
+
+====================================
+Testing problem: 388_d_fox_and_perfect_sets_5562
+====================================
+✅ Problem 388_d_fox_and_perfect_sets_5562: Results: 10/10 tests passed
+
+====================================
+Testing problem: 424_c_magic_formulas_9623
+====================================
+✅ Problem 424_c_magic_formulas_9623: Results: 10/10 tests passed
+
+====================================
+Testing problem: 460_d_little_victor_and_set_2650
+====================================
+✅ Problem 460_d_little_victor_and_set_2650: Results: 10/10 tests passed
+
+====================================
+Testing problem: 627_a_xor_equation_4011
+====================================
+✅ Problem 627_a_xor_equation_4011: Results: 10/10 tests passed
+
+====================================
+Testing problem: 634_b_xor_equation_3074
+====================================
+✅ Problem 634_b_xor_equation_3074: Results: 10/10 tests passed
+
+====================================
+Testing problem: 817_e_choosing_the_commander_4644
+====================================
+✅ Problem 817_e_choosing_the_commander_4644: Results: 10/10 tests passed
+
+====================================
+Testing problem: 862_c_mahmoud_and_ehab_and_the_xor_2355
+====================================
+❌ Problem 862_c_mahmoud_and_ehab_and_the_xor_2355: Results: 9/10 tests passed
+Sample errors:
+Test #8: FAILED ❌
+...
+
+====================================
+Testing problem: 895_c_square_subsets_12662
+====================================
+✅ Problem 895_c_square_subsets_12662: Results: 10/10 tests passed
+
+====================================
+Testing problem: 923_c_perfect_security_7561
+====================================
+❌ Problem 923_c_perfect_security_7561: Results: 3/10 tests passed
+Sample errors:
+Test #1: FAILED ❌
+Test #2: FAILED ❌
+Test #3: FAILED ❌
+Test #4: FAILED ❌
+Test #5: FAILED ❌
+...
+
+====================================
+Testing problem: 925_c_big_secret_3711
+====================================
+❌ Problem 925_c_big_secret_3711: Results: 9/10 tests passed
+Sample errors:
+Test #2: FAILED ❌
+...
+
+====================================
+Testing problem: __pycache__
+====================================
+Error: run.sh script not found for problem __pycache__
+
+====================================
+Final Results: 22/30 problems passed all tests
+====================================
+Problems with failing tests:
+- 1031_e_triple_flips_11983
+- 1071_c_triple_flips_5739
+- 1427_e_xum_2840
+- 1438_d_powerful_ksenia_5652
+- 1534_e_lost_array_11486
+- 862_c_mahmoud_and_ehab_and_the_xor_2355
+- 923_c_perfect_security_7561
+- 925_c_big_secret_3711
+⚠️ Some problems in cluster7 failed tests.

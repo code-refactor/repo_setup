@@ -1,0 +1,5 @@
+bitmasks
+constructive algorithms
+math
+matrices
+number theory

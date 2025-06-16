@@ -1,0 +1,3322 @@
+============================= test session starts ==============================
+platform linux -- Python 3.10.11, pytest-8.3.5, pluggy-1.5.0
+rootdir: /home/justinchiu_cohere_com/minicode/large_repos/personal_knowledge_management/unified
+configfile: pyproject.toml
+plugins: anyio-4.9.0, metadata-3.1.1, json-report-1.5.0, cov-6.1.1
+collected 257 items
+
+tests/academic_researcher/citations/test_formatter_edge_cases.py ....... [  2%]
+....                                                                     [  4%]
+tests/academic_researcher/citations/test_formatters.py ...........       [  8%]
+tests/academic_researcher/citations/test_parser_edge_cases.py ........   [ 11%]
+tests/academic_researcher/citations/test_parsers.py ......               [ 14%]
+tests/academic_researcher/core/test_brain.py ....FFFFFF..F               [ 19%]
+tests/academic_researcher/core/test_models.py ..F.......FF....           [ 25%]
+tests/academic_researcher/core/test_storage.py ...............           [ 31%]
+tests/academic_researcher/experiments/test_template_functions.py .....   [ 33%]
+tests/academic_researcher/experiments/test_templates.py ......           [ 35%]
+tests/academic_researcher/grants/test_export.py ....                     [ 36%]
+tests/academic_researcher/grants/test_export_functions.py .....          [ 38%]
+tests/academic_researcher/test_bidirectional_linking.py ...F..F.         [ 42%]
+tests/academic_researcher/test_citation_accuracy.py .......              [ 44%]
+tests/academic_researcher/test_cli.py ......                             [ 47%]
+tests/academic_researcher/test_collaboration.py FEEEEEEEEEE              [ 51%]
+tests/academic_researcher/test_experiment_templates.py .........F..      [ 56%]
+tests/academic_researcher/test_grant_proposals.py .EE.EEEFEE             [ 59%]
+tests/academic_researcher/test_main.py ..                                [ 60%]
+tests/academic_researcher/test_performance_optimized.py E..              [ 61%]
+tests/academic_researcher/test_research_questions.py FFFFFFFF            [ 64%]
+tests/academic_researcher/test_workflows.py .FFFF                        [ 66%]
+tests/product_manager/competitive_analysis/test_system.py .............. [ 72%]
+.....                                                                    [ 74%]
+tests/product_manager/decision_registry/test_registry.py ..F.........F.  [ 79%]
+tests/product_manager/feedback_analysis/test_engine.py ................. [ 86%]
+                                                                         [ 86%]
+tests/product_manager/prioritization/test_framework.py ...............   [ 92%]
+tests/product_manager/stakeholder_insights/test_manager.py ...E..E..E..E [ 97%]
+...E...                                                                  [100%]
+
+==================================== ERRORS ====================================
+___________ ERROR at setup of TestCollaboration.test_add_annotations ___________
+
+self = <tests.academic_researcher.test_collaboration.TestCollaboration object at 0x7fe54fd79750>
+brain = <researchbrain.core.brain.ResearchBrain object at 0x7fe4a853b580>
+
+    @pytest.fixture
+    def sample_collaborators(self, brain):
+        """Fixture that creates sample collaborators with different roles."""
+        collaborators = {}
+    
+        # Principal Investigator
+>       pi_id = brain.create_collaborator(
+            name="Dr. Sarah Johnson",
+            email="sjohnson@university.edu",
+            affiliation="University of Neuroscience",
+            role=CollaboratorRole.PRINCIPAL_INVESTIGATOR
+        )
+
+tests/academic_researcher/test_collaboration.py:63: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+researchbrain/core/brain.py:822: in create_collaborator
+    self.storage.save(collaborator)
+researchbrain/core/storage.py:131: in save
+    yaml.dump(data, f, default_flow_style=False, sort_keys=False)
+../../../../.pyenv/versions/3.10.11/lib/python3.10/site-packages/yaml/__init__.py:253: in dump
+    return dump_all([data], stream, Dumper=Dumper, **kwds)
+../../../../.pyenv/versions/3.10.11/lib/python3.10/site-packages/yaml/__init__.py:241: in dump_all
+    dumper.represent(data)
+../../../../.pyenv/versions/3.10.11/lib/python3.10/site-packages/yaml/representer.py:27: in represent
+    node = self.represent_data(data)
+../../../../.pyenv/versions/3.10.11/lib/python3.10/site-packages/yaml/representer.py:48: in represent_data
+    node = self.yaml_representers[data_types[0]](self, data)
+../../../../.pyenv/versions/3.10.11/lib/python3.10/site-packages/yaml/representer.py:207: in represent_dict
+    return self.represent_mapping('tag:yaml.org,2002:map', data)
+../../../../.pyenv/versions/3.10.11/lib/python3.10/site-packages/yaml/representer.py:118: in represent_mapping
+    node_value = self.represent_data(item_value)
+../../../../.pyenv/versions/3.10.11/lib/python3.10/site-packages/yaml/representer.py:52: in represent_data
+    node = self.yaml_multi_representers[data_type](self, data)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <yaml.dumper.Dumper object at 0x7fe4a853b5e0>
+data = <property object at 0x7fe5ffc8e4d0>
+
+    def represent_object(self, data):
+        # We use __reduce__ API to save the data. data.__reduce__ returns
+        # a tuple of length 2-5:
+        #   (function, args, state, listitems, dictitems)
+    
+        # For reconstructing, we calls function(*args), then set its state,
+        # listitems, and dictitems if they are not None.
+    
+        # A special case is when function.__name__ == '__newobj__'. In this
+        # case we create the object with args[0].__new__(*args).
+    
+        # Another special case is when __reduce__ returns a string - we don't
+        # support it.
+    
+        # We produce a !!python/object, !!python/object/new or
+        # !!python/object/apply node.
+    
+        cls = type(data)
+        if cls in copyreg.dispatch_table:
+            reduce = copyreg.dispatch_table[cls](data)
+        elif hasattr(data, '__reduce_ex__'):
+>           reduce = data.__reduce_ex__(2)
+E           TypeError: cannot pickle 'property' object
+
+../../../../.pyenv/versions/3.10.11/lib/python3.10/site-packages/yaml/representer.py:317: TypeError
+_ ERROR at setup of TestCollaboration.test_multiple_annotations_from_same_collaborator _
+
+self = <tests.academic_researcher.test_collaboration.TestCollaboration object at 0x7fe54fd7b6a0>
+brain = <researchbrain.core.brain.ResearchBrain object at 0x7fe4a82e4670>
+
+    @pytest.fixture
+    def sample_collaborators(self, brain):
+        """Fixture that creates sample collaborators with different roles."""
+        collaborators = {}
+    
+        # Principal Investigator
+>       pi_id = brain.create_collaborator(
+            name="Dr. Sarah Johnson",
+            email="sjohnson@university.edu",
+            affiliation="University of Neuroscience",
+            role=CollaboratorRole.PRINCIPAL_INVESTIGATOR
+        )
+
+tests/academic_researcher/test_collaboration.py:63: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+researchbrain/core/brain.py:822: in create_collaborator
+    self.storage.save(collaborator)
+researchbrain/core/storage.py:131: in save
+    yaml.dump(data, f, default_flow_style=False, sort_keys=False)
+../../../../.pyenv/versions/3.10.11/lib/python3.10/site-packages/yaml/__init__.py:253: in dump
+    return dump_all([data], stream, Dumper=Dumper, **kwds)
+../../../../.pyenv/versions/3.10.11/lib/python3.10/site-packages/yaml/__init__.py:241: in dump_all
+    dumper.represent(data)
+../../../../.pyenv/versions/3.10.11/lib/python3.10/site-packages/yaml/representer.py:27: in represent
+    node = self.represent_data(data)
+../../../../.pyenv/versions/3.10.11/lib/python3.10/site-packages/yaml/representer.py:48: in represent_data
+    node = self.yaml_representers[data_types[0]](self, data)
+../../../../.pyenv/versions/3.10.11/lib/python3.10/site-packages/yaml/representer.py:207: in represent_dict
+    return self.represent_mapping('tag:yaml.org,2002:map', data)
+../../../../.pyenv/versions/3.10.11/lib/python3.10/site-packages/yaml/representer.py:118: in represent_mapping
+    node_value = self.represent_data(item_value)
+../../../../.pyenv/versions/3.10.11/lib/python3.10/site-packages/yaml/representer.py:52: in represent_data
+    node = self.yaml_multi_representers[data_type](self, data)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <yaml.dumper.Dumper object at 0x7fe4a82e6140>
+data = <property object at 0x7fe5ffc8e4d0>
+
+    def represent_object(self, data):
+        # We use __reduce__ API to save the data. data.__reduce__ returns
+        # a tuple of length 2-5:
+        #   (function, args, state, listitems, dictitems)
+    
+        # For reconstructing, we calls function(*args), then set its state,
+        # listitems, and dictitems if they are not None.
+    
+        # A special case is when function.__name__ == '__newobj__'. In this
+        # case we create the object with args[0].__new__(*args).
+    
+        # Another special case is when __reduce__ returns a string - we don't
+        # support it.
+    
+        # We produce a !!python/object, !!python/object/new or
+        # !!python/object/apply node.
+    
+        cls = type(data)
+        if cls in copyreg.dispatch_table:
+            reduce = copyreg.dispatch_table[cls](data)
+        elif hasattr(data, '__reduce_ex__'):
+>           reduce = data.__reduce_ex__(2)
+E           TypeError: cannot pickle 'property' object
+
+../../../../.pyenv/versions/3.10.11/lib/python3.10/site-packages/yaml/representer.py:317: TypeError
+__ ERROR at setup of TestCollaboration.test_annotations_on_multiple_documents __
+
+self = <tests.academic_researcher.test_collaboration.TestCollaboration object at 0x7fe54fd7b880>
+brain = <researchbrain.core.brain.ResearchBrain object at 0x7fe4a81e8580>
+
+    @pytest.fixture
+    def sample_collaborators(self, brain):
+        """Fixture that creates sample collaborators with different roles."""
+        collaborators = {}
+    
+        # Principal Investigator
+>       pi_id = brain.create_collaborator(
+            name="Dr. Sarah Johnson",
+            email="sjohnson@university.edu",
+            affiliation="University of Neuroscience",
+            role=CollaboratorRole.PRINCIPAL_INVESTIGATOR
+        )
+
+tests/academic_researcher/test_collaboration.py:63: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+researchbrain/core/brain.py:822: in create_collaborator
+    self.storage.save(collaborator)
+researchbrain/core/storage.py:131: in save
+    yaml.dump(data, f, default_flow_style=False, sort_keys=False)
+../../../../.pyenv/versions/3.10.11/lib/python3.10/site-packages/yaml/__init__.py:253: in dump
+    return dump_all([data], stream, Dumper=Dumper, **kwds)
+../../../../.pyenv/versions/3.10.11/lib/python3.10/site-packages/yaml/__init__.py:241: in dump_all
+    dumper.represent(data)
+../../../../.pyenv/versions/3.10.11/lib/python3.10/site-packages/yaml/representer.py:27: in represent
+    node = self.represent_data(data)
+../../../../.pyenv/versions/3.10.11/lib/python3.10/site-packages/yaml/representer.py:48: in represent_data
+    node = self.yaml_representers[data_types[0]](self, data)
+../../../../.pyenv/versions/3.10.11/lib/python3.10/site-packages/yaml/representer.py:207: in represent_dict
+    return self.represent_mapping('tag:yaml.org,2002:map', data)
+../../../../.pyenv/versions/3.10.11/lib/python3.10/site-packages/yaml/representer.py:118: in represent_mapping
+    node_value = self.represent_data(item_value)
+../../../../.pyenv/versions/3.10.11/lib/python3.10/site-packages/yaml/representer.py:52: in represent_data
+    node = self.yaml_multi_representers[data_type](self, data)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <yaml.dumper.Dumper object at 0x7fe4a81eb760>
+data = <property object at 0x7fe5ffc8e4d0>
+
+    def represent_object(self, data):
+        # We use __reduce__ API to save the data. data.__reduce__ returns
+        # a tuple of length 2-5:
+        #   (function, args, state, listitems, dictitems)
+    
+        # For reconstructing, we calls function(*args), then set its state,
+        # listitems, and dictitems if they are not None.
+    
+        # A special case is when function.__name__ == '__newobj__'. In this
+        # case we create the object with args[0].__new__(*args).
+    
+        # Another special case is when __reduce__ returns a string - we don't
+        # support it.
+    
+        # We produce a !!python/object, !!python/object/new or
+        # !!python/object/apply node.
+    
+        cls = type(data)
+        if cls in copyreg.dispatch_table:
+            reduce = copyreg.dispatch_table[cls](data)
+        elif hasattr(data, '__reduce_ex__'):
+>           reduce = data.__reduce_ex__(2)
+E           TypeError: cannot pickle 'property' object
+
+../../../../.pyenv/versions/3.10.11/lib/python3.10/site-packages/yaml/representer.py:317: TypeError
+___ ERROR at setup of TestCollaboration.test_import_collaborator_annotations ___
+
+self = <tests.academic_researcher.test_collaboration.TestCollaboration object at 0x7fe54fd7bfd0>
+brain = <researchbrain.core.brain.ResearchBrain object at 0x7fe4a858fcd0>
+
+    @pytest.fixture
+    def sample_collaborators(self, brain):
+        """Fixture that creates sample collaborators with different roles."""
+        collaborators = {}
+    
+        # Principal Investigator
+>       pi_id = brain.create_collaborator(
+            name="Dr. Sarah Johnson",
+            email="sjohnson@university.edu",
+            affiliation="University of Neuroscience",
+            role=CollaboratorRole.PRINCIPAL_INVESTIGATOR
+        )
+
+tests/academic_researcher/test_collaboration.py:63: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+researchbrain/core/brain.py:822: in create_collaborator
+    self.storage.save(collaborator)
+researchbrain/core/storage.py:131: in save
+    yaml.dump(data, f, default_flow_style=False, sort_keys=False)
+../../../../.pyenv/versions/3.10.11/lib/python3.10/site-packages/yaml/__init__.py:253: in dump
+    return dump_all([data], stream, Dumper=Dumper, **kwds)
+../../../../.pyenv/versions/3.10.11/lib/python3.10/site-packages/yaml/__init__.py:241: in dump_all
+    dumper.represent(data)
+../../../../.pyenv/versions/3.10.11/lib/python3.10/site-packages/yaml/representer.py:27: in represent
+    node = self.represent_data(data)
+../../../../.pyenv/versions/3.10.11/lib/python3.10/site-packages/yaml/representer.py:48: in represent_data
+    node = self.yaml_representers[data_types[0]](self, data)
+../../../../.pyenv/versions/3.10.11/lib/python3.10/site-packages/yaml/representer.py:207: in represent_dict
+    return self.represent_mapping('tag:yaml.org,2002:map', data)
+../../../../.pyenv/versions/3.10.11/lib/python3.10/site-packages/yaml/representer.py:118: in represent_mapping
+    node_value = self.represent_data(item_value)
+../../../../.pyenv/versions/3.10.11/lib/python3.10/site-packages/yaml/representer.py:52: in represent_data
+    node = self.yaml_multi_representers[data_type](self, data)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <yaml.dumper.Dumper object at 0x7fe4a858fca0>
+data = <property object at 0x7fe5ffc8e4d0>
+
+    def represent_object(self, data):
+        # We use __reduce__ API to save the data. data.__reduce__ returns
+        # a tuple of length 2-5:
+        #   (function, args, state, listitems, dictitems)
+    
+        # For reconstructing, we calls function(*args), then set its state,
+        # listitems, and dictitems if they are not None.
+    
+        # A special case is when function.__name__ == '__newobj__'. In this
+        # case we create the object with args[0].__new__(*args).
+    
+        # Another special case is when __reduce__ returns a string - we don't
+        # support it.
+    
+        # We produce a !!python/object, !!python/object/new or
+        # !!python/object/apply node.
+    
+        cls = type(data)
+        if cls in copyreg.dispatch_table:
+            reduce = copyreg.dispatch_table[cls](data)
+        elif hasattr(data, '__reduce_ex__'):
+>           reduce = data.__reduce_ex__(2)
+E           TypeError: cannot pickle 'property' object
+
+../../../../.pyenv/versions/3.10.11/lib/python3.10/site-packages/yaml/representer.py:317: TypeError
+_ ERROR at setup of TestCollaboration.test_import_collaborator_annotations_with_replies _
+
+self = <tests.academic_researcher.test_collaboration.TestCollaboration object at 0x7fe54fd7b160>
+brain = <researchbrain.core.brain.ResearchBrain object at 0x7fe4a8293730>
+
+    @pytest.fixture
+    def sample_collaborators(self, brain):
+        """Fixture that creates sample collaborators with different roles."""
+        collaborators = {}
+    
+        # Principal Investigator
+>       pi_id = brain.create_collaborator(
+            name="Dr. Sarah Johnson",
+            email="sjohnson@university.edu",
+            affiliation="University of Neuroscience",
+            role=CollaboratorRole.PRINCIPAL_INVESTIGATOR
+        )
+
+tests/academic_researcher/test_collaboration.py:63: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+researchbrain/core/brain.py:822: in create_collaborator
+    self.storage.save(collaborator)
+researchbrain/core/storage.py:131: in save
+    yaml.dump(data, f, default_flow_style=False, sort_keys=False)
+../../../../.pyenv/versions/3.10.11/lib/python3.10/site-packages/yaml/__init__.py:253: in dump
+    return dump_all([data], stream, Dumper=Dumper, **kwds)
+../../../../.pyenv/versions/3.10.11/lib/python3.10/site-packages/yaml/__init__.py:241: in dump_all
+    dumper.represent(data)
+../../../../.pyenv/versions/3.10.11/lib/python3.10/site-packages/yaml/representer.py:27: in represent
+    node = self.represent_data(data)
+../../../../.pyenv/versions/3.10.11/lib/python3.10/site-packages/yaml/representer.py:48: in represent_data
+    node = self.yaml_representers[data_types[0]](self, data)
+../../../../.pyenv/versions/3.10.11/lib/python3.10/site-packages/yaml/representer.py:207: in represent_dict
+    return self.represent_mapping('tag:yaml.org,2002:map', data)
+../../../../.pyenv/versions/3.10.11/lib/python3.10/site-packages/yaml/representer.py:118: in represent_mapping
+    node_value = self.represent_data(item_value)
+../../../../.pyenv/versions/3.10.11/lib/python3.10/site-packages/yaml/representer.py:52: in represent_data
+    node = self.yaml_multi_representers[data_type](self, data)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <yaml.dumper.Dumper object at 0x7fe4a82937f0>
+data = <property object at 0x7fe5ffc8e4d0>
+
+    def represent_object(self, data):
+        # We use __reduce__ API to save the data. data.__reduce__ returns
+        # a tuple of length 2-5:
+        #   (function, args, state, listitems, dictitems)
+    
+        # For reconstructing, we calls function(*args), then set its state,
+        # listitems, and dictitems if they are not None.
+    
+        # A special case is when function.__name__ == '__newobj__'. In this
+        # case we create the object with args[0].__new__(*args).
+    
+        # Another special case is when __reduce__ returns a string - we don't
+        # support it.
+    
+        # We produce a !!python/object, !!python/object/new or
+        # !!python/object/apply node.
+    
+        cls = type(data)
+        if cls in copyreg.dispatch_table:
+            reduce = copyreg.dispatch_table[cls](data)
+        elif hasattr(data, '__reduce_ex__'):
+>           reduce = data.__reduce_ex__(2)
+E           TypeError: cannot pickle 'property' object
+
+../../../../.pyenv/versions/3.10.11/lib/python3.10/site-packages/yaml/representer.py:317: TypeError
+_ ERROR at setup of TestCollaboration.test_import_collaborator_annotations_with_invalid_data _
+
+self = <tests.academic_researcher.test_collaboration.TestCollaboration object at 0x7fe54fd7b370>
+brain = <researchbrain.core.brain.ResearchBrain object at 0x7fe4a84ba1a0>
+
+    @pytest.fixture
+    def sample_collaborators(self, brain):
+        """Fixture that creates sample collaborators with different roles."""
+        collaborators = {}
+    
+        # Principal Investigator
+>       pi_id = brain.create_collaborator(
+            name="Dr. Sarah Johnson",
+            email="sjohnson@university.edu",
+            affiliation="University of Neuroscience",
+            role=CollaboratorRole.PRINCIPAL_INVESTIGATOR
+        )
+
+tests/academic_researcher/test_collaboration.py:63: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+researchbrain/core/brain.py:822: in create_collaborator
+    self.storage.save(collaborator)
+researchbrain/core/storage.py:131: in save
+    yaml.dump(data, f, default_flow_style=False, sort_keys=False)
+../../../../.pyenv/versions/3.10.11/lib/python3.10/site-packages/yaml/__init__.py:253: in dump
+    return dump_all([data], stream, Dumper=Dumper, **kwds)
+../../../../.pyenv/versions/3.10.11/lib/python3.10/site-packages/yaml/__init__.py:241: in dump_all
+    dumper.represent(data)
+../../../../.pyenv/versions/3.10.11/lib/python3.10/site-packages/yaml/representer.py:27: in represent
+    node = self.represent_data(data)
+../../../../.pyenv/versions/3.10.11/lib/python3.10/site-packages/yaml/representer.py:48: in represent_data
+    node = self.yaml_representers[data_types[0]](self, data)
+../../../../.pyenv/versions/3.10.11/lib/python3.10/site-packages/yaml/representer.py:207: in represent_dict
+    return self.represent_mapping('tag:yaml.org,2002:map', data)
+../../../../.pyenv/versions/3.10.11/lib/python3.10/site-packages/yaml/representer.py:118: in represent_mapping
+    node_value = self.represent_data(item_value)
+../../../../.pyenv/versions/3.10.11/lib/python3.10/site-packages/yaml/representer.py:52: in represent_data
+    node = self.yaml_multi_representers[data_type](self, data)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <yaml.dumper.Dumper object at 0x7fe4a84bb1f0>
+data = <property object at 0x7fe5ffc8e4d0>
+
+    def represent_object(self, data):
+        # We use __reduce__ API to save the data. data.__reduce__ returns
+        # a tuple of length 2-5:
+        #   (function, args, state, listitems, dictitems)
+    
+        # For reconstructing, we calls function(*args), then set its state,
+        # listitems, and dictitems if they are not None.
+    
+        # A special case is when function.__name__ == '__newobj__'. In this
+        # case we create the object with args[0].__new__(*args).
+    
+        # Another special case is when __reduce__ returns a string - we don't
+        # support it.
+    
+        # We produce a !!python/object, !!python/object/new or
+        # !!python/object/apply node.
+    
+        cls = type(data)
+        if cls in copyreg.dispatch_table:
+            reduce = copyreg.dispatch_table[cls](data)
+        elif hasattr(data, '__reduce_ex__'):
+>           reduce = data.__reduce_ex__(2)
+E           TypeError: cannot pickle 'property' object
+
+../../../../.pyenv/versions/3.10.11/lib/python3.10/site-packages/yaml/representer.py:317: TypeError
+_____ ERROR at setup of TestCollaboration.test_import_invalid_annotations ______
+
+self = <tests.academic_researcher.test_collaboration.TestCollaboration object at 0x7fe54fd7b550>
+brain = <researchbrain.core.brain.ResearchBrain object at 0x7fe4a83aabf0>
+
+    @pytest.fixture
+    def sample_collaborators(self, brain):
+        """Fixture that creates sample collaborators with different roles."""
+        collaborators = {}
+    
+        # Principal Investigator
+>       pi_id = brain.create_collaborator(
+            name="Dr. Sarah Johnson",
+            email="sjohnson@university.edu",
+            affiliation="University of Neuroscience",
+            role=CollaboratorRole.PRINCIPAL_INVESTIGATOR
+        )
+
+tests/academic_researcher/test_collaboration.py:63: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+researchbrain/core/brain.py:822: in create_collaborator
+    self.storage.save(collaborator)
+researchbrain/core/storage.py:131: in save
+    yaml.dump(data, f, default_flow_style=False, sort_keys=False)
+../../../../.pyenv/versions/3.10.11/lib/python3.10/site-packages/yaml/__init__.py:253: in dump
+    return dump_all([data], stream, Dumper=Dumper, **kwds)
+../../../../.pyenv/versions/3.10.11/lib/python3.10/site-packages/yaml/__init__.py:241: in dump_all
+    dumper.represent(data)
+../../../../.pyenv/versions/3.10.11/lib/python3.10/site-packages/yaml/representer.py:27: in represent
+    node = self.represent_data(data)
+../../../../.pyenv/versions/3.10.11/lib/python3.10/site-packages/yaml/representer.py:48: in represent_data
+    node = self.yaml_representers[data_types[0]](self, data)
+../../../../.pyenv/versions/3.10.11/lib/python3.10/site-packages/yaml/representer.py:207: in represent_dict
+    return self.represent_mapping('tag:yaml.org,2002:map', data)
+../../../../.pyenv/versions/3.10.11/lib/python3.10/site-packages/yaml/representer.py:118: in represent_mapping
+    node_value = self.represent_data(item_value)
+../../../../.pyenv/versions/3.10.11/lib/python3.10/site-packages/yaml/representer.py:52: in represent_data
+    node = self.yaml_multi_representers[data_type](self, data)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <yaml.dumper.Dumper object at 0x7fe4a83aa110>
+data = <property object at 0x7fe5ffc8e4d0>
+
+    def represent_object(self, data):
+        # We use __reduce__ API to save the data. data.__reduce__ returns
+        # a tuple of length 2-5:
+        #   (function, args, state, listitems, dictitems)
+    
+        # For reconstructing, we calls function(*args), then set its state,
+        # listitems, and dictitems if they are not None.
+    
+        # A special case is when function.__name__ == '__newobj__'. In this
+        # case we create the object with args[0].__new__(*args).
+    
+        # Another special case is when __reduce__ returns a string - we don't
+        # support it.
+    
+        # We produce a !!python/object, !!python/object/new or
+        # !!python/object/apply node.
+    
+        cls = type(data)
+        if cls in copyreg.dispatch_table:
+            reduce = copyreg.dispatch_table[cls](data)
+        elif hasattr(data, '__reduce_ex__'):
+>           reduce = data.__reduce_ex__(2)
+E           TypeError: cannot pickle 'property' object
+
+../../../../.pyenv/versions/3.10.11/lib/python3.10/site-packages/yaml/representer.py:317: TypeError
+______ ERROR at setup of TestCollaboration.test_annotations_on_citations _______
+
+self = <tests.academic_researcher.test_collaboration.TestCollaboration object at 0x7fe54fd7bc40>
+brain = <researchbrain.core.brain.ResearchBrain object at 0x7fe4a83a0fd0>
+
+    @pytest.fixture
+    def sample_collaborators(self, brain):
+        """Fixture that creates sample collaborators with different roles."""
+        collaborators = {}
+    
+        # Principal Investigator
+>       pi_id = brain.create_collaborator(
+            name="Dr. Sarah Johnson",
+            email="sjohnson@university.edu",
+            affiliation="University of Neuroscience",
+            role=CollaboratorRole.PRINCIPAL_INVESTIGATOR
+        )
+
+tests/academic_researcher/test_collaboration.py:63: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+researchbrain/core/brain.py:822: in create_collaborator
+    self.storage.save(collaborator)
+researchbrain/core/storage.py:131: in save
+    yaml.dump(data, f, default_flow_style=False, sort_keys=False)
+../../../../.pyenv/versions/3.10.11/lib/python3.10/site-packages/yaml/__init__.py:253: in dump
+    return dump_all([data], stream, Dumper=Dumper, **kwds)
+../../../../.pyenv/versions/3.10.11/lib/python3.10/site-packages/yaml/__init__.py:241: in dump_all
+    dumper.represent(data)
+../../../../.pyenv/versions/3.10.11/lib/python3.10/site-packages/yaml/representer.py:27: in represent
+    node = self.represent_data(data)
+../../../../.pyenv/versions/3.10.11/lib/python3.10/site-packages/yaml/representer.py:48: in represent_data
+    node = self.yaml_representers[data_types[0]](self, data)
+../../../../.pyenv/versions/3.10.11/lib/python3.10/site-packages/yaml/representer.py:207: in represent_dict
+    return self.represent_mapping('tag:yaml.org,2002:map', data)
+../../../../.pyenv/versions/3.10.11/lib/python3.10/site-packages/yaml/representer.py:118: in represent_mapping
+    node_value = self.represent_data(item_value)
+../../../../.pyenv/versions/3.10.11/lib/python3.10/site-packages/yaml/representer.py:52: in represent_data
+    node = self.yaml_multi_representers[data_type](self, data)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <yaml.dumper.Dumper object at 0x7fe4a83a2d70>
+data = <property object at 0x7fe5ffc8e4d0>
+
+    def represent_object(self, data):
+        # We use __reduce__ API to save the data. data.__reduce__ returns
+        # a tuple of length 2-5:
+        #   (function, args, state, listitems, dictitems)
+    
+        # For reconstructing, we calls function(*args), then set its state,
+        # listitems, and dictitems if they are not None.
+    
+        # A special case is when function.__name__ == '__newobj__'. In this
+        # case we create the object with args[0].__new__(*args).
+    
+        # Another special case is when __reduce__ returns a string - we don't
+        # support it.
+    
+        # We produce a !!python/object, !!python/object/new or
+        # !!python/object/apply node.
+    
+        cls = type(data)
+        if cls in copyreg.dispatch_table:
+            reduce = copyreg.dispatch_table[cls](data)
+        elif hasattr(data, '__reduce_ex__'):
+>           reduce = data.__reduce_ex__(2)
+E           TypeError: cannot pickle 'property' object
+
+../../../../.pyenv/versions/3.10.11/lib/python3.10/site-packages/yaml/representer.py:317: TypeError
+__ ERROR at setup of TestCollaboration.test_maintaining_annotation_integrity ___
+
+self = <tests.academic_researcher.test_collaboration.TestCollaboration object at 0x7fe54fd78e80>
+brain = <researchbrain.core.brain.ResearchBrain object at 0x7fe4a8424490>
+
+    @pytest.fixture
+    def sample_collaborators(self, brain):
+        """Fixture that creates sample collaborators with different roles."""
+        collaborators = {}
+    
+        # Principal Investigator
+>       pi_id = brain.create_collaborator(
+            name="Dr. Sarah Johnson",
+            email="sjohnson@university.edu",
+            affiliation="University of Neuroscience",
+            role=CollaboratorRole.PRINCIPAL_INVESTIGATOR
+        )
+
+tests/academic_researcher/test_collaboration.py:63: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+researchbrain/core/brain.py:822: in create_collaborator
+    self.storage.save(collaborator)
+researchbrain/core/storage.py:131: in save
+    yaml.dump(data, f, default_flow_style=False, sort_keys=False)
+../../../../.pyenv/versions/3.10.11/lib/python3.10/site-packages/yaml/__init__.py:253: in dump
+    return dump_all([data], stream, Dumper=Dumper, **kwds)
+../../../../.pyenv/versions/3.10.11/lib/python3.10/site-packages/yaml/__init__.py:241: in dump_all
+    dumper.represent(data)
+../../../../.pyenv/versions/3.10.11/lib/python3.10/site-packages/yaml/representer.py:27: in represent
+    node = self.represent_data(data)
+../../../../.pyenv/versions/3.10.11/lib/python3.10/site-packages/yaml/representer.py:48: in represent_data
+    node = self.yaml_representers[data_types[0]](self, data)
+../../../../.pyenv/versions/3.10.11/lib/python3.10/site-packages/yaml/representer.py:207: in represent_dict
+    return self.represent_mapping('tag:yaml.org,2002:map', data)
+../../../../.pyenv/versions/3.10.11/lib/python3.10/site-packages/yaml/representer.py:118: in represent_mapping
+    node_value = self.represent_data(item_value)
+../../../../.pyenv/versions/3.10.11/lib/python3.10/site-packages/yaml/representer.py:52: in represent_data
+    node = self.yaml_multi_representers[data_type](self, data)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <yaml.dumper.Dumper object at 0x7fe4a8426dd0>
+data = <property object at 0x7fe5ffc8e4d0>
+
+    def represent_object(self, data):
+        # We use __reduce__ API to save the data. data.__reduce__ returns
+        # a tuple of length 2-5:
+        #   (function, args, state, listitems, dictitems)
+    
+        # For reconstructing, we calls function(*args), then set its state,
+        # listitems, and dictitems if they are not None.
+    
+        # A special case is when function.__name__ == '__newobj__'. In this
+        # case we create the object with args[0].__new__(*args).
+    
+        # Another special case is when __reduce__ returns a string - we don't
+        # support it.
+    
+        # We produce a !!python/object, !!python/object/new or
+        # !!python/object/apply node.
+    
+        cls = type(data)
+        if cls in copyreg.dispatch_table:
+            reduce = copyreg.dispatch_table[cls](data)
+        elif hasattr(data, '__reduce_ex__'):
+>           reduce = data.__reduce_ex__(2)
+E           TypeError: cannot pickle 'property' object
+
+../../../../.pyenv/versions/3.10.11/lib/python3.10/site-packages/yaml/representer.py:317: TypeError
+_ ERROR at setup of TestCollaboration.test_collaborative_feedback_integration __
+
+self = <tests.academic_researcher.test_collaboration.TestCollaboration object at 0x7fe54fd781f0>
+brain = <researchbrain.core.brain.ResearchBrain object at 0x7fe4a85c85e0>
+
+    @pytest.fixture
+    def sample_collaborators(self, brain):
+        """Fixture that creates sample collaborators with different roles."""
+        collaborators = {}
+    
+        # Principal Investigator
+>       pi_id = brain.create_collaborator(
+            name="Dr. Sarah Johnson",
+            email="sjohnson@university.edu",
+            affiliation="University of Neuroscience",
+            role=CollaboratorRole.PRINCIPAL_INVESTIGATOR
+        )
+
+tests/academic_researcher/test_collaboration.py:63: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+researchbrain/core/brain.py:822: in create_collaborator
+    self.storage.save(collaborator)
+researchbrain/core/storage.py:131: in save
+    yaml.dump(data, f, default_flow_style=False, sort_keys=False)
+../../../../.pyenv/versions/3.10.11/lib/python3.10/site-packages/yaml/__init__.py:253: in dump
+    return dump_all([data], stream, Dumper=Dumper, **kwds)
+../../../../.pyenv/versions/3.10.11/lib/python3.10/site-packages/yaml/__init__.py:241: in dump_all
+    dumper.represent(data)
+../../../../.pyenv/versions/3.10.11/lib/python3.10/site-packages/yaml/representer.py:27: in represent
+    node = self.represent_data(data)
+../../../../.pyenv/versions/3.10.11/lib/python3.10/site-packages/yaml/representer.py:48: in represent_data
+    node = self.yaml_representers[data_types[0]](self, data)
+../../../../.pyenv/versions/3.10.11/lib/python3.10/site-packages/yaml/representer.py:207: in represent_dict
+    return self.represent_mapping('tag:yaml.org,2002:map', data)
+../../../../.pyenv/versions/3.10.11/lib/python3.10/site-packages/yaml/representer.py:118: in represent_mapping
+    node_value = self.represent_data(item_value)
+../../../../.pyenv/versions/3.10.11/lib/python3.10/site-packages/yaml/representer.py:52: in represent_data
+    node = self.yaml_multi_representers[data_type](self, data)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <yaml.dumper.Dumper object at 0x7fe4a85cbee0>
+data = <property object at 0x7fe5ffc8e4d0>
+
+    def represent_object(self, data):
+        # We use __reduce__ API to save the data. data.__reduce__ returns
+        # a tuple of length 2-5:
+        #   (function, args, state, listitems, dictitems)
+    
+        # For reconstructing, we calls function(*args), then set its state,
+        # listitems, and dictitems if they are not None.
+    
+        # A special case is when function.__name__ == '__newobj__'. In this
+        # case we create the object with args[0].__new__(*args).
+    
+        # Another special case is when __reduce__ returns a string - we don't
+        # support it.
+    
+        # We produce a !!python/object, !!python/object/new or
+        # !!python/object/apply node.
+    
+        cls = type(data)
+        if cls in copyreg.dispatch_table:
+            reduce = copyreg.dispatch_table[cls](data)
+        elif hasattr(data, '__reduce_ex__'):
+>           reduce = data.__reduce_ex__(2)
+E           TypeError: cannot pickle 'property' object
+
+../../../../.pyenv/versions/3.10.11/lib/python3.10/site-packages/yaml/representer.py:317: TypeError
+____ ERROR at setup of TestGrantProposals.test_add_items_to_grant_workspace ____
+
+self = <tests.academic_researcher.test_grant_proposals.TestGrantProposals object at 0x7fe54fd79de0>
+brain = <researchbrain.core.brain.ResearchBrain object at 0x7fe4a70adf60>
+
+    @pytest.fixture
+    def sample_proposal_data(self, brain):
+        """Fixture that creates sample data for a grant proposal."""
+        # Create research questions
+>       question1_id = brain.create_research_question(
+            question="How does neuronal activity influence myelination in the developing brain?",
+            description="Investigating the relationship between neural firing and oligodendrocyte myelination",
+            priority=9
+        )
+
+tests/academic_researcher/test_grant_proposals.py:38: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+researchbrain/core/brain.py:531: in create_research_question
+    research_question = ResearchQuestion(
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = ResearchQuestion()
+question = 'How does neuronal activity influence myelination in the developing brain?'
+title = 'How does neuronal activity influence myelination in the developing brain?'
+content = 'Investigating the relationship between neural firing and oligodendrocyte myelination'
+description = 'Investigating the relationship between neural firing and oligodendrocyte myelination'
+priority = <Priority.CRITICAL: 'critical'>
+kwargs = {'description': 'Investigating the relationship between neural firing and oligodendrocyte myelination', 'knowledge_gap...ty.CRITICAL: 'critical'>, 'question': 'How does neuronal activity influence myelination in the developing brain?', ...}
+
+    def __init__(self, question: str, title: str = "", content: str = "", description: Optional[str] = None, priority: int = 0, **kwargs):
+        """Initialize ResearchQuestion with question as title if title not provided."""
+        if not title:
+            title = question
+        if not content and description:
+            content = description
+    
+        kwargs['question'] = question
+        kwargs['description'] = description
+        kwargs['priority'] = priority
+>       super().__init__(title=title, content=content, **kwargs)
+E       pydantic_core._pydantic_core.ValidationError: 1 validation error for ResearchQuestion
+E       priority
+E         Input should be a valid integer, unable to parse string as an integer [type=int_parsing, input_value=<Priority.CRITICAL: 'critical'>, input_type=Priority]
+E           For further information visit https://errors.pydantic.dev/2.11/v/int_parsing
+
+researchbrain/core/models.py:136: ValidationError
+_____ ERROR at setup of TestGrantProposals.test_adding_items_incrementally _____
+
+self = <tests.academic_researcher.test_grant_proposals.TestGrantProposals object at 0x7fe54fc005e0>
+brain = <researchbrain.core.brain.ResearchBrain object at 0x7fe4a826faf0>
+
+    @pytest.fixture
+    def sample_proposal_data(self, brain):
+        """Fixture that creates sample data for a grant proposal."""
+        # Create research questions
+>       question1_id = brain.create_research_question(
+            question="How does neuronal activity influence myelination in the developing brain?",
+            description="Investigating the relationship between neural firing and oligodendrocyte myelination",
+            priority=9
+        )
+
+tests/academic_researcher/test_grant_proposals.py:38: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+researchbrain/core/brain.py:531: in create_research_question
+    research_question = ResearchQuestion(
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = ResearchQuestion()
+question = 'How does neuronal activity influence myelination in the developing brain?'
+title = 'How does neuronal activity influence myelination in the developing brain?'
+content = 'Investigating the relationship between neural firing and oligodendrocyte myelination'
+description = 'Investigating the relationship between neural firing and oligodendrocyte myelination'
+priority = <Priority.CRITICAL: 'critical'>
+kwargs = {'description': 'Investigating the relationship between neural firing and oligodendrocyte myelination', 'knowledge_gap...ty.CRITICAL: 'critical'>, 'question': 'How does neuronal activity influence myelination in the developing brain?', ...}
+
+    def __init__(self, question: str, title: str = "", content: str = "", description: Optional[str] = None, priority: int = 0, **kwargs):
+        """Initialize ResearchQuestion with question as title if title not provided."""
+        if not title:
+            title = question
+        if not content and description:
+            content = description
+    
+        kwargs['question'] = question
+        kwargs['description'] = description
+        kwargs['priority'] = priority
+>       super().__init__(title=title, content=content, **kwargs)
+E       pydantic_core._pydantic_core.ValidationError: 1 validation error for ResearchQuestion
+E       priority
+E         Input should be a valid integer, unable to parse string as an integer [type=int_parsing, input_value=<Priority.CRITICAL: 'critical'>, input_type=Priority]
+E           For further information visit https://errors.pydantic.dev/2.11/v/int_parsing
+
+researchbrain/core/models.py:136: ValidationError
+_ ERROR at setup of TestGrantProposals.test_export_grant_proposal_to_markdown __
+
+self = <tests.academic_researcher.test_grant_proposals.TestGrantProposals object at 0x7fe54fc01bd0>
+brain = <researchbrain.core.brain.ResearchBrain object at 0x7fe4a83a0040>
+
+    @pytest.fixture
+    def sample_proposal_data(self, brain):
+        """Fixture that creates sample data for a grant proposal."""
+        # Create research questions
+>       question1_id = brain.create_research_question(
+            question="How does neuronal activity influence myelination in the developing brain?",
+            description="Investigating the relationship between neural firing and oligodendrocyte myelination",
+            priority=9
+        )
+
+tests/academic_researcher/test_grant_proposals.py:38: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+researchbrain/core/brain.py:531: in create_research_question
+    research_question = ResearchQuestion(
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = ResearchQuestion()
+question = 'How does neuronal activity influence myelination in the developing brain?'
+title = 'How does neuronal activity influence myelination in the developing brain?'
+content = 'Investigating the relationship between neural firing and oligodendrocyte myelination'
+description = 'Investigating the relationship between neural firing and oligodendrocyte myelination'
+priority = <Priority.CRITICAL: 'critical'>
+kwargs = {'description': 'Investigating the relationship between neural firing and oligodendrocyte myelination', 'knowledge_gap...ty.CRITICAL: 'critical'>, 'question': 'How does neuronal activity influence myelination in the developing brain?', ...}
+
+    def __init__(self, question: str, title: str = "", content: str = "", description: Optional[str] = None, priority: int = 0, **kwargs):
+        """Initialize ResearchQuestion with question as title if title not provided."""
+        if not title:
+            title = question
+        if not content and description:
+            content = description
+    
+        kwargs['question'] = question
+        kwargs['description'] = description
+        kwargs['priority'] = priority
+>       super().__init__(title=title, content=content, **kwargs)
+E       pydantic_core._pydantic_core.ValidationError: 1 validation error for ResearchQuestion
+E       priority
+E         Input should be a valid integer, unable to parse string as an integer [type=int_parsing, input_value=<Priority.CRITICAL: 'critical'>, input_type=Priority]
+E           For further information visit https://errors.pydantic.dev/2.11/v/int_parsing
+
+researchbrain/core/models.py:136: ValidationError
+___ ERROR at setup of TestGrantProposals.test_export_grant_proposal_to_yaml ____
+
+self = <tests.academic_researcher.test_grant_proposals.TestGrantProposals object at 0x7fe54fc01db0>
+brain = <researchbrain.core.brain.ResearchBrain object at 0x7fe4a835c580>
+
+    @pytest.fixture
+    def sample_proposal_data(self, brain):
+        """Fixture that creates sample data for a grant proposal."""
+        # Create research questions
+>       question1_id = brain.create_research_question(
+            question="How does neuronal activity influence myelination in the developing brain?",
+            description="Investigating the relationship between neural firing and oligodendrocyte myelination",
+            priority=9
+        )
+
+tests/academic_researcher/test_grant_proposals.py:38: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+researchbrain/core/brain.py:531: in create_research_question
+    research_question = ResearchQuestion(
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = ResearchQuestion()
+question = 'How does neuronal activity influence myelination in the developing brain?'
+title = 'How does neuronal activity influence myelination in the developing brain?'
+content = 'Investigating the relationship between neural firing and oligodendrocyte myelination'
+description = 'Investigating the relationship between neural firing and oligodendrocyte myelination'
+priority = <Priority.CRITICAL: 'critical'>
+kwargs = {'description': 'Investigating the relationship between neural firing and oligodendrocyte myelination', 'knowledge_gap...ty.CRITICAL: 'critical'>, 'question': 'How does neuronal activity influence myelination in the developing brain?', ...}
+
+    def __init__(self, question: str, title: str = "", content: str = "", description: Optional[str] = None, priority: int = 0, **kwargs):
+        """Initialize ResearchQuestion with question as title if title not provided."""
+        if not title:
+            title = question
+        if not content and description:
+            content = description
+    
+        kwargs['question'] = question
+        kwargs['description'] = description
+        kwargs['priority'] = priority
+>       super().__init__(title=title, content=content, **kwargs)
+E       pydantic_core._pydantic_core.ValidationError: 1 validation error for ResearchQuestion
+E       priority
+E         Input should be a valid integer, unable to parse string as an integer [type=int_parsing, input_value=<Priority.CRITICAL: 'critical'>, input_type=Priority]
+E           For further information visit https://errors.pydantic.dev/2.11/v/int_parsing
+
+researchbrain/core/models.py:136: ValidationError
+___ ERROR at setup of TestGrantProposals.test_grant_proposal_version_history ___
+
+self = <tests.academic_researcher.test_grant_proposals.TestGrantProposals object at 0x7fe54fc01f90>
+brain = <researchbrain.core.brain.ResearchBrain object at 0x7fe4a85dc130>
+
+    @pytest.fixture
+    def sample_proposal_data(self, brain):
+        """Fixture that creates sample data for a grant proposal."""
+        # Create research questions
+>       question1_id = brain.create_research_question(
+            question="How does neuronal activity influence myelination in the developing brain?",
+            description="Investigating the relationship between neural firing and oligodendrocyte myelination",
+            priority=9
+        )
+
+tests/academic_researcher/test_grant_proposals.py:38: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+researchbrain/core/brain.py:531: in create_research_question
+    research_question = ResearchQuestion(
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = ResearchQuestion()
+question = 'How does neuronal activity influence myelination in the developing brain?'
+title = 'How does neuronal activity influence myelination in the developing brain?'
+content = 'Investigating the relationship between neural firing and oligodendrocyte myelination'
+description = 'Investigating the relationship between neural firing and oligodendrocyte myelination'
+priority = <Priority.CRITICAL: 'critical'>
+kwargs = {'description': 'Investigating the relationship between neural firing and oligodendrocyte myelination', 'knowledge_gap...ty.CRITICAL: 'critical'>, 'question': 'How does neuronal activity influence myelination in the developing brain?', ...}
+
+    def __init__(self, question: str, title: str = "", content: str = "", description: Optional[str] = None, priority: int = 0, **kwargs):
+        """Initialize ResearchQuestion with question as title if title not provided."""
+        if not title:
+            title = question
+        if not content and description:
+            content = description
+    
+        kwargs['question'] = question
+        kwargs['description'] = description
+        kwargs['priority'] = priority
+>       super().__init__(title=title, content=content, **kwargs)
+E       pydantic_core._pydantic_core.ValidationError: 1 validation error for ResearchQuestion
+E       priority
+E         Input should be a valid integer, unable to parse string as an integer [type=int_parsing, input_value=<Priority.CRITICAL: 'critical'>, input_type=Priority]
+E           For further information visit https://errors.pydantic.dev/2.11/v/int_parsing
+
+researchbrain/core/models.py:136: ValidationError
+______ ERROR at setup of TestGrantProposals.test_related_nodes_navigation ______
+
+self = <tests.academic_researcher.test_grant_proposals.TestGrantProposals object at 0x7fe54fc02380>
+brain = <researchbrain.core.brain.ResearchBrain object at 0x7fe4a8344c40>
+
+    @pytest.fixture
+    def sample_proposal_data(self, brain):
+        """Fixture that creates sample data for a grant proposal."""
+        # Create research questions
+>       question1_id = brain.create_research_question(
+            question="How does neuronal activity influence myelination in the developing brain?",
+            description="Investigating the relationship between neural firing and oligodendrocyte myelination",
+            priority=9
+        )
+
+tests/academic_researcher/test_grant_proposals.py:38: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+researchbrain/core/brain.py:531: in create_research_question
+    research_question = ResearchQuestion(
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = ResearchQuestion()
+question = 'How does neuronal activity influence myelination in the developing brain?'
+title = 'How does neuronal activity influence myelination in the developing brain?'
+content = 'Investigating the relationship between neural firing and oligodendrocyte myelination'
+description = 'Investigating the relationship between neural firing and oligodendrocyte myelination'
+priority = <Priority.CRITICAL: 'critical'>
+kwargs = {'description': 'Investigating the relationship between neural firing and oligodendrocyte myelination', 'knowledge_gap...ty.CRITICAL: 'critical'>, 'question': 'How does neuronal activity influence myelination in the developing brain?', ...}
+
+    def __init__(self, question: str, title: str = "", content: str = "", description: Optional[str] = None, priority: int = 0, **kwargs):
+        """Initialize ResearchQuestion with question as title if title not provided."""
+        if not title:
+            title = question
+        if not content and description:
+            content = description
+    
+        kwargs['question'] = question
+        kwargs['description'] = description
+        kwargs['priority'] = priority
+>       super().__init__(title=title, content=content, **kwargs)
+E       pydantic_core._pydantic_core.ValidationError: 1 validation error for ResearchQuestion
+E       priority
+E         Input should be a valid integer, unable to parse string as an integer [type=int_parsing, input_value=<Priority.CRITICAL: 'critical'>, input_type=Priority]
+E           For further information visit https://errors.pydantic.dev/2.11/v/int_parsing
+
+researchbrain/core/models.py:136: ValidationError
+_ ERROR at setup of TestGrantProposals.test_multi_grant_proposal_organization __
+
+self = <tests.academic_researcher.test_grant_proposals.TestGrantProposals object at 0x7fe54fc02560>
+brain = <researchbrain.core.brain.ResearchBrain object at 0x7fe4a85dcaf0>
+
+    @pytest.fixture
+    def sample_proposal_data(self, brain):
+        """Fixture that creates sample data for a grant proposal."""
+        # Create research questions
+>       question1_id = brain.create_research_question(
+            question="How does neuronal activity influence myelination in the developing brain?",
+            description="Investigating the relationship between neural firing and oligodendrocyte myelination",
+            priority=9
+        )
+
+tests/academic_researcher/test_grant_proposals.py:38: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+researchbrain/core/brain.py:531: in create_research_question
+    research_question = ResearchQuestion(
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = ResearchQuestion()
+question = 'How does neuronal activity influence myelination in the developing brain?'
+title = 'How does neuronal activity influence myelination in the developing brain?'
+content = 'Investigating the relationship between neural firing and oligodendrocyte myelination'
+description = 'Investigating the relationship between neural firing and oligodendrocyte myelination'
+priority = <Priority.CRITICAL: 'critical'>
+kwargs = {'description': 'Investigating the relationship between neural firing and oligodendrocyte myelination', 'knowledge_gap...ty.CRITICAL: 'critical'>, 'question': 'How does neuronal activity influence myelination in the developing brain?', ...}
+
+    def __init__(self, question: str, title: str = "", content: str = "", description: Optional[str] = None, priority: int = 0, **kwargs):
+        """Initialize ResearchQuestion with question as title if title not provided."""
+        if not title:
+            title = question
+        if not content and description:
+            content = description
+    
+        kwargs['question'] = question
+        kwargs['description'] = description
+        kwargs['priority'] = priority
+>       super().__init__(title=title, content=content, **kwargs)
+E       pydantic_core._pydantic_core.ValidationError: 1 validation error for ResearchQuestion
+E       priority
+E         Input should be a valid integer, unable to parse string as an integer [type=int_parsing, input_value=<Priority.CRITICAL: 'critical'>, input_type=Priority]
+E           For further information visit https://errors.pydantic.dev/2.11/v/int_parsing
+
+researchbrain/core/models.py:136: ValidationError
+______ ERROR at setup of TestOptimizedPerformance.test_basic_performance _______
+
+self = <tests.academic_researcher.test_performance_optimized.TestOptimizedPerformance object at 0x7fe54fc030a0>
+temp_data_dir = '/tmp/tmpx4fpa6tw'
+
+    @pytest.fixture
+    def brain_with_data(self, temp_data_dir):
+        """Fixture that creates a ResearchBrain instance with test data."""
+        brain = ResearchBrain(temp_data_dir)
+    
+        # Create minimal test data - using smaller counts for faster tests
+>       self._create_test_data(brain, note_count=10, citation_count=5, question_count=2)
+
+tests/academic_researcher/test_performance_optimized.py:38: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/academic_researcher/test_performance_optimized.py:86: in _create_test_data
+    question_id = brain.create_research_question(
+researchbrain/core/brain.py:531: in create_research_question
+    research_question = ResearchQuestion(
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = ResearchQuestion(), question = 'Research question 0?'
+title = 'Research question 0?', content = 'Description for research question 0'
+description = 'Description for research question 0'
+priority = <Priority.LOW: 'low'>
+kwargs = {'description': 'Description for research question 0', 'knowledge_gaps': [], 'priority': <Priority.LOW: 'low'>, 'question': 'Research question 0?', ...}
+
+    def __init__(self, question: str, title: str = "", content: str = "", description: Optional[str] = None, priority: int = 0, **kwargs):
+        """Initialize ResearchQuestion with question as title if title not provided."""
+        if not title:
+            title = question
+        if not content and description:
+            content = description
+    
+        kwargs['question'] = question
+        kwargs['description'] = description
+        kwargs['priority'] = priority
+>       super().__init__(title=title, content=content, **kwargs)
+E       pydantic_core._pydantic_core.ValidationError: 1 validation error for ResearchQuestion
+E       priority
+E         Input should be a valid integer, unable to parse string as an integer [type=int_parsing, input_value=<Priority.LOW: 'low'>, input_type=Priority]
+E           For further information visit https://errors.pydantic.dev/2.11/v/int_parsing
+
+researchbrain/core/models.py:136: ValidationError
+____ ERROR at setup of TestStakeholderInsightManager.test_add_relationship _____
+
+stakeholder_samples = [Stakeholder(id=UUID('d048c830-f511-4993-a3ac-4e8b83b96090'), created_at=datetime.datetime(2025, 6, 16, 4, 15, 7, 5760...uence_level=0.7, perspectives=[], interests=['Customer acquisition', 'Competitive features', 'Sales enablement']), ...]
+
+    @pytest.fixture
+    def stakeholder_relationship_samples(stakeholder_samples):
+        """Generate sample stakeholder relationships."""
+        stakeholders = stakeholder_samples
+    
+        return [
+>           StakeholderRelationship(
+                id=uuid4(),
+                stakeholder1_id=stakeholders[0].id,  # CTO
+                stakeholder2_id=stakeholders[1].id,  # VP of Product
+                relationship_type="Peer",
+                alignment_level=0.7,
+                notes="Good working relationship with some disagreements on technical priorities"
+            ),
+            StakeholderRelationship(
+                id=uuid4(),
+                stakeholder1_id=stakeholders[1].id,  # VP of Product
+                stakeholder2_id=stakeholders[2].id,  # Product Manager
+                relationship_type="Manager-Report",
+                alignment_level=0.9,
+                notes="Strong alignment on product direction"
+            ),
+            StakeholderRelationship(
+                id=uuid4(),
+                stakeholder1_id=stakeholders[0].id,  # CTO
+                stakeholder2_id=stakeholders[3].id,  # Engineering Manager
+                relationship_type="Manager-Report",
+                alignment_level=0.8,
+                notes="Well-aligned on technical direction"
+            ),
+            StakeholderRelationship(
+                id=uuid4(),
+                stakeholder1_id=stakeholders[2].id,  # Product Manager
+                stakeholder2_id=stakeholders[4].id,  # UX Designer
+                relationship_type="Cross-functional",
+                alignment_level=0.7,
+                notes="Generally aligned but some tension on design priorities"
+            ),
+            StakeholderRelationship(
+                id=uuid4(),
+                stakeholder1_id=stakeholders[1].id,  # VP of Product
+                stakeholder2_id=stakeholders[5].id,  # Director of Sales
+                relationship_type="Cross-functional",
+                alignment_level=0.6,
+                notes="Some disagreement on feature priorities vs. sales needs"
+            ),
+            StakeholderRelationship(
+                id=uuid4(),
+                stakeholder1_id=stakeholders[2].id,  # Product Manager
+                stakeholder2_id=stakeholders[6].id,  # Customer Success Manager
+                relationship_type="Cross-functional",
+                alignment_level=0.8,
+                notes="Strong collaboration on customer needs"
+            ),
+            StakeholderRelationship(
+                id=uuid4(),
+                stakeholder1_id=stakeholders[5].id,  # Director of Sales
+                stakeholder2_id=stakeholders[7].id,  # Marketing Director
+                relationship_type="Peer",
+                alignment_level=0.9,
+                notes="Very strong alignment on go-to-market strategy"
+            )
+        ]
+
+tests/product_manager/fixtures/test_data.py:1060: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = StakeholderRelationship()
+stakeholder1_id = UUID('d048c830-f511-4993-a3ac-4e8b83b96090')
+stakeholder2_id = UUID('b9bf0288-03c4-4b60-ac9b-c4a491ecb1cf')
+relationship_type = 'Peer'
+kwargs = {'alignment_level': 0.7, 'id': UUID('53bae13c-5954-491e-8d9f-aeba574a526c'), 'notes': 'Good working relationship with some disagreements on technical priorities'}
+
+    def __init__(self, stakeholder1_id: UUID, stakeholder2_id: UUID, relationship_type: str, **kwargs):
+>       super().__init__(
+            source_id=stakeholder1_id,
+            target_id=stakeholder2_id,
+            relationship_type=relationship_type,
+            **kwargs
+        )
+E       pydantic_core._pydantic_core.ValidationError: 2 validation errors for StakeholderRelationship
+E       stakeholder1_id
+E         Field required [type=missing, input_value={'source_id': UUID('d048c...n technical priorities'}, input_type=dict]
+E           For further information visit https://errors.pydantic.dev/2.11/v/missing
+E       stakeholder2_id
+E         Field required [type=missing, input_value={'source_id': UUID('d048c...n technical priorities'}, input_type=dict]
+E           For further information visit https://errors.pydantic.dev/2.11/v/missing
+
+productmind/models.py:327: ValidationError
+____ ERROR at setup of TestStakeholderInsightManager.test_get_relationship _____
+
+stakeholder_samples = [Stakeholder(id=UUID('cdf80347-c28b-490c-aeef-ee76e25779f0'), created_at=datetime.datetime(2025, 6, 16, 4, 15, 7, 6192...uence_level=0.7, perspectives=[], interests=['Customer acquisition', 'Competitive features', 'Sales enablement']), ...]
+
+    @pytest.fixture
+    def stakeholder_relationship_samples(stakeholder_samples):
+        """Generate sample stakeholder relationships."""
+        stakeholders = stakeholder_samples
+    
+        return [
+>           StakeholderRelationship(
+                id=uuid4(),
+                stakeholder1_id=stakeholders[0].id,  # CTO
+                stakeholder2_id=stakeholders[1].id,  # VP of Product
+                relationship_type="Peer",
+                alignment_level=0.7,
+                notes="Good working relationship with some disagreements on technical priorities"
+            ),
+            StakeholderRelationship(
+                id=uuid4(),
+                stakeholder1_id=stakeholders[1].id,  # VP of Product
+                stakeholder2_id=stakeholders[2].id,  # Product Manager
+                relationship_type="Manager-Report",
+                alignment_level=0.9,
+                notes="Strong alignment on product direction"
+            ),
+            StakeholderRelationship(
+                id=uuid4(),
+                stakeholder1_id=stakeholders[0].id,  # CTO
+                stakeholder2_id=stakeholders[3].id,  # Engineering Manager
+                relationship_type="Manager-Report",
+                alignment_level=0.8,
+                notes="Well-aligned on technical direction"
+            ),
+            StakeholderRelationship(
+                id=uuid4(),
+                stakeholder1_id=stakeholders[2].id,  # Product Manager
+                stakeholder2_id=stakeholders[4].id,  # UX Designer
+                relationship_type="Cross-functional",
+                alignment_level=0.7,
+                notes="Generally aligned but some tension on design priorities"
+            ),
+            StakeholderRelationship(
+                id=uuid4(),
+                stakeholder1_id=stakeholders[1].id,  # VP of Product
+                stakeholder2_id=stakeholders[5].id,  # Director of Sales
+                relationship_type="Cross-functional",
+                alignment_level=0.6,
+                notes="Some disagreement on feature priorities vs. sales needs"
+            ),
+            StakeholderRelationship(
+                id=uuid4(),
+                stakeholder1_id=stakeholders[2].id,  # Product Manager
+                stakeholder2_id=stakeholders[6].id,  # Customer Success Manager
+                relationship_type="Cross-functional",
+                alignment_level=0.8,
+                notes="Strong collaboration on customer needs"
+            ),
+            StakeholderRelationship(
+                id=uuid4(),
+                stakeholder1_id=stakeholders[5].id,  # Director of Sales
+                stakeholder2_id=stakeholders[7].id,  # Marketing Director
+                relationship_type="Peer",
+                alignment_level=0.9,
+                notes="Very strong alignment on go-to-market strategy"
+            )
+        ]
+
+tests/product_manager/fixtures/test_data.py:1060: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = StakeholderRelationship()
+stakeholder1_id = UUID('cdf80347-c28b-490c-aeef-ee76e25779f0')
+stakeholder2_id = UUID('892593bd-d252-4698-b029-d5d27bd57e3d')
+relationship_type = 'Peer'
+kwargs = {'alignment_level': 0.7, 'id': UUID('8f16050f-d8f2-4651-a82b-0fd68daa2451'), 'notes': 'Good working relationship with some disagreements on technical priorities'}
+
+    def __init__(self, stakeholder1_id: UUID, stakeholder2_id: UUID, relationship_type: str, **kwargs):
+>       super().__init__(
+            source_id=stakeholder1_id,
+            target_id=stakeholder2_id,
+            relationship_type=relationship_type,
+            **kwargs
+        )
+E       pydantic_core._pydantic_core.ValidationError: 2 validation errors for StakeholderRelationship
+E       stakeholder1_id
+E         Field required [type=missing, input_value={'source_id': UUID('cdf80...n technical priorities'}, input_type=dict]
+E           For further information visit https://errors.pydantic.dev/2.11/v/missing
+E       stakeholder2_id
+E         Field required [type=missing, input_value={'source_id': UUID('cdf80...n technical priorities'}, input_type=dict]
+E           For further information visit https://errors.pydantic.dev/2.11/v/missing
+
+productmind/models.py:327: ValidationError
+__ ERROR at setup of TestStakeholderInsightManager.test_get_all_relationships __
+
+stakeholder_samples = [Stakeholder(id=UUID('2e461ee9-3711-4a2f-a060-c118052f90c6'), created_at=datetime.datetime(2025, 6, 16, 4, 15, 7, 6610...uence_level=0.7, perspectives=[], interests=['Customer acquisition', 'Competitive features', 'Sales enablement']), ...]
+
+    @pytest.fixture
+    def stakeholder_relationship_samples(stakeholder_samples):
+        """Generate sample stakeholder relationships."""
+        stakeholders = stakeholder_samples
+    
+        return [
+>           StakeholderRelationship(
+                id=uuid4(),
+                stakeholder1_id=stakeholders[0].id,  # CTO
+                stakeholder2_id=stakeholders[1].id,  # VP of Product
+                relationship_type="Peer",
+                alignment_level=0.7,
+                notes="Good working relationship with some disagreements on technical priorities"
+            ),
+            StakeholderRelationship(
+                id=uuid4(),
+                stakeholder1_id=stakeholders[1].id,  # VP of Product
+                stakeholder2_id=stakeholders[2].id,  # Product Manager
+                relationship_type="Manager-Report",
+                alignment_level=0.9,
+                notes="Strong alignment on product direction"
+            ),
+            StakeholderRelationship(
+                id=uuid4(),
+                stakeholder1_id=stakeholders[0].id,  # CTO
+                stakeholder2_id=stakeholders[3].id,  # Engineering Manager
+                relationship_type="Manager-Report",
+                alignment_level=0.8,
+                notes="Well-aligned on technical direction"
+            ),
+            StakeholderRelationship(
+                id=uuid4(),
+                stakeholder1_id=stakeholders[2].id,  # Product Manager
+                stakeholder2_id=stakeholders[4].id,  # UX Designer
+                relationship_type="Cross-functional",
+                alignment_level=0.7,
+                notes="Generally aligned but some tension on design priorities"
+            ),
+            StakeholderRelationship(
+                id=uuid4(),
+                stakeholder1_id=stakeholders[1].id,  # VP of Product
+                stakeholder2_id=stakeholders[5].id,  # Director of Sales
+                relationship_type="Cross-functional",
+                alignment_level=0.6,
+                notes="Some disagreement on feature priorities vs. sales needs"
+            ),
+            StakeholderRelationship(
+                id=uuid4(),
+                stakeholder1_id=stakeholders[2].id,  # Product Manager
+                stakeholder2_id=stakeholders[6].id,  # Customer Success Manager
+                relationship_type="Cross-functional",
+                alignment_level=0.8,
+                notes="Strong collaboration on customer needs"
+            ),
+            StakeholderRelationship(
+                id=uuid4(),
+                stakeholder1_id=stakeholders[5].id,  # Director of Sales
+                stakeholder2_id=stakeholders[7].id,  # Marketing Director
+                relationship_type="Peer",
+                alignment_level=0.9,
+                notes="Very strong alignment on go-to-market strategy"
+            )
+        ]
+
+tests/product_manager/fixtures/test_data.py:1060: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = StakeholderRelationship()
+stakeholder1_id = UUID('2e461ee9-3711-4a2f-a060-c118052f90c6')
+stakeholder2_id = UUID('134545be-7452-435d-8a7c-21f931785b1b')
+relationship_type = 'Peer'
+kwargs = {'alignment_level': 0.7, 'id': UUID('5a3bd06f-8603-48cd-98df-1e72599f222c'), 'notes': 'Good working relationship with some disagreements on technical priorities'}
+
+    def __init__(self, stakeholder1_id: UUID, stakeholder2_id: UUID, relationship_type: str, **kwargs):
+>       super().__init__(
+            source_id=stakeholder1_id,
+            target_id=stakeholder2_id,
+            relationship_type=relationship_type,
+            **kwargs
+        )
+E       pydantic_core._pydantic_core.ValidationError: 2 validation errors for StakeholderRelationship
+E       stakeholder1_id
+E         Field required [type=missing, input_value={'source_id': UUID('2e461...n technical priorities'}, input_type=dict]
+E           For further information visit https://errors.pydantic.dev/2.11/v/missing
+E       stakeholder2_id
+E         Field required [type=missing, input_value={'source_id': UUID('2e461...n technical priorities'}, input_type=dict]
+E           For further information visit https://errors.pydantic.dev/2.11/v/missing
+
+productmind/models.py:327: ValidationError
+_ ERROR at setup of TestStakeholderInsightManager.test_get_stakeholder_relationships _
+
+stakeholder_samples = [Stakeholder(id=UUID('6a1de386-2a36-4a89-a488-ba0ae5c60491'), created_at=datetime.datetime(2025, 6, 16, 4, 15, 7, 7573...uence_level=0.7, perspectives=[], interests=['Customer acquisition', 'Competitive features', 'Sales enablement']), ...]
+
+    @pytest.fixture
+    def stakeholder_relationship_samples(stakeholder_samples):
+        """Generate sample stakeholder relationships."""
+        stakeholders = stakeholder_samples
+    
+        return [
+>           StakeholderRelationship(
+                id=uuid4(),
+                stakeholder1_id=stakeholders[0].id,  # CTO
+                stakeholder2_id=stakeholders[1].id,  # VP of Product
+                relationship_type="Peer",
+                alignment_level=0.7,
+                notes="Good working relationship with some disagreements on technical priorities"
+            ),
+            StakeholderRelationship(
+                id=uuid4(),
+                stakeholder1_id=stakeholders[1].id,  # VP of Product
+                stakeholder2_id=stakeholders[2].id,  # Product Manager
+                relationship_type="Manager-Report",
+                alignment_level=0.9,
+                notes="Strong alignment on product direction"
+            ),
+            StakeholderRelationship(
+                id=uuid4(),
+                stakeholder1_id=stakeholders[0].id,  # CTO
+                stakeholder2_id=stakeholders[3].id,  # Engineering Manager
+                relationship_type="Manager-Report",
+                alignment_level=0.8,
+                notes="Well-aligned on technical direction"
+            ),
+            StakeholderRelationship(
+                id=uuid4(),
+                stakeholder1_id=stakeholders[2].id,  # Product Manager
+                stakeholder2_id=stakeholders[4].id,  # UX Designer
+                relationship_type="Cross-functional",
+                alignment_level=0.7,
+                notes="Generally aligned but some tension on design priorities"
+            ),
+            StakeholderRelationship(
+                id=uuid4(),
+                stakeholder1_id=stakeholders[1].id,  # VP of Product
+                stakeholder2_id=stakeholders[5].id,  # Director of Sales
+                relationship_type="Cross-functional",
+                alignment_level=0.6,
+                notes="Some disagreement on feature priorities vs. sales needs"
+            ),
+            StakeholderRelationship(
+                id=uuid4(),
+                stakeholder1_id=stakeholders[2].id,  # Product Manager
+                stakeholder2_id=stakeholders[6].id,  # Customer Success Manager
+                relationship_type="Cross-functional",
+                alignment_level=0.8,
+                notes="Strong collaboration on customer needs"
+            ),
+            StakeholderRelationship(
+                id=uuid4(),
+                stakeholder1_id=stakeholders[5].id,  # Director of Sales
+                stakeholder2_id=stakeholders[7].id,  # Marketing Director
+                relationship_type="Peer",
+                alignment_level=0.9,
+                notes="Very strong alignment on go-to-market strategy"
+            )
+        ]
+
+tests/product_manager/fixtures/test_data.py:1060: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = StakeholderRelationship()
+stakeholder1_id = UUID('6a1de386-2a36-4a89-a488-ba0ae5c60491')
+stakeholder2_id = UUID('1559ac15-49ab-41e3-a1ab-d7b96710008d')
+relationship_type = 'Peer'
+kwargs = {'alignment_level': 0.7, 'id': UUID('049bbccb-23fe-47c3-a5d8-35641f883353'), 'notes': 'Good working relationship with some disagreements on technical priorities'}
+
+    def __init__(self, stakeholder1_id: UUID, stakeholder2_id: UUID, relationship_type: str, **kwargs):
+>       super().__init__(
+            source_id=stakeholder1_id,
+            target_id=stakeholder2_id,
+            relationship_type=relationship_type,
+            **kwargs
+        )
+E       pydantic_core._pydantic_core.ValidationError: 2 validation errors for StakeholderRelationship
+E       stakeholder1_id
+E         Field required [type=missing, input_value={'source_id': UUID('6a1de...n technical priorities'}, input_type=dict]
+E           For further information visit https://errors.pydantic.dev/2.11/v/missing
+E       stakeholder2_id
+E         Field required [type=missing, input_value={'source_id': UUID('6a1de...n technical priorities'}, input_type=dict]
+E           For further information visit https://errors.pydantic.dev/2.11/v/missing
+
+productmind/models.py:327: ValidationError
+_ ERROR at setup of TestStakeholderInsightManager.test_generate_stakeholder_map _
+
+stakeholder_samples = [Stakeholder(id=UUID('c50f8c4d-2a6b-41b8-a353-fd403f765d6f'), created_at=datetime.datetime(2025, 6, 16, 4, 15, 7, 8048...uence_level=0.7, perspectives=[], interests=['Customer acquisition', 'Competitive features', 'Sales enablement']), ...]
+
+    @pytest.fixture
+    def stakeholder_relationship_samples(stakeholder_samples):
+        """Generate sample stakeholder relationships."""
+        stakeholders = stakeholder_samples
+    
+        return [
+>           StakeholderRelationship(
+                id=uuid4(),
+                stakeholder1_id=stakeholders[0].id,  # CTO
+                stakeholder2_id=stakeholders[1].id,  # VP of Product
+                relationship_type="Peer",
+                alignment_level=0.7,
+                notes="Good working relationship with some disagreements on technical priorities"
+            ),
+            StakeholderRelationship(
+                id=uuid4(),
+                stakeholder1_id=stakeholders[1].id,  # VP of Product
+                stakeholder2_id=stakeholders[2].id,  # Product Manager
+                relationship_type="Manager-Report",
+                alignment_level=0.9,
+                notes="Strong alignment on product direction"
+            ),
+            StakeholderRelationship(
+                id=uuid4(),
+                stakeholder1_id=stakeholders[0].id,  # CTO
+                stakeholder2_id=stakeholders[3].id,  # Engineering Manager
+                relationship_type="Manager-Report",
+                alignment_level=0.8,
+                notes="Well-aligned on technical direction"
+            ),
+            StakeholderRelationship(
+                id=uuid4(),
+                stakeholder1_id=stakeholders[2].id,  # Product Manager
+                stakeholder2_id=stakeholders[4].id,  # UX Designer
+                relationship_type="Cross-functional",
+                alignment_level=0.7,
+                notes="Generally aligned but some tension on design priorities"
+            ),
+            StakeholderRelationship(
+                id=uuid4(),
+                stakeholder1_id=stakeholders[1].id,  # VP of Product
+                stakeholder2_id=stakeholders[5].id,  # Director of Sales
+                relationship_type="Cross-functional",
+                alignment_level=0.6,
+                notes="Some disagreement on feature priorities vs. sales needs"
+            ),
+            StakeholderRelationship(
+                id=uuid4(),
+                stakeholder1_id=stakeholders[2].id,  # Product Manager
+                stakeholder2_id=stakeholders[6].id,  # Customer Success Manager
+                relationship_type="Cross-functional",
+                alignment_level=0.8,
+                notes="Strong collaboration on customer needs"
+            ),
+            StakeholderRelationship(
+                id=uuid4(),
+                stakeholder1_id=stakeholders[5].id,  # Director of Sales
+                stakeholder2_id=stakeholders[7].id,  # Marketing Director
+                relationship_type="Peer",
+                alignment_level=0.9,
+                notes="Very strong alignment on go-to-market strategy"
+            )
+        ]
+
+tests/product_manager/fixtures/test_data.py:1060: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = StakeholderRelationship()
+stakeholder1_id = UUID('c50f8c4d-2a6b-41b8-a353-fd403f765d6f')
+stakeholder2_id = UUID('14e7d927-6351-45c5-ae7f-6baacb7ef1dc')
+relationship_type = 'Peer'
+kwargs = {'alignment_level': 0.7, 'id': UUID('2fb9e299-781c-4854-9c2b-8674549227ea'), 'notes': 'Good working relationship with some disagreements on technical priorities'}
+
+    def __init__(self, stakeholder1_id: UUID, stakeholder2_id: UUID, relationship_type: str, **kwargs):
+>       super().__init__(
+            source_id=stakeholder1_id,
+            target_id=stakeholder2_id,
+            relationship_type=relationship_type,
+            **kwargs
+        )
+E       pydantic_core._pydantic_core.ValidationError: 2 validation errors for StakeholderRelationship
+E       stakeholder1_id
+E         Field required [type=missing, input_value={'source_id': UUID('c50f8...n technical priorities'}, input_type=dict]
+E           For further information visit https://errors.pydantic.dev/2.11/v/missing
+E       stakeholder2_id
+E         Field required [type=missing, input_value={'source_id': UUID('c50f8...n technical priorities'}, input_type=dict]
+E           For further information visit https://errors.pydantic.dev/2.11/v/missing
+
+productmind/models.py:327: ValidationError
+=================================== FAILURES ===================================
+_______ TestResearchBrain.test_create_research_question_and_add_evidence _______
+
+self = <tests.academic_researcher.core.test_brain.TestResearchBrain object at 0x7fe554158130>
+brain = <researchbrain.core.brain.ResearchBrain object at 0x7fe4a85c9f60>
+
+    def test_create_research_question_and_add_evidence(self, brain):
+        """Test creating a research question and adding evidence."""
+        # Create a note with evidence
+        note_id = brain.create_note(
+            title="Evidence Note",
+            content="This note contains evidence for a research question."
+        )
+    
+        # Create a citation
+        citation_id = brain.create_citation(
+            title="Supporting Paper",
+            authors=["Researcher, A"],
+            year=2023
+        )
+    
+        # Create a research question
+>       question_id = brain.create_research_question(
+            question="How does X affect Y?",
+            description="Investigating the relationship between X and Y",
+            tags={"x", "y", "relationship"},
+            priority=8
+        )
+
+tests/academic_researcher/core/test_brain.py:146: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+researchbrain/core/brain.py:531: in create_research_question
+    research_question = ResearchQuestion(
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = ResearchQuestion(), question = 'How does X affect Y?'
+title = 'How does X affect Y?'
+content = 'Investigating the relationship between X and Y'
+description = 'Investigating the relationship between X and Y'
+priority = <Priority.HIGH: 'high'>
+kwargs = {'description': 'Investigating the relationship between X and Y', 'knowledge_gaps': [], 'priority': <Priority.HIGH: 'high'>, 'question': 'How does X affect Y?', ...}
+
+    def __init__(self, question: str, title: str = "", content: str = "", description: Optional[str] = None, priority: int = 0, **kwargs):
+        """Initialize ResearchQuestion with question as title if title not provided."""
+        if not title:
+            title = question
+        if not content and description:
+            content = description
+    
+        kwargs['question'] = question
+        kwargs['description'] = description
+        kwargs['priority'] = priority
+>       super().__init__(title=title, content=content, **kwargs)
+E       pydantic_core._pydantic_core.ValidationError: 1 validation error for ResearchQuestion
+E       priority
+E         Input should be a valid integer, unable to parse string as an integer [type=int_parsing, input_value=<Priority.HIGH: 'high'>, input_type=Priority]
+E           For further information visit https://errors.pydantic.dev/2.11/v/int_parsing
+
+researchbrain/core/models.py:136: ValidationError
+___________________ TestResearchBrain.test_create_experiment ___________________
+
+self = <tests.academic_researcher.core.test_brain.TestResearchBrain object at 0x7fe5541582e0>
+brain = <researchbrain.core.brain.ResearchBrain object at 0x7fe4a85c1630>
+
+    def test_create_experiment(self, brain):
+        """Test creating an experiment."""
+        # Create a research question
+>       question_id = brain.create_research_question(
+            question="What is the effect of drug X on condition Y?",
+            priority=9
+        )
+
+tests/academic_researcher/core/test_brain.py:185: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+researchbrain/core/brain.py:531: in create_research_question
+    research_question = ResearchQuestion(
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = ResearchQuestion()
+question = 'What is the effect of drug X on condition Y?'
+title = 'What is the effect of drug X on condition Y?', content = None
+description = None, priority = <Priority.CRITICAL: 'critical'>
+kwargs = {'description': None, 'knowledge_gaps': [], 'priority': <Priority.CRITICAL: 'critical'>, 'question': 'What is the effect of drug X on condition Y?', ...}
+
+    def __init__(self, question: str, title: str = "", content: str = "", description: Optional[str] = None, priority: int = 0, **kwargs):
+        """Initialize ResearchQuestion with question as title if title not provided."""
+        if not title:
+            title = question
+        if not content and description:
+            content = description
+    
+        kwargs['question'] = question
+        kwargs['description'] = description
+        kwargs['priority'] = priority
+>       super().__init__(title=title, content=content, **kwargs)
+E       pydantic_core._pydantic_core.ValidationError: 1 validation error for ResearchQuestion
+E       priority
+E         Input should be a valid integer, unable to parse string as an integer [type=int_parsing, input_value=<Priority.CRITICAL: 'critical'>, input_type=Priority]
+E           For further information visit https://errors.pydantic.dev/2.11/v/int_parsing
+
+researchbrain/core/models.py:136: ValidationError
+__________ TestResearchBrain.test_create_grant_proposal_and_add_items __________
+
+self = <tests.academic_researcher.core.test_brain.TestResearchBrain object at 0x7fe554158490>
+brain = <researchbrain.core.brain.ResearchBrain object at 0x7fe4a8565d80>
+
+    def test_create_grant_proposal_and_add_items(self, brain):
+        """Test creating a grant proposal and adding items to it."""
+        # Create notes, experiments, and questions
+        note_id = brain.create_note(
+            title="Background Research",
+            content="Literature review for grant proposal"
+        )
+    
+>       question_id = brain.create_research_question(
+            question="How can we improve treatment X?",
+            priority=9
+        )
+
+tests/academic_researcher/core/test_brain.py:224: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+researchbrain/core/brain.py:531: in create_research_question
+    research_question = ResearchQuestion(
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = ResearchQuestion(), question = 'How can we improve treatment X?'
+title = 'How can we improve treatment X?', content = None, description = None
+priority = <Priority.CRITICAL: 'critical'>
+kwargs = {'description': None, 'knowledge_gaps': [], 'priority': <Priority.CRITICAL: 'critical'>, 'question': 'How can we improve treatment X?', ...}
+
+    def __init__(self, question: str, title: str = "", content: str = "", description: Optional[str] = None, priority: int = 0, **kwargs):
+        """Initialize ResearchQuestion with question as title if title not provided."""
+        if not title:
+            title = question
+        if not content and description:
+            content = description
+    
+        kwargs['question'] = question
+        kwargs['description'] = description
+        kwargs['priority'] = priority
+>       super().__init__(title=title, content=content, **kwargs)
+E       pydantic_core._pydantic_core.ValidationError: 1 validation error for ResearchQuestion
+E       priority
+E         Input should be a valid integer, unable to parse string as an integer [type=int_parsing, input_value=<Priority.CRITICAL: 'critical'>, input_type=Priority]
+E           For further information visit https://errors.pydantic.dev/2.11/v/int_parsing
+
+researchbrain/core/models.py:136: ValidationError
+________________________ TestResearchBrain.test_search _________________________
+
+self = <tests.academic_researcher.core.test_brain.TestResearchBrain object at 0x7fe554158670>
+brain = <researchbrain.core.brain.ResearchBrain object at 0x7fe4a83c7340>
+
+    def test_search(self, brain):
+        """Test searching the knowledge base."""
+        # Create some test data with a common theme
+        brain.create_note(
+            title="Neuroplasticity Research",
+            content="Recent findings about brain plasticity"
+        )
+    
+        brain.create_citation(
+            title="Neuroplasticity in Adults",
+            authors=["Smith, J"],
+            year=2023,
+            abstract="Research on adult neuroplasticity"
+        )
+    
+>       brain.create_research_question(
+            question="How does exercise affect neuroplasticity?",
+            priority=7
+        )
+
+tests/academic_researcher/core/test_brain.py:283: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+researchbrain/core/brain.py:531: in create_research_question
+    research_question = ResearchQuestion(
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = ResearchQuestion()
+question = 'How does exercise affect neuroplasticity?'
+title = 'How does exercise affect neuroplasticity?', content = None
+description = None, priority = <Priority.HIGH: 'high'>
+kwargs = {'description': None, 'knowledge_gaps': [], 'priority': <Priority.HIGH: 'high'>, 'question': 'How does exercise affect neuroplasticity?', ...}
+
+    def __init__(self, question: str, title: str = "", content: str = "", description: Optional[str] = None, priority: int = 0, **kwargs):
+        """Initialize ResearchQuestion with question as title if title not provided."""
+        if not title:
+            title = question
+        if not content and description:
+            content = description
+    
+        kwargs['question'] = question
+        kwargs['description'] = description
+        kwargs['priority'] = priority
+>       super().__init__(title=title, content=content, **kwargs)
+E       pydantic_core._pydantic_core.ValidationError: 1 validation error for ResearchQuestion
+E       priority
+E         Input should be a valid integer, unable to parse string as an integer [type=int_parsing, input_value=<Priority.HIGH: 'high'>, input_type=Priority]
+E           For further information visit https://errors.pydantic.dev/2.11/v/int_parsing
+
+researchbrain/core/models.py:136: ValidationError
+___________________ TestResearchBrain.test_get_related_nodes ___________________
+
+self = <tests.academic_researcher.core.test_brain.TestResearchBrain object at 0x7fe554158880>
+brain = <researchbrain.core.brain.ResearchBrain object at 0x7fe4a8566ef0>
+
+    def test_get_related_nodes(self, brain):
+        """Test retrieving related nodes."""
+        # Create interconnected test data
+        note_id = brain.create_note(
+            title="Research Note",
+            content="Research findings"
+        )
+    
+        citation_id = brain.create_citation(
+            title="Related Paper",
+            authors=["Author, A"]
+        )
+    
+        brain.link_note_to_paper(note_id, citation_id)
+    
+>       question_id = brain.create_research_question(
+            question="Research Question"
+        )
+
+tests/academic_researcher/core/test_brain.py:319: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+researchbrain/core/brain.py:531: in create_research_question
+    research_question = ResearchQuestion(
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = ResearchQuestion(), question = 'Research Question'
+title = 'Research Question', content = None, description = None
+priority = <Priority.MEDIUM: 'medium'>
+kwargs = {'description': None, 'knowledge_gaps': [], 'priority': <Priority.MEDIUM: 'medium'>, 'question': 'Research Question', ...}
+
+    def __init__(self, question: str, title: str = "", content: str = "", description: Optional[str] = None, priority: int = 0, **kwargs):
+        """Initialize ResearchQuestion with question as title if title not provided."""
+        if not title:
+            title = question
+        if not content and description:
+            content = description
+    
+        kwargs['question'] = question
+        kwargs['description'] = description
+        kwargs['priority'] = priority
+>       super().__init__(title=title, content=content, **kwargs)
+E       pydantic_core._pydantic_core.ValidationError: 1 validation error for ResearchQuestion
+E       priority
+E         Input should be a valid integer, unable to parse string as an integer [type=int_parsing, input_value=<Priority.MEDIUM: 'medium'>, input_type=Priority]
+E           For further information visit https://errors.pydantic.dev/2.11/v/int_parsing
+
+researchbrain/core/models.py:136: ValidationError
+__________ TestResearchBrain.test_create_collaborator_and_annotation ___________
+
+self = <tests.academic_researcher.core.test_brain.TestResearchBrain object at 0x7fe554158a90>
+brain = <researchbrain.core.brain.ResearchBrain object at 0x7fe600d66650>
+
+    def test_create_collaborator_and_annotation(self, brain):
+        """Test creating a collaborator and adding annotations."""
+        # Create a note to annotate
+        note_id = brain.create_note(
+            title="Note to Annotate",
+            content="This note will receive annotations"
+        )
+    
+        # Create a collaborator
+>       collaborator_id = brain.create_collaborator(
+            name="Jane Smith",
+            email="jane@example.com",
+            affiliation="University of Testing"
+        )
+
+tests/academic_researcher/core/test_brain.py:358: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+researchbrain/core/brain.py:822: in create_collaborator
+    self.storage.save(collaborator)
+researchbrain/core/storage.py:131: in save
+    yaml.dump(data, f, default_flow_style=False, sort_keys=False)
+../../../../.pyenv/versions/3.10.11/lib/python3.10/site-packages/yaml/__init__.py:253: in dump
+    return dump_all([data], stream, Dumper=Dumper, **kwds)
+../../../../.pyenv/versions/3.10.11/lib/python3.10/site-packages/yaml/__init__.py:241: in dump_all
+    dumper.represent(data)
+../../../../.pyenv/versions/3.10.11/lib/python3.10/site-packages/yaml/representer.py:27: in represent
+    node = self.represent_data(data)
+../../../../.pyenv/versions/3.10.11/lib/python3.10/site-packages/yaml/representer.py:48: in represent_data
+    node = self.yaml_representers[data_types[0]](self, data)
+../../../../.pyenv/versions/3.10.11/lib/python3.10/site-packages/yaml/representer.py:207: in represent_dict
+    return self.represent_mapping('tag:yaml.org,2002:map', data)
+../../../../.pyenv/versions/3.10.11/lib/python3.10/site-packages/yaml/representer.py:118: in represent_mapping
+    node_value = self.represent_data(item_value)
+../../../../.pyenv/versions/3.10.11/lib/python3.10/site-packages/yaml/representer.py:52: in represent_data
+    node = self.yaml_multi_representers[data_type](self, data)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <yaml.dumper.Dumper object at 0x7fe4a8fe2260>
+data = <property object at 0x7fe5ffc8e4d0>
+
+    def represent_object(self, data):
+        # We use __reduce__ API to save the data. data.__reduce__ returns
+        # a tuple of length 2-5:
+        #   (function, args, state, listitems, dictitems)
+    
+        # For reconstructing, we calls function(*args), then set its state,
+        # listitems, and dictitems if they are not None.
+    
+        # A special case is when function.__name__ == '__newobj__'. In this
+        # case we create the object with args[0].__new__(*args).
+    
+        # Another special case is when __reduce__ returns a string - we don't
+        # support it.
+    
+        # We produce a !!python/object, !!python/object/new or
+        # !!python/object/apply node.
+    
+        cls = type(data)
+        if cls in copyreg.dispatch_table:
+            reduce = copyreg.dispatch_table[cls](data)
+        elif hasattr(data, '__reduce_ex__'):
+>           reduce = data.__reduce_ex__(2)
+E           TypeError: cannot pickle 'property' object
+
+../../../../.pyenv/versions/3.10.11/lib/python3.10/site-packages/yaml/representer.py:317: TypeError
+_______________ TestResearchBrain.test_knowledge_graph_structure _______________
+
+self = <tests.academic_researcher.core.test_brain.TestResearchBrain object at 0x7fe554159060>
+brain = <researchbrain.core.brain.ResearchBrain object at 0x7fe4a853bbb0>
+
+    def test_knowledge_graph_structure(self, brain):
+        """Test the knowledge graph structure with various interconnected nodes."""
+        # Create interconnected test data
+        note1_id = brain.create_note(title="Note 1", content="Content 1")
+        note2_id = brain.create_note(title="Note 2", content="Content 2")
+    
+        citation_id = brain.create_citation(title="Citation", authors=["Author"])
+    
+>       question_id = brain.create_research_question(question="Question")
+
+tests/academic_researcher/core/test_brain.py:459: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+researchbrain/core/brain.py:531: in create_research_question
+    research_question = ResearchQuestion(
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = ResearchQuestion(), question = 'Question', title = 'Question'
+content = None, description = None, priority = <Priority.MEDIUM: 'medium'>
+kwargs = {'description': None, 'knowledge_gaps': [], 'priority': <Priority.MEDIUM: 'medium'>, 'question': 'Question', ...}
+
+    def __init__(self, question: str, title: str = "", content: str = "", description: Optional[str] = None, priority: int = 0, **kwargs):
+        """Initialize ResearchQuestion with question as title if title not provided."""
+        if not title:
+            title = question
+        if not content and description:
+            content = description
+    
+        kwargs['question'] = question
+        kwargs['description'] = description
+        kwargs['priority'] = priority
+>       super().__init__(title=title, content=content, **kwargs)
+E       pydantic_core._pydantic_core.ValidationError: 1 validation error for ResearchQuestion
+E       priority
+E         Input should be a valid integer, unable to parse string as an integer [type=int_parsing, input_value=<Priority.MEDIUM: 'medium'>, input_type=Priority]
+E           For further information visit https://errors.pydantic.dev/2.11/v/int_parsing
+
+researchbrain/core/models.py:136: ValidationError
+_____________________ TestKnowledgeNode.test_update_method _____________________
+
+self = <tests.academic_researcher.core.test_models.TestKnowledgeNode object at 0x7fe55415a3b0>
+
+    def test_update_method(self):
+        """Test the update method updates the timestamp."""
+        test_time = datetime.datetime(2023, 1, 1, 12, 0, 0)
+        node = KnowledgeNode(updated_at=test_time)
+    
+        assert node.updated_at == test_time
+    
+>       node.update()
+
+tests/academic_researcher/core/test_models.py:53: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = BaseKnowledgeNode(id=UUID('a529eda0-eb1d-4945-8015-c9cbbb2d3a91'), created_at=datetime.datetime(2025, 6, 16, 4, 15, 2, 385328), updated_at=datetime.datetime(2023, 1, 1, 12, 0), tags=set(), metadata={})
+item = 'update'
+
+    def __getattr__(self, item: str) -> Any:
+        private_attributes = object.__getattribute__(self, '__private_attributes__')
+        if item in private_attributes:
+            attribute = private_attributes[item]
+            if hasattr(attribute, '__get__'):
+                return attribute.__get__(self, type(self))  # type: ignore
+    
+            try:
+                # Note: self.__pydantic_private__ cannot be None if self.__private_attributes__ has items
+                return self.__pydantic_private__[item]  # type: ignore
+            except KeyError as exc:
+                raise AttributeError(f'{type(self).__name__!r} object has no attribute {item!r}') from exc
+        else:
+            # `__pydantic_extra__` can fail to be set if the model is not yet fully initialized.
+            # See `BaseModel.__repr_args__` for more details
+            try:
+                pydantic_extra = object.__getattribute__(self, '__pydantic_extra__')
+            except AttributeError:
+                pydantic_extra = None
+    
+            if pydantic_extra:
+                try:
+                    return pydantic_extra[item]
+                except KeyError as exc:
+                    raise AttributeError(f'{type(self).__name__!r} object has no attribute {item!r}') from exc
+            else:
+                if hasattr(self.__class__, item):
+                    return super().__getattribute__(item)  # Raises AttributeError if appropriate
+                else:
+                    # this is the current error
+>                   raise AttributeError(f'{type(self).__name__!r} object has no attribute {item!r}')
+E                   AttributeError: 'BaseKnowledgeNode' object has no attribute 'update'
+
+../../../../.pyenv/versions/3.10.11/lib/python3.10/site-packages/pydantic/main.py:989: AttributeError
+________________________ TestExperiment.test_init_full _________________________
+
+self = <tests.academic_researcher.core.test_models.TestExperiment object at 0x7fe55415b220>
+
+    def test_init_full(self):
+        """Test initialization with all fields."""
+        question_id = uuid4()
+        note_id = uuid4()
+        start_date = datetime.datetime(2023, 1, 1)
+        end_date = datetime.datetime(2023, 2, 1)
+    
+        experiment = Experiment(
+            title="Test Experiment",
+            hypothesis="X increases Y",
+            methodology="Detailed methodology",
+            status=ExperimentStatus.COMPLETED,
+            start_date=start_date,
+            end_date=end_date,
+            variables={"x": 10, "y": 20},
+            results="Experiment results",
+            conclusion="Experiment conclusion",
+            research_question_id=question_id,
+            notes=[note_id]
+        )
+    
+        assert experiment.title == "Test Experiment"
+        assert experiment.hypothesis == "X increases Y"
+        assert experiment.methodology == "Detailed methodology"
+        assert experiment.status == ExperimentStatus.COMPLETED
+>       assert experiment.start_date == start_date
+E       AssertionError: assert None == datetime.datetime(2023, 1, 1, 0, 0)
+E        +  where None = Experiment(id=UUID('fe61a878-a633-4f09-8ed8-4b07f213d2be'), created_at=datetime.datetime(2025, 6, 16, 4, 15, 2, 433245...), notes=[UUID('df0e28da-6e47-4b01-9bab-9e1a27ae7290')], collaborators=[], template_name=None, reproducibility_info={}).start_date
+
+tests/academic_researcher/core/test_models.py:247: AssertionError
+___________________ TestExperiment.test_end_date_validation ____________________
+
+self = <tests.academic_researcher.core.test_models.TestExperiment object at 0x7fe55415b3a0>
+
+    def test_end_date_validation(self):
+        """Test validation that end_date must be after start_date."""
+        start_date = datetime.datetime(2023, 2, 1)
+        end_date = datetime.datetime(2023, 1, 1)  # Before start_date
+    
+>       with pytest.raises(ValidationError):
+E       Failed: DID NOT RAISE <class 'pydantic_core._pydantic_core.ValidationError'>
+
+tests/academic_researcher/core/test_models.py:261: Failed
+____________ TestBidirectionalLinking.test_removing_citation_links _____________
+
+self = <tests.academic_researcher.test_bidirectional_linking.TestBidirectionalLinking object at 0x7fe54ff3ee60>
+brain = <researchbrain.core.brain.ResearchBrain object at 0x7fe54ff3eb00>
+
+    def test_removing_citation_links(self, brain):
+        """Test removing links between notes and citations."""
+        # Create a citation
+        citation_id = brain.create_citation(
+            title="Test Paper",
+            authors=["Author, Test"]
+        )
+    
+        # Create a note with citation reference
+        note_id = brain.create_note(
+            title="Test Note",
+            content="This references [@test]."
+        )
+    
+        # Link note to citation
+        brain.link_note_to_paper(note_id, citation_id)
+    
+        # Verify link exists
+        note = brain.get_note(note_id)
+        citation = brain.storage.get(Citation, citation_id)
+        assert citation_id in note.citations
+        assert note_id in citation.notes
+    
+        # Manually remove the link by updating the note and citation objects
+        # First, update the note to remove citation
+        note.citations.remove(citation_id)
+        note.source = None
+        note.page_reference = None
+>       note.update()
+
+tests/academic_researcher/test_bidirectional_linking.py:163: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = Note(id=UUID('9ac2b6a6-2d28-497a-9a7e-6edfd0a4e00f'), created_at=datetime.datetime(2025, 6, 16, 4, 15, 3, 104480), upd...tent='This references [@test].', source=None, page_reference=None, attachments=[], citations=[], section_references={})
+item = 'update'
+
+    def __getattr__(self, item: str) -> Any:
+        private_attributes = object.__getattribute__(self, '__private_attributes__')
+        if item in private_attributes:
+            attribute = private_attributes[item]
+            if hasattr(attribute, '__get__'):
+                return attribute.__get__(self, type(self))  # type: ignore
+    
+            try:
+                # Note: self.__pydantic_private__ cannot be None if self.__private_attributes__ has items
+                return self.__pydantic_private__[item]  # type: ignore
+            except KeyError as exc:
+                raise AttributeError(f'{type(self).__name__!r} object has no attribute {item!r}') from exc
+        else:
+            # `__pydantic_extra__` can fail to be set if the model is not yet fully initialized.
+            # See `BaseModel.__repr_args__` for more details
+            try:
+                pydantic_extra = object.__getattribute__(self, '__pydantic_extra__')
+            except AttributeError:
+                pydantic_extra = None
+    
+            if pydantic_extra:
+                try:
+                    return pydantic_extra[item]
+                except KeyError as exc:
+                    raise AttributeError(f'{type(self).__name__!r} object has no attribute {item!r}') from exc
+            else:
+                if hasattr(self.__class__, item):
+                    return super().__getattribute__(item)  # Raises AttributeError if appropriate
+                else:
+                    # this is the current error
+>                   raise AttributeError(f'{type(self).__name__!r} object has no attribute {item!r}')
+E                   AttributeError: 'Note' object has no attribute 'update'
+
+../../../../.pyenv/versions/3.10.11/lib/python3.10/site-packages/pydantic/main.py:989: AttributeError
+______________ TestBidirectionalLinking.test_circular_navigation _______________
+
+self = <tests.academic_researcher.test_bidirectional_linking.TestBidirectionalLinking object at 0x7fe54ff3f490>
+brain = <researchbrain.core.brain.ResearchBrain object at 0x7fe4a85d1b10>
+
+    def test_circular_navigation(self, brain):
+        """Test circular navigation through the knowledge graph."""
+        # Create multiple nodes with circular references
+        citation_id = brain.create_citation(
+            title="Original Paper",
+            authors=["Original, Author"]
+        )
+    
+        note1_id = brain.create_note(
+            title="First Note",
+            content="Analysis of the original paper."
+        )
+    
+        note2_id = brain.create_note(
+            title="Second Note",
+            content="Further thoughts on the first note."
+        )
+    
+        note3_id = brain.create_note(
+            title="Third Note",
+            content="Synthesis connecting back to the original paper."
+        )
+    
+        # Create connections forming a cycle
+        brain.link_note_to_paper(note1_id, citation_id)
+    
+        # Manually create links between notes
+        # Make note2 reference note1
+        note2 = brain.get_note(note2_id)
+        note2.content = f"Further thoughts on the first note [{note1_id}]."
+>       note2.update()
+
+tests/academic_researcher/test_bidirectional_linking.py:308: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = Note(id=UUID('d57d3ca4-a262-45bf-a346-a87d869f52ee'), created_at=datetime.datetime(2025, 6, 16, 4, 15, 3, 201385), upd...-6e4a-44e2-8cc6-e0a648993a36].', source=None, page_reference=None, attachments=[], citations=[], section_references={})
+item = 'update'
+
+    def __getattr__(self, item: str) -> Any:
+        private_attributes = object.__getattribute__(self, '__private_attributes__')
+        if item in private_attributes:
+            attribute = private_attributes[item]
+            if hasattr(attribute, '__get__'):
+                return attribute.__get__(self, type(self))  # type: ignore
+    
+            try:
+                # Note: self.__pydantic_private__ cannot be None if self.__private_attributes__ has items
+                return self.__pydantic_private__[item]  # type: ignore
+            except KeyError as exc:
+                raise AttributeError(f'{type(self).__name__!r} object has no attribute {item!r}') from exc
+        else:
+            # `__pydantic_extra__` can fail to be set if the model is not yet fully initialized.
+            # See `BaseModel.__repr_args__` for more details
+            try:
+                pydantic_extra = object.__getattribute__(self, '__pydantic_extra__')
+            except AttributeError:
+                pydantic_extra = None
+    
+            if pydantic_extra:
+                try:
+                    return pydantic_extra[item]
+                except KeyError as exc:
+                    raise AttributeError(f'{type(self).__name__!r} object has no attribute {item!r}') from exc
+            else:
+                if hasattr(self.__class__, item):
+                    return super().__getattribute__(item)  # Raises AttributeError if appropriate
+                else:
+                    # this is the current error
+>                   raise AttributeError(f'{type(self).__name__!r} object has no attribute {item!r}')
+E                   AttributeError: 'Note' object has no attribute 'update'
+
+../../../../.pyenv/versions/3.10.11/lib/python3.10/site-packages/pydantic/main.py:989: AttributeError
+__________________ TestCollaboration.test_create_collaborator __________________
+
+self = <tests.academic_researcher.test_collaboration.TestCollaboration object at 0x7fe54fd79a20>
+brain = <researchbrain.core.brain.ResearchBrain object at 0x7fe4a8211180>
+
+    def test_create_collaborator(self, brain):
+        """Test creating a collaborator with all attributes."""
+        # Create a collaborator with all fields
+>       collaborator_id = brain.create_collaborator(
+            name="Dr. Jane Smith",
+            email="jsmith@university.edu",
+            affiliation="University of Research",
+            role=CollaboratorRole.PRINCIPAL_INVESTIGATOR
+        )
+
+tests/academic_researcher/test_collaboration.py:112: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+researchbrain/core/brain.py:822: in create_collaborator
+    self.storage.save(collaborator)
+researchbrain/core/storage.py:131: in save
+    yaml.dump(data, f, default_flow_style=False, sort_keys=False)
+../../../../.pyenv/versions/3.10.11/lib/python3.10/site-packages/yaml/__init__.py:253: in dump
+    return dump_all([data], stream, Dumper=Dumper, **kwds)
+../../../../.pyenv/versions/3.10.11/lib/python3.10/site-packages/yaml/__init__.py:241: in dump_all
+    dumper.represent(data)
+../../../../.pyenv/versions/3.10.11/lib/python3.10/site-packages/yaml/representer.py:27: in represent
+    node = self.represent_data(data)
+../../../../.pyenv/versions/3.10.11/lib/python3.10/site-packages/yaml/representer.py:48: in represent_data
+    node = self.yaml_representers[data_types[0]](self, data)
+../../../../.pyenv/versions/3.10.11/lib/python3.10/site-packages/yaml/representer.py:207: in represent_dict
+    return self.represent_mapping('tag:yaml.org,2002:map', data)
+../../../../.pyenv/versions/3.10.11/lib/python3.10/site-packages/yaml/representer.py:118: in represent_mapping
+    node_value = self.represent_data(item_value)
+../../../../.pyenv/versions/3.10.11/lib/python3.10/site-packages/yaml/representer.py:52: in represent_data
+    node = self.yaml_multi_representers[data_type](self, data)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <yaml.dumper.Dumper object at 0x7fe4a7086920>
+data = <property object at 0x7fe5ffc8e4d0>
+
+    def represent_object(self, data):
+        # We use __reduce__ API to save the data. data.__reduce__ returns
+        # a tuple of length 2-5:
+        #   (function, args, state, listitems, dictitems)
+    
+        # For reconstructing, we calls function(*args), then set its state,
+        # listitems, and dictitems if they are not None.
+    
+        # A special case is when function.__name__ == '__newobj__'. In this
+        # case we create the object with args[0].__new__(*args).
+    
+        # Another special case is when __reduce__ returns a string - we don't
+        # support it.
+    
+        # We produce a !!python/object, !!python/object/new or
+        # !!python/object/apply node.
+    
+        cls = type(data)
+        if cls in copyreg.dispatch_table:
+            reduce = copyreg.dispatch_table[cls](data)
+        elif hasattr(data, '__reduce_ex__'):
+>           reduce = data.__reduce_ex__(2)
+E           TypeError: cannot pickle 'property' object
+
+../../../../.pyenv/versions/3.10.11/lib/python3.10/site-packages/yaml/representer.py:317: TypeError
+_____ TestExperimentTemplates.test_experiment_linking_to_research_question _____
+
+self = <tests.academic_researcher.test_experiment_templates.TestExperimentTemplates object at 0x7fe54fc002e0>
+brain = <researchbrain.core.brain.ResearchBrain object at 0x7fe4a81922f0>
+
+    def test_experiment_linking_to_research_question(self, brain):
+        """Test linking an experiment created from a template to a research question."""
+        # Create a research question
+>       question_id = brain.create_research_question(
+            question="How does sleep deprivation affect working memory performance?",
+            description="Investigating the effects of acute sleep deprivation on working memory tasks.",
+            priority=9
+        )
+
+tests/academic_researcher/test_experiment_templates.py:467: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+researchbrain/core/brain.py:531: in create_research_question
+    research_question = ResearchQuestion(
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = ResearchQuestion()
+question = 'How does sleep deprivation affect working memory performance?'
+title = 'How does sleep deprivation affect working memory performance?'
+content = 'Investigating the effects of acute sleep deprivation on working memory tasks.'
+description = 'Investigating the effects of acute sleep deprivation on working memory tasks.'
+priority = <Priority.CRITICAL: 'critical'>
+kwargs = {'description': 'Investigating the effects of acute sleep deprivation on working memory tasks.', 'knowledge_gaps': [],...ty': <Priority.CRITICAL: 'critical'>, 'question': 'How does sleep deprivation affect working memory performance?', ...}
+
+    def __init__(self, question: str, title: str = "", content: str = "", description: Optional[str] = None, priority: int = 0, **kwargs):
+        """Initialize ResearchQuestion with question as title if title not provided."""
+        if not title:
+            title = question
+        if not content and description:
+            content = description
+    
+        kwargs['question'] = question
+        kwargs['description'] = description
+        kwargs['priority'] = priority
+>       super().__init__(title=title, content=content, **kwargs)
+E       pydantic_core._pydantic_core.ValidationError: 1 validation error for ResearchQuestion
+E       priority
+E         Input should be a valid integer, unable to parse string as an integer [type=int_parsing, input_value=<Priority.CRITICAL: 'critical'>, input_type=Priority]
+E           For further information visit https://errors.pydantic.dev/2.11/v/int_parsing
+
+researchbrain/core/models.py:136: ValidationError
+____________ TestGrantProposals.test_budget_and_timeline_management ____________
+
+self = <tests.academic_researcher.test_grant_proposals.TestGrantProposals object at 0x7fe54fc02170>
+brain = <researchbrain.core.brain.ResearchBrain object at 0x7fe4a8427a60>
+
+    def test_budget_and_timeline_management(self, brain):
+        """Test managing budget items and project timeline in grant proposals."""
+        # Create a grant proposal
+        grant_id = brain.create_grant_proposal(
+            title="Neural Circuit Development Study",
+            funding_agency="Brain Research Foundation",
+            description="Investigating developmental trajectories of neural circuits",
+            deadline=datetime.now() + timedelta(days=45),
+            status=GrantStatus.DRAFTING,
+            amount=850000.0
+        )
+    
+        # Get the grant
+        grant = brain.storage.get(GrantProposal, grant_id)
+    
+        # Add budget items
+        budget_items = {
+            "personnel": {
+                "PI": 150000.0,
+                "Postdoc": 75000.0,
+                "Graduate Students (2)": 120000.0,
+                "Research Assistant": 60000.0
+            },
+            "equipment": {
+                "Microscope": 200000.0,
+                "Computing Cluster": 50000.0,
+                "Lab Supplies": 75000.0
+            },
+            "travel": {
+                "Conferences": 15000.0,
+                "Collaborative Visits": 10000.0
+            },
+            "indirect_costs": {
+                "Facilities & Admin": 95000.0
+            }
+        }
+    
+        # Add timeline milestones
+        timeline = {
+            "year1": {
+                "q1": "Setup equipment and hire personnel",
+                "q2": "Begin preliminary experiments",
+                "q3": "Complete first set of experiments",
+                "q4": "Data analysis and preliminary report"
+            },
+            "year2": {
+                "q1": "Begin main experimental series",
+                "q2": "Continue experiments and begin data analysis",
+                "q3": "Final experiments and complete data collection",
+                "q4": "Analysis, paper writing, and final report"
+            }
+        }
+    
+        # Update the grant with budget and timeline information
+        grant.budget_items = budget_items
+        grant.timeline = timeline
+>       grant.update()
+
+tests/academic_researcher/test_grant_proposals.py:573: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = GrantProposal(id=UUID('2607b0fa-90c7-447b-9677-5b42b9ce2aa0'), created_at=datetime.datetime(2025, 6, 16, 4, 15, 5, 627...inal experiments and complete data collection', 'q4': 'Analysis, paper writing, and final report'}}, export_history=[])
+item = 'update'
+
+    def __getattr__(self, item: str) -> Any:
+        private_attributes = object.__getattribute__(self, '__private_attributes__')
+        if item in private_attributes:
+            attribute = private_attributes[item]
+            if hasattr(attribute, '__get__'):
+                return attribute.__get__(self, type(self))  # type: ignore
+    
+            try:
+                # Note: self.__pydantic_private__ cannot be None if self.__private_attributes__ has items
+                return self.__pydantic_private__[item]  # type: ignore
+            except KeyError as exc:
+                raise AttributeError(f'{type(self).__name__!r} object has no attribute {item!r}') from exc
+        else:
+            # `__pydantic_extra__` can fail to be set if the model is not yet fully initialized.
+            # See `BaseModel.__repr_args__` for more details
+            try:
+                pydantic_extra = object.__getattribute__(self, '__pydantic_extra__')
+            except AttributeError:
+                pydantic_extra = None
+    
+            if pydantic_extra:
+                try:
+                    return pydantic_extra[item]
+                except KeyError as exc:
+                    raise AttributeError(f'{type(self).__name__!r} object has no attribute {item!r}') from exc
+            else:
+                if hasattr(self.__class__, item):
+                    return super().__getattribute__(item)  # Raises AttributeError if appropriate
+                else:
+                    # this is the current error
+>                   raise AttributeError(f'{type(self).__name__!r} object has no attribute {item!r}')
+E                   AttributeError: 'GrantProposal' object has no attribute 'update'
+
+../../../../.pyenv/versions/3.10.11/lib/python3.10/site-packages/pydantic/main.py:989: AttributeError
+_____________ TestResearchQuestions.test_create_research_question ______________
+
+self = <tests.academic_researcher.test_research_questions.TestResearchQuestions object at 0x7fe54fc03c40>
+brain = <researchbrain.core.brain.ResearchBrain object at 0x7fe4a84011e0>
+
+    def test_create_research_question(self, brain):
+        """Test creating a research question with all attributes."""
+        # Create a research question with all fields
+>       question_id = brain.create_research_question(
+            question="What are the neural mechanisms of autobiographical memory?",
+            description="Investigating the brain regions and processes involved in personal memory.",
+            tags={"memory", "neuroscience", "autobiographical"},
+            status="open",
+            priority=8
+        )
+
+tests/academic_researcher/test_research_questions.py:34: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+researchbrain/core/brain.py:531: in create_research_question
+    research_question = ResearchQuestion(
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = ResearchQuestion()
+question = 'What are the neural mechanisms of autobiographical memory?'
+title = 'What are the neural mechanisms of autobiographical memory?'
+content = 'Investigating the brain regions and processes involved in personal memory.'
+description = 'Investigating the brain regions and processes involved in personal memory.'
+priority = <Priority.HIGH: 'high'>
+kwargs = {'description': 'Investigating the brain regions and processes involved in personal memory.', 'knowledge_gaps': [], 'priority': <Priority.HIGH: 'high'>, 'question': 'What are the neural mechanisms of autobiographical memory?', ...}
+
+    def __init__(self, question: str, title: str = "", content: str = "", description: Optional[str] = None, priority: int = 0, **kwargs):
+        """Initialize ResearchQuestion with question as title if title not provided."""
+        if not title:
+            title = question
+        if not content and description:
+            content = description
+    
+        kwargs['question'] = question
+        kwargs['description'] = description
+        kwargs['priority'] = priority
+>       super().__init__(title=title, content=content, **kwargs)
+E       pydantic_core._pydantic_core.ValidationError: 1 validation error for ResearchQuestion
+E       priority
+E         Input should be a valid integer, unable to parse string as an integer [type=int_parsing, input_value=<Priority.HIGH: 'high'>, input_type=Priority]
+E           For further information visit https://errors.pydantic.dev/2.11/v/int_parsing
+
+researchbrain/core/models.py:136: ValidationError
+____________ TestResearchQuestions.test_adding_supporting_evidence _____________
+
+self = <tests.academic_researcher.test_research_questions.TestResearchQuestions object at 0x7fe54fc03e20>
+brain = <researchbrain.core.brain.ResearchBrain object at 0x7fe4a84ba050>
+
+    def test_adding_supporting_evidence(self, brain):
+        """Test adding supporting evidence to a research question."""
+        # Create a research question
+>       question_id = brain.create_research_question(
+            question="Does caffeine improve cognitive performance?",
+            priority=7
+        )
+
+tests/academic_researcher/test_research_questions.py:64: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+researchbrain/core/brain.py:531: in create_research_question
+    research_question = ResearchQuestion(
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = ResearchQuestion()
+question = 'Does caffeine improve cognitive performance?'
+title = 'Does caffeine improve cognitive performance?', content = None
+description = None, priority = <Priority.HIGH: 'high'>
+kwargs = {'description': None, 'knowledge_gaps': [], 'priority': <Priority.HIGH: 'high'>, 'question': 'Does caffeine improve cognitive performance?', ...}
+
+    def __init__(self, question: str, title: str = "", content: str = "", description: Optional[str] = None, priority: int = 0, **kwargs):
+        """Initialize ResearchQuestion with question as title if title not provided."""
+        if not title:
+            title = question
+        if not content and description:
+            content = description
+    
+        kwargs['question'] = question
+        kwargs['description'] = description
+        kwargs['priority'] = priority
+>       super().__init__(title=title, content=content, **kwargs)
+E       pydantic_core._pydantic_core.ValidationError: 1 validation error for ResearchQuestion
+E       priority
+E         Input should be a valid integer, unable to parse string as an integer [type=int_parsing, input_value=<Priority.HIGH: 'high'>, input_type=Priority]
+E           For further information visit https://errors.pydantic.dev/2.11/v/int_parsing
+
+researchbrain/core/models.py:136: ValidationError
+___________ TestResearchQuestions.test_adding_contradicting_evidence ___________
+
+self = <tests.academic_researcher.test_research_questions.TestResearchQuestions object at 0x7fe54fc2c070>
+brain = <researchbrain.core.brain.ResearchBrain object at 0x7fe4a81ebe80>
+
+    def test_adding_contradicting_evidence(self, brain):
+        """Test adding contradicting evidence to a research question."""
+        # Create a research question
+>       question_id = brain.create_research_question(
+            question="Is meditation effective for reducing anxiety?",
+            priority=9
+        )
+
+tests/academic_researcher/test_research_questions.py:120: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+researchbrain/core/brain.py:531: in create_research_question
+    research_question = ResearchQuestion(
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = ResearchQuestion()
+question = 'Is meditation effective for reducing anxiety?'
+title = 'Is meditation effective for reducing anxiety?', content = None
+description = None, priority = <Priority.CRITICAL: 'critical'>
+kwargs = {'description': None, 'knowledge_gaps': [], 'priority': <Priority.CRITICAL: 'critical'>, 'question': 'Is meditation effective for reducing anxiety?', ...}
+
+    def __init__(self, question: str, title: str = "", content: str = "", description: Optional[str] = None, priority: int = 0, **kwargs):
+        """Initialize ResearchQuestion with question as title if title not provided."""
+        if not title:
+            title = question
+        if not content and description:
+            content = description
+    
+        kwargs['question'] = question
+        kwargs['description'] = description
+        kwargs['priority'] = priority
+>       super().__init__(title=title, content=content, **kwargs)
+E       pydantic_core._pydantic_core.ValidationError: 1 validation error for ResearchQuestion
+E       priority
+E         Input should be a valid integer, unable to parse string as an integer [type=int_parsing, input_value=<Priority.CRITICAL: 'critical'>, input_type=Priority]
+E           For further information visit https://errors.pydantic.dev/2.11/v/int_parsing
+
+researchbrain/core/models.py:136: ValidationError
+___________ TestResearchQuestions.test_balanced_evidence_evaluation ____________
+
+self = <tests.academic_researcher.test_research_questions.TestResearchQuestions object at 0x7fe54fc2c2b0>
+brain = <researchbrain.core.brain.ResearchBrain object at 0x7fe4a70ade70>
+
+    def test_balanced_evidence_evaluation(self, brain):
+        """Test evaluating both supporting and contradicting evidence for a question."""
+        # Create a research question
+>       question_id = brain.create_research_question(
+            question="Do omega-3 supplements improve cardiovascular health?",
+            description="Examining the effects of omega-3 fatty acid supplementation on heart health metrics.",
+            priority=8
+        )
+
+tests/academic_researcher/test_research_questions.py:162: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+researchbrain/core/brain.py:531: in create_research_question
+    research_question = ResearchQuestion(
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = ResearchQuestion()
+question = 'Do omega-3 supplements improve cardiovascular health?'
+title = 'Do omega-3 supplements improve cardiovascular health?'
+content = 'Examining the effects of omega-3 fatty acid supplementation on heart health metrics.'
+description = 'Examining the effects of omega-3 fatty acid supplementation on heart health metrics.'
+priority = <Priority.HIGH: 'high'>
+kwargs = {'description': 'Examining the effects of omega-3 fatty acid supplementation on heart health metrics.', 'knowledge_gaps': [], 'priority': <Priority.HIGH: 'high'>, 'question': 'Do omega-3 supplements improve cardiovascular health?', ...}
+
+    def __init__(self, question: str, title: str = "", content: str = "", description: Optional[str] = None, priority: int = 0, **kwargs):
+        """Initialize ResearchQuestion with question as title if title not provided."""
+        if not title:
+            title = question
+        if not content and description:
+            content = description
+    
+        kwargs['question'] = question
+        kwargs['description'] = description
+        kwargs['priority'] = priority
+>       super().__init__(title=title, content=content, **kwargs)
+E       pydantic_core._pydantic_core.ValidationError: 1 validation error for ResearchQuestion
+E       priority
+E         Input should be a valid integer, unable to parse string as an integer [type=int_parsing, input_value=<Priority.HIGH: 'high'>, input_type=Priority]
+E           For further information visit https://errors.pydantic.dev/2.11/v/int_parsing
+
+researchbrain/core/models.py:136: ValidationError
+_____________ TestResearchQuestions.test_evidence_strength_levels ______________
+
+self = <tests.academic_researcher.test_research_questions.TestResearchQuestions object at 0x7fe54fc2c4c0>
+brain = <researchbrain.core.brain.ResearchBrain object at 0x7fe4a83db370>
+
+    def test_evidence_strength_levels(self, brain):
+        """Test different evidence strength levels."""
+        # Create a research question
+>       question_id = brain.create_research_question(
+            question="How effective are mindfulness interventions for depression?",
+            priority=7
+        )
+
+tests/academic_researcher/test_research_questions.py:257: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+researchbrain/core/brain.py:531: in create_research_question
+    research_question = ResearchQuestion(
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = ResearchQuestion()
+question = 'How effective are mindfulness interventions for depression?'
+title = 'How effective are mindfulness interventions for depression?'
+content = None, description = None, priority = <Priority.HIGH: 'high'>
+kwargs = {'description': None, 'knowledge_gaps': [], 'priority': <Priority.HIGH: 'high'>, 'question': 'How effective are mindfulness interventions for depression?', ...}
+
+    def __init__(self, question: str, title: str = "", content: str = "", description: Optional[str] = None, priority: int = 0, **kwargs):
+        """Initialize ResearchQuestion with question as title if title not provided."""
+        if not title:
+            title = question
+        if not content and description:
+            content = description
+    
+        kwargs['question'] = question
+        kwargs['description'] = description
+        kwargs['priority'] = priority
+>       super().__init__(title=title, content=content, **kwargs)
+E       pydantic_core._pydantic_core.ValidationError: 1 validation error for ResearchQuestion
+E       priority
+E         Input should be a valid integer, unable to parse string as an integer [type=int_parsing, input_value=<Priority.HIGH: 'high'>, input_type=Priority]
+E           For further information visit https://errors.pydantic.dev/2.11/v/int_parsing
+
+researchbrain/core/models.py:136: ValidationError
+_________ TestResearchQuestions.test_evidence_with_multiple_citations __________
+
+self = <tests.academic_researcher.test_research_questions.TestResearchQuestions object at 0x7fe54fc2c6d0>
+brain = <researchbrain.core.brain.ResearchBrain object at 0x7fe4a85c8640>
+
+    def test_evidence_with_multiple_citations(self, brain):
+        """Test evidence supported by multiple citations."""
+        # Create a research question
+>       question_id = brain.create_research_question(
+            question="What dietary factors influence gut microbiome composition?",
+            priority=8
+        )
+
+tests/academic_researcher/test_research_questions.py:341: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+researchbrain/core/brain.py:531: in create_research_question
+    research_question = ResearchQuestion(
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = ResearchQuestion()
+question = 'What dietary factors influence gut microbiome composition?'
+title = 'What dietary factors influence gut microbiome composition?'
+content = None, description = None, priority = <Priority.HIGH: 'high'>
+kwargs = {'description': None, 'knowledge_gaps': [], 'priority': <Priority.HIGH: 'high'>, 'question': 'What dietary factors influence gut microbiome composition?', ...}
+
+    def __init__(self, question: str, title: str = "", content: str = "", description: Optional[str] = None, priority: int = 0, **kwargs):
+        """Initialize ResearchQuestion with question as title if title not provided."""
+        if not title:
+            title = question
+        if not content and description:
+            content = description
+    
+        kwargs['question'] = question
+        kwargs['description'] = description
+        kwargs['priority'] = priority
+>       super().__init__(title=title, content=content, **kwargs)
+E       pydantic_core._pydantic_core.ValidationError: 1 validation error for ResearchQuestion
+E       priority
+E         Input should be a valid integer, unable to parse string as an integer [type=int_parsing, input_value=<Priority.HIGH: 'high'>, input_type=Priority]
+E           For further information visit https://errors.pydantic.dev/2.11/v/int_parsing
+
+researchbrain/core/models.py:136: ValidationError
+_________________ TestResearchQuestions.test_related_questions _________________
+
+self = <tests.academic_researcher.test_research_questions.TestResearchQuestions object at 0x7fe54fc2c8e0>
+brain = <researchbrain.core.brain.ResearchBrain object at 0x7fe4a8402470>
+
+    def test_related_questions(self, brain):
+        """Test connecting related research questions."""
+        # Create multiple related research questions
+>       main_question_id = brain.create_research_question(
+            question="What are the neural correlates of consciousness?",
+            priority=9
+        )
+
+tests/academic_researcher/test_research_questions.py:389: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+researchbrain/core/brain.py:531: in create_research_question
+    research_question = ResearchQuestion(
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = ResearchQuestion()
+question = 'What are the neural correlates of consciousness?'
+title = 'What are the neural correlates of consciousness?', content = None
+description = None, priority = <Priority.CRITICAL: 'critical'>
+kwargs = {'description': None, 'knowledge_gaps': [], 'priority': <Priority.CRITICAL: 'critical'>, 'question': 'What are the neural correlates of consciousness?', ...}
+
+    def __init__(self, question: str, title: str = "", content: str = "", description: Optional[str] = None, priority: int = 0, **kwargs):
+        """Initialize ResearchQuestion with question as title if title not provided."""
+        if not title:
+            title = question
+        if not content and description:
+            content = description
+    
+        kwargs['question'] = question
+        kwargs['description'] = description
+        kwargs['priority'] = priority
+>       super().__init__(title=title, content=content, **kwargs)
+E       pydantic_core._pydantic_core.ValidationError: 1 validation error for ResearchQuestion
+E       priority
+E         Input should be a valid integer, unable to parse string as an integer [type=int_parsing, input_value=<Priority.CRITICAL: 'critical'>, input_type=Priority]
+E           For further information visit https://errors.pydantic.dev/2.11/v/int_parsing
+
+researchbrain/core/models.py:136: ValidationError
+____________ TestResearchQuestions.test_identifying_knowledge_gaps _____________
+
+self = <tests.academic_researcher.test_research_questions.TestResearchQuestions object at 0x7fe54fc2caf0>
+brain = <researchbrain.core.brain.ResearchBrain object at 0x7fe4a8327340>
+
+    def test_identifying_knowledge_gaps(self, brain):
+        """Test identifying knowledge gaps in research questions."""
+        # Create a research question with knowledge gaps
+>       question_id = brain.create_research_question(
+            question="How do environmental factors interact with genetic predispositions in mental health?",
+            description="Understanding gene-environment interactions in psychiatric disorders.",
+            priority=9,
+            knowledge_gaps=[
+                "Specific molecular pathways affected by environmental stress",
+                "Temporal windows of vulnerability to environmental factors",
+                "Reversibility of environmentally-induced epigenetic changes"
+            ]
+        )
+
+tests/academic_researcher/test_research_questions.py:508: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+researchbrain/core/brain.py:531: in create_research_question
+    research_question = ResearchQuestion(
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = ResearchQuestion()
+question = 'How do environmental factors interact with genetic predispositions in mental health?'
+title = 'How do environmental factors interact with genetic predispositions in mental health?'
+content = 'Understanding gene-environment interactions in psychiatric disorders.'
+description = 'Understanding gene-environment interactions in psychiatric disorders.'
+priority = <Priority.CRITICAL: 'critical'>
+kwargs = {'description': 'Understanding gene-environment interactions in psychiatric disorders.', 'knowledge_gaps': ['Specific ...: 'critical'>, 'question': 'How do environmental factors interact with genetic predispositions in mental health?', ...}
+
+    def __init__(self, question: str, title: str = "", content: str = "", description: Optional[str] = None, priority: int = 0, **kwargs):
+        """Initialize ResearchQuestion with question as title if title not provided."""
+        if not title:
+            title = question
+        if not content and description:
+            content = description
+    
+        kwargs['question'] = question
+        kwargs['description'] = description
+        kwargs['priority'] = priority
+>       super().__init__(title=title, content=content, **kwargs)
+E       pydantic_core._pydantic_core.ValidationError: 1 validation error for ResearchQuestion
+E       priority
+E         Input should be a valid integer, unable to parse string as an integer [type=int_parsing, input_value=<Priority.CRITICAL: 'critical'>, input_type=Priority]
+E           For further information visit https://errors.pydantic.dev/2.11/v/int_parsing
+
+researchbrain/core/models.py:136: ValidationError
+__________ TestUserWorkflows.test_workflow_research_question_analysis __________
+
+self = <tests.academic_researcher.test_workflows.TestUserWorkflows object at 0x7fe54fc2db70>
+brain = <researchbrain.core.brain.ResearchBrain object at 0x7fe4a8323fd0>
+
+    def test_workflow_research_question_analysis(self, brain):
+        """Test workflow: research question -> evidence evaluation with conflicting evidence."""
+        # Create a research question
+>       question_id = brain.create_research_question(
+            question="Does neuroplasticity decline with age?",
+            description="Investigating the relationship between aging and neural plasticity",
+            priority=9
+        )
+
+tests/academic_researcher/test_workflows.py:87: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+researchbrain/core/brain.py:531: in create_research_question
+    research_question = ResearchQuestion(
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = ResearchQuestion(), question = 'Does neuroplasticity decline with age?'
+title = 'Does neuroplasticity decline with age?'
+content = 'Investigating the relationship between aging and neural plasticity'
+description = 'Investigating the relationship between aging and neural plasticity'
+priority = <Priority.CRITICAL: 'critical'>
+kwargs = {'description': 'Investigating the relationship between aging and neural plasticity', 'knowledge_gaps': [], 'priority': <Priority.CRITICAL: 'critical'>, 'question': 'Does neuroplasticity decline with age?', ...}
+
+    def __init__(self, question: str, title: str = "", content: str = "", description: Optional[str] = None, priority: int = 0, **kwargs):
+        """Initialize ResearchQuestion with question as title if title not provided."""
+        if not title:
+            title = question
+        if not content and description:
+            content = description
+    
+        kwargs['question'] = question
+        kwargs['description'] = description
+        kwargs['priority'] = priority
+>       super().__init__(title=title, content=content, **kwargs)
+E       pydantic_core._pydantic_core.ValidationError: 1 validation error for ResearchQuestion
+E       priority
+E         Input should be a valid integer, unable to parse string as an integer [type=int_parsing, input_value=<Priority.CRITICAL: 'critical'>, input_type=Priority]
+E           For further information visit https://errors.pydantic.dev/2.11/v/int_parsing
+
+researchbrain/core/models.py:136: ValidationError
+___________ TestUserWorkflows.test_workflow_grant_proposal_assembly ____________
+
+self = <tests.academic_researcher.test_workflows.TestUserWorkflows object at 0x7fe54fc2dd50>
+brain = <researchbrain.core.brain.ResearchBrain object at 0x7fe4a70b8f10>
+
+    def test_workflow_grant_proposal_assembly(self, brain):
+        """Test workflow: grant proposal assembly from distributed knowledge elements."""
+        # Create several elements that will go into a grant proposal
+    
+        # 1. Create research questions
+>       question1_id = brain.create_research_question(
+            question="How does intervention X affect cognition in elderly population?",
+            priority=9
+        )
+
+tests/academic_researcher/test_workflows.py:164: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+researchbrain/core/brain.py:531: in create_research_question
+    research_question = ResearchQuestion(
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = ResearchQuestion()
+question = 'How does intervention X affect cognition in elderly population?'
+title = 'How does intervention X affect cognition in elderly population?'
+content = None, description = None, priority = <Priority.CRITICAL: 'critical'>
+kwargs = {'description': None, 'knowledge_gaps': [], 'priority': <Priority.CRITICAL: 'critical'>, 'question': 'How does intervention X affect cognition in elderly population?', ...}
+
+    def __init__(self, question: str, title: str = "", content: str = "", description: Optional[str] = None, priority: int = 0, **kwargs):
+        """Initialize ResearchQuestion with question as title if title not provided."""
+        if not title:
+            title = question
+        if not content and description:
+            content = description
+    
+        kwargs['question'] = question
+        kwargs['description'] = description
+        kwargs['priority'] = priority
+>       super().__init__(title=title, content=content, **kwargs)
+E       pydantic_core._pydantic_core.ValidationError: 1 validation error for ResearchQuestion
+E       priority
+E         Input should be a valid integer, unable to parse string as an integer [type=int_parsing, input_value=<Priority.CRITICAL: 'critical'>, input_type=Priority]
+E           For further information visit https://errors.pydantic.dev/2.11/v/int_parsing
+
+researchbrain/core/models.py:136: ValidationError
+___________ TestUserWorkflows.test_workflow_collaborative_annotation ___________
+
+self = <tests.academic_researcher.test_workflows.TestUserWorkflows object at 0x7fe54fc2d7e0>
+brain = <researchbrain.core.brain.ResearchBrain object at 0x7fe4a8213370>
+
+    def test_workflow_collaborative_annotation(self, brain):
+        """Test workflow: collaborative review and annotation of research materials."""
+        # 1. Create a note to be annotated
+        note_id = brain.create_note(
+            title="Draft Manuscript",
+            content="Abstract\nIntroduction\nMethods\nResults\nDiscussion\nConclusion"
+        )
+    
+        # 2. Create collaborators
+>       advisor_id = brain.create_collaborator(
+            name="Dr. Johnson",
+            email="johnson@university.edu",
+            affiliation="University of Science",
+            role="advisor"
+        )
+
+tests/academic_researcher/test_workflows.py:273: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+researchbrain/core/brain.py:822: in create_collaborator
+    self.storage.save(collaborator)
+researchbrain/core/storage.py:131: in save
+    yaml.dump(data, f, default_flow_style=False, sort_keys=False)
+../../../../.pyenv/versions/3.10.11/lib/python3.10/site-packages/yaml/__init__.py:253: in dump
+    return dump_all([data], stream, Dumper=Dumper, **kwds)
+../../../../.pyenv/versions/3.10.11/lib/python3.10/site-packages/yaml/__init__.py:241: in dump_all
+    dumper.represent(data)
+../../../../.pyenv/versions/3.10.11/lib/python3.10/site-packages/yaml/representer.py:27: in represent
+    node = self.represent_data(data)
+../../../../.pyenv/versions/3.10.11/lib/python3.10/site-packages/yaml/representer.py:48: in represent_data
+    node = self.yaml_representers[data_types[0]](self, data)
+../../../../.pyenv/versions/3.10.11/lib/python3.10/site-packages/yaml/representer.py:207: in represent_dict
+    return self.represent_mapping('tag:yaml.org,2002:map', data)
+../../../../.pyenv/versions/3.10.11/lib/python3.10/site-packages/yaml/representer.py:118: in represent_mapping
+    node_value = self.represent_data(item_value)
+../../../../.pyenv/versions/3.10.11/lib/python3.10/site-packages/yaml/representer.py:52: in represent_data
+    node = self.yaml_multi_representers[data_type](self, data)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <yaml.dumper.Dumper object at 0x7fe4a8212410>
+data = <property object at 0x7fe5ffc8e4d0>
+
+    def represent_object(self, data):
+        # We use __reduce__ API to save the data. data.__reduce__ returns
+        # a tuple of length 2-5:
+        #   (function, args, state, listitems, dictitems)
+    
+        # For reconstructing, we calls function(*args), then set its state,
+        # listitems, and dictitems if they are not None.
+    
+        # A special case is when function.__name__ == '__newobj__'. In this
+        # case we create the object with args[0].__new__(*args).
+    
+        # Another special case is when __reduce__ returns a string - we don't
+        # support it.
+    
+        # We produce a !!python/object, !!python/object/new or
+        # !!python/object/apply node.
+    
+        cls = type(data)
+        if cls in copyreg.dispatch_table:
+            reduce = copyreg.dispatch_table[cls](data)
+        elif hasattr(data, '__reduce_ex__'):
+>           reduce = data.__reduce_ex__(2)
+E           TypeError: cannot pickle 'property' object
+
+../../../../.pyenv/versions/3.10.11/lib/python3.10/site-packages/yaml/representer.py:317: TypeError
+___________ TestUserWorkflows.test_workflow_experiment_documentation ___________
+
+self = <tests.academic_researcher.test_workflows.TestUserWorkflows object at 0x7fe54fc2dae0>
+brain = <researchbrain.core.brain.ResearchBrain object at 0x7fe4a710dd20>
+
+    def test_workflow_experiment_documentation(self, brain):
+        """Test workflow: experiment documentation with template-guided metadata."""
+        # 1. Create an experiment from a template
+        experiment_id = brain.create_experiment_from_template(
+            template_name="behavioral_experiment",
+            title="Memory Recall Experiment",
+            hypothesis="Regular exercise improves memory recall in older adults",
+            participants="60 adults aged 65-80, randomized into exercise and control groups",
+            independent_variables="Exercise regimen (none vs. 30 min daily walking)",
+            dependent_variables="Memory recall scores on standardized tests",
+            control_condition="No exercise regimen",
+            procedure="Participants will be tested at baseline, 6 weeks, and 12 weeks",
+            analysis_plan="Mixed ANOVA with follow-up t-tests"
+        )
+    
+        assert experiment_id is not None
+    
+        # 2. Retrieve the experiment and verify template application
+        experiment = brain.storage.get(Experiment, experiment_id)
+    
+        assert experiment.title == "Memory Recall Experiment"
+        assert experiment.hypothesis == "Regular exercise improves memory recall in older adults"
+        assert "Behavioral Experiment Methodology" in experiment.methodology
+        assert "60 adults aged 65-80" in experiment.methodology
+        assert "Exercise regimen" in experiment.methodology
+        assert "Memory recall scores" in experiment.methodology
+        assert "No exercise regimen" in experiment.methodology
+        assert "tested at baseline, 6 weeks, and 12 weeks" in experiment.methodology
+        assert "Mixed ANOVA" in experiment.methodology
+    
+        assert experiment.status == ExperimentStatus.PLANNED
+        assert "participants" in experiment.variables
+        assert "independent_vars" in experiment.variables
+        assert "dependent_vars" in experiment.variables
+    
+        # 3. Create research question related to experiment
+>       question_id = brain.create_research_question(
+            question="How does exercise affect memory in older adults?",
+            priority=8
+        )
+
+tests/academic_researcher/test_workflows.py:370: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+researchbrain/core/brain.py:531: in create_research_question
+    research_question = ResearchQuestion(
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = ResearchQuestion()
+question = 'How does exercise affect memory in older adults?'
+title = 'How does exercise affect memory in older adults?', content = None
+description = None, priority = <Priority.HIGH: 'high'>
+kwargs = {'description': None, 'knowledge_gaps': [], 'priority': <Priority.HIGH: 'high'>, 'question': 'How does exercise affect memory in older adults?', ...}
+
+    def __init__(self, question: str, title: str = "", content: str = "", description: Optional[str] = None, priority: int = 0, **kwargs):
+        """Initialize ResearchQuestion with question as title if title not provided."""
+        if not title:
+            title = question
+        if not content and description:
+            content = description
+    
+        kwargs['question'] = question
+        kwargs['description'] = description
+        kwargs['priority'] = priority
+>       super().__init__(title=title, content=content, **kwargs)
+E       pydantic_core._pydantic_core.ValidationError: 1 validation error for ResearchQuestion
+E       priority
+E         Input should be a valid integer, unable to parse string as an integer [type=int_parsing, input_value=<Priority.HIGH: 'high'>, input_type=Priority]
+E           For further information visit https://errors.pydantic.dev/2.11/v/int_parsing
+
+researchbrain/core/models.py:136: ValidationError
+____________________ TestDecisionRegistry.test_get_decision ____________________
+
+self = <tests.product_manager.decision_registry.test_registry.TestDecisionRegistry object at 0x7fe54fcd8670>
+temp_data_dir = '/tmp/pytest-of-justinchiu_cohere_com/pytest-430/test_get_decision0/test_data'
+decision_samples = [Decision(id=UUID('fe7b6837-9526-4b6e-9a2f-75d2b474f006'), created_at=datetime.datetime(2025, 6, 16, 4, 15, 7, 103469)...ad204e')], related_features=[UUID('fcae7a3f-98e8-47d1-962d-274008e900bf')], status='decided', outcome_assessment=None)]
+
+    def test_get_decision(self, temp_data_dir, decision_samples):
+        """Test retrieving decisions."""
+        registry = DecisionRegistry(storage_dir=temp_data_dir)
+        registry.add_decision(decision_samples)
+    
+        # Test retrieving existing decision
+        for decision in decision_samples:
+            retrieved = registry.get_decision(str(decision.id))
+            assert retrieved is not None
+            assert retrieved.id == decision.id
+            assert retrieved.title == decision.title
+>           assert retrieved.description == decision.description
+
+tests/product_manager/decision_registry/test_registry.py:60: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = Decision(id=UUID('fe7b6837-9526-4b6e-9a2f-75d2b474f006'), created_at=datetime.datetime(2025, 6, 16, 4, 15, 7, 103469),...thin 3 months of launch. Development was completed in 4.5 months, slightly over schedule but within acceptable range.')
+item = 'description'
+
+    def __getattr__(self, item: str) -> Any:
+        private_attributes = object.__getattribute__(self, '__private_attributes__')
+        if item in private_attributes:
+            attribute = private_attributes[item]
+            if hasattr(attribute, '__get__'):
+                return attribute.__get__(self, type(self))  # type: ignore
+    
+            try:
+                # Note: self.__pydantic_private__ cannot be None if self.__private_attributes__ has items
+                return self.__pydantic_private__[item]  # type: ignore
+            except KeyError as exc:
+                raise AttributeError(f'{type(self).__name__!r} object has no attribute {item!r}') from exc
+        else:
+            # `__pydantic_extra__` can fail to be set if the model is not yet fully initialized.
+            # See `BaseModel.__repr_args__` for more details
+            try:
+                pydantic_extra = object.__getattribute__(self, '__pydantic_extra__')
+            except AttributeError:
+                pydantic_extra = None
+    
+            if pydantic_extra:
+                try:
+                    return pydantic_extra[item]
+                except KeyError as exc:
+                    raise AttributeError(f'{type(self).__name__!r} object has no attribute {item!r}') from exc
+            else:
+                if hasattr(self.__class__, item):
+                    return super().__getattribute__(item)  # Raises AttributeError if appropriate
+                else:
+                    # this is the current error
+>                   raise AttributeError(f'{type(self).__name__!r} object has no attribute {item!r}')
+E                   AttributeError: 'Decision' object has no attribute 'description'
+
+../../../../.pyenv/versions/3.10.11/lib/python3.10/site-packages/pydantic/main.py:989: AttributeError
+__________________ TestDecisionRegistry.test_export_decision ___________________
+
+self = <tests.product_manager.decision_registry.test_registry.TestDecisionRegistry object at 0x7fe54fcdb760>
+temp_data_dir = '/tmp/pytest-of-justinchiu_cohere_com/pytest-430/test_export_decision0/test_data'
+decision_samples = [Decision(id=UUID('39758754-330f-43db-87c4-2f94fa9c9d5b'), created_at=datetime.datetime(2025, 6, 16, 4, 15, 7, 184790)...41abf1')], related_features=[UUID('07d98696-848d-4f83-99c7-6ef3dd32d180')], status='decided', outcome_assessment=None)]
+
+    def test_export_decision(self, temp_data_dir, decision_samples):
+        """Test exporting a decision in different formats."""
+        registry = DecisionRegistry(storage_dir=temp_data_dir)
+        registry.add_decision(decision_samples)
+    
+        if decision_samples:
+            decision_id = str(decision_samples[0].id)
+    
+            # Test exporting in different formats
+            formats = ["text", "markdown", "json"]
+    
+            for format in formats:
+>               exported = registry.export_decision(decision_id, format)
+
+tests/product_manager/decision_registry/test_registry.py:426: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+productmind/decision_registry/registry.py:721: in export_decision
+    lines.append(decision.description)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = Decision(id=UUID('39758754-330f-43db-87c4-2f94fa9c9d5b'), created_at=datetime.datetime(2025, 6, 16, 4, 15, 7, 184790),...thin 3 months of launch. Development was completed in 4.5 months, slightly over schedule but within acceptable range.')
+item = 'description'
+
+    def __getattr__(self, item: str) -> Any:
+        private_attributes = object.__getattribute__(self, '__private_attributes__')
+        if item in private_attributes:
+            attribute = private_attributes[item]
+            if hasattr(attribute, '__get__'):
+                return attribute.__get__(self, type(self))  # type: ignore
+    
+            try:
+                # Note: self.__pydantic_private__ cannot be None if self.__private_attributes__ has items
+                return self.__pydantic_private__[item]  # type: ignore
+            except KeyError as exc:
+                raise AttributeError(f'{type(self).__name__!r} object has no attribute {item!r}') from exc
+        else:
+            # `__pydantic_extra__` can fail to be set if the model is not yet fully initialized.
+            # See `BaseModel.__repr_args__` for more details
+            try:
+                pydantic_extra = object.__getattribute__(self, '__pydantic_extra__')
+            except AttributeError:
+                pydantic_extra = None
+    
+            if pydantic_extra:
+                try:
+                    return pydantic_extra[item]
+                except KeyError as exc:
+                    raise AttributeError(f'{type(self).__name__!r} object has no attribute {item!r}') from exc
+            else:
+                if hasattr(self.__class__, item):
+                    return super().__getattribute__(item)  # Raises AttributeError if appropriate
+                else:
+                    # this is the current error
+>                   raise AttributeError(f'{type(self).__name__!r} object has no attribute {item!r}')
+E                   AttributeError: 'Decision' object has no attribute 'description'
+
+../../../../.pyenv/versions/3.10.11/lib/python3.10/site-packages/pydantic/main.py:989: AttributeError
+=============================== warnings summary ===============================
+tests/academic_researcher/core/test_brain.py: 1 warning
+tests/academic_researcher/test_collaboration.py: 11 warnings
+tests/academic_researcher/test_workflows.py: 1 warning
+  /home/justinchiu_cohere_com/.pyenv/versions/3.10.11/lib/python3.10/site-packages/pydantic/main.py:463: UserWarning: Pydantic serializer warnings:
+    PydanticSerializationUnexpectedValue(Expected `str` - serialized value may not be as expected [input_value=<property object at 0x7fe5ffc8e4d0>, input_type=property])
+    return self.__pydantic_serializer__.to_python(
+
+tests/academic_researcher/test_experiment_templates.py::TestExperimentTemplates::test_experiment_status_updates
+  /home/justinchiu_cohere_com/.pyenv/versions/3.10.11/lib/python3.10/site-packages/pydantic/main.py:463: UserWarning: Pydantic serializer warnings:
+    PydanticSerializationUnexpectedValue(Expected `datetime` - serialized value may not be as expected [input_value='2023-06-01', input_type=str])
+    return self.__pydantic_serializer__.to_python(
+
+tests/academic_researcher/test_experiment_templates.py::TestExperimentTemplates::test_experiment_status_updates
+  /home/justinchiu_cohere_com/.pyenv/versions/3.10.11/lib/python3.10/site-packages/pydantic/main.py:463: UserWarning: Pydantic serializer warnings:
+    PydanticSerializationUnexpectedValue(Expected `datetime` - serialized value may not be as expected [input_value='2023-08-15', input_type=str])
+    return self.__pydantic_serializer__.to_python(
+
+tests/product_manager/decision_registry/test_registry.py::TestDecisionRegistry::test_link_related_decisions
+  /home/justinchiu_cohere_com/.pyenv/versions/3.10.11/lib/python3.10/site-packages/pydantic/main.py:519: UserWarning: Pydantic serializer warnings:
+    PydanticSerializationUnexpectedValue(Expected `uuid` - serialized value may not be as expected [input_value='03687944-517f-4a10-8bf7-9811e02afb3f', input_type=str])
+    return self.__pydantic_serializer__.to_json(
+
+tests/product_manager/decision_registry/test_registry.py::TestDecisionRegistry::test_link_related_decisions
+  /home/justinchiu_cohere_com/.pyenv/versions/3.10.11/lib/python3.10/site-packages/pydantic/main.py:519: UserWarning: Pydantic serializer warnings:
+    PydanticSerializationUnexpectedValue(Expected `uuid` - serialized value may not be as expected [input_value='52007cd0-22af-4feb-a3a2-26e3bd77bb53', input_type=str])
+    return self.__pydantic_serializer__.to_json(
+
+tests/product_manager/decision_registry/test_registry.py::TestDecisionRegistry::test_build_decision_graph
+  /home/justinchiu_cohere_com/.pyenv/versions/3.10.11/lib/python3.10/site-packages/pydantic/main.py:519: UserWarning: Pydantic serializer warnings:
+    PydanticSerializationUnexpectedValue(Expected `uuid` - serialized value may not be as expected [input_value='0d6db156-bcfc-45b4-bb14-af5bffb41e6b', input_type=str])
+    return self.__pydantic_serializer__.to_json(
+
+tests/product_manager/decision_registry/test_registry.py::TestDecisionRegistry::test_build_decision_graph
+  /home/justinchiu_cohere_com/.pyenv/versions/3.10.11/lib/python3.10/site-packages/pydantic/main.py:519: UserWarning: Pydantic serializer warnings:
+    PydanticSerializationUnexpectedValue(Expected `uuid` - serialized value may not be as expected [input_value='768b9a0a-444c-41e3-8935-8f75e018db20', input_type=str])
+    return self.__pydantic_serializer__.to_json(
+
+tests/product_manager/feedback_analysis/test_engine.py::TestFeedbackAnalysisEngine::test_performance_with_large_dataset
+  /home/justinchiu_cohere_com/.pyenv/versions/3.10.11/lib/python3.10/site-packages/sklearn/base.py:1389: ConvergenceWarning: Number of distinct clusters (2) found smaller than n_clusters (5). Possibly due to duplicate points in X.
+    return fit_method(estimator, *args, **kwargs)
+
+tests/product_manager/prioritization/test_framework.py::TestPrioritizationFramework::test_map_strategic_alignment
+  /home/justinchiu_cohere_com/.pyenv/versions/3.10.11/lib/python3.10/site-packages/pydantic/main.py:519: UserWarning: Pydantic serializer warnings:
+    PydanticSerializationUnexpectedValue(Expected `uuid` - serialized value may not be as expected [input_value='40df47c3-1a93-4fa5-bcfb-385e15f08759', input_type=str])
+    PydanticSerializationUnexpectedValue(Expected `uuid` - serialized value may not be as expected [input_value='a364fd7c-0d8d-45ff-92c9-f999f0a9220e', input_type=str])
+    PydanticSerializationUnexpectedValue(Expected `uuid` - serialized value may not be as expected [input_value='e5c114e6-cb3c-4f3e-b878-e49da4a370d7', input_type=str])
+    return self.__pydantic_serializer__.to_json(
+
+tests/product_manager/prioritization/test_framework.py::TestPrioritizationFramework::test_calculate_strategic_score
+  /home/justinchiu_cohere_com/.pyenv/versions/3.10.11/lib/python3.10/site-packages/pydantic/main.py:519: UserWarning: Pydantic serializer warnings:
+    PydanticSerializationUnexpectedValue(Expected `uuid` - serialized value may not be as expected [input_value='1784afd0-ce9c-4c44-9ca8-8a49b6f2577e', input_type=str])
+    PydanticSerializationUnexpectedValue(Expected `uuid` - serialized value may not be as expected [input_value='1cddb2f6-f17b-4c15-abd1-620aee831145', input_type=str])
+    PydanticSerializationUnexpectedValue(Expected `uuid` - serialized value may not be as expected [input_value='490d2c38-97b3-473b-a002-fd57f32238c9', input_type=str])
+    return self.__pydantic_serializer__.to_json(
+
+tests/product_manager/prioritization/test_framework.py::TestPrioritizationFramework::test_prioritize_features_weighted
+  /home/justinchiu_cohere_com/.pyenv/versions/3.10.11/lib/python3.10/site-packages/pydantic/main.py:519: UserWarning: Pydantic serializer warnings:
+    PydanticSerializationUnexpectedValue(Expected `uuid` - serialized value may not be as expected [input_value='02b09c58-567a-47fd-bc4c-7b111cd0a581', input_type=str])
+    PydanticSerializationUnexpectedValue(Expected `uuid` - serialized value may not be as expected [input_value='33e1d613-a3d9-4a51-bca9-a5e6f5e5fd76', input_type=str])
+    return self.__pydantic_serializer__.to_json(
+
+tests/product_manager/prioritization/test_framework.py::TestPrioritizationFramework::test_prioritize_features_other_models
+  /home/justinchiu_cohere_com/.pyenv/versions/3.10.11/lib/python3.10/site-packages/pydantic/main.py:519: UserWarning: Pydantic serializer warnings:
+    PydanticSerializationUnexpectedValue(Expected `uuid` - serialized value may not be as expected [input_value='0b907343-ce4d-42ce-a6f9-4fa659c79e6a', input_type=str])
+    PydanticSerializationUnexpectedValue(Expected `uuid` - serialized value may not be as expected [input_value='4f78a9a7-a72f-4b57-b382-16f5fa6a2f1e', input_type=str])
+    return self.__pydantic_serializer__.to_json(
+
+tests/product_manager/prioritization/test_framework.py::TestPrioritizationFramework::test_performance_with_large_dataset
+  /home/justinchiu_cohere_com/.pyenv/versions/3.10.11/lib/python3.10/site-packages/pydantic/main.py:519: UserWarning: Pydantic serializer warnings:
+    PydanticSerializationUnexpectedValue(Expected `uuid` - serialized value may not be as expected [input_value='6ba38aae-c670-49f4-b4d2-84662a8890c6', input_type=str])
+    PydanticSerializationUnexpectedValue(Expected `uuid` - serialized value may not be as expected [input_value='bf07a116-0921-47f4-b32a-6be07ff8ba53', input_type=str])
+    PydanticSerializationUnexpectedValue(Expected `uuid` - serialized value may not be as expected [input_value='5745c5c5-f6ba-4451-9157-7bf898d31e05', input_type=str])
+    PydanticSerializationUnexpectedValue(Expected `uuid` - serialized value may not be as expected [input_value='bb4d261a-68e6-4913-91d9-b433bb812e32', input_type=str])
+    PydanticSerializationUnexpectedValue(Expected `uuid` - serialized value may not be as expected [input_value='7044689b-30d0-4ae4-8bd0-3d02e02600e5', input_type=str])
+    return self.__pydantic_serializer__.to_json(
+
+tests/product_manager/prioritization/test_framework.py::TestPrioritizationFramework::test_performance_with_large_dataset
+  /home/justinchiu_cohere_com/.pyenv/versions/3.10.11/lib/python3.10/site-packages/pydantic/main.py:519: UserWarning: Pydantic serializer warnings:
+    PydanticSerializationUnexpectedValue(Expected `uuid` - serialized value may not be as expected [input_value='6ba38aae-c670-49f4-b4d2-84662a8890c6', input_type=str])
+    return self.__pydantic_serializer__.to_json(
+
+tests/product_manager/prioritization/test_framework.py::TestPrioritizationFramework::test_performance_with_large_dataset
+  /home/justinchiu_cohere_com/.pyenv/versions/3.10.11/lib/python3.10/site-packages/pydantic/main.py:519: UserWarning: Pydantic serializer warnings:
+    PydanticSerializationUnexpectedValue(Expected `uuid` - serialized value may not be as expected [input_value='6ba38aae-c670-49f4-b4d2-84662a8890c6', input_type=str])
+    PydanticSerializationUnexpectedValue(Expected `uuid` - serialized value may not be as expected [input_value='bf07a116-0921-47f4-b32a-6be07ff8ba53', input_type=str])
+    return self.__pydantic_serializer__.to_json(
+
+tests/product_manager/prioritization/test_framework.py::TestPrioritizationFramework::test_performance_with_large_dataset
+  /home/justinchiu_cohere_com/.pyenv/versions/3.10.11/lib/python3.10/site-packages/pydantic/main.py:519: UserWarning: Pydantic serializer warnings:
+    PydanticSerializationUnexpectedValue(Expected `uuid` - serialized value may not be as expected [input_value='6ba38aae-c670-49f4-b4d2-84662a8890c6', input_type=str])
+    PydanticSerializationUnexpectedValue(Expected `uuid` - serialized value may not be as expected [input_value='5745c5c5-f6ba-4451-9157-7bf898d31e05', input_type=str])
+    return self.__pydantic_serializer__.to_json(
+
+tests/product_manager/prioritization/test_framework.py::TestPrioritizationFramework::test_performance_with_large_dataset
+  /home/justinchiu_cohere_com/.pyenv/versions/3.10.11/lib/python3.10/site-packages/pydantic/main.py:519: UserWarning: Pydantic serializer warnings:
+    PydanticSerializationUnexpectedValue(Expected `uuid` - serialized value may not be as expected [input_value='6ba38aae-c670-49f4-b4d2-84662a8890c6', input_type=str])
+    PydanticSerializationUnexpectedValue(Expected `uuid` - serialized value may not be as expected [input_value='bf07a116-0921-47f4-b32a-6be07ff8ba53', input_type=str])
+    PydanticSerializationUnexpectedValue(Expected `uuid` - serialized value may not be as expected [input_value='bb4d261a-68e6-4913-91d9-b433bb812e32', input_type=str])
+    return self.__pydantic_serializer__.to_json(
+
+tests/product_manager/prioritization/test_framework.py::TestPrioritizationFramework::test_performance_with_large_dataset
+  /home/justinchiu_cohere_com/.pyenv/versions/3.10.11/lib/python3.10/site-packages/pydantic/main.py:519: UserWarning: Pydantic serializer warnings:
+    PydanticSerializationUnexpectedValue(Expected `uuid` - serialized value may not be as expected [input_value='6ba38aae-c670-49f4-b4d2-84662a8890c6', input_type=str])
+    PydanticSerializationUnexpectedValue(Expected `uuid` - serialized value may not be as expected [input_value='7044689b-30d0-4ae4-8bd0-3d02e02600e5', input_type=str])
+    return self.__pydantic_serializer__.to_json(
+
+tests/product_manager/prioritization/test_framework.py::TestPrioritizationFramework::test_performance_with_large_dataset
+  /home/justinchiu_cohere_com/.pyenv/versions/3.10.11/lib/python3.10/site-packages/pydantic/main.py:519: UserWarning: Pydantic serializer warnings:
+    PydanticSerializationUnexpectedValue(Expected `uuid` - serialized value may not be as expected [input_value='6ba38aae-c670-49f4-b4d2-84662a8890c6', input_type=str])
+    PydanticSerializationUnexpectedValue(Expected `uuid` - serialized value may not be as expected [input_value='bf07a116-0921-47f4-b32a-6be07ff8ba53', input_type=str])
+    PydanticSerializationUnexpectedValue(Expected `uuid` - serialized value may not be as expected [input_value='5745c5c5-f6ba-4451-9157-7bf898d31e05', input_type=str])
+    return self.__pydantic_serializer__.to_json(
+
+tests/product_manager/prioritization/test_framework.py::TestPrioritizationFramework::test_performance_with_large_dataset
+  /home/justinchiu_cohere_com/.pyenv/versions/3.10.11/lib/python3.10/site-packages/pydantic/main.py:519: UserWarning: Pydantic serializer warnings:
+    PydanticSerializationUnexpectedValue(Expected `uuid` - serialized value may not be as expected [input_value='6ba38aae-c670-49f4-b4d2-84662a8890c6', input_type=str])
+    PydanticSerializationUnexpectedValue(Expected `uuid` - serialized value may not be as expected [input_value='bf07a116-0921-47f4-b32a-6be07ff8ba53', input_type=str])
+    PydanticSerializationUnexpectedValue(Expected `uuid` - serialized value may not be as expected [input_value='7044689b-30d0-4ae4-8bd0-3d02e02600e5', input_type=str])
+    return self.__pydantic_serializer__.to_json(
+
+tests/product_manager/prioritization/test_framework.py::TestPrioritizationFramework::test_performance_with_large_dataset
+  /home/justinchiu_cohere_com/.pyenv/versions/3.10.11/lib/python3.10/site-packages/pydantic/main.py:519: UserWarning: Pydantic serializer warnings:
+    PydanticSerializationUnexpectedValue(Expected `uuid` - serialized value may not be as expected [input_value='6ba38aae-c670-49f4-b4d2-84662a8890c6', input_type=str])
+    PydanticSerializationUnexpectedValue(Expected `uuid` - serialized value may not be as expected [input_value='bf07a116-0921-47f4-b32a-6be07ff8ba53', input_type=str])
+    PydanticSerializationUnexpectedValue(Expected `uuid` - serialized value may not be as expected [input_value='5745c5c5-f6ba-4451-9157-7bf898d31e05', input_type=str])
+    PydanticSerializationUnexpectedValue(Expected `uuid` - serialized value may not be as expected [input_value='bb4d261a-68e6-4913-91d9-b433bb812e32', input_type=str])
+    return self.__pydantic_serializer__.to_json(
+
+tests/product_manager/prioritization/test_framework.py::TestPrioritizationFramework::test_performance_with_large_dataset
+  /home/justinchiu_cohere_com/.pyenv/versions/3.10.11/lib/python3.10/site-packages/pydantic/main.py:519: UserWarning: Pydantic serializer warnings:
+    PydanticSerializationUnexpectedValue(Expected `uuid` - serialized value may not be as expected [input_value='6ba38aae-c670-49f4-b4d2-84662a8890c6', input_type=str])
+    PydanticSerializationUnexpectedValue(Expected `uuid` - serialized value may not be as expected [input_value='5745c5c5-f6ba-4451-9157-7bf898d31e05', input_type=str])
+    PydanticSerializationUnexpectedValue(Expected `uuid` - serialized value may not be as expected [input_value='7044689b-30d0-4ae4-8bd0-3d02e02600e5', input_type=str])
+    return self.__pydantic_serializer__.to_json(
+
+tests/product_manager/prioritization/test_framework.py::TestPrioritizationFramework::test_performance_with_large_dataset
+  /home/justinchiu_cohere_com/.pyenv/versions/3.10.11/lib/python3.10/site-packages/pydantic/main.py:519: UserWarning: Pydantic serializer warnings:
+    PydanticSerializationUnexpectedValue(Expected `uuid` - serialized value may not be as expected [input_value='6ba38aae-c670-49f4-b4d2-84662a8890c6', input_type=str])
+    PydanticSerializationUnexpectedValue(Expected `uuid` - serialized value may not be as expected [input_value='bf07a116-0921-47f4-b32a-6be07ff8ba53', input_type=str])
+    PydanticSerializationUnexpectedValue(Expected `uuid` - serialized value may not be as expected [input_value='bb4d261a-68e6-4913-91d9-b433bb812e32', input_type=str])
+    PydanticSerializationUnexpectedValue(Expected `uuid` - serialized value may not be as expected [input_value='7044689b-30d0-4ae4-8bd0-3d02e02600e5', input_type=str])
+    return self.__pydantic_serializer__.to_json(
+
+tests/product_manager/prioritization/test_framework.py::TestPrioritizationFramework::test_performance_with_large_dataset
+  /home/justinchiu_cohere_com/.pyenv/versions/3.10.11/lib/python3.10/site-packages/pydantic/main.py:519: UserWarning: Pydantic serializer warnings:
+    PydanticSerializationUnexpectedValue(Expected `uuid` - serialized value may not be as expected [input_value='6ba38aae-c670-49f4-b4d2-84662a8890c6', input_type=str])
+    PydanticSerializationUnexpectedValue(Expected `uuid` - serialized value may not be as expected [input_value='bf07a116-0921-47f4-b32a-6be07ff8ba53', input_type=str])
+    PydanticSerializationUnexpectedValue(Expected `uuid` - serialized value may not be as expected [input_value='5745c5c5-f6ba-4451-9157-7bf898d31e05', input_type=str])
+    PydanticSerializationUnexpectedValue(Expected `uuid` - serialized value may not be as expected [input_value='7044689b-30d0-4ae4-8bd0-3d02e02600e5', input_type=str])
+    return self.__pydantic_serializer__.to_json(
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+--------------------------------- JSON report ----------------------------------
+report saved to: report.json
+================================ tests coverage ================================
+_______________ coverage: platform linux, python 3.10.11-final-0 _______________
+
+Name                                                         Stmts   Miss  Cover   Missing
+------------------------------------------------------------------------------------------
+researchbrain/__init__.py                                        0      0   100%
+researchbrain/__main__.py                                        3      1    67%   6
+researchbrain/citations/__init__.py                              0      0   100%
+researchbrain/citations/formatters.py                          371     60    84%   19, 101, 153, 192, 197-201, 207, 217, 254, 258, 263-267, 273, 283, 315, 329, 331, 337, 383, 385-389, 397, 429, 438-442, 444-448, 456, 477, 479, 481, 483, 485, 487, 513-514, 561-574, 606
+researchbrain/citations/parsers.py                             225     38    83%   43, 47, 67, 76, 111, 128, 157, 164, 170-171, 177, 211-220, 262, 270, 275-278, 281, 295-296, 332-341, 346
+researchbrain/cli.py                                           692    515    26%   239, 241, 243, 247, 249, 253, 265-267, 289-401, 411-530, 540-670, 681-682, 685-701, 705-717, 720-732, 735-782, 785-810, 833-1032, 1042-1073, 1091-1198, 1208-1235, 1239
+researchbrain/collaboration/__init__.py                          0      0   100%
+researchbrain/core/__init__.py                                   0      0   100%
+researchbrain/core/brain.py                                    727    409    44%   63, 66, 69, 72, 75, 81, 85, 89-90, 96, 100-120, 128-138, 142-156, 160-161, 165-173, 180-188, 228, 260, 270-304, 310-318, 321-325, 347, 358-368, 372-374, 378-380, 415, 475, 479-484, 493-496, 500, 525, 542-547, 567-601, 641, 699-727, 741, 747-759, 785, 823, 839-855, 866, 878-992, 1004-1026, 1039, 1057-1064, 1085-1092, 1113, 1130-1141, 1157, 1180-1182, 1197-1198, 1236, 1254-1259, 1273-1284, 1302, 1351, 1359, 1395-1406, 1420-1444, 1455-1472, 1486-1507, 1516-1569, 1580-1620, 1644-1692
+researchbrain/core/models.py                                   198     21    89%   140-145, 197, 230-232, 261, 266, 270-276, 293, 298
+researchbrain/core/storage.py                                  444     83    81%   78, 161, 163, 184, 186, 188, 231-232, 238-239, 253-254, 260-263, 272, 303, 310-311, 318-329, 406, 438-440, 484-487, 518-519, 534, 576, 633-636, 642-643, 668, 682, 709-712, 718-719, 732, 781-782, 809, 831-834, 869-892, 903-904, 913-915, 928-937
+researchbrain/experiments/__init__.py                            0      0   100%
+researchbrain/experiments/template_definitions/__init__.py       0      0   100%
+researchbrain/experiments/templates.py                          76     11    86%   24-26, 42-43, 53-54, 70, 78-79, 127-130
+researchbrain/grants/__init__.py                                 0      0   100%
+researchbrain/grants/export.py                                  63      1    98%   251
+researchbrain/notes/__init__.py                                  0      0   100%
+researchbrain/research/__init__.py                               0      0   100%
+------------------------------------------------------------------------------------------
+TOTAL                                                         2799   1139    59%
+=========================== short test summary info ============================
+FAILED tests/academic_researcher/core/test_brain.py::TestResearchBrain::test_create_research_question_and_add_evidence
+FAILED tests/academic_researcher/core/test_brain.py::TestResearchBrain::test_create_experiment
+FAILED tests/academic_researcher/core/test_brain.py::TestResearchBrain::test_create_grant_proposal_and_add_items
+FAILED tests/academic_researcher/core/test_brain.py::TestResearchBrain::test_search
+FAILED tests/academic_researcher/core/test_brain.py::TestResearchBrain::test_get_related_nodes
+FAILED tests/academic_researcher/core/test_brain.py::TestResearchBrain::test_create_collaborator_and_annotation
+FAILED tests/academic_researcher/core/test_brain.py::TestResearchBrain::test_knowledge_graph_structure
+FAILED tests/academic_researcher/core/test_models.py::TestKnowledgeNode::test_update_method
+FAILED tests/academic_researcher/core/test_models.py::TestExperiment::test_init_full
+FAILED tests/academic_researcher/core/test_models.py::TestExperiment::test_end_date_validation
+FAILED tests/academic_researcher/test_bidirectional_linking.py::TestBidirectionalLinking::test_removing_citation_links
+FAILED tests/academic_researcher/test_bidirectional_linking.py::TestBidirectionalLinking::test_circular_navigation
+FAILED tests/academic_researcher/test_collaboration.py::TestCollaboration::test_create_collaborator
+FAILED tests/academic_researcher/test_experiment_templates.py::TestExperimentTemplates::test_experiment_linking_to_research_question
+FAILED tests/academic_researcher/test_grant_proposals.py::TestGrantProposals::test_budget_and_timeline_management
+FAILED tests/academic_researcher/test_research_questions.py::TestResearchQuestions::test_create_research_question
+FAILED tests/academic_researcher/test_research_questions.py::TestResearchQuestions::test_adding_supporting_evidence
+FAILED tests/academic_researcher/test_research_questions.py::TestResearchQuestions::test_adding_contradicting_evidence
+FAILED tests/academic_researcher/test_research_questions.py::TestResearchQuestions::test_balanced_evidence_evaluation
+FAILED tests/academic_researcher/test_research_questions.py::TestResearchQuestions::test_evidence_strength_levels
+FAILED tests/academic_researcher/test_research_questions.py::TestResearchQuestions::test_evidence_with_multiple_citations
+FAILED tests/academic_researcher/test_research_questions.py::TestResearchQuestions::test_related_questions
+FAILED tests/academic_researcher/test_research_questions.py::TestResearchQuestions::test_identifying_knowledge_gaps
+FAILED tests/academic_researcher/test_workflows.py::TestUserWorkflows::test_workflow_research_question_analysis
+FAILED tests/academic_researcher/test_workflows.py::TestUserWorkflows::test_workflow_grant_proposal_assembly
+FAILED tests/academic_researcher/test_workflows.py::TestUserWorkflows::test_workflow_collaborative_annotation
+FAILED tests/academic_researcher/test_workflows.py::TestUserWorkflows::test_workflow_experiment_documentation
+FAILED tests/product_manager/decision_registry/test_registry.py::TestDecisionRegistry::test_get_decision
+FAILED tests/product_manager/decision_registry/test_registry.py::TestDecisionRegistry::test_export_decision
+ERROR tests/academic_researcher/test_collaboration.py::TestCollaboration::test_add_annotations
+ERROR tests/academic_researcher/test_collaboration.py::TestCollaboration::test_multiple_annotations_from_same_collaborator
+ERROR tests/academic_researcher/test_collaboration.py::TestCollaboration::test_annotations_on_multiple_documents
+ERROR tests/academic_researcher/test_collaboration.py::TestCollaboration::test_import_collaborator_annotations
+ERROR tests/academic_researcher/test_collaboration.py::TestCollaboration::test_import_collaborator_annotations_with_replies
+ERROR tests/academic_researcher/test_collaboration.py::TestCollaboration::test_import_collaborator_annotations_with_invalid_data
+ERROR tests/academic_researcher/test_collaboration.py::TestCollaboration::test_import_invalid_annotations
+ERROR tests/academic_researcher/test_collaboration.py::TestCollaboration::test_annotations_on_citations
+ERROR tests/academic_researcher/test_collaboration.py::TestCollaboration::test_maintaining_annotation_integrity
+ERROR tests/academic_researcher/test_collaboration.py::TestCollaboration::test_collaborative_feedback_integration
+ERROR tests/academic_researcher/test_grant_proposals.py::TestGrantProposals::test_add_items_to_grant_workspace
+ERROR tests/academic_researcher/test_grant_proposals.py::TestGrantProposals::test_adding_items_incrementally
+ERROR tests/academic_researcher/test_grant_proposals.py::TestGrantProposals::test_export_grant_proposal_to_markdown
+ERROR tests/academic_researcher/test_grant_proposals.py::TestGrantProposals::test_export_grant_proposal_to_yaml
+ERROR tests/academic_researcher/test_grant_proposals.py::TestGrantProposals::test_grant_proposal_version_history
+ERROR tests/academic_researcher/test_grant_proposals.py::TestGrantProposals::test_related_nodes_navigation
+ERROR tests/academic_researcher/test_grant_proposals.py::TestGrantProposals::test_multi_grant_proposal_organization
+ERROR tests/academic_researcher/test_performance_optimized.py::TestOptimizedPerformance::test_basic_performance
+ERROR tests/product_manager/stakeholder_insights/test_manager.py::TestStakeholderInsightManager::test_add_relationship
+ERROR tests/product_manager/stakeholder_insights/test_manager.py::TestStakeholderInsightManager::test_get_relationship
+ERROR tests/product_manager/stakeholder_insights/test_manager.py::TestStakeholderInsightManager::test_get_all_relationships
+ERROR tests/product_manager/stakeholder_insights/test_manager.py::TestStakeholderInsightManager::test_get_stakeholder_relationships
+ERROR tests/product_manager/stakeholder_insights/test_manager.py::TestStakeholderInsightManager::test_generate_stakeholder_map
+============ 29 failed, 205 passed, 36 warnings, 23 errors in 8.55s ============

@@ -1,0 +1,65 @@
+Processed unified/conftest.py: logprob=-247.59, tokens=53
+Processed unified/setup.py: logprob=-298.27, tokens=149
+Processed unified/vm_emulator/__init__.py: logprob=-459.13, tokens=361
+Processed unified/vm_emulator/migration.py: logprob=-1447.14, tokens=2570
+Processed unified/secure_vm/visualization.py: logprob=-2444.13, tokens=6501
+Processed unified/secure_vm/emulator.py: logprob=-2654.17, tokens=11118
+Processed unified/secure_vm/emulator_refactored.py: logprob=-2938.26, tokens=16337
+Processed unified/secure_vm/scenarios.py: logprob=-4101.47, tokens=25152
+Processed unified/secure_vm/__init__.py: logprob=-652.86, tokens=25479
+Processed unified/secure_vm/cpu.py: logprob=-2595.30, tokens=30696
+Processed unified/secure_vm/attacks.py: logprob=-3453.00, tokens=36850
+Processed unified/secure_vm/memory.py: logprob=-1788.81, tokens=40513
+Processed unified/common/__init__.py: logprob=-300.03, tokens=40593
+Processed unified/vm_emulator/scheduling/__init__.py: logprob=-191.65, tokens=40629
+Processed unified/vm_emulator/scheduling/scheduler.py: logprob=-2670.25, tokens=47503
+Processed unified/vm_emulator/memory/__init__.py: logprob=-194.36, tokens=47538
+Processed unified/vm_emulator/memory/coherence.py: logprob=-3103.26, tokens=54514
+Processed unified/vm_emulator/memory/patterns.py: logprob=-2671.75, tokens=60962
+Processed unified/vm_emulator/memory/cache.py: logprob=-2101.62, tokens=66200
+Processed unified/vm_emulator/threading/__init__.py: logprob=-181.71, tokens=66236
+Processed unified/vm_emulator/threading/thread_manager.py: logprob=-1461.14, tokens=69777
+Processed unified/vm_emulator/threading/thread.py: logprob=-783.10, tokens=71001
+Processed unified/vm_emulator/visualization/__init__.py: logprob=-198.25, tokens=71036
+Processed unified/vm_emulator/visualization/trace.py: logprob=-1943.93, tokens=77045
+Processed unified/vm_emulator/core/program.py: logprob=-570.13, tokens=78080
+Processed unified/vm_emulator/core/processor.py: logprob=-1486.18, tokens=80385
+Processed unified/vm_emulator/core/state.py: logprob=-1863.81, tokens=84074
+Processed unified/vm_emulator/core/__init__.py: logprob=-208.89, tokens=84114
+Processed unified/vm_emulator/core/race.py: logprob=-2096.39, tokens=88539
+Processed unified/vm_emulator/core/vm_wrapper.py: logprob=-1348.22, tokens=90442
+Processed unified/vm_emulator/core/vm.py: logprob=-3503.27, tokens=96866
+Processed unified/vm_emulator/core/instruction.py: logprob=-541.69, tokens=97948
+Processed unified/vm_emulator/core/latency.py: logprob=-1706.45, tokens=102775
+Processed unified/vm_emulator/core/vm_refactored.py: logprob=-2640.51, tokens=106745
+Processed unified/vm_emulator/core/processor_refactored.py: logprob=-1650.96, tokens=109407
+Processed unified/vm_emulator/core/memory.py: logprob=-701.08, tokens=110795
+Processed unified/vm_emulator/core/memory_refactored.py: logprob=-1464.78, tokens=113379
+Processed unified/vm_emulator/synchronization/__init__.py: logprob=-188.79, tokens=113422
+Processed unified/vm_emulator/synchronization/primitives.py: logprob=-1761.11, tokens=119311
+Processed unified/vm_emulator/synchronization/manager.py: logprob=-1339.54, tokens=124797
+Processed unified/vm_emulator/patterns/__init__.py: logprob=-191.57, tokens=124833
+Processed unified/vm_emulator/patterns/algorithms.py: logprob=-2678.31, tokens=131339
+Processed unified/vm_emulator/metrics/__init__.py: logprob=-178.55, tokens=131374
+Processed unified/vm_emulator/metrics/performance.py: logprob=-2024.77, tokens=136149
+Processed unified/tests/security_researcher/conftest.py: logprob=-652.57, tokens=136676
+Processed unified/tests/security_researcher/__init__.py: logprob=-195.87, tokens=136714
+Processed unified/tests/parallel_researcher/__init__.py: logprob=-171.86, tokens=136750
+Processed unified/common/core/visualization.py: logprob=-1984.30, tokens=139828
+Processed unified/common/core/utils.py: logprob=-1093.60, tokens=142455
+Processed unified/common/core/__init__.py: logprob=-458.89, tokens=142781
+Processed unified/common/core/vm.py: logprob=-1100.68, tokens=144426
+Processed unified/common/core/instruction.py: logprob=-1103.86, tokens=146735
+Processed unified/common/core/cpu.py: logprob=-1252.72, tokens=149166
+Processed unified/common/core/memory.py: logprob=-1173.82, tokens=151568
+Processed unified/common/core/trace.py: logprob=-1362.99, tokens=154252
+Processed unified/common/core/metrics.py: logprob=-1223.68, tokens=156741
+
+=== Summary ===
+Full Repo Log Probability: -78800.98
+Total Tokens: 156741
+Total Logical LOC (LLOC): 9757
+Total Source LOC (SLOC): 12251
+Total Cyclomatic Complexity: 3303
+Total Internal Imports: 0
+Written metrics to large_repos/virtual_machine_emulator/unified/LIBRARYBENCH_metrics.json

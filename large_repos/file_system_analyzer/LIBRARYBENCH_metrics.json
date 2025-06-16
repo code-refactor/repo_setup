@@ -1,0 +1,545 @@
+{
+    "total_logprobs": -43884.931015256974,
+    "total_tokens": 71328,
+    "file_system_analyzer/file_system_analyzer_security_auditor/file_system_analyzer/reporting/frameworks.py": {
+        "logprobs": -1372.9030813141842,
+        "metrics": {
+            "loc": 339,
+            "sloc": 281,
+            "lloc": 96,
+            "comments": 4,
+            "multi": 6,
+            "blank": 31,
+            "cyclomatic": 39,
+            "internal_imports": []
+        }
+    },
+    "file_system_analyzer/file_system_analyzer_security_auditor/tests/conftest.py": {
+        "logprobs": -763.5376075678417,
+        "metrics": {
+            "loc": 108,
+            "sloc": 63,
+            "lloc": 68,
+            "comments": 14,
+            "multi": 0,
+            "blank": 27,
+            "cyclomatic": 6,
+            "internal_imports": []
+        }
+    },
+    "file_system_analyzer/file_system_analyzer_db_admin/file_system_analyzer_db_admin/db_file_recognition/__init__.py": {
+        "logprobs": -229.788850069297,
+        "metrics": {
+            "loc": 6,
+            "sloc": 0,
+            "lloc": 1,
+            "comments": 0,
+            "multi": 5,
+            "blank": 1,
+            "cyclomatic": 0,
+            "internal_imports": []
+        }
+    },
+    "file_system_analyzer/file_system_analyzer_security_auditor/file_system_analyzer/audit/__init__.py": {
+        "logprobs": -269.3884301207654,
+        "metrics": {
+            "loc": 6,
+            "sloc": 0,
+            "lloc": 1,
+            "comments": 0,
+            "multi": 5,
+            "blank": 1,
+            "cyclomatic": 0,
+            "internal_imports": []
+        }
+    },
+    "file_system_analyzer/file_system_analyzer_security_auditor/file_system_analyzer/custody/__init__.py": {
+        "logprobs": -252.25380885007849,
+        "metrics": {
+            "loc": 6,
+            "sloc": 0,
+            "lloc": 1,
+            "comments": 0,
+            "multi": 5,
+            "blank": 1,
+            "cyclomatic": 0,
+            "internal_imports": []
+        }
+    },
+    "file_system_analyzer/file_system_analyzer_security_auditor/file_system_analyzer/__init__.py": {
+        "logprobs": -260.3445633667605,
+        "metrics": {
+            "loc": 8,
+            "sloc": 1,
+            "lloc": 2,
+            "comments": 0,
+            "multi": 5,
+            "blank": 2,
+            "cyclomatic": 0,
+            "internal_imports": []
+        }
+    },
+    "file_system_analyzer/file_system_analyzer_db_admin/file_system_analyzer_db_admin/db_file_recognition/file_patterns.py": {
+        "logprobs": -1268.978961758541,
+        "metrics": {
+            "loc": 240,
+            "sloc": 206,
+            "lloc": 30,
+            "comments": 58,
+            "multi": 5,
+            "blank": 19,
+            "cyclomatic": 4,
+            "internal_imports": []
+        }
+    },
+    "file_system_analyzer/file_system_analyzer_db_admin/file_system_analyzer_db_admin/interfaces/filesystem.py": {
+        "logprobs": -1507.5807821184274,
+        "metrics": {
+            "loc": 273,
+            "sloc": 139,
+            "lloc": 120,
+            "comments": 22,
+            "multi": 62,
+            "blank": 49,
+            "cyclomatic": 42,
+            "internal_imports": []
+        }
+    },
+    "file_system_analyzer/file_system_analyzer_db_admin/file_system_analyzer_db_admin/utils/__init__.py": {
+        "logprobs": -195.59711242277,
+        "metrics": {
+            "loc": 1,
+            "sloc": 0,
+            "lloc": 1,
+            "comments": 0,
+            "multi": 0,
+            "blank": 0,
+            "cyclomatic": 0,
+            "internal_imports": []
+        }
+    },
+    "file_system_analyzer/file_system_analyzer_db_admin/file_system_analyzer_db_admin/__init__.py": {
+        "logprobs": -256.6618183968567,
+        "metrics": {
+            "loc": 8,
+            "sloc": 1,
+            "lloc": 2,
+            "comments": 0,
+            "multi": 5,
+            "blank": 2,
+            "cyclomatic": 0,
+            "internal_imports": []
+        }
+    },
+    "file_system_analyzer/file_system_analyzer_db_admin/file_system_analyzer_db_admin/interfaces/export.py": {
+        "logprobs": -1830.4436686025983,
+        "metrics": {
+            "loc": 456,
+            "sloc": 269,
+            "lloc": 201,
+            "comments": 25,
+            "multi": 76,
+            "blank": 81,
+            "cyclomatic": 76,
+            "internal_imports": []
+        }
+    },
+    "file_system_analyzer/file_system_analyzer_db_admin/file_system_analyzer_db_admin/backup_compression/compression_analyzer.py": {
+        "logprobs": -3542.204952684219,
+        "metrics": {
+            "loc": 807,
+            "sloc": 544,
+            "lloc": 360,
+            "comments": 82,
+            "multi": 53,
+            "blank": 125,
+            "cyclomatic": 168,
+            "internal_imports": []
+        }
+    },
+    "file_system_analyzer/file_system_analyzer_security_auditor/file_system_analyzer/audit/logger.py": {
+        "logprobs": -1573.9750863819324,
+        "metrics": {
+            "loc": 290,
+            "sloc": 188,
+            "lloc": 191,
+            "comments": 24,
+            "multi": 6,
+            "blank": 55,
+            "cyclomatic": 68,
+            "internal_imports": []
+        }
+    },
+    "file_system_analyzer/file_system_analyzer_security_auditor/file_system_analyzer/reporting/reports.py": {
+        "logprobs": -1195.7471625069516,
+        "metrics": {
+            "loc": 208,
+            "sloc": 136,
+            "lloc": 146,
+            "comments": 14,
+            "multi": 5,
+            "blank": 39,
+            "cyclomatic": 40,
+            "internal_imports": []
+        }
+    },
+    "file_system_analyzer/file_system_analyzer_security_auditor/file_system_analyzer/utils/crypto.py": {
+        "logprobs": -706.5053841086047,
+        "metrics": {
+            "loc": 179,
+            "sloc": 122,
+            "lloc": 88,
+            "comments": 8,
+            "multi": 5,
+            "blank": 33,
+            "cyclomatic": 28,
+            "internal_imports": []
+        }
+    },
+    "file_system_analyzer/file_system_analyzer_db_admin/file_system_analyzer_db_admin/interfaces/__init__.py": {
+        "logprobs": -254.736949808443,
+        "metrics": {
+            "loc": 6,
+            "sloc": 0,
+            "lloc": 1,
+            "comments": 0,
+            "multi": 5,
+            "blank": 1,
+            "cyclomatic": 0,
+            "internal_imports": []
+        }
+    },
+    "file_system_analyzer/file_system_analyzer_db_admin/file_system_analyzer_db_admin/backup_compression/__init__.py": {
+        "logprobs": -225.4743962285927,
+        "metrics": {
+            "loc": 6,
+            "sloc": 0,
+            "lloc": 1,
+            "comments": 0,
+            "multi": 5,
+            "blank": 1,
+            "cyclomatic": 0,
+            "internal_imports": []
+        }
+    },
+    "file_system_analyzer/file_system_analyzer_db_admin/file_system_analyzer_db_admin/index_efficiency/index_analyzer.py": {
+        "logprobs": -3538.9076204817848,
+        "metrics": {
+            "loc": 731,
+            "sloc": 456,
+            "lloc": 344,
+            "comments": 90,
+            "multi": 67,
+            "blank": 124,
+            "cyclomatic": 140,
+            "internal_imports": []
+        }
+    },
+    "file_system_analyzer/file_system_analyzer_db_admin/file_system_analyzer_db_admin/db_file_recognition/detector.py": {
+        "logprobs": -1402.2913742730366,
+        "metrics": {
+            "loc": 337,
+            "sloc": 193,
+            "lloc": 143,
+            "comments": 22,
+            "multi": 60,
+            "blank": 61,
+            "cyclomatic": 63,
+            "internal_imports": []
+        }
+    },
+    "file_system_analyzer/file_system_analyzer_db_admin/file_system_analyzer_db_admin/utils/types.py": {
+        "logprobs": -689.1336093188487,
+        "metrics": {
+            "loc": 128,
+            "sloc": 92,
+            "lloc": 100,
+            "comments": 0,
+            "multi": 0,
+            "blank": 26,
+            "cyclomatic": 7,
+            "internal_imports": []
+        }
+    },
+    "file_system_analyzer/file_system_analyzer_security_auditor/file_system_analyzer/reporting/__init__.py": {
+        "logprobs": -223.837868693385,
+        "metrics": {
+            "loc": 6,
+            "sloc": 0,
+            "lloc": 1,
+            "comments": 0,
+            "multi": 5,
+            "blank": 1,
+            "cyclomatic": 0,
+            "internal_imports": []
+        }
+    },
+    "file_system_analyzer/file_system_analyzer_db_admin/file_system_analyzer_db_admin/interfaces/api.py": {
+        "logprobs": -1707.5976961701767,
+        "metrics": {
+            "loc": 579,
+            "sloc": 343,
+            "lloc": 217,
+            "comments": 46,
+            "multi": 97,
+            "blank": 89,
+            "cyclomatic": 85,
+            "internal_imports": []
+        }
+    },
+    "file_system_analyzer/file_system_analyzer_db_admin/file_system_analyzer_db_admin/main.py": {
+        "logprobs": -1279.6743241756913,
+        "metrics": {
+            "loc": 300,
+            "sloc": 221,
+            "lloc": 114,
+            "comments": 26,
+            "multi": 0,
+            "blank": 51,
+            "cyclomatic": 33,
+            "internal_imports": []
+        }
+    },
+    "file_system_analyzer/file_system_analyzer_security_auditor/file_system_analyzer/custody/evidence.py": {
+        "logprobs": -1576.5666578967116,
+        "metrics": {
+            "loc": 352,
+            "sloc": 233,
+            "lloc": 204,
+            "comments": 31,
+            "multi": 6,
+            "blank": 66,
+            "cyclomatic": 49,
+            "internal_imports": []
+        }
+    },
+    "file_system_analyzer/file_system_analyzer_security_auditor/file_system_analyzer/utils/__init__.py": {
+        "logprobs": -208.6845175100323,
+        "metrics": {
+            "loc": 3,
+            "sloc": 0,
+            "lloc": 1,
+            "comments": 0,
+            "multi": 3,
+            "blank": 0,
+            "cyclomatic": 0,
+            "internal_imports": []
+        }
+    },
+    "file_system_analyzer/file_system_analyzer_security_auditor/file_system_analyzer/scanner.py": {
+        "logprobs": -1599.6601695053055,
+        "metrics": {
+            "loc": 369,
+            "sloc": 284,
+            "lloc": 139,
+            "comments": 30,
+            "multi": 5,
+            "blank": 46,
+            "cyclomatic": 41,
+            "internal_imports": []
+        }
+    },
+    "file_system_analyzer/file_system_analyzer_db_admin/file_system_analyzer_db_admin/transaction_log_analysis/log_analyzer.py": {
+        "logprobs": -3636.5305967890777,
+        "metrics": {
+            "loc": 684,
+            "sloc": 442,
+            "lloc": 296,
+            "comments": 79,
+            "multi": 64,
+            "blank": 109,
+            "cyclomatic": 108,
+            "internal_imports": []
+        }
+    },
+    "file_system_analyzer/file_system_analyzer_db_admin/setup.py": {
+        "logprobs": -317.9112349806498,
+        "metrics": {
+            "loc": 26,
+            "sloc": 25,
+            "lloc": 3,
+            "comments": 0,
+            "multi": 0,
+            "blank": 1,
+            "cyclomatic": 0,
+            "internal_imports": []
+        }
+    },
+    "file_system_analyzer/file_system_analyzer_security_auditor/tests/__init__.py": {
+        "logprobs": -196.604969628511,
+        "metrics": {
+            "loc": 1,
+            "sloc": 0,
+            "lloc": 1,
+            "comments": 0,
+            "multi": 0,
+            "blank": 0,
+            "cyclomatic": 0,
+            "internal_imports": []
+        }
+    },
+    "file_system_analyzer/file_system_analyzer_security_auditor/file_system_analyzer/detection/__init__.py": {
+        "logprobs": -207.229703316901,
+        "metrics": {
+            "loc": 5,
+            "sloc": 0,
+            "lloc": 1,
+            "comments": 0,
+            "multi": 4,
+            "blank": 1,
+            "cyclomatic": 0,
+            "internal_imports": []
+        }
+    },
+    "file_system_analyzer/file_system_analyzer_db_admin/file_system_analyzer_db_admin/index_efficiency/__init__.py": {
+        "logprobs": -232.376721026327,
+        "metrics": {
+            "loc": 6,
+            "sloc": 0,
+            "lloc": 1,
+            "comments": 0,
+            "multi": 5,
+            "blank": 1,
+            "cyclomatic": 0,
+            "internal_imports": []
+        }
+    },
+    "file_system_analyzer/file_system_analyzer_db_admin/tests/conftest.py": {
+        "logprobs": -1929.349381552171,
+        "metrics": {
+            "loc": 414,
+            "sloc": 382,
+            "lloc": 57,
+            "comments": 59,
+            "multi": 0,
+            "blank": 22,
+            "cyclomatic": 9,
+            "internal_imports": []
+        }
+    },
+    "file_system_analyzer/file_system_analyzer_db_admin/file_system_analyzer_db_admin/utils/file_utils.py": {
+        "logprobs": -1063.9856127961812,
+        "metrics": {
+            "loc": 254,
+            "sloc": 138,
+            "lloc": 111,
+            "comments": 22,
+            "multi": 48,
+            "blank": 48,
+            "cyclomatic": 50,
+            "internal_imports": []
+        }
+    },
+    "file_system_analyzer/file_system_analyzer_security_auditor/setup.py": {
+        "logprobs": -227.46710563251807,
+        "metrics": {
+            "loc": 15,
+            "sloc": 14,
+            "lloc": 2,
+            "comments": 0,
+            "multi": 0,
+            "blank": 1,
+            "cyclomatic": 0,
+            "internal_imports": []
+        }
+    },
+    "file_system_analyzer/file_system_analyzer_security_auditor/file_system_analyzer/differential/__init__.py": {
+        "logprobs": -227.145619635563,
+        "metrics": {
+            "loc": 6,
+            "sloc": 0,
+            "lloc": 1,
+            "comments": 0,
+            "multi": 5,
+            "blank": 1,
+            "cyclomatic": 0,
+            "internal_imports": []
+        }
+    },
+    "file_system_analyzer/file_system_analyzer_security_auditor/file_system_analyzer/differential/analyzer.py": {
+        "logprobs": -1322.1000738651296,
+        "metrics": {
+            "loc": 330,
+            "sloc": 216,
+            "lloc": 197,
+            "comments": 21,
+            "multi": 5,
+            "blank": 66,
+            "cyclomatic": 64,
+            "internal_imports": []
+        }
+    },
+    "file_system_analyzer/file_system_analyzer_security_auditor/file_system_analyzer/detection/patterns.py": {
+        "logprobs": -1281.166724554986,
+        "metrics": {
+            "loc": 252,
+            "sloc": 174,
+            "lloc": 104,
+            "comments": 24,
+            "multi": 6,
+            "blank": 40,
+            "cyclomatic": 39,
+            "internal_imports": []
+        }
+    },
+    "file_system_analyzer/file_system_analyzer_db_admin/file_system_analyzer_db_admin/transaction_log_analysis/__init__.py": {
+        "logprobs": -241.0518735585525,
+        "metrics": {
+            "loc": 7,
+            "sloc": 0,
+            "lloc": 1,
+            "comments": 0,
+            "multi": 6,
+            "blank": 1,
+            "cyclomatic": 0,
+            "internal_imports": []
+        }
+    },
+    "file_system_analyzer/file_system_analyzer_db_admin/file_system_analyzer_db_admin/tablespace_fragmentation/fragmentation_analyzer.py": {
+        "logprobs": -3121.640994082475,
+        "metrics": {
+            "loc": 661,
+            "sloc": 418,
+            "lloc": 304,
+            "comments": 80,
+            "multi": 72,
+            "blank": 106,
+            "cyclomatic": 85,
+            "internal_imports": []
+        }
+    },
+    "file_system_analyzer/file_system_analyzer_db_admin/file_system_analyzer_db_admin/tablespace_fragmentation/__init__.py": {
+        "logprobs": -256.915956972556,
+        "metrics": {
+            "loc": 6,
+            "sloc": 0,
+            "lloc": 1,
+            "comments": 0,
+            "multi": 5,
+            "blank": 1,
+            "cyclomatic": 0,
+            "internal_imports": []
+        }
+    },
+    "file_system_analyzer/file_system_analyzer_security_auditor/file_system_analyzer/detection/scanner.py": {
+        "logprobs": -1690.9779925335222,
+        "metrics": {
+            "loc": 383,
+            "sloc": 282,
+            "lloc": 258,
+            "comments": 28,
+            "multi": 5,
+            "blank": 55,
+            "cyclomatic": 94,
+            "internal_imports": []
+        }
+    },
+    "total_loc": 8802,
+    "total_sloc": 5863,
+    "total_lloc": 3911,
+    "total_comments": 809,
+    "total_multi": 721,
+    "total_blank": 1385,
+    "total_cyclomatic": 1338,
+    "total_internal_imports": 0
+}

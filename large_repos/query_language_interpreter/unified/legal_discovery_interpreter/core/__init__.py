@@ -1,0 +1,1 @@
+"""Core module containing base classes and interfaces for the legal discovery interpreter."""

@@ -1,0 +1,236 @@
+Running tests for codecontests/cluster0...
+
+====================================
+Testing problem: 1041_e_tree_reconstruction_8858
+====================================
+❌ Problem 1041_e_tree_reconstruction_8858: Results: 7/10 tests passed
+Sample errors:
+Test #2: FAILED ❌
+Test #6: FAILED ❌
+Test #9: FAILED ❌
+...
+
+====================================
+Testing problem: 1076_d_edge_deletion_9486
+====================================
+❌ Problem 1076_d_edge_deletion_9486: Results: 4/10 tests passed
+Sample errors:
+Test #1: FAILED ❌
+Test #3: FAILED ❌
+Test #4: FAILED ❌
+Test #6: FAILED ❌
+Test #7: FAILED ❌
+...
+
+====================================
+Testing problem: 1086_b_minimum_diameter_tree_8860
+====================================
+❌ Problem 1086_b_minimum_diameter_tree_8860: Results: 0/10 tests passed
+Sample errors:
+Test #1: FAILED ❌
+Test #2: FAILED ❌
+Test #3: FAILED ❌
+Test #4: FAILED ❌
+Test #5: FAILED ❌
+...
+
+====================================
+Testing problem: 110_e_lucky_tree_11049
+====================================
+✅ Problem 110_e_lucky_tree_11049: Results: 10/10 tests passed
+
+====================================
+Testing problem: 1118_f1_tree_cutting_easy_version_12195
+====================================
+❌ Problem 1118_f1_tree_cutting_easy_version_12195: Results: 5/10 tests passed
+Sample errors:
+Traceback (most recent call last):
+ValueError: invalid literal for int() with base 10: '2 2\n'
+Test #4: Error running solution! Exit code: 1
+Traceback (most recent call last):
+ValueError: invalid literal for int() with base 10: '10 2\n'
+...
+
+====================================
+Testing problem: 1133_f1_spanning_tree_with_maximum_degree_10945
+====================================
+❌ Problem 1133_f1_spanning_tree_with_maximum_degree_10945: Results: 0/10 tests passed
+Sample errors:
+Traceback (most recent call last):
+ValueError: not enough values to unpack (expected 3, got 2)
+Test #1: Error running solution! Exit code: 1
+Traceback (most recent call last):
+ValueError: not enough values to unpack (expected 3, got 2)
+...
+
+====================================
+Testing problem: 1143_c_queen_2410
+====================================
+✅ Problem 1143_c_queen_2410: Results: 10/10 tests passed
+
+====================================
+Testing problem: 116_c_party_7303
+====================================
+✅ Problem 116_c_party_7303: Results: 10/10 tests passed
+
+====================================
+Testing problem: 1176_e_cover_it_10635
+====================================
+❌ Problem 1176_e_cover_it_10635: Results: 7/10 tests passed
+Sample errors:
+Test #1: FAILED ❌
+Test #8: FAILED ❌
+Traceback (most recent call last):
+IndexError: list index out of range
+Test #9: Error running solution! Exit code: 1
+...
+
+====================================
+Testing problem: 1286_b_numbers_on_tree_11475
+====================================
+✅ Problem 1286_b_numbers_on_tree_11475: Results: 10/10 tests passed
+
+====================================
+Testing problem: 1287_d_numbers_on_tree_1897
+====================================
+✅ Problem 1287_d_numbers_on_tree_1897: Results: 10/10 tests passed
+
+====================================
+Testing problem: 1325_c_ehab_and_pathetic_mexs_1064
+====================================
+❌ Problem 1325_c_ehab_and_pathetic_mexs_1064: Results: 9/10 tests passed
+Sample errors:
+Test #3: FAILED ❌
+...
+
+====================================
+Testing problem: 1338_b_edge_weight_assignment_7623
+====================================
+✅ Problem 1338_b_edge_weight_assignment_7623: Results: 10/10 tests passed
+
+====================================
+Testing problem: 1391_e_pairs_of_pairs_6690
+====================================
+❌ Problem 1391_e_pairs_of_pairs_6690: Results: 0/10 tests passed
+Sample errors:
+Test #1: FAILED ❌
+Test #2: FAILED ❌
+Test #3: FAILED ❌
+Test #4: FAILED ❌
+Test #5: FAILED ❌
+...
+
+====================================
+Testing problem: 246_d_colorful_graph_3682
+====================================
+✅ Problem 246_d_colorful_graph_3682: Results: 10/10 tests passed
+
+====================================
+Testing problem: 292_b_network_topology_9930
+====================================
+✅ Problem 292_b_network_topology_9930: Results: 10/10 tests passed
+
+====================================
+Testing problem: 319_b_psychos_in_a_line_454
+====================================
+✅ Problem 319_b_psychos_in_a_line_454: Results: 9/9 tests passed
+
+====================================
+Testing problem: 404_c_restore_graph_3793
+====================================
+✅ Problem 404_c_restore_graph_3793: Results: 10/10 tests passed
+
+====================================
+Testing problem: 420_c_bug_in_code_5355
+====================================
+✅ Problem 420_c_bug_in_code_5355: Results: 10/10 tests passed
+
+====================================
+Testing problem: 421_d_bug_in_code_563
+====================================
+✅ Problem 421_d_bug_in_code_563: Results: 10/10 tests passed
+
+====================================
+Testing problem: 580_c_kefa_and_park_5570
+====================================
+✅ Problem 580_c_kefa_and_park_5570: Results: 10/10 tests passed
+
+====================================
+Testing problem: 747_e_comments_9533
+====================================
+✅ Problem 747_e_comments_9533: Results: 10/10 tests passed
+
+====================================
+Testing problem: 796_c_bank_hacking_5163
+====================================
+✅ Problem 796_c_bank_hacking_5163: Results: 10/10 tests passed
+
+====================================
+Testing problem: 839_c_journey_2458
+====================================
+❌ Problem 839_c_journey_2458: Results: 5/10 tests passed
+Sample errors:
+Test #1: FAILED ❌
+Test #2: FAILED ❌
+Test #3: FAILED ❌
+Test #4: FAILED ❌
+Test #5: FAILED ❌
+...
+
+====================================
+Testing problem: 902_b_coloring_a_tree_2877
+====================================
+✅ Problem 902_b_coloring_a_tree_2877: Results: 10/10 tests passed
+
+====================================
+Testing problem: 913_b_christmas_spruce_7977
+====================================
+✅ Problem 913_b_christmas_spruce_7977: Results: 10/10 tests passed
+
+====================================
+Testing problem: 931_d_peculiar_appletree_4441
+====================================
+✅ Problem 931_d_peculiar_appletree_4441: Results: 10/10 tests passed
+
+====================================
+Testing problem: 963_b_destruction_of_a_tree_65
+====================================
+❌ Problem 963_b_destruction_of_a_tree_65: Results: 4/10 tests passed
+Sample errors:
+Test #1: FAILED ❌
+Test #3: FAILED ❌
+Test #5: FAILED ❌
+Test #7: FAILED ❌
+Test #8: FAILED ❌
+...
+
+====================================
+Testing problem: 981_c_useful_decomposition_4026
+====================================
+✅ Problem 981_c_useful_decomposition_4026: Results: 10/10 tests passed
+
+====================================
+Testing problem: 982_c_cut_em_all_5275
+====================================
+✅ Problem 982_c_cut_em_all_5275: Results: 10/10 tests passed
+
+====================================
+Testing problem: __pycache__
+====================================
+Error: run.sh script not found for problem __pycache__
+
+====================================
+Final Results: 20/30 problems passed all tests
+====================================
+Problems with failing tests:
+- 1041_e_tree_reconstruction_8858
+- 1076_d_edge_deletion_9486
+- 1086_b_minimum_diameter_tree_8860
+- 1118_f1_tree_cutting_easy_version_12195
+- 1133_f1_spanning_tree_with_maximum_degree_10945
+- 1176_e_cover_it_10635
+- 1325_c_ehab_and_pathetic_mexs_1064
+- 1391_e_pairs_of_pairs_6690
+- 839_c_journey_2458
+- 963_b_destruction_of_a_tree_65
+⚠️ Some problems in cluster0 failed tests.

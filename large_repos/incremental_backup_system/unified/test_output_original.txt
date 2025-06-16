@@ -1,0 +1,37 @@
+============================= test session starts ==============================
+platform linux -- Python 3.10.11, pytest-8.3.5, pluggy-1.5.0
+rootdir: /home/justinchiu_cohere_com/minicode/large_repos/incremental_backup_system/unified
+configfile: pyproject.toml
+plugins: anyio-4.9.0, metadata-3.1.1, json-report-1.5.0, cov-6.1.1
+collected 194 items
+
+tests/digital_artist/test_asset_tracker.py .....                         [  2%]
+tests/digital_artist/test_backup_engine.py ......                        [  5%]
+tests/digital_artist/test_element_extraction.py ........                 [  9%]
+tests/digital_artist/test_integration.py .....                           [ 12%]
+tests/digital_artist/test_timeline_manager.py .....                      [ 14%]
+tests/digital_artist/test_visual_diff.py .......                         [ 18%]
+tests/digital_artist/test_workspace_capture.py ......                    [ 21%]
+tests/game_developer/asset_optimization/test_chunking.py .......         [ 25%]
+tests/game_developer/asset_optimization/test_compressor.py .......       [ 28%]
+tests/game_developer/asset_optimization/test_deduplication.py .......    [ 32%]
+tests/game_developer/asset_optimization/test_manager.py ........         [ 36%]
+tests/game_developer/backup_engine/test_chunking.py .....                [ 39%]
+tests/game_developer/backup_engine/test_engine.py ......                 [ 42%]
+tests/game_developer/backup_engine/test_storage.py .........             [ 46%]
+tests/game_developer/backup_engine/test_version_tracker.py ..........    [ 52%]
+tests/game_developer/feedback_system/test_analysis.py .......            [ 55%]
+tests/game_developer/feedback_system/test_database.py ........           [ 59%]
+tests/game_developer/feedback_system/test_manager.py ............        [ 65%]
+tests/game_developer/integration/test_game_development_workflow.py ....  [ 68%]
+tests/game_developer/milestone_management/test_manager.py .............  [ 74%]
+tests/game_developer/performance/test_backup_performance.py sssssss      [ 78%]
+tests/game_developer/performance/test_playtest_performance.py sssss      [ 80%]
+tests/game_developer/platform_config/test_manager.py ...........         [ 86%]
+tests/game_developer/playtest_recorder/test_analysis.py ........         [ 90%]
+tests/game_developer/playtest_recorder/test_recorder.py .........        [ 95%]
+tests/game_developer/playtest_recorder/test_storage.py .........         [100%]
+
+--------------------------------- JSON report ----------------------------------
+report saved to: report.json
+======================= 182 passed, 12 skipped in 8.24s ========================

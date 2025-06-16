@@ -1,0 +1,4007 @@
+============================= test session starts ==============================
+platform linux -- Python 3.10.11, pytest-8.3.5, pluggy-1.5.0
+rootdir: /home/justinchiu_cohere_com/minicode/large_repos/personal_finance_tracker/unified
+configfile: pyproject.toml
+plugins: anyio-4.9.0, metadata-3.1.1, json-report-1.5.0, cov-6.1.1
+collected 153 items
+
+tests/freelancer/expense/test_categorizer.py FFFFFFFFFFFF                [  7%]
+tests/freelancer/income/test_income_manager.py FFFFFFFFFFF               [ 15%]
+tests/freelancer/integration/test_categorization_recovery.py F.          [ 16%]
+tests/freelancer/integration/test_categorization_recovery_mocks.py FF    [ 17%]
+tests/freelancer/integration/test_categorization_recovery_simplified.py F [ 18%]
+F                                                                        [ 18%]
+tests/freelancer/integration/test_expense_tax_integration.py FF          [ 20%]
+tests/freelancer/integration/test_integration_mocks.py FF.F              [ 22%]
+tests/freelancer/integration/test_multi_year_projects.py FFF.            [ 25%]
+tests/freelancer/integration/test_quarterly_tax_mocks.py F..             [ 27%]
+tests/freelancer/integration/test_quarterly_tax_preparation.py F..       [ 29%]
+tests/freelancer/integration/test_quarterly_tax_preparation_mock.py F    [ 30%]
+tests/freelancer/integration/test_quarterly_tax_preparation_simplified.py F [ 30%]
+..                                                                       [ 32%]
+tests/freelancer/integration/test_year_over_year_comparison.py FFF.      [ 34%]
+tests/freelancer/integration/test_year_over_year_mocks.py FFFF           [ 37%]
+tests/freelancer/integration/test_year_over_year_simple.py .F..          [ 39%]
+tests/freelancer/integration/test_year_over_year_simplified.py FF..      [ 42%]
+tests/freelancer/project/test_profitability_analyzer.py FFFF...F         [ 47%]
+tests/freelancer/projection/test_financial_projector.py F.......         [ 52%]
+tests/freelancer/tax/test_tax_manager_simple.py .....                    [ 56%]
+tests/freelancer/test_main.py .                                          [ 56%]
+tests/socially_responsible_investor/test_ethical_screening/test_ethical_criteria_customization.py . [ 57%]
+..                                                                       [ 58%]
+tests/socially_responsible_investor/test_ethical_screening/test_screening.py . [ 59%]
+..........                                                               [ 66%]
+tests/socially_responsible_investor/test_impact_measurement/test_impact.py . [ 66%]
+..........                                                               [ 73%]
+tests/socially_responsible_investor/test_impact_measurement/test_impact_attribution.py . [ 73%]
+..                                                                       [ 75%]
+tests/socially_responsible_investor/test_portfolio_analysis/test_advanced_analysis.py . [ 75%]
+..                                                                       [ 77%]
+tests/socially_responsible_investor/test_portfolio_analysis/test_analysis.py . [ 77%]
+.........                                                                [ 83%]
+tests/socially_responsible_investor/test_shareholder_advocacy/test_advocacy.py . [ 84%]
+.........                                                                [ 90%]
+tests/socially_responsible_investor/test_values_budgeting/test_budgeting.py . [ 90%]
+...........                                                              [ 98%]
+tests/socially_responsible_investor/test_values_budgeting/test_personal_values_alignment.py . [ 98%]
+..                                                                       [100%]
+
+=================================== FAILURES ===================================
+_______________________ TestExpenseCategorizer.test_init _______________________
+
+self = <tests.freelancer.expense.test_categorizer.TestExpenseCategorizer object at 0x7fc860239f60>
+
+    def test_init(self):
+        """Test initialization of the expense categorizer."""
+        categorizer = ExpenseCategorizer()
+>       assert categorizer.rules == []
+E       AssertionError: assert [Categorizati...ue=None), ...] == []
+E         
+E         Left contains 8 more items, first extra item: CategorizationRule(rule_id='6568779b-c78d-438d-be2c-0573c92eb6b5', category='software', rule_type=<RuleType.DESCRIPTIO...ASE), amount_min=None, amount_max=None, amount_value=None, required_tags=[], custom_function=None, category_value=None)
+E         Use -v to get more diff
+
+tests/freelancer/expense/test_categorizer.py:32: AssertionError
+_____________ TestExpenseCategorizer.test_add_categorization_rule ______________
+
+self = <tests.freelancer.expense.test_categorizer.TestExpenseCategorizer object at 0x7fc86023a770>
+
+    def test_add_categorization_rule(self):
+        """Test adding a categorization rule."""
+        categorizer = ExpenseCategorizer()
+    
+        # Create a rule
+        rule = CategorizationRule(
+            name="Office Supplies Rule",
+            category=ExpenseCategory.BUSINESS_SUPPLIES,
+            keyword_patterns=["office", "supplies", "paper", "ink", "toner"],
+            business_use_percentage=100.0,
+            priority=10,
+        )
+    
+        # Add the rule
+>       added_rule = categorizer.add_categorization_rule(rule)
+E       AttributeError: 'FreelancerExpenseCategorizer' object has no attribute 'add_categorization_rule'
+
+tests/freelancer/expense/test_categorizer.py:51: AttributeError
+____________ TestExpenseCategorizer.test_update_categorization_rule ____________
+
+self = <tests.freelancer.expense.test_categorizer.TestExpenseCategorizer object at 0x7fc860239bd0>
+
+    def test_update_categorization_rule(self):
+        """Test updating a categorization rule."""
+        categorizer = ExpenseCategorizer()
+    
+        # Create and add a rule
+        rule = CategorizationRule(
+            name="Original Rule",
+            category=ExpenseCategory.BUSINESS_SUPPLIES,
+            keyword_patterns=["original"],
+            business_use_percentage=100.0,
+            priority=10,
+        )
+    
+>       categorizer.add_categorization_rule(rule)
+E       AttributeError: 'FreelancerExpenseCategorizer' object has no attribute 'add_categorization_rule'
+
+tests/freelancer/expense/test_categorizer.py:92: AttributeError
+____________ TestExpenseCategorizer.test_remove_categorization_rule ____________
+
+self = <tests.freelancer.expense.test_categorizer.TestExpenseCategorizer object at 0x7fc86023a920>
+
+    def test_remove_categorization_rule(self):
+        """Test removing a categorization rule."""
+        categorizer = ExpenseCategorizer()
+    
+        # Create and add rules
+        rule1 = CategorizationRule(
+            name="Rule 1",
+            category=ExpenseCategory.BUSINESS_SUPPLIES,
+            keyword_patterns=["rule1"],
+            business_use_percentage=100.0,
+        )
+    
+        rule2 = CategorizationRule(
+            name="Rule 2",
+            category=ExpenseCategory.SOFTWARE,
+            keyword_patterns=["rule2"],
+            business_use_percentage=100.0,
+        )
+    
+>       categorizer.add_categorization_rule(rule1)
+E       AttributeError: 'FreelancerExpenseCategorizer' object has no attribute 'add_categorization_rule'
+
+tests/freelancer/expense/test_categorizer.py:149: AttributeError
+________________ TestExpenseCategorizer.test_add_mixed_use_item ________________
+
+self = <tests.freelancer.expense.test_categorizer.TestExpenseCategorizer object at 0x7fc86023a950>
+
+    def test_add_mixed_use_item(self):
+        """Test adding a mixed-use item."""
+        categorizer = ExpenseCategorizer()
+    
+        # Create a mixed-use item
+        item = MixedUseItem(
+            name="Home Internet",
+            category=ExpenseCategory.INTERNET,
+            business_use_percentage=70.0,
+            description="Internet used for both business and personal",
+        )
+    
+        # Add the item
+>       added_item = categorizer.add_mixed_use_item(item)
+E       AttributeError: 'FreelancerExpenseCategorizer' object has no attribute 'add_mixed_use_item'. Did you mean: '_add_mixed_use_item'?
+
+tests/freelancer/expense/test_categorizer.py:177: AttributeError
+______________ TestExpenseCategorizer.test_categorize_transaction ______________
+
+self = <tests.freelancer.expense.test_categorizer.TestExpenseCategorizer object at 0x7fc86023aa10>
+sample_transactions = [BaseTransaction(id='1f9862b2-69b1-427d-8910-e6c0a2614ea6', date=2022-01-15 00:00:00, amount=2500, description='Client...7e-eb258c9c1560', date=2022-07-15 00:00:00, amount=5000, description='Client payment for Project 6', type=income), ...]
+
+    def test_categorize_transaction(self, sample_transactions):
+        """Test categorizing a transaction."""
+        categorizer = ExpenseCategorizer()
+    
+        # Add some rules
+        rules = [
+            CategorizationRule(
+                name="Software Rule",
+                category=ExpenseCategory.SOFTWARE,
+                keyword_patterns=["software", "subscription"],
+                business_use_percentage=100.0,
+                priority=10,
+            ),
+            CategorizationRule(
+                name="Office Supplies Rule",
+                category=ExpenseCategory.BUSINESS_SUPPLIES,
+                keyword_patterns=["supplies", "office"],
+                business_use_percentage=100.0,
+                priority=5,
+            ),
+            CategorizationRule(
+                name="Meal Rule",
+                category=ExpenseCategory.MEALS,
+                keyword_patterns=["meal", "restaurant", "food"],
+                business_use_percentage=50.0,  # 50% business use
+                priority=3,
+            ),
+        ]
+    
+        for rule in rules:
+>           categorizer.add_categorization_rule(rule)
+E           AttributeError: 'FreelancerExpenseCategorizer' object has no attribute 'add_categorization_rule'
+
+tests/freelancer/expense/test_categorizer.py:218: AttributeError
+_____________ TestExpenseCategorizer.test_categorize_transactions ______________
+
+self = <tests.freelancer.expense.test_categorizer.TestExpenseCategorizer object at 0x7fc86023ad70>
+
+    def test_categorize_transactions(self):
+        """Test categorizing multiple transactions at once."""
+        categorizer = ExpenseCategorizer()
+    
+        # Add rules
+        rule = CategorizationRule(
+            name="Office Supplies Rule",
+            category=ExpenseCategory.BUSINESS_SUPPLIES,
+            keyword_patterns=["office", "supplies"],
+            business_use_percentage=100.0,
+        )
+    
+>       categorizer.add_categorization_rule(rule)
+E       AttributeError: 'FreelancerExpenseCategorizer' object has no attribute 'add_categorization_rule'
+
+tests/freelancer/expense/test_categorizer.py:324: AttributeError
+_______________ TestExpenseCategorizer.test_apply_categorization _______________
+
+self = <tests.freelancer.expense.test_categorizer.TestExpenseCategorizer object at 0x7fc86023aef0>
+
+    def test_apply_categorization(self):
+        """Test applying a categorization result to a transaction."""
+        categorizer = ExpenseCategorizer()
+    
+        # Create a transaction
+        transaction = Transaction(
+            id=uuid.uuid4(),
+            date=datetime(2022, 7, 1),
+            amount=100.0,
+            description="Test transaction",
+            transaction_type=TransactionType.EXPENSE,
+            account_id="checking123",
+        )
+    
+        # Create a categorization result
+    
+        result = CategorizationResult(
+            transaction_id=transaction.id,
+            original_transaction=transaction,
+            assigned_category=ExpenseCategory.SOFTWARE,
+            business_use_percentage=80.0,
+            confidence_score=0.9,
+            is_mixed_use=True,
+        )
+    
+        # Apply the categorization
+>       updated_transaction = categorizer.apply_categorization(transaction, result)
+E       AttributeError: 'FreelancerExpenseCategorizer' object has no attribute 'apply_categorization'
+
+tests/freelancer/expense/test_categorizer.py:397: AttributeError
+_____________ TestExpenseCategorizer.test_generate_expense_summary _____________
+
+self = <tests.freelancer.expense.test_categorizer.TestExpenseCategorizer object at 0x7fc86023b0a0>
+sample_transactions = [BaseTransaction(id='de40c8b8-01cf-410c-bb7b-cb2948e2559c', date=2022-01-15 00:00:00, amount=2500, description='Client...9c-41ef5641a34f', date=2022-07-15 00:00:00, amount=5000, description='Client payment for Project 6', type=income), ...]
+
+    def test_generate_expense_summary(self, sample_transactions):
+        """Test generating an expense summary."""
+        categorizer = ExpenseCategorizer()
+    
+        # Add rules for test categories
+        rules = [
+            CategorizationRule(
+                name="Software Rule",
+                category=ExpenseCategory.SOFTWARE,
+                keyword_patterns=["software"],
+                business_use_percentage=100.0,
+            ),
+            CategorizationRule(
+                name="Internet Rule",
+                category=ExpenseCategory.INTERNET,
+                keyword_patterns=["internet"],
+                business_use_percentage=80.0,
+            ),
+        ]
+    
+        for rule in rules:
+>           categorizer.add_categorization_rule(rule)
+E           AttributeError: 'FreelancerExpenseCategorizer' object has no attribute 'add_categorization_rule'
+
+tests/freelancer/expense/test_categorizer.py:429: AttributeError
+_________________ TestExpenseCategorizer.test_get_audit_trail __________________
+
+self = <tests.freelancer.expense.test_categorizer.TestExpenseCategorizer object at 0x7fc86023b220>
+
+    def test_get_audit_trail(self):
+        """Test retrieving the audit trail."""
+        categorizer = ExpenseCategorizer()
+    
+        # Create a transaction
+        transaction = Transaction(
+            id=uuid.uuid4(),
+            date=datetime(2022, 8, 1),
+            amount=100.0,
+            description="Test transaction",
+            transaction_type=TransactionType.EXPENSE,
+            account_id="checking123",
+        )
+    
+        # Create a categorization result
+    
+        result = CategorizationResult(
+            transaction_id=transaction.id,
+            original_transaction=transaction,
+            assigned_category=ExpenseCategory.SOFTWARE,
+            business_use_percentage=100.0,
+            confidence_score=0.9,
+        )
+    
+        # Perform multiple actions to generate audit records
+>       categorizer.apply_categorization(transaction, result)
+E       AttributeError: 'FreelancerExpenseCategorizer' object has no attribute 'apply_categorization'
+
+tests/freelancer/expense/test_categorizer.py:485: AttributeError
+______________ TestExpenseCategorizer.test_correct_categorization ______________
+
+self = <tests.freelancer.expense.test_categorizer.TestExpenseCategorizer object at 0x7fc86023b3a0>
+
+    def test_correct_categorization(self):
+        """Test correcting the categorization of a transaction."""
+        categorizer = ExpenseCategorizer()
+    
+        # Create a transaction with initial categorization
+        transaction = Transaction(
+            id=uuid.uuid4(),
+            date=datetime(2022, 9, 1),
+            amount=200.0,
+            description="Initially miscategorized expense",
+            transaction_type=TransactionType.EXPENSE,
+            account_id="checking123",
+            category=ExpenseCategory.PERSONAL,
+            business_use_percentage=0.0,
+        )
+    
+        # Correct the categorization
+>       updated_transaction = categorizer.correct_categorization(
+            transaction,
+            new_category=ExpenseCategory.MARKETING,
+            new_business_percentage=100.0,
+        )
+E       AttributeError: 'FreelancerExpenseCategorizer' object has no attribute 'correct_categorization'
+
+tests/freelancer/expense/test_categorizer.py:530: AttributeError
+__________________ TestExpenseCategorizer.test_rule_matching ___________________
+
+self = <tests.freelancer.expense.test_categorizer.TestExpenseCategorizer object at 0x7fc86023b520>
+
+    def test_rule_matching(self):
+        """Test rule matching logic in more detail."""
+        categorizer = ExpenseCategorizer()
+    
+        # Create rules with different conditions
+        rules = [
+            # Rule with keyword patterns only
+            CategorizationRule(
+                name="Keyword Rule",
+                category=ExpenseCategory.SOFTWARE,
+                keyword_patterns=["software", "subscription"],
+                business_use_percentage=100.0,
+                priority=10,
+            ),
+            # Rule with merchant patterns only
+            CategorizationRule(
+                name="Merchant Rule",
+                category=ExpenseCategory.MEALS,
+                merchant_patterns=["restaurant", "cafe"],
+                business_use_percentage=50.0,
+                priority=8,
+            ),
+            # Rule with amount range only
+            CategorizationRule(
+                name="Amount Rule",
+                category=ExpenseCategory.EQUIPMENT,
+                amount_min=500.0,
+                amount_max=2000.0,
+                business_use_percentage=100.0,
+                priority=5,
+            ),
+            # Rule with multiple conditions
+            CategorizationRule(
+                name="Complex Rule",
+                category=ExpenseCategory.MARKETING,
+                keyword_patterns=["marketing", "advertising"],
+                merchant_patterns=["facebook", "google"],
+                amount_max=300.0,
+                business_use_percentage=100.0,
+                priority=15,
+            ),
+        ]
+    
+        for rule in rules:
+>           categorizer.add_categorization_rule(rule)
+E           AttributeError: 'FreelancerExpenseCategorizer' object has no attribute 'add_categorization_rule'
+
+tests/freelancer/expense/test_categorizer.py:596: AttributeError
+_________________________ TestIncomeManager.test_init __________________________
+
+self = <tests.freelancer.income.test_income_manager.TestIncomeManager object at 0x7fc86023a0e0>
+
+    def test_init(self):
+        """Test initialization with default and custom config."""
+        # Default initialization
+>       manager = IncomeManager()
+
+tests/freelancer/income/test_income_manager.py:24: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+personal_finance_tracker/income/income_manager_migrated.py:54: in __init__
+    'window_months': self.config.window_months,
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = SmoothingConfig(method=<SmoothingMethod.MOVING_AVERAGE: 'moving_average'>, window_size=3, alpha=0.3, seasonal_periods=...ercentile=25.0, min_history_months=3, target_monthly_income=None, emergency_buffer_months=2.0, confidence_interval=0.8)
+item = 'window_months'
+
+    def __getattr__(self, item: str) -> Any:
+        private_attributes = object.__getattribute__(self, '__private_attributes__')
+        if item in private_attributes:
+            attribute = private_attributes[item]
+            if hasattr(attribute, '__get__'):
+                return attribute.__get__(self, type(self))  # type: ignore
+    
+            try:
+                # Note: self.__pydantic_private__ cannot be None if self.__private_attributes__ has items
+                return self.__pydantic_private__[item]  # type: ignore
+            except KeyError as exc:
+                raise AttributeError(f'{type(self).__name__!r} object has no attribute {item!r}') from exc
+        else:
+            # `__pydantic_extra__` can fail to be set if the model is not yet fully initialized.
+            # See `BaseModel.__repr_args__` for more details
+            try:
+                pydantic_extra = object.__getattribute__(self, '__pydantic_extra__')
+            except AttributeError:
+                pydantic_extra = None
+    
+            if pydantic_extra:
+                try:
+                    return pydantic_extra[item]
+                except KeyError as exc:
+                    raise AttributeError(f'{type(self).__name__!r} object has no attribute {item!r}') from exc
+            else:
+                if hasattr(self.__class__, item):
+                    return super().__getattribute__(item)  # Raises AttributeError if appropriate
+                else:
+                    # this is the current error
+>                   raise AttributeError(f'{type(self).__name__!r} object has no attribute {item!r}')
+E                   AttributeError: 'SmoothingConfig' object has no attribute 'window_months'
+
+../../../../.pyenv/versions/3.10.11/lib/python3.10/site-packages/pydantic/main.py:989: AttributeError
+_______________ TestIncomeManager.test_calculate_monthly_income ________________
+
+self = <tests.freelancer.income.test_income_manager.TestIncomeManager object at 0x7fc860239750>
+sample_transactions = [BaseTransaction(id='31a3c5f0-2efd-401e-8482-f011af855a75', date=2022-01-15 00:00:00, amount=2500, description='Client...b7-9fc78483675a', date=2022-07-15 00:00:00, amount=5000, description='Client payment for Project 6', type=income), ...]
+
+    def test_calculate_monthly_income(self, sample_transactions):
+        """Test calculation of monthly income from transactions."""
+>       manager = IncomeManager()
+
+tests/freelancer/income/test_income_manager.py:39: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+personal_finance_tracker/income/income_manager_migrated.py:54: in __init__
+    'window_months': self.config.window_months,
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = SmoothingConfig(method=<SmoothingMethod.MOVING_AVERAGE: 'moving_average'>, window_size=3, alpha=0.3, seasonal_periods=...ercentile=25.0, min_history_months=3, target_monthly_income=None, emergency_buffer_months=2.0, confidence_interval=0.8)
+item = 'window_months'
+
+    def __getattr__(self, item: str) -> Any:
+        private_attributes = object.__getattribute__(self, '__private_attributes__')
+        if item in private_attributes:
+            attribute = private_attributes[item]
+            if hasattr(attribute, '__get__'):
+                return attribute.__get__(self, type(self))  # type: ignore
+    
+            try:
+                # Note: self.__pydantic_private__ cannot be None if self.__private_attributes__ has items
+                return self.__pydantic_private__[item]  # type: ignore
+            except KeyError as exc:
+                raise AttributeError(f'{type(self).__name__!r} object has no attribute {item!r}') from exc
+        else:
+            # `__pydantic_extra__` can fail to be set if the model is not yet fully initialized.
+            # See `BaseModel.__repr_args__` for more details
+            try:
+                pydantic_extra = object.__getattribute__(self, '__pydantic_extra__')
+            except AttributeError:
+                pydantic_extra = None
+    
+            if pydantic_extra:
+                try:
+                    return pydantic_extra[item]
+                except KeyError as exc:
+                    raise AttributeError(f'{type(self).__name__!r} object has no attribute {item!r}') from exc
+            else:
+                if hasattr(self.__class__, item):
+                    return super().__getattribute__(item)  # Raises AttributeError if appropriate
+                else:
+                    # this is the current error
+>                   raise AttributeError(f'{type(self).__name__!r} object has no attribute {item!r}')
+E                   AttributeError: 'SmoothingConfig' object has no attribute 'window_months'
+
+../../../../.pyenv/versions/3.10.11/lib/python3.10/site-packages/pydantic/main.py:989: AttributeError
+_____________ TestIncomeManager.test_smooth_income_moving_average ______________
+
+self = <tests.freelancer.income.test_income_manager.TestIncomeManager object at 0x7fc86023a830>
+sample_transactions = [BaseTransaction(id='208fa73d-1403-4323-aa14-c7ce98d52029', date=2022-01-15 00:00:00, amount=2500, description='Client...30-d9693525a8de', date=2022-07-15 00:00:00, amount=5000, description='Client payment for Project 6', type=income), ...]
+
+    def test_smooth_income_moving_average(self, sample_transactions):
+        """Test income smoothing with moving average method."""
+>       manager = IncomeManager()
+
+tests/freelancer/income/test_income_manager.py:57: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+personal_finance_tracker/income/income_manager_migrated.py:54: in __init__
+    'window_months': self.config.window_months,
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = SmoothingConfig(method=<SmoothingMethod.MOVING_AVERAGE: 'moving_average'>, window_size=3, alpha=0.3, seasonal_periods=...ercentile=25.0, min_history_months=3, target_monthly_income=None, emergency_buffer_months=2.0, confidence_interval=0.8)
+item = 'window_months'
+
+    def __getattr__(self, item: str) -> Any:
+        private_attributes = object.__getattribute__(self, '__private_attributes__')
+        if item in private_attributes:
+            attribute = private_attributes[item]
+            if hasattr(attribute, '__get__'):
+                return attribute.__get__(self, type(self))  # type: ignore
+    
+            try:
+                # Note: self.__pydantic_private__ cannot be None if self.__private_attributes__ has items
+                return self.__pydantic_private__[item]  # type: ignore
+            except KeyError as exc:
+                raise AttributeError(f'{type(self).__name__!r} object has no attribute {item!r}') from exc
+        else:
+            # `__pydantic_extra__` can fail to be set if the model is not yet fully initialized.
+            # See `BaseModel.__repr_args__` for more details
+            try:
+                pydantic_extra = object.__getattribute__(self, '__pydantic_extra__')
+            except AttributeError:
+                pydantic_extra = None
+    
+            if pydantic_extra:
+                try:
+                    return pydantic_extra[item]
+                except KeyError as exc:
+                    raise AttributeError(f'{type(self).__name__!r} object has no attribute {item!r}') from exc
+            else:
+                if hasattr(self.__class__, item):
+                    return super().__getattribute__(item)  # Raises AttributeError if appropriate
+                else:
+                    # this is the current error
+>                   raise AttributeError(f'{type(self).__name__!r} object has no attribute {item!r}')
+E                   AttributeError: 'SmoothingConfig' object has no attribute 'window_months'
+
+../../../../.pyenv/versions/3.10.11/lib/python3.10/site-packages/pydantic/main.py:989: AttributeError
+__________ TestIncomeManager.test_smooth_income_exponential_smoothing __________
+
+self = <tests.freelancer.income.test_income_manager.TestIncomeManager object at 0x7fc86023b880>
+sample_transactions = [BaseTransaction(id='2fa0e79a-032c-4ea8-b83a-bf7f3dc7c5e8', date=2022-01-15 00:00:00, amount=2500, description='Client...49-1db80559201a', date=2022-07-15 00:00:00, amount=5000, description='Client payment for Project 6', type=income), ...]
+
+    def test_smooth_income_exponential_smoothing(self, sample_transactions):
+        """Test income smoothing with exponential smoothing method."""
+>       manager = IncomeManager()
+
+tests/freelancer/income/test_income_manager.py:89: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+personal_finance_tracker/income/income_manager_migrated.py:54: in __init__
+    'window_months': self.config.window_months,
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = SmoothingConfig(method=<SmoothingMethod.MOVING_AVERAGE: 'moving_average'>, window_size=3, alpha=0.3, seasonal_periods=...ercentile=25.0, min_history_months=3, target_monthly_income=None, emergency_buffer_months=2.0, confidence_interval=0.8)
+item = 'window_months'
+
+    def __getattr__(self, item: str) -> Any:
+        private_attributes = object.__getattribute__(self, '__private_attributes__')
+        if item in private_attributes:
+            attribute = private_attributes[item]
+            if hasattr(attribute, '__get__'):
+                return attribute.__get__(self, type(self))  # type: ignore
+    
+            try:
+                # Note: self.__pydantic_private__ cannot be None if self.__private_attributes__ has items
+                return self.__pydantic_private__[item]  # type: ignore
+            except KeyError as exc:
+                raise AttributeError(f'{type(self).__name__!r} object has no attribute {item!r}') from exc
+        else:
+            # `__pydantic_extra__` can fail to be set if the model is not yet fully initialized.
+            # See `BaseModel.__repr_args__` for more details
+            try:
+                pydantic_extra = object.__getattribute__(self, '__pydantic_extra__')
+            except AttributeError:
+                pydantic_extra = None
+    
+            if pydantic_extra:
+                try:
+                    return pydantic_extra[item]
+                except KeyError as exc:
+                    raise AttributeError(f'{type(self).__name__!r} object has no attribute {item!r}') from exc
+            else:
+                if hasattr(self.__class__, item):
+                    return super().__getattribute__(item)  # Raises AttributeError if appropriate
+                else:
+                    # this is the current error
+>                   raise AttributeError(f'{type(self).__name__!r} object has no attribute {item!r}')
+E                   AttributeError: 'SmoothingConfig' object has no attribute 'window_months'
+
+../../../../.pyenv/versions/3.10.11/lib/python3.10/site-packages/pydantic/main.py:989: AttributeError
+____________ TestIncomeManager.test_smooth_income_percentile_based _____________
+
+self = <tests.freelancer.income.test_income_manager.TestIncomeManager object at 0x7fc86023ba90>
+sample_transactions = [BaseTransaction(id='cc9780ec-3816-414b-90ef-eaae4bfb9f2d', date=2022-01-15 00:00:00, amount=2500, description='Client...fe-632221f94f01', date=2022-07-15 00:00:00, amount=5000, description='Client payment for Project 6', type=income), ...]
+
+    def test_smooth_income_percentile_based(self, sample_transactions):
+        """Test income smoothing with percentile-based method."""
+>       manager = IncomeManager()
+
+tests/freelancer/income/test_income_manager.py:116: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+personal_finance_tracker/income/income_manager_migrated.py:54: in __init__
+    'window_months': self.config.window_months,
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = SmoothingConfig(method=<SmoothingMethod.MOVING_AVERAGE: 'moving_average'>, window_size=3, alpha=0.3, seasonal_periods=...ercentile=25.0, min_history_months=3, target_monthly_income=None, emergency_buffer_months=2.0, confidence_interval=0.8)
+item = 'window_months'
+
+    def __getattr__(self, item: str) -> Any:
+        private_attributes = object.__getattribute__(self, '__private_attributes__')
+        if item in private_attributes:
+            attribute = private_attributes[item]
+            if hasattr(attribute, '__get__'):
+                return attribute.__get__(self, type(self))  # type: ignore
+    
+            try:
+                # Note: self.__pydantic_private__ cannot be None if self.__private_attributes__ has items
+                return self.__pydantic_private__[item]  # type: ignore
+            except KeyError as exc:
+                raise AttributeError(f'{type(self).__name__!r} object has no attribute {item!r}') from exc
+        else:
+            # `__pydantic_extra__` can fail to be set if the model is not yet fully initialized.
+            # See `BaseModel.__repr_args__` for more details
+            try:
+                pydantic_extra = object.__getattribute__(self, '__pydantic_extra__')
+            except AttributeError:
+                pydantic_extra = None
+    
+            if pydantic_extra:
+                try:
+                    return pydantic_extra[item]
+                except KeyError as exc:
+                    raise AttributeError(f'{type(self).__name__!r} object has no attribute {item!r}') from exc
+            else:
+                if hasattr(self.__class__, item):
+                    return super().__getattribute__(item)  # Raises AttributeError if appropriate
+                else:
+                    # this is the current error
+>                   raise AttributeError(f'{type(self).__name__!r} object has no attribute {item!r}')
+E                   AttributeError: 'SmoothingConfig' object has no attribute 'window_months'
+
+../../../../.pyenv/versions/3.10.11/lib/python3.10/site-packages/pydantic/main.py:989: AttributeError
+___________ TestIncomeManager.test_smooth_income_seasonal_adjustment ___________
+
+self = <tests.freelancer.income.test_income_manager.TestIncomeManager object at 0x7fc86023bca0>
+sample_transactions = [BaseTransaction(id='77203dd8-64cb-438f-b272-d443d9518dc5', date=2022-01-15 00:00:00, amount=2500, description='Client...1d-7c16c7ee69ec', date=2022-07-15 00:00:00, amount=5000, description='Client payment for Project 6', type=income), ...]
+
+    def test_smooth_income_seasonal_adjustment(self, sample_transactions):
+        """Test income smoothing with seasonal adjustment method."""
+>       manager = IncomeManager()
+
+tests/freelancer/income/test_income_manager.py:147: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+personal_finance_tracker/income/income_manager_migrated.py:54: in __init__
+    'window_months': self.config.window_months,
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = SmoothingConfig(method=<SmoothingMethod.MOVING_AVERAGE: 'moving_average'>, window_size=3, alpha=0.3, seasonal_periods=...ercentile=25.0, min_history_months=3, target_monthly_income=None, emergency_buffer_months=2.0, confidence_interval=0.8)
+item = 'window_months'
+
+    def __getattr__(self, item: str) -> Any:
+        private_attributes = object.__getattribute__(self, '__private_attributes__')
+        if item in private_attributes:
+            attribute = private_attributes[item]
+            if hasattr(attribute, '__get__'):
+                return attribute.__get__(self, type(self))  # type: ignore
+    
+            try:
+                # Note: self.__pydantic_private__ cannot be None if self.__private_attributes__ has items
+                return self.__pydantic_private__[item]  # type: ignore
+            except KeyError as exc:
+                raise AttributeError(f'{type(self).__name__!r} object has no attribute {item!r}') from exc
+        else:
+            # `__pydantic_extra__` can fail to be set if the model is not yet fully initialized.
+            # See `BaseModel.__repr_args__` for more details
+            try:
+                pydantic_extra = object.__getattribute__(self, '__pydantic_extra__')
+            except AttributeError:
+                pydantic_extra = None
+    
+            if pydantic_extra:
+                try:
+                    return pydantic_extra[item]
+                except KeyError as exc:
+                    raise AttributeError(f'{type(self).__name__!r} object has no attribute {item!r}') from exc
+            else:
+                if hasattr(self.__class__, item):
+                    return super().__getattribute__(item)  # Raises AttributeError if appropriate
+                else:
+                    # this is the current error
+>                   raise AttributeError(f'{type(self).__name__!r} object has no attribute {item!r}')
+E                   AttributeError: 'SmoothingConfig' object has no attribute 'window_months'
+
+../../../../.pyenv/versions/3.10.11/lib/python3.10/site-packages/pydantic/main.py:989: AttributeError
+_____________ TestIncomeManager.test_smooth_income_rolling_median ______________
+
+self = <tests.freelancer.income.test_income_manager.TestIncomeManager object at 0x7fc86023beb0>
+sample_transactions = [BaseTransaction(id='62f46f59-b045-495c-92a6-490bcc776c17', date=2022-01-15 00:00:00, amount=2500, description='Client...0d-8625f752b413', date=2022-07-15 00:00:00, amount=5000, description='Client payment for Project 6', type=income), ...]
+
+    def test_smooth_income_rolling_median(self, sample_transactions):
+        """Test income smoothing with rolling median method."""
+>       manager = IncomeManager()
+
+tests/freelancer/income/test_income_manager.py:174: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+personal_finance_tracker/income/income_manager_migrated.py:54: in __init__
+    'window_months': self.config.window_months,
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = SmoothingConfig(method=<SmoothingMethod.MOVING_AVERAGE: 'moving_average'>, window_size=3, alpha=0.3, seasonal_periods=...ercentile=25.0, min_history_months=3, target_monthly_income=None, emergency_buffer_months=2.0, confidence_interval=0.8)
+item = 'window_months'
+
+    def __getattr__(self, item: str) -> Any:
+        private_attributes = object.__getattribute__(self, '__private_attributes__')
+        if item in private_attributes:
+            attribute = private_attributes[item]
+            if hasattr(attribute, '__get__'):
+                return attribute.__get__(self, type(self))  # type: ignore
+    
+            try:
+                # Note: self.__pydantic_private__ cannot be None if self.__private_attributes__ has items
+                return self.__pydantic_private__[item]  # type: ignore
+            except KeyError as exc:
+                raise AttributeError(f'{type(self).__name__!r} object has no attribute {item!r}') from exc
+        else:
+            # `__pydantic_extra__` can fail to be set if the model is not yet fully initialized.
+            # See `BaseModel.__repr_args__` for more details
+            try:
+                pydantic_extra = object.__getattribute__(self, '__pydantic_extra__')
+            except AttributeError:
+                pydantic_extra = None
+    
+            if pydantic_extra:
+                try:
+                    return pydantic_extra[item]
+                except KeyError as exc:
+                    raise AttributeError(f'{type(self).__name__!r} object has no attribute {item!r}') from exc
+            else:
+                if hasattr(self.__class__, item):
+                    return super().__getattribute__(item)  # Raises AttributeError if appropriate
+                else:
+                    # this is the current error
+>                   raise AttributeError(f'{type(self).__name__!r} object has no attribute {item!r}')
+E                   AttributeError: 'SmoothingConfig' object has no attribute 'window_months'
+
+../../../../.pyenv/versions/3.10.11/lib/python3.10/site-packages/pydantic/main.py:989: AttributeError
+_______________ TestIncomeManager.test_smooth_income_with_target _______________
+
+self = <tests.freelancer.income.test_income_manager.TestIncomeManager object at 0x7fc860090100>
+sample_transactions = [BaseTransaction(id='220a999f-eb37-474f-9ce4-d5abf3afd61a', date=2022-01-15 00:00:00, amount=2500, description='Client...2f-d398d212cf27', date=2022-07-15 00:00:00, amount=5000, description='Client payment for Project 6', type=income), ...]
+
+    def test_smooth_income_with_target(self, sample_transactions):
+        """Test income smoothing with target monthly income override."""
+>       manager = IncomeManager()
+
+tests/freelancer/income/test_income_manager.py:199: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+personal_finance_tracker/income/income_manager_migrated.py:54: in __init__
+    'window_months': self.config.window_months,
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = SmoothingConfig(method=<SmoothingMethod.MOVING_AVERAGE: 'moving_average'>, window_size=3, alpha=0.3, seasonal_periods=...ercentile=25.0, min_history_months=3, target_monthly_income=None, emergency_buffer_months=2.0, confidence_interval=0.8)
+item = 'window_months'
+
+    def __getattr__(self, item: str) -> Any:
+        private_attributes = object.__getattribute__(self, '__private_attributes__')
+        if item in private_attributes:
+            attribute = private_attributes[item]
+            if hasattr(attribute, '__get__'):
+                return attribute.__get__(self, type(self))  # type: ignore
+    
+            try:
+                # Note: self.__pydantic_private__ cannot be None if self.__private_attributes__ has items
+                return self.__pydantic_private__[item]  # type: ignore
+            except KeyError as exc:
+                raise AttributeError(f'{type(self).__name__!r} object has no attribute {item!r}') from exc
+        else:
+            # `__pydantic_extra__` can fail to be set if the model is not yet fully initialized.
+            # See `BaseModel.__repr_args__` for more details
+            try:
+                pydantic_extra = object.__getattribute__(self, '__pydantic_extra__')
+            except AttributeError:
+                pydantic_extra = None
+    
+            if pydantic_extra:
+                try:
+                    return pydantic_extra[item]
+                except KeyError as exc:
+                    raise AttributeError(f'{type(self).__name__!r} object has no attribute {item!r}') from exc
+            else:
+                if hasattr(self.__class__, item):
+                    return super().__getattribute__(item)  # Raises AttributeError if appropriate
+                else:
+                    # this is the current error
+>                   raise AttributeError(f'{type(self).__name__!r} object has no attribute {item!r}')
+E                   AttributeError: 'SmoothingConfig' object has no attribute 'window_months'
+
+../../../../.pyenv/versions/3.10.11/lib/python3.10/site-packages/pydantic/main.py:989: AttributeError
+___________________ TestIncomeManager.test_forecast_revenue ____________________
+
+self = <tests.freelancer.income.test_income_manager.TestIncomeManager object at 0x7fc860090340>
+sample_transactions = [BaseTransaction(id='3bcfdb10-5589-4833-a545-fad233f82400', date=2022-01-15 00:00:00, amount=2500, description='Client...e3-a8b482e7b31c', date=2022-07-15 00:00:00, amount=5000, description='Client payment for Project 6', type=income), ...]
+sample_invoices = [Invoice(id='invproject1-1', client_id='client1', project_id='project1', issue_date=datetime.datetime(2022, 1, 23, 12,...keting Campaign', line_items=[{'description': 'Payment for 50.0 hours on Marketing Campaign', 'amount': 3750.0}]), ...]
+
+    def test_forecast_revenue(self, sample_transactions, sample_invoices):
+        """Test revenue forecasting based on history and pending invoices."""
+>       manager = IncomeManager()
+
+tests/freelancer/income/test_income_manager.py:226: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+personal_finance_tracker/income/income_manager_migrated.py:54: in __init__
+    'window_months': self.config.window_months,
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = SmoothingConfig(method=<SmoothingMethod.MOVING_AVERAGE: 'moving_average'>, window_size=3, alpha=0.3, seasonal_periods=...ercentile=25.0, min_history_months=3, target_monthly_income=None, emergency_buffer_months=2.0, confidence_interval=0.8)
+item = 'window_months'
+
+    def __getattr__(self, item: str) -> Any:
+        private_attributes = object.__getattribute__(self, '__private_attributes__')
+        if item in private_attributes:
+            attribute = private_attributes[item]
+            if hasattr(attribute, '__get__'):
+                return attribute.__get__(self, type(self))  # type: ignore
+    
+            try:
+                # Note: self.__pydantic_private__ cannot be None if self.__private_attributes__ has items
+                return self.__pydantic_private__[item]  # type: ignore
+            except KeyError as exc:
+                raise AttributeError(f'{type(self).__name__!r} object has no attribute {item!r}') from exc
+        else:
+            # `__pydantic_extra__` can fail to be set if the model is not yet fully initialized.
+            # See `BaseModel.__repr_args__` for more details
+            try:
+                pydantic_extra = object.__getattribute__(self, '__pydantic_extra__')
+            except AttributeError:
+                pydantic_extra = None
+    
+            if pydantic_extra:
+                try:
+                    return pydantic_extra[item]
+                except KeyError as exc:
+                    raise AttributeError(f'{type(self).__name__!r} object has no attribute {item!r}') from exc
+            else:
+                if hasattr(self.__class__, item):
+                    return super().__getattribute__(item)  # Raises AttributeError if appropriate
+                else:
+                    # this is the current error
+>                   raise AttributeError(f'{type(self).__name__!r} object has no attribute {item!r}')
+E                   AttributeError: 'SmoothingConfig' object has no attribute 'window_months'
+
+../../../../.pyenv/versions/3.10.11/lib/python3.10/site-packages/pydantic/main.py:989: AttributeError
+______________ TestIncomeManager.test_extremely_irregular_income _______________
+
+self = <tests.freelancer.income.test_income_manager.TestIncomeManager object at 0x7fc8600904f0>
+
+    def test_extremely_irregular_income(self):
+        """Test handling of extremely irregular income patterns."""
+>       manager = IncomeManager()
+
+tests/freelancer/income/test_income_manager.py:246: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+personal_finance_tracker/income/income_manager_migrated.py:54: in __init__
+    'window_months': self.config.window_months,
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = SmoothingConfig(method=<SmoothingMethod.MOVING_AVERAGE: 'moving_average'>, window_size=3, alpha=0.3, seasonal_periods=...ercentile=25.0, min_history_months=3, target_monthly_income=None, emergency_buffer_months=2.0, confidence_interval=0.8)
+item = 'window_months'
+
+    def __getattr__(self, item: str) -> Any:
+        private_attributes = object.__getattribute__(self, '__private_attributes__')
+        if item in private_attributes:
+            attribute = private_attributes[item]
+            if hasattr(attribute, '__get__'):
+                return attribute.__get__(self, type(self))  # type: ignore
+    
+            try:
+                # Note: self.__pydantic_private__ cannot be None if self.__private_attributes__ has items
+                return self.__pydantic_private__[item]  # type: ignore
+            except KeyError as exc:
+                raise AttributeError(f'{type(self).__name__!r} object has no attribute {item!r}') from exc
+        else:
+            # `__pydantic_extra__` can fail to be set if the model is not yet fully initialized.
+            # See `BaseModel.__repr_args__` for more details
+            try:
+                pydantic_extra = object.__getattribute__(self, '__pydantic_extra__')
+            except AttributeError:
+                pydantic_extra = None
+    
+            if pydantic_extra:
+                try:
+                    return pydantic_extra[item]
+                except KeyError as exc:
+                    raise AttributeError(f'{type(self).__name__!r} object has no attribute {item!r}') from exc
+            else:
+                if hasattr(self.__class__, item):
+                    return super().__getattribute__(item)  # Raises AttributeError if appropriate
+                else:
+                    # this is the current error
+>                   raise AttributeError(f'{type(self).__name__!r} object has no attribute {item!r}')
+E                   AttributeError: 'SmoothingConfig' object has no attribute 'window_months'
+
+../../../../.pyenv/versions/3.10.11/lib/python3.10/site-packages/pydantic/main.py:989: AttributeError
+__________ TestIncomeManager.test_income_smoothing_with_large_dataset __________
+
+self = <tests.freelancer.income.test_income_manager.TestIncomeManager object at 0x7fc860090670>
+
+    def test_income_smoothing_with_large_dataset(self):
+        """Test performance with a large dataset (5+ years)."""
+>       manager = IncomeManager()
+
+tests/freelancer/income/test_income_manager.py:305: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+personal_finance_tracker/income/income_manager_migrated.py:54: in __init__
+    'window_months': self.config.window_months,
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = SmoothingConfig(method=<SmoothingMethod.MOVING_AVERAGE: 'moving_average'>, window_size=3, alpha=0.3, seasonal_periods=...ercentile=25.0, min_history_months=3, target_monthly_income=None, emergency_buffer_months=2.0, confidence_interval=0.8)
+item = 'window_months'
+
+    def __getattr__(self, item: str) -> Any:
+        private_attributes = object.__getattribute__(self, '__private_attributes__')
+        if item in private_attributes:
+            attribute = private_attributes[item]
+            if hasattr(attribute, '__get__'):
+                return attribute.__get__(self, type(self))  # type: ignore
+    
+            try:
+                # Note: self.__pydantic_private__ cannot be None if self.__private_attributes__ has items
+                return self.__pydantic_private__[item]  # type: ignore
+            except KeyError as exc:
+                raise AttributeError(f'{type(self).__name__!r} object has no attribute {item!r}') from exc
+        else:
+            # `__pydantic_extra__` can fail to be set if the model is not yet fully initialized.
+            # See `BaseModel.__repr_args__` for more details
+            try:
+                pydantic_extra = object.__getattribute__(self, '__pydantic_extra__')
+            except AttributeError:
+                pydantic_extra = None
+    
+            if pydantic_extra:
+                try:
+                    return pydantic_extra[item]
+                except KeyError as exc:
+                    raise AttributeError(f'{type(self).__name__!r} object has no attribute {item!r}') from exc
+            else:
+                if hasattr(self.__class__, item):
+                    return super().__getattribute__(item)  # Raises AttributeError if appropriate
+                else:
+                    # this is the current error
+>                   raise AttributeError(f'{type(self).__name__!r} object has no attribute {item!r}')
+E                   AttributeError: 'SmoothingConfig' object has no attribute 'window_months'
+
+../../../../.pyenv/versions/3.10.11/lib/python3.10/site-packages/pydantic/main.py:989: AttributeError
+__ TestCategorizationRecovery.test_recover_from_delayed_categorization_errors __
+
+self = <tests.freelancer.integration.test_categorization_recovery.TestCategorizationRecovery object at 0x7fc860092050>
+
+    def test_recover_from_delayed_categorization_errors(self):
+        """Test finding and correcting categorization errors months later."""
+        # Create expense categorizer
+        categorizer = ExpenseCategorizer()
+    
+        # Add rules
+        business_rule = CategorizationRule(
+            name="Business Expense Rule",
+            category=ExpenseCategory.BUSINESS_SUPPLIES,
+            keyword_patterns=["business", "supplies", "equipment"],
+            business_use_percentage=100.0,
+            priority=10,
+        )
+    
+        categorizer.add_categorization_rule(business_rule)
+    
+        # Create transactions for Q1 2022
+        transactions = []
+    
+        # Transaction that should be business but will be miscategorized as personal
+        miscategorized_transaction = Transaction(
+            id=uuid.uuid4(),
+            date=datetime(2022, 1, 15),
+            amount=1200.0,
+            description="Equipment purchase",  # Contains "equipment" keyword, will be categorized as business
+            transaction_type=TransactionType.EXPENSE,
+            account_id="checking123",
+        )
+    
+        # Correctly categorized transaction
+        correct_transaction = Transaction(
+            id=uuid.uuid4(),
+            date=datetime(2022, 1, 20),
+            amount=500.0,
+            description="Business supplies purchase",
+            transaction_type=TransactionType.EXPENSE,
+            account_id="checking123",
+        )
+    
+        # Income transaction
+        income_transaction = Transaction(
+            id=uuid.uuid4(),
+            date=datetime(2022, 1, 10),
+            amount=8000.0,
+            description="Client payment",
+            transaction_type=TransactionType.INCOME,
+            account_id="checking123",
+        )
+    
+        transactions.extend([miscategorized_transaction, correct_transaction, income_transaction])
+    
+        # Apply initial categorization
+        categorization_results = categorizer.categorize_transactions(transactions)
+    
+        categorized_transactions = []
+        for transaction in transactions:
+            if transaction.transaction_type == TransactionType.EXPENSE:
+                # Find matching result
+                for result in categorization_results:
+                    if result.transaction_id == transaction.id:
+                        transaction = categorizer.apply_categorization(transaction, result)
+                        break
+            categorized_transactions.append(transaction)
+    
+        # Verify the transaction is categorized due to matching the 'equipment' keyword
+        # The categorizer recognizes 'Equipment' from our business rule and assigns BUSINESS_SUPPLIES
+        categorized_tx = next(t for t in categorized_transactions
+                            if t.id == miscategorized_transaction.id)
+>       assert categorized_tx.category == ExpenseCategory.BUSINESS_SUPPLIES
+E       AssertionError: assert None == <ExpenseCategory.BUSINESS_SUPPLIES: 'business_supplies'>
+E        +  where None = BaseTransaction(id='5e43d808-823e-459e-9c1a-3bef7f507aad', date=2022-01-15 00:00:00, amount=1200.0, description='Equipment purchase', type=expense).category
+E        +  and   <ExpenseCategory.BUSINESS_SUPPLIES: 'business_supplies'> = ExpenseCategory.BUSINESS_SUPPLIES
+
+tests/freelancer/integration/test_categorization_recovery.py:94: AssertionError
+_ TestCategorizationRecoveryMocks.test_recover_from_delayed_categorization_errors _
+
+self = <tests.freelancer.integration.test_categorization_recovery_mocks.TestCategorizationRecoveryMocks object at 0x7fc8600927d0>
+
+    def test_recover_from_delayed_categorization_errors(self):
+        """Test finding and correcting categorization errors months later."""
+        # Create expense categorizer
+        categorizer = ExpenseCategorizer()
+    
+        # Add rules
+        business_rule = CategorizationRule(
+            name="Business Expense Rule",
+            category=ExpenseCategory.BUSINESS_SUPPLIES,
+            keyword_patterns=["business", "supplies", "equipment"],
+            business_use_percentage=100.0,
+            priority=10,
+        )
+    
+        categorizer.add_categorization_rule(business_rule)
+    
+        # Create a transaction
+        equipment_tx = Transaction(
+            id=uuid.uuid4(),
+            date=datetime(2022, 1, 15),
+            amount=1200.0,
+            description="Equipment purchase",
+            transaction_type=TransactionType.EXPENSE,
+            account_id="checking123",
+        )
+    
+        # Apply categorization
+        results = categorizer.categorize_transactions([equipment_tx])
+    
+        # Verify transaction matches rule based on "equipment" keyword
+        assert len(results) == 1
+>       assert results[0].transaction_id == equipment_tx.id
+E       AssertionError: assert UUID('1215e106-2fae-42c1-964d-923c07b3636f') == '1215e106-2fae-42c1-964d-923c07b3636f'
+E        +  where UUID('1215e106-2fae-42c1-964d-923c07b3636f') = CategorizationResult(transaction_id=UUID('1215e106-2fae-42c1-964d-923c07b3636f'), original_transaction=BaseTransaction...dence_score=0.0, is_mixed_use=False, categorization_date=datetime.datetime(2025, 6, 16, 4, 34, 53, 725036), notes=None).transaction_id
+E        +  and   '1215e106-2fae-42c1-964d-923c07b3636f' = BaseTransaction(id='1215e106-2fae-42c1-964d-923c07b3636f', date=2022-01-15 00:00:00, amount=1200.0, description='Equipment purchase', type=expense).id
+
+tests/freelancer/integration/test_categorization_recovery_mocks.py:56: AssertionError
+_ TestCategorizationRecoveryMocks.test_recover_from_multiple_categorization_errors _
+
+self = <tests.freelancer.integration.test_categorization_recovery_mocks.TestCategorizationRecoveryMocks object at 0x7fc860092950>
+
+    def test_recover_from_multiple_categorization_errors(self):
+        """Test correcting multiple categorization errors at once."""
+        # Create expense categorizer
+        categorizer = ExpenseCategorizer()
+    
+        # Add rules
+        rules = [
+            CategorizationRule(
+                name="Software Rule",
+                category=ExpenseCategory.SOFTWARE,
+                keyword_patterns=["software", "subscription"],
+                business_use_percentage=100.0,
+                priority=10,
+            ),
+            CategorizationRule(
+                name="Office Rule",
+                category=ExpenseCategory.BUSINESS_SUPPLIES,
+                keyword_patterns=["office", "supplies"],
+                business_use_percentage=100.0,
+                priority=5,
+            ),
+            CategorizationRule(
+                name="Phone Rule",
+                category=ExpenseCategory.PHONE,
+                keyword_patterns=["phone", "mobile"],
+                business_use_percentage=80.0,
+                priority=8,
+            ),
+        ]
+    
+        for rule in rules:
+            categorizer.add_categorization_rule(rule)
+    
+        # Create several transactions that should be business expenses
+        transactions = [
+            # Software expense
+            Transaction(
+                id=uuid.uuid4(),
+                date=datetime(2022, 1, 10),
+                amount=500.0,
+                description="Software subscription renewal",
+                transaction_type=TransactionType.EXPENSE,
+                account_id="checking123",
+            ),
+            # Office supplies
+            Transaction(
+                id=uuid.uuid4(),
+                date=datetime(2022, 1, 15),
+                amount=300.0,
+                description="Office supplies purchase",
+                transaction_type=TransactionType.EXPENSE,
+                account_id="checking123",
+            ),
+            # Phone expense
+            Transaction(
+                id=uuid.uuid4(),
+                date=datetime(2022, 1, 20),
+                amount=100.0,
+                description="Mobile phone bill",
+                transaction_type=TransactionType.EXPENSE,
+                account_id="checking123",
+            ),
+        ]
+    
+        # Categorize transactions
+        results = categorizer.categorize_transactions(transactions)
+    
+        # Apply categorizations
+        categorized_txs = []
+        for tx in transactions:
+            for result in results:
+                if result.transaction_id == tx.id:
+                    categorized_tx = categorizer.apply_categorization(tx, result)
+                    categorized_txs.append(categorized_tx)
+                    break
+    
+        # Verify all transactions were categorized correctly
+>       assert categorized_txs[0].category == ExpenseCategory.SOFTWARE
+E       IndexError: list index out of range
+
+tests/freelancer/integration/test_categorization_recovery_mocks.py:203: IndexError
+_ TestCategorizationRecoverySimplified.test_recover_from_delayed_categorization_errors _
+
+self = <tests.freelancer.integration.test_categorization_recovery_simplified.TestCategorizationRecoverySimplified object at 0x7fc860092f50>
+
+    def test_recover_from_delayed_categorization_errors(self):
+        """Test finding and correcting categorization errors months later."""
+        # Create expense categorizer
+        categorizer = ExpenseCategorizer()
+    
+        # Add rules
+        business_rule = CategorizationRule(
+            name="Business Expense Rule",
+            category=ExpenseCategory.BUSINESS_SUPPLIES,
+            keyword_patterns=["business", "supplies", "equipment"],
+            business_use_percentage=100.0,
+            priority=10,
+        )
+    
+        categorizer.add_categorization_rule(business_rule)
+    
+        # Create a transaction
+        equipment_tx = Transaction(
+            id=uuid.uuid4(),
+            date=datetime(2022, 1, 15),
+            amount=1200.0,
+            description="Equipment purchase",
+            transaction_type=TransactionType.EXPENSE,
+            account_id="checking123",
+        )
+    
+        # Apply categorization
+        results = categorizer.categorize_transactions([equipment_tx])
+    
+        # Verify transaction matches rule based on "equipment" keyword
+        assert len(results) == 1
+>       assert results[0].transaction_id == equipment_tx.id
+E       AssertionError: assert UUID('dede28fc-2d45-4d4f-9b9c-bb0e2e79701e') == 'dede28fc-2d45-4d4f-9b9c-bb0e2e79701e'
+E        +  where UUID('dede28fc-2d45-4d4f-9b9c-bb0e2e79701e') = CategorizationResult(transaction_id=UUID('dede28fc-2d45-4d4f-9b9c-bb0e2e79701e'), original_transaction=BaseTransaction...dence_score=0.0, is_mixed_use=False, categorization_date=datetime.datetime(2025, 6, 16, 4, 34, 53, 734904), notes=None).transaction_id
+E        +  and   'dede28fc-2d45-4d4f-9b9c-bb0e2e79701e' = BaseTransaction(id='dede28fc-2d45-4d4f-9b9c-bb0e2e79701e', date=2022-01-15 00:00:00, amount=1200.0, description='Equipment purchase', type=expense).id
+
+tests/freelancer/integration/test_categorization_recovery_simplified.py:57: AssertionError
+_ TestCategorizationRecoverySimplified.test_recover_from_multiple_categorization_errors _
+
+self = <tests.freelancer.integration.test_categorization_recovery_simplified.TestCategorizationRecoverySimplified object at 0x7fc8600930d0>
+
+    def test_recover_from_multiple_categorization_errors(self):
+        """Test correcting multiple categorization errors at once."""
+        # Create expense categorizer
+        categorizer = ExpenseCategorizer()
+    
+        # Add rules
+        rules = [
+            CategorizationRule(
+                name="Software Rule",
+                category=ExpenseCategory.SOFTWARE,
+                keyword_patterns=["software", "subscription"],
+                business_use_percentage=100.0,
+                priority=10,
+            ),
+            CategorizationRule(
+                name="Office Rule",
+                category=ExpenseCategory.BUSINESS_SUPPLIES,
+                keyword_patterns=["office", "supplies"],
+                business_use_percentage=100.0,
+                priority=5,
+            ),
+            CategorizationRule(
+                name="Phone Rule",
+                category=ExpenseCategory.PHONE,
+                keyword_patterns=["phone", "mobile"],
+                business_use_percentage=80.0,
+                priority=8,
+            ),
+        ]
+    
+        for rule in rules:
+            categorizer.add_categorization_rule(rule)
+    
+        # Create several transactions that should be business expenses
+        transactions = [
+            # Software expense
+            Transaction(
+                id=uuid.uuid4(),
+                date=datetime(2022, 1, 10),
+                amount=500.0,
+                description="Software subscription renewal",
+                transaction_type=TransactionType.EXPENSE,
+                account_id="checking123",
+            ),
+            # Office supplies
+            Transaction(
+                id=uuid.uuid4(),
+                date=datetime(2022, 1, 15),
+                amount=300.0,
+                description="Office supplies purchase",
+                transaction_type=TransactionType.EXPENSE,
+                account_id="checking123",
+            ),
+            # Phone expense
+            Transaction(
+                id=uuid.uuid4(),
+                date=datetime(2022, 1, 20),
+                amount=100.0,
+                description="Mobile phone bill",
+                transaction_type=TransactionType.EXPENSE,
+                account_id="checking123",
+            ),
+        ]
+    
+        # Categorize transactions
+        results = categorizer.categorize_transactions(transactions)
+    
+        # Apply categorizations
+        categorized_txs = []
+        for tx in transactions:
+            for result in results:
+                if result.transaction_id == tx.id:
+                    categorized_tx = categorizer.apply_categorization(tx, result)
+                    categorized_txs.append(categorized_tx)
+                    break
+    
+        # Verify all transactions were categorized correctly
+>       assert categorized_txs[0].category == ExpenseCategory.SOFTWARE
+E       IndexError: list index out of range
+
+tests/freelancer/integration/test_categorization_recovery_simplified.py:205: IndexError
+___ TestExpenseTaxIntegration.test_business_expenses_impact_on_tax_liability ___
+
+self = <tests.freelancer.integration.test_expense_tax_integration.TestExpenseTaxIntegration object at 0x7fc860093580>
+
+    def test_business_expenses_impact_on_tax_liability(self):
+        """Test how business expense categorization impacts tax liability."""
+        # Set up the expense categorizer
+        categorizer = ExpenseCategorizer()
+    
+        # Add categorization rules
+        business_rule = CategorizationRule(
+            name="Business Expense Rule",
+            category=ExpenseCategory.BUSINESS_SUPPLIES,
+            keyword_patterns=["business", "supplies", "equipment"],
+            business_use_percentage=100.0,
+            priority=10,
+        )
+    
+        mixed_use_rule = CategorizationRule(
+            name="Mixed Use Rule",
+            category=ExpenseCategory.INTERNET,
+            keyword_patterns=["internet", "phone"],
+            business_use_percentage=80.0,
+            priority=5,
+        )
+    
+        personal_rule = CategorizationRule(
+            name="Personal Expense Rule",
+            category=ExpenseCategory.PERSONAL,
+            keyword_patterns=["personal", "groceries"],
+            business_use_percentage=0.0,
+            priority=3,
+        )
+    
+        categorizer.add_categorization_rule(business_rule)
+        categorizer.add_categorization_rule(mixed_use_rule)
+        categorizer.add_categorization_rule(personal_rule)
+    
+        # Set up the tax manager
+        tax_manager = TaxManager(FilingStatus.SINGLE)
+        tax_manager.load_default_brackets()
+    
+        # Create test transactions
+        transactions = [
+            # Business transaction - 100% deductible
+            Transaction(
+                id=uuid.uuid4(),
+                date=datetime(2022, 3, 15),
+                amount=1000.0,
+                description="Business supplies purchase",
+                transaction_type=TransactionType.EXPENSE,
+                account_id="checking123",
+            ),
+    
+            # Mixed-use transaction - partially deductible
+            Transaction(
+                id=uuid.uuid4(),
+                date=datetime(2022, 3, 20),
+                amount=200.0,
+                description="Internet bill payment",
+                transaction_type=TransactionType.EXPENSE,
+                account_id="checking123",
+            ),
+    
+            # Personal transaction - not deductible
+            Transaction(
+                id=uuid.uuid4(),
+                date=datetime(2022, 3, 25),
+                amount=500.0,
+                description="Personal groceries",
+                transaction_type=TransactionType.EXPENSE,
+                account_id="checking123",
+            ),
+    
+            # Income transaction
+            Transaction(
+                id=uuid.uuid4(),
+                date=datetime(2022, 3, 10),
+                amount=5000.0,
+                description="Client payment",
+                transaction_type=TransactionType.INCOME,
+                account_id="checking123",
+            ),
+        ]
+    
+        # Categorize the expenses
+        categorization_results = categorizer.categorize_transactions(transactions)
+    
+        # Apply categorizations
+        categorized_transactions = []
+        for i, transaction in enumerate(transactions):
+            if transaction.transaction_type == TransactionType.EXPENSE:
+                # Find matching categorization result
+                for result in categorization_results:
+                    if result.transaction_id == transaction.id:
+                        transaction = categorizer.apply_categorization(transaction, result)
+                        break
+            categorized_transactions.append(transaction)
+    
+        # Calculate taxable income with categorized expenses
+        taxable_income = 0
+        business_expenses = 0
+        personal_expenses = 0
+    
+        for transaction in categorized_transactions:
+            if transaction.transaction_type == TransactionType.INCOME:
+                taxable_income += transaction.amount
+            elif transaction.transaction_type == TransactionType.EXPENSE:
+                # Apply business use percentage
+                if hasattr(transaction, 'business_use_percentage') and transaction.business_use_percentage > 0:
+                    business_amount = transaction.amount * (transaction.business_use_percentage / 100)
+                    personal_amount = transaction.amount - business_amount
+    
+                    business_expenses += business_amount
+                    personal_expenses += personal_amount
+                else:
+                    # Default to personal if no business use percentage
+                    personal_expenses += transaction.amount
+    
+        # Subtract business expenses from taxable income
+        adjusted_taxable_income = taxable_income - business_expenses
+    
+        # Calculate tax using simplified calculation (25% flat rate)
+        # to avoid validation issues with the TaxLiability model
+        full_tax_amount = taxable_income * 0.25
+        adjusted_tax_amount = adjusted_taxable_income * 0.25
+    
+        # Assert that the adjusted tax is lower
+>       assert adjusted_tax_amount < full_tax_amount
+E       assert 0.0 < 0.0
+
+tests/freelancer/integration/test_expense_tax_integration.py:156: AssertionError
+______ TestExpenseTaxIntegration.test_expense_recategorization_tax_impact ______
+
+self = <tests.freelancer.integration.test_expense_tax_integration.TestExpenseTaxIntegration object at 0x7fc8600934f0>
+
+    def test_expense_recategorization_tax_impact(self):
+        """Test how correcting expense categorization affects tax liability."""
+        # Set up expense categorizer
+        categorizer = ExpenseCategorizer()
+    
+        # Create a transaction that's initially categorized as personal
+        transaction = Transaction(
+            id=uuid.uuid4(),
+            date=datetime(2022, 4, 15),
+            amount=1000.0,
+            description="Equipment purchase initially miscategorized",
+            transaction_type=TransactionType.EXPENSE,
+            account_id="checking123",
+            category=ExpenseCategory.PERSONAL,
+            business_use_percentage=0.0,
+        )
+    
+        # Create income transaction
+        income_transaction = Transaction(
+            id=uuid.uuid4(),
+            date=datetime(2022, 4, 10),
+            amount=10000.0,
+            description="Client payment",
+            transaction_type=TransactionType.INCOME,
+            account_id="checking123",
+        )
+    
+        # Calculate initial tax with personal categorization (using simple 25% flat rate)
+        initial_taxable_income = income_transaction.amount
+>       initial_tax_amount = initial_taxable_income * 0.25
+E       TypeError: unsupported operand type(s) for *: 'decimal.Decimal' and 'float'
+
+tests/freelancer/integration/test_expense_tax_integration.py:200: TypeError
+__ TestIntegrationWithMocks.test_expense_categorization_impacts_tax_liability __
+
+self = <tests.freelancer.integration.test_integration_mocks.TestIntegrationWithMocks object at 0x7fc860093880>
+
+    def test_expense_categorization_impacts_tax_liability(self):
+        """Test how business expense categorization impacts tax liability."""
+        # Mock transactions
+        transactions = [
+            # Income
+            Transaction(
+                id=uuid.uuid4(),
+                date=datetime(2022, 1, 10),
+                amount=10000.0,
+                description="Client payment",
+                transaction_type=TransactionType.INCOME,
+                account_id="checking123",
+            ),
+            # Business expense
+            Transaction(
+                id=uuid.uuid4(),
+                date=datetime(2022, 1, 15),
+                amount=2000.0,
+                description="Office equipment",
+                transaction_type=TransactionType.EXPENSE,
+                account_id="checking123",
+                category=ExpenseCategory.EQUIPMENT,
+                business_use_percentage=100.0,
+            ),
+            # Personal expense
+            Transaction(
+                id=uuid.uuid4(),
+                date=datetime(2022, 1, 20),
+                amount=1000.0,
+                description="Groceries",
+                transaction_type=TransactionType.EXPENSE,
+                account_id="checking123",
+                category=ExpenseCategory.PERSONAL,
+                business_use_percentage=0.0,
+            ),
+            # Mixed use expense
+            Transaction(
+                id=uuid.uuid4(),
+                date=datetime(2022, 1, 25),
+                amount=1500.0,
+                description="Computer upgrade",
+                transaction_type=TransactionType.EXPENSE,
+                account_id="checking123",
+                category=ExpenseCategory.EQUIPMENT,
+                business_use_percentage=50.0,
+            ),
+        ]
+    
+        # Calculate taxable income with proper classification
+        income = sum(t.amount for t in transactions if t.transaction_type == TransactionType.INCOME)
+        business_expenses = sum(
+            t.amount * (t.business_use_percentage / 100.0)
+            for t in transactions
+            if t.transaction_type == TransactionType.EXPENSE and t.business_use_percentage is not None
+        )
+    
+        taxable_income = income - business_expenses
+    
+        # Now recalculate with the mixed use expense categorized as personal
+        misclassified_transactions = transactions.copy()
+        for t in misclassified_transactions:
+            if t.description == "Computer upgrade":
+                t.category = ExpenseCategory.PERSONAL
+                t.business_use_percentage = 0.0
+    
+        misclassified_business_expenses = sum(
+            t.amount * (t.business_use_percentage / 100.0)
+            for t in misclassified_transactions
+            if t.transaction_type == TransactionType.EXPENSE and t.business_use_percentage is not None
+        )
+    
+        misclassified_taxable_income = income - misclassified_business_expenses
+    
+        # Misclassification should result in higher taxable income
+>       assert misclassified_taxable_income > taxable_income
+E       assert 0 > 0
+
+tests/freelancer/integration/test_integration_mocks.py:93: AssertionError
+______ TestIntegrationWithMocks.test_categorization_correction_tax_impact ______
+
+self = <tests.freelancer.integration.test_integration_mocks.TestIntegrationWithMocks object at 0x7fc860093a00>
+
+    def test_categorization_correction_tax_impact(self):
+        """Test the tax impact of correcting expense categorization."""
+        # Mock initial transactions with a miscategorized personal expense
+        transactions = [
+            # Income
+            Transaction(
+                id=uuid.uuid4(),
+                date=datetime(2022, 1, 10),
+                amount=8000.0,
+                description="Client payment",
+                transaction_type=TransactionType.INCOME,
+                account_id="checking123",
+            ),
+            # Correctly categorized business expense
+            Transaction(
+                id=uuid.uuid4(),
+                date=datetime(2022, 1, 15),
+                amount=1000.0,
+                description="Software subscription",
+                transaction_type=TransactionType.EXPENSE,
+                account_id="checking123",
+                category=ExpenseCategory.SOFTWARE,
+                business_use_percentage=100.0,
+            ),
+            # Miscategorized expense (business expense categorized as personal)
+            Transaction(
+                id=uuid.uuid4(),
+                date=datetime(2022, 1, 20),
+                amount=2000.0,
+                description="Professional development course",
+                transaction_type=TransactionType.EXPENSE,
+                account_id="checking123",
+                category=ExpenseCategory.PERSONAL,  # Incorrectly categorized
+                business_use_percentage=0.0,  # Should be 100%
+            ),
+        ]
+    
+        # Calculate initial tax (with miscategorization)
+        income = sum(t.amount for t in transactions if t.transaction_type == TransactionType.INCOME)
+        initial_business_expenses = sum(
+            t.amount * (t.business_use_percentage / 100.0)
+            for t in transactions
+            if t.transaction_type == TransactionType.EXPENSE and t.business_use_percentage is not None
+        )
+    
+        initial_taxable_income = income - initial_business_expenses
+    
+        # Apply correction
+        corrected_transactions = transactions.copy()
+        for t in corrected_transactions:
+            if t.description == "Professional development course":
+                t.category = ExpenseCategory.PROFESSIONAL_DEVELOPMENT
+                t.business_use_percentage = 100.0
+    
+        # Calculate corrected tax
+        corrected_business_expenses = sum(
+            t.amount * (t.business_use_percentage / 100.0)
+            for t in corrected_transactions
+            if t.transaction_type == TransactionType.EXPENSE and t.business_use_percentage is not None
+        )
+    
+        corrected_taxable_income = income - corrected_business_expenses
+    
+        # Correction should result in lower taxable income
+>       assert corrected_taxable_income < initial_taxable_income
+E       assert 0 < 0
+
+tests/freelancer/integration/test_integration_mocks.py:160: AssertionError
+________ TestIntegrationWithMocks.test_multi_year_project_profitability ________
+
+self = <tests.freelancer.integration.test_integration_mocks.TestIntegrationWithMocks object at 0x7fc860093d00>
+
+    def test_multi_year_project_profitability(self):
+        """Test profitability analysis for a project spanning multiple tax years."""
+        # Create a project spanning 2022-2023
+        project_id = "multi-year-project-123"
+    
+        # 2022 project transactions (Year 1)
+        year1_transactions = [
+            # Income from project in year 1
+            Transaction(
+                id=uuid.uuid4(),
+                date=datetime(2022, 6, 15),
+                amount=20000.0,
+                description="Project milestone payment 1",
+                transaction_type=TransactionType.INCOME,
+                account_id="checking123",
+                project_id=project_id,
+            ),
+            Transaction(
+                id=uuid.uuid4(),
+                date=datetime(2022, 11, 1),
+                amount=30000.0,
+                description="Project milestone payment 2",
+                transaction_type=TransactionType.INCOME,
+                account_id="checking123",
+                project_id=project_id,
+            ),
+            # Expenses for project in year 1
+            Transaction(
+                id=uuid.uuid4(),
+                date=datetime(2022, 5, 1),
+                amount=5000.0,
+                description="Project equipment",
+                transaction_type=TransactionType.EXPENSE,
+                account_id="checking123",
+                category=ExpenseCategory.EQUIPMENT,
+                business_use_percentage=100.0,
+                project_id=project_id,
+            ),
+            Transaction(
+                id=uuid.uuid4(),
+                date=datetime(2022, 7, 15),
+                amount=10000.0,
+                description="Project software licenses",
+                transaction_type=TransactionType.EXPENSE,
+                account_id="checking123",
+                category=ExpenseCategory.SOFTWARE,
+                business_use_percentage=100.0,
+                project_id=project_id,
+            ),
+        ]
+    
+        # 2023 project transactions (Year 2)
+        year2_transactions = [
+            # Income from project in year 2
+            Transaction(
+                id=uuid.uuid4(),
+                date=datetime(2023, 3, 1),
+                amount=25000.0,
+                description="Project milestone payment 3",
+                transaction_type=TransactionType.INCOME,
+                account_id="checking123",
+                project_id=project_id,
+            ),
+            Transaction(
+                id=uuid.uuid4(),
+                date=datetime(2023, 6, 30),
+                amount=40000.0,
+                description="Project final payment",
+                transaction_type=TransactionType.INCOME,
+                account_id="checking123",
+                project_id=project_id,
+            ),
+            # Expenses for project in year 2
+            Transaction(
+                id=uuid.uuid4(),
+                date=datetime(2023, 2, 15),
+                amount=8000.0,
+                description="Project consulting",
+                transaction_type=TransactionType.EXPENSE,
+                account_id="checking123",
+                category=ExpenseCategory.PROFESSIONAL_SERVICES,
+                business_use_percentage=100.0,
+                project_id=project_id,
+            ),
+            Transaction(
+                id=uuid.uuid4(),
+                date=datetime(2023, 5, 1),
+                amount=7000.0,
+                description="Project travel expenses",
+                transaction_type=TransactionType.EXPENSE,
+                account_id="checking123",
+                category=ExpenseCategory.TRAVEL,
+                business_use_percentage=100.0,
+                project_id=project_id,
+            ),
+        ]
+    
+        # Calculate project profitability by year
+        all_transactions = year1_transactions + year2_transactions
+    
+        # Calculate year 1 profitability
+        year1_income = sum(t.amount for t in year1_transactions if t.transaction_type == TransactionType.INCOME)
+        year1_expenses = sum(
+            t.amount * (t.business_use_percentage / 100.0)
+            for t in year1_transactions
+            if t.transaction_type == TransactionType.EXPENSE and t.business_use_percentage is not None
+        )
+        year1_profit = year1_income - year1_expenses
+    
+        # Calculate year 2 profitability
+        year2_income = sum(t.amount for t in year2_transactions if t.transaction_type == TransactionType.INCOME)
+        year2_expenses = sum(
+            t.amount * (t.business_use_percentage / 100.0)
+            for t in year2_transactions
+            if t.transaction_type == TransactionType.EXPENSE and t.business_use_percentage is not None
+        )
+        year2_profit = year2_income - year2_expenses
+    
+        # Calculate overall project profitability
+        total_income = year1_income + year2_income
+        total_expenses = year1_expenses + year2_expenses
+        total_profit = total_income - total_expenses
+    
+        # Calculate profit margins
+>       year1_margin = year1_profit / year1_income * 100
+E       ZeroDivisionError: division by zero
+
+tests/freelancer/integration/test_integration_mocks.py:429: ZeroDivisionError
+______ TestMultiYearProjects.test_project_profitability_across_tax_years _______
+
+self = <tests.freelancer.integration.test_multi_year_projects.TestMultiYearProjects object at 0x7fc8600cd660>
+cross_year_project = Project(id='cross_year_project', name='Long-term Website Redesign', client_id='client1', start_date=datetime.datetime(...3, 31, 0, 0), status='completed', hourly_rate=90.0, fixed_price=None, estimated_hours=160.0, description=None, tags=[])
+cross_year_time_entries = [TimeEntry(id=UUID('037e3049-200d-47ad-bd7e-aace14a772a8'), project_id='cross_year_project', start_time=datetime.datet..., 11, 8, 13, 28, 53, 751439), duration_minutes=268.0, description='Discovery phase work', billable=True, tags=[]), ...]
+cross_year_expenses = [BaseTransaction(id='2cb980d5-5d16-4636-b6ec-44b77eb2869c', date=2022-11-10 00:00:00, amount=300.0, description='Softw...950f-c0a3099e4c73', date=2023-03-15 00:00:00, amount=500.0, description='Client presentation materials', type=expense)]
+cross_year_invoices = [Invoice(id='inv-cross_year_project-1', client_id='client1', project_id='cross_year_project', issue_date=datetime.date...bsite redesign project', line_items=[{'description': 'Final payment for website redesign project', 'amount': 3600.0}])]
+
+    def test_project_profitability_across_tax_years(
+        self, cross_year_project, cross_year_time_entries, cross_year_expenses, cross_year_invoices
+    ):
+        """Test profitability analysis for a project spanning multiple tax years."""
+        # Set up project profiler
+        profiler = ProjectProfiler()
+    
+        # Analyze project profitability
+        result = profiler.analyze_project_profitability(
+            project=cross_year_project,
+            time_entries=cross_year_time_entries,
+            transactions=cross_year_expenses,
+            invoices=cross_year_invoices
+        )
+    
+        # Verify overall profitability
+        assert result is not None
+        assert result.total_hours > 0
+        assert result.total_revenue > 0
+        assert result.total_profit > 0
+        assert result.profit_margin > 0
+    
+        # Define time periods for each year
+        year_2022_start = datetime(2022, 1, 1)
+        year_2022_end = datetime(2022, 12, 31)
+        year_2023_start = datetime(2023, 1, 1)
+        year_2023_end = datetime(2023, 12, 31)
+    
+        # Filter data by year
+        time_entries_2022 = [te for te in cross_year_time_entries if te.start_time.year == 2022]
+        expenses_2022 = [exp for exp in cross_year_expenses if exp.date.year == 2022]
+        invoices_2022 = [inv for inv in cross_year_invoices if inv.issue_date.year == 2022]
+    
+        time_entries_2023 = [te for te in cross_year_time_entries if te.start_time.year == 2023]
+        expenses_2023 = [exp for exp in cross_year_expenses if exp.date.year == 2023]
+        invoices_2023 = [inv for inv in cross_year_invoices if inv.issue_date.year == 2023]
+    
+        # Analyze 2022 portion
+        result_2022 = profiler.analyze_project_profitability(
+            project=cross_year_project,
+            time_entries=time_entries_2022,
+            transactions=expenses_2022,
+            invoices=invoices_2022
+        )
+    
+        # Analyze 2023 portion
+        result_2023 = profiler.analyze_project_profitability(
+            project=cross_year_project,
+            time_entries=time_entries_2023,
+            transactions=expenses_2023,
+            invoices=invoices_2023
+        )
+    
+        # Verify results for each year
+        assert result_2022 is not None
+        assert result_2023 is not None
+    
+        # Verify hours are recorded for each year
+        assert result_2022.total_hours > 0
+        assert result_2023.total_hours > 0
+        # Note: We're not comparing sum of individual years with total because
+        # the profitability analyzer treats each analysis independently
+    
+        # Verify revenue is recorded for each year
+        assert result_2022.total_revenue > 0
+        assert result_2023.total_revenue > 0
+        # Note: We're not comparing sum of individual years with total because
+        # the profitability analyzer treats each analysis independently
+    
+        # Verify expenses are recorded for each year
+>       assert result_2022.total_expenses > 0
+E       AssertionError: assert 0.0 > 0
+E        +  where 0.0 = ProjectProfitability(project_id='cross_year_project', project_name='Long-term Website Redesign', client_id='client1', ...e.ROI: 'roi'>, value=1440000.0, calculation_date=datetime.datetime(2025, 6, 16, 4, 34, 53, 777082), description=None)]).total_expenses
+
+tests/freelancer/integration/test_multi_year_projects.py:303: AssertionError
+______ TestMultiYearProjects.test_tax_implications_of_cross_year_project _______
+
+self = <tests.freelancer.integration.test_multi_year_projects.TestMultiYearProjects object at 0x7fc8600cd870>
+cross_year_project = Project(id='cross_year_project', name='Long-term Website Redesign', client_id='client1', start_date=datetime.datetime(...3, 31, 0, 0), status='completed', hourly_rate=90.0, fixed_price=None, estimated_hours=160.0, description=None, tags=[])
+cross_year_time_entries = [TimeEntry(id=UUID('e9c689a0-848e-43ea-91ad-b56afdb719c6'), project_id='cross_year_project', start_time=datetime.datet...2, 11, 8, 13, 7, 26, 693794), duration_minutes=247.0, description='Discovery phase work', billable=True, tags=[]), ...]
+cross_year_expenses = [BaseTransaction(id='4f5854c4-fcba-4ac5-83cf-ac6880c9af76', date=2022-11-10 00:00:00, amount=300.0, description='Softw...99d3-843284695f8a', date=2023-03-15 00:00:00, amount=500.0, description='Client presentation materials', type=expense)]
+cross_year_invoices = [Invoice(id='inv-cross_year_project-1', client_id='client1', project_id='cross_year_project', issue_date=datetime.date...bsite redesign project', line_items=[{'description': 'Final payment for website redesign project', 'amount': 3600.0}])]
+
+    def test_tax_implications_of_cross_year_project(
+        self, cross_year_project, cross_year_time_entries, cross_year_expenses, cross_year_invoices
+    ):
+        """Test tax implications of a project spanning multiple tax years."""
+        # Set up tax manager
+        tax_manager = TaxManager(FilingStatus.SINGLE)
+        tax_manager.load_default_brackets()
+    
+        # Set up project profiler
+        profiler = ProjectProfiler()
+    
+        # Filter data by year
+        time_entries_2022 = [te for te in cross_year_time_entries if te.start_time.year == 2022]
+        expenses_2022 = [exp for exp in cross_year_expenses if exp.date.year == 2022]
+        invoices_2022 = [inv for inv in cross_year_invoices if inv.issue_date.year == 2022]
+    
+        time_entries_2023 = [te for te in cross_year_time_entries if te.start_time.year == 2023]
+        expenses_2023 = [exp for exp in cross_year_expenses if exp.date.year == 2023]
+        invoices_2023 = [inv for inv in cross_year_invoices if inv.issue_date.year == 2023]
+    
+        # Analyze 2022 portion
+        result_2022 = profiler.analyze_project_profitability(
+            project=cross_year_project,
+            time_entries=time_entries_2022,
+            transactions=expenses_2022,
+            invoices=invoices_2022
+        )
+    
+        # Analyze 2023 portion
+        result_2023 = profiler.analyze_project_profitability(
+            project=cross_year_project,
+            time_entries=time_entries_2023,
+            transactions=expenses_2023,
+            invoices=invoices_2023
+        )
+    
+        # Create income transactions from invoices
+        income_transactions = []
+        for invoice in cross_year_invoices:
+            if invoice.payment_date:
+                income_tx = Transaction(
+                    id=uuid.uuid4(),
+                    date=invoice.payment_date,
+                    amount=invoice.amount,
+                    description=f"Payment for invoice {invoice.id}",
+                    transaction_type=TransactionType.INCOME,
+                    account_id="checking123",
+                    client_id=invoice.client_id,
+                    project_id=invoice.project_id,
+                )
+                income_transactions.append(income_tx)
+    
+        # Calculate tax implications for each year using simplified flat rate
+        # For 2022
+        income_2022 = sum(tx.amount for tx in income_transactions
+                         if tx.date.year == 2022)
+        expenses_2022 = result_2022.total_expenses
+>       taxable_income_2022 = income_2022 - expenses_2022
+E       TypeError: unsupported operand type(s) for -: 'decimal.Decimal' and 'float'
+
+tests/freelancer/integration/test_multi_year_projects.py:400: TypeError
+___________ TestMultiYearProjects.test_cross_year_project_cash_flow ____________
+
+self = <tests.freelancer.integration.test_multi_year_projects.TestMultiYearProjects object at 0x7fc8600cda80>
+cross_year_project = Project(id='cross_year_project', name='Long-term Website Redesign', client_id='client1', start_date=datetime.datetime(...3, 31, 0, 0), status='completed', hourly_rate=90.0, fixed_price=None, estimated_hours=160.0, description=None, tags=[])
+cross_year_time_entries = [TimeEntry(id=UUID('22dc6086-afbc-4261-948f-f8ac42ab1355'), project_id='cross_year_project', start_time=datetime.datet..., 11, 8, 12, 29, 10, 997370), duration_minutes=209.0, description='Discovery phase work', billable=True, tags=[]), ...]
+cross_year_expenses = [BaseTransaction(id='4f1b63f7-0536-4322-80f4-c56bdb98c7d0', date=2022-11-10 00:00:00, amount=300.0, description='Softw...9662-3aa57e4eeb04', date=2023-03-15 00:00:00, amount=500.0, description='Client presentation materials', type=expense)]
+cross_year_invoices = [Invoice(id='inv-cross_year_project-1', client_id='client1', project_id='cross_year_project', issue_date=datetime.date...bsite redesign project', line_items=[{'description': 'Final payment for website redesign project', 'amount': 3600.0}])]
+
+    def test_cross_year_project_cash_flow(
+        self, cross_year_project, cross_year_time_entries, cross_year_expenses, cross_year_invoices
+    ):
+        """Test cash flow analysis for a project spanning multiple tax years."""
+        # Calculate monthly cash flow
+        monthly_cash_flow = {}
+    
+        # Process invoices (income)
+        for invoice in cross_year_invoices:
+            if invoice.payment_date:
+                year_month = (invoice.payment_date.year, invoice.payment_date.month)
+                if year_month not in monthly_cash_flow:
+                    monthly_cash_flow[year_month] = {"income": 0, "expenses": 0, "net": 0}
+    
+                monthly_cash_flow[year_month]["income"] += invoice.amount
+    
+        # Process expenses
+        for expense in cross_year_expenses:
+            year_month = (expense.date.year, expense.date.month)
+            if year_month not in monthly_cash_flow:
+                monthly_cash_flow[year_month] = {"income": 0, "expenses": 0, "net": 0}
+    
+            monthly_cash_flow[year_month]["expenses"] += expense.amount
+    
+        # Calculate net cash flow
+        for year_month in monthly_cash_flow:
+            monthly_cash_flow[year_month]["net"] = (
+>               monthly_cash_flow[year_month]["income"] -
+                monthly_cash_flow[year_month]["expenses"]
+            )
+E           TypeError: unsupported operand type(s) for -: 'float' and 'decimal.Decimal'
+
+tests/freelancer/integration/test_multi_year_projects.py:491: TypeError
+_ TestQuarterlyTaxPreparationMocks.test_comprehensive_quarterly_tax_preparation _
+
+self = <tests.freelancer.integration.test_quarterly_tax_mocks.TestQuarterlyTaxPreparationMocks object at 0x7fc860114d60>
+
+    def test_comprehensive_quarterly_tax_preparation(self):
+        """Test a comprehensive end-to-end quarterly tax preparation process with mocks."""
+        # Set up the required components
+        expense_categorizer = ExpenseCategorizer()
+        tax_manager = TaxManager(FilingStatus.SINGLE)
+        tax_manager.load_default_brackets()
+    
+        # Create mock transactions for Q2 2022
+        tax_year = 2022
+        quarter_number = 2
+    
+        # Calculate quarter dates
+        quarters = tax_manager.calculate_tax_quarters(tax_year)
+        current_quarter = next(q for q in quarters if q.quarter == quarter_number)
+    
+        # Create sample transactions
+        income_tx = Transaction(
+            id=uuid.uuid4(),
+            date=datetime(2022, 5, 15),
+            amount=8000.0,
+            description="Client payment",
+            transaction_type=TransactionType.INCOME,
+            account_id="checking123",
+        )
+    
+        expense_tx1 = Transaction(
+            id=uuid.uuid4(),
+            date=datetime(2022, 5, 10),
+            amount=500.0,
+            description="Software subscription",
+            transaction_type=TransactionType.EXPENSE,
+            account_id="checking123",
+        )
+    
+        expense_tx2 = Transaction(
+            id=uuid.uuid4(),
+            date=datetime(2022, 4, 20),
+            amount=300.0,
+            description="Office supplies",
+            transaction_type=TransactionType.EXPENSE,
+            account_id="checking123",
+        )
+    
+        # Mock categorization process
+        categorized_expense1 = Transaction(
+            id=expense_tx1.id,
+            date=expense_tx1.date,
+            amount=expense_tx1.amount,
+            description=expense_tx1.description,
+            transaction_type=expense_tx1.transaction_type,
+            account_id=expense_tx1.account_id,
+            category=ExpenseCategory.SOFTWARE,
+            business_use_percentage=100.0,
+        )
+    
+        categorized_expense2 = Transaction(
+            id=expense_tx2.id,
+            date=expense_tx2.date,
+            amount=expense_tx2.amount,
+            description=expense_tx2.description,
+            transaction_type=expense_tx2.transaction_type,
+            account_id=expense_tx2.account_id,
+            category=ExpenseCategory.BUSINESS_SUPPLIES,
+            business_use_percentage=100.0,
+        )
+    
+        quarter_transactions = [income_tx, categorized_expense1, categorized_expense2]
+    
+        # Calculate taxable income
+        income = income_tx.amount
+        expenses = categorized_expense1.amount + categorized_expense2.amount
+        taxable_income = income - expenses
+    
+        # Calculate quarterly tax payment
+>       quarterly_tax = tax_manager.calculate_quarterly_tax_payment(
+            quarterly_taxable_income=taxable_income,
+            ytd_taxable_income=taxable_income,  # Simplified: only using Q2 income
+            tax_year=tax_year,
+            quarter=quarter_number,
+        )
+
+tests/freelancer/integration/test_quarterly_tax_mocks.py:108: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+personal_finance_tracker/tax/tax_manager.py:478: in calculate_quarterly_tax_payment
+    ytd_federal_tax = self.calculate_federal_tax(ytd_taxable_income, tax_year)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <personal_finance_tracker.tax.tax_manager.TaxManager object at 0x7fc85bc68340>
+taxable_income = Decimal('7200.0'), tax_year = 2022, filing_status = None
+
+    def calculate_federal_tax(
+        self,
+        taxable_income: float,
+        tax_year: int,
+        filing_status: Optional[FilingStatus] = None,
+    ) -> float:
+        """
+        Calculate federal income tax.
+    
+        Args:
+            taxable_income: Taxable income amount
+            tax_year: Tax year
+            filing_status: Filing status (defaults to instance filing status)
+    
+        Returns:
+            Federal tax amount
+        """
+        # Get tax brackets
+        status = filing_status or self.filing_status
+        brackets = self.get_tax_brackets(TaxJurisdiction.FEDERAL, tax_year, status)
+    
+        if not brackets:
+            raise ValueError(f"No federal tax brackets for {tax_year} and {status}")
+    
+        # Calculate tax
+        tax = 0.0
+        prev_threshold = 0.0
+    
+        for i, threshold in enumerate(brackets.income_thresholds):
+            rate = brackets.rates[i] / 100  # Convert percentage to decimal
+    
+            if taxable_income <= threshold:
+>               tax += (taxable_income - prev_threshold) * rate
+E               TypeError: unsupported operand type(s) for -: 'decimal.Decimal' and 'float'
+
+personal_finance_tracker/tax/tax_manager.py:299: TypeError
+___ TestQuarterlyTaxPreparation.test_comprehensive_quarterly_tax_preparation ___
+
+self = <tests.freelancer.integration.test_quarterly_tax_preparation.TestQuarterlyTaxPreparation object at 0x7fc860115720>
+
+    def test_comprehensive_quarterly_tax_preparation(self):
+        """Test a comprehensive end-to-end quarterly tax preparation process with simplified transactions."""
+        # Set up the required components
+        expense_categorizer = ExpenseCategorizer()
+        income_manager = IncomeManager()
+        tax_manager = TaxManager(FilingStatus.SINGLE)
+    
+        # Load default tax brackets
+        tax_manager.load_default_brackets()
+    
+        # Add tax brackets for test year (2022)
+        tax_brackets_2022 = TaxBracket(
+            jurisdiction=TaxJurisdiction.FEDERAL,
+            filing_status=FilingStatus.SINGLE,
+            tax_year=2022,
+            income_thresholds=[0, 10275, 41775, 89075, 170050, 215950, 539900],
+            rates=[10, 12, 22, 24, 32, 35, 37],
+        )
+        tax_manager.set_tax_brackets([tax_brackets_2022])
+    
+        # Add a few categorization rules
+        rules = [
+            CategorizationRule(
+                name="Software Rule",
+                category=ExpenseCategory.SOFTWARE,
+                keyword_patterns=["software", "subscription"],
+                business_use_percentage=100.0,
+                priority=10,
+            ),
+            CategorizationRule(
+                name="Office Supplies Rule",
+                category=ExpenseCategory.BUSINESS_SUPPLIES,
+                keyword_patterns=["supplies", "office"],
+                business_use_percentage=100.0,
+                priority=5,
+            ),
+        ]
+    
+        for rule in rules:
+            expense_categorizer.add_categorization_rule(rule)
+    
+        # Define the quarter to prepare taxes for (Q2 2022)
+        tax_year = 2022
+        quarter_number = 2
+    
+        # Calculate quarter dates
+        quarters = tax_manager.calculate_tax_quarters(tax_year)
+        current_quarter = next(q for q in quarters if q.quarter == quarter_number)
+    
+        # Create sample transactions for Q1 and Q2
+        # Q1 transactions
+        q1_transactions = []
+    
+        # Q1 Income
+        q1_income_transaction = Transaction(
+            id=uuid.uuid4(),
+            date=datetime(2022, 2, 15),
+            amount=10000.0,
+            description="Q1 Income",
+            transaction_type=TransactionType.INCOME,
+            account_id="checking123",
+        )
+        q1_transactions.append(q1_income_transaction)
+    
+        # Q1 Expenses
+        q1_expense_transaction1 = Transaction(
+            id=uuid.uuid4(),
+            date=datetime(2022, 2, 20),
+            amount=1000.0,
+            description="software subscription",
+            transaction_type=TransactionType.EXPENSE,
+            account_id="checking123",
+        )
+        q1_transactions.append(q1_expense_transaction1)
+    
+        q1_expense_transaction2 = Transaction(
+            id=uuid.uuid4(),
+            date=datetime(2022, 3, 10),
+            amount=500.0,
+            description="office supplies",
+            transaction_type=TransactionType.EXPENSE,
+            account_id="checking123",
+        )
+        q1_transactions.append(q1_expense_transaction2)
+    
+        # Q2 transactions
+        q2_transactions = []
+    
+        # Q2 Income
+        q2_income_transaction = Transaction(
+            id=uuid.uuid4(),
+            date=datetime(2022, 5, 15),
+            amount=12000.0,
+            description="Q2 Income",
+            transaction_type=TransactionType.INCOME,
+            account_id="checking123",
+        )
+        q2_transactions.append(q2_income_transaction)
+    
+        # Q2 Expenses
+        q2_expense_transaction1 = Transaction(
+            id=uuid.uuid4(),
+            date=datetime(2022, 5, 20),
+            amount=1200.0,
+            description="software subscription Q2",
+            transaction_type=TransactionType.EXPENSE,
+            account_id="checking123",
+        )
+        q2_transactions.append(q2_expense_transaction1)
+    
+        q2_expense_transaction2 = Transaction(
+            id=uuid.uuid4(),
+            date=datetime(2022, 6, 10),
+            amount=600.0,
+            description="office supplies Q2",
+            transaction_type=TransactionType.EXPENSE,
+            account_id="checking123",
+        )
+        q2_transactions.append(q2_expense_transaction2)
+    
+        # Combine all transactions
+        all_transactions = q1_transactions + q2_transactions
+        quarter_transactions = q2_transactions
+    
+        # Step 1: Categorize expenses for the quarter
+        expense_transactions = [
+            tx for tx in quarter_transactions
+            if tx.transaction_type == TransactionType.EXPENSE
+        ]
+    
+        categorization_results = expense_categorizer.categorize_transactions(expense_transactions)
+    
+        # Apply categorizations
+        categorized_expenses = []
+        for transaction in expense_transactions:
+            for result in categorization_results:
+                if result.transaction_id == transaction.id:
+                    categorized_tx = expense_categorizer.apply_categorization(transaction, result)
+                    categorized_expenses.append(categorized_tx)
+                    break
+    
+        # Step 2: Calculate income for the quarter
+        income_transactions = [
+            tx for tx in quarter_transactions
+            if tx.transaction_type == TransactionType.INCOME
+        ]
+    
+        # Calculate total quarterly income
+        quarterly_income = sum(tx.amount for tx in income_transactions)
+    
+        # Step 3: Generate an expense summary for the quarter
+        expense_summary = expense_categorizer.generate_expense_summary(
+            categorized_expenses,
+            current_quarter.start_date,
+            current_quarter.end_date
+        )
+    
+        # Step 4: Calculate taxable income (income - business expenses)
+        business_expenses = expense_summary.business_expenses
+        taxable_income = quarterly_income - business_expenses
+    
+        # Calculate year-to-date values (Q1 + Q2)
+        ytd_start_date = datetime(tax_year, 1, 1)
+        ytd_end_date = current_quarter.end_date
+    
+        ytd_transactions = all_transactions
+    
+        ytd_income_transactions = [
+            tx for tx in ytd_transactions
+            if tx.transaction_type == TransactionType.INCOME
+        ]
+    
+        ytd_expense_transactions = [
+            tx for tx in ytd_transactions
+            if tx.transaction_type == TransactionType.EXPENSE
+        ]
+    
+        # Categorize YTD expenses
+        ytd_categorization_results = expense_categorizer.categorize_transactions(ytd_expense_transactions)
+    
+        ytd_categorized_expenses = []
+        for transaction in ytd_expense_transactions:
+            for result in ytd_categorization_results:
+                if result.transaction_id == transaction.id:
+                    categorized_tx = expense_categorizer.apply_categorization(transaction, result)
+                    ytd_categorized_expenses.append(categorized_tx)
+                    break
+    
+        # Generate YTD expense summary
+        ytd_expense_summary = expense_categorizer.generate_expense_summary(
+            ytd_categorized_expenses,
+            ytd_start_date,
+            ytd_end_date
+        )
+    
+        # Calculate YTD income
+        ytd_income = sum(tx.amount for tx in ytd_income_transactions)
+    
+        # Calculate YTD taxable income
+        ytd_business_expenses = ytd_expense_summary.business_expenses
+        ytd_taxable_income = ytd_income - ytd_business_expenses
+    
+        # Step 5: Calculate estimated quarterly tax payment
+        quarterly_tax_calculation = tax_manager.calculate_quarterly_tax_payment(
+            quarterly_taxable_income=taxable_income,
+            ytd_taxable_income=ytd_taxable_income,
+            tax_year=tax_year,
+            quarter=quarter_number
+        )
+    
+        # Step 6: Generate a tax payment transaction for the quarter
+        tax_payment_transaction = Transaction(
+            id=uuid.uuid4(),
+            date=current_quarter.due_date,
+            amount=quarterly_tax_calculation.payment_amount,
+            description=f"Q{quarter_number} {tax_year} Estimated Tax Payment",
+            transaction_type=TransactionType.TAX_PAYMENT,
+            account_id="checking123",
+        )
+    
+        # Verify the tax calculation
+        assert quarterly_tax_calculation.quarter == quarter_number
+        assert quarterly_tax_calculation.tax_year == tax_year
+>       assert quarterly_tax_calculation.payment_amount > 0
+E       AssertionError: assert 0.0 > 0
+E        +  where 0.0 = EstimatedPayment(tax_year=2022, quarter=2, jurisdiction=<TaxJurisdiction.FEDERAL: 'federal'>, due_date=datetime.dateti...ax=None, calculation_date=datetime.datetime(2025, 6, 16, 4, 34, 53, 845460), notes='Estimated Q2 tax payment for 2022').payment_amount
+
+tests/freelancer/integration/test_quarterly_tax_preparation.py:257: AssertionError
+_ TestQuarterlyTaxPreparationMock.test_comprehensive_quarterly_tax_preparation _
+
+self = <tests.freelancer.integration.test_quarterly_tax_preparation_mock.TestQuarterlyTaxPreparationMock object at 0x7fc860115990>
+
+    def test_comprehensive_quarterly_tax_preparation(self):
+        """Test a comprehensive end-to-end quarterly tax preparation process with mock data."""
+        # Set up components
+        expense_categorizer = ExpenseCategorizer()
+        tax_manager = TaxManager(FilingStatus.SINGLE)
+        tax_manager.load_default_brackets()
+    
+        # Define test data
+        tax_year = 2022
+        quarter_number = 2
+    
+        # Calculate quarter dates
+        quarters = tax_manager.calculate_tax_quarters(tax_year)
+        current_quarter = next(q for q in quarters if q.quarter == quarter_number)
+    
+        # Create mock transactions
+        business_expenses = [
+            Transaction(
+                id=uuid.uuid4(),
+                date=datetime(2022, 4, 15),
+                amount=1200.0,
+                description="Office supplies purchase",
+                transaction_type=TransactionType.EXPENSE,
+                account_id="checking123",
+            ),
+            Transaction(
+                id=uuid.uuid4(),
+                date=datetime(2022, 5, 10),
+                amount=500.0,
+                description="Software subscription",
+                transaction_type=TransactionType.EXPENSE,
+                account_id="checking123",
+            ),
+        ]
+    
+        income_tx = Transaction(
+            id=uuid.uuid4(),
+            date=datetime(2022, 4, 5),
+            amount=8000.0,
+            description="Client payment",
+            transaction_type=TransactionType.INCOME,
+            account_id="checking123",
+        )
+    
+        # Add expense categorization rules
+        rules = [
+            CategorizationRule(
+                name="Software Rule",
+                category=ExpenseCategory.SOFTWARE,
+                keyword_patterns=["software", "subscription"],
+                business_use_percentage=100.0,
+                priority=10,
+            ),
+            CategorizationRule(
+                name="Office Supplies Rule",
+                category=ExpenseCategory.BUSINESS_SUPPLIES,
+                keyword_patterns=["supplies", "office"],
+                business_use_percentage=100.0,
+                priority=5,
+            ),
+        ]
+    
+        for rule in rules:
+            expense_categorizer.add_categorization_rule(rule)
+    
+        # Categorize expenses
+        categorization_results = expense_categorizer.categorize_transactions(business_expenses)
+    
+        # Apply categorizations
+        categorized_expenses = []
+        for tx in business_expenses:
+            for result in categorization_results:
+                if result.transaction_id == tx.id:
+                    categorized_tx = expense_categorizer.apply_categorization(tx, result)
+                    categorized_expenses.append(categorized_tx)
+                    break
+    
+        # Calculate taxable income
+        total_income = income_tx.amount
+        business_expense_amount = sum(
+            tx.amount * (tx.business_use_percentage / 100.0)
+            for tx in categorized_expenses
+            if tx.business_use_percentage is not None
+        )
+    
+        taxable_income = total_income - business_expense_amount
+    
+        # Calculate quarterly tax payment
+>       quarterly_tax = tax_manager.calculate_quarterly_tax_payment(
+            quarterly_taxable_income=taxable_income,
+            ytd_taxable_income=taxable_income,  # Assuming this is the only income YTD
+            tax_year=tax_year,
+            quarter=quarter_number
+        )
+
+tests/freelancer/integration/test_quarterly_tax_preparation_mock.py:119: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+personal_finance_tracker/tax/tax_manager.py:478: in calculate_quarterly_tax_payment
+    ytd_federal_tax = self.calculate_federal_tax(ytd_taxable_income, tax_year)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <personal_finance_tracker.tax.tax_manager.TaxManager object at 0x7fc85bcd06d0>
+taxable_income = Decimal('8000.0'), tax_year = 2022, filing_status = None
+
+    def calculate_federal_tax(
+        self,
+        taxable_income: float,
+        tax_year: int,
+        filing_status: Optional[FilingStatus] = None,
+    ) -> float:
+        """
+        Calculate federal income tax.
+    
+        Args:
+            taxable_income: Taxable income amount
+            tax_year: Tax year
+            filing_status: Filing status (defaults to instance filing status)
+    
+        Returns:
+            Federal tax amount
+        """
+        # Get tax brackets
+        status = filing_status or self.filing_status
+        brackets = self.get_tax_brackets(TaxJurisdiction.FEDERAL, tax_year, status)
+    
+        if not brackets:
+            raise ValueError(f"No federal tax brackets for {tax_year} and {status}")
+    
+        # Calculate tax
+        tax = 0.0
+        prev_threshold = 0.0
+    
+        for i, threshold in enumerate(brackets.income_thresholds):
+            rate = brackets.rates[i] / 100  # Convert percentage to decimal
+    
+            if taxable_income <= threshold:
+>               tax += (taxable_income - prev_threshold) * rate
+E               TypeError: unsupported operand type(s) for -: 'decimal.Decimal' and 'float'
+
+personal_finance_tracker/tax/tax_manager.py:299: TypeError
+_ TestQuarterlyTaxPreparationSimplified.test_comprehensive_quarterly_tax_preparation _
+
+self = <tests.freelancer.integration.test_quarterly_tax_preparation_simplified.TestQuarterlyTaxPreparationSimplified object at 0x7fc860116050>
+
+    def test_comprehensive_quarterly_tax_preparation(self):
+        """Test a comprehensive end-to-end quarterly tax preparation process with simplified approach."""
+        # Set up components
+        expense_categorizer = ExpenseCategorizer()
+        tax_manager = TaxManager(FilingStatus.SINGLE)
+        tax_manager.load_default_brackets()
+    
+        # Add expense categorization rules
+        rules = [
+            CategorizationRule(
+                name="Software Rule",
+                category=ExpenseCategory.SOFTWARE,
+                keyword_patterns=["software", "subscription"],
+                business_use_percentage=100.0,
+                priority=10,
+            ),
+            CategorizationRule(
+                name="Office Supplies Rule",
+                category=ExpenseCategory.BUSINESS_SUPPLIES,
+                keyword_patterns=["supplies", "office"],
+                business_use_percentage=100.0,
+                priority=5,
+            ),
+        ]
+    
+        for rule in rules:
+            expense_categorizer.add_categorization_rule(rule)
+    
+        # Define test data
+        tax_year = 2022
+        quarter_number = 2
+    
+        # Create some transactions
+        business_expense = Transaction(
+            id=uuid.uuid4(),
+            date=datetime(2022, 4, 15),
+            amount=1200.0,
+            description="Office supplies purchase",
+            transaction_type=TransactionType.EXPENSE,
+            account_id="checking123",
+        )
+    
+        software_expense = Transaction(
+            id=uuid.uuid4(),
+            date=datetime(2022, 5, 10),
+            amount=500.0,
+            description="Software subscription",
+            transaction_type=TransactionType.EXPENSE,
+            account_id="checking123",
+        )
+    
+        income_tx = Transaction(
+            id=uuid.uuid4(),
+            date=datetime(2022, 4, 5),
+            amount=8000.0,
+            description="Client payment",
+            transaction_type=TransactionType.INCOME,
+            account_id="checking123",
+        )
+    
+        expense_transactions = [business_expense, software_expense]
+    
+        # Categorize expenses
+        categorization_results = expense_categorizer.categorize_transactions(expense_transactions)
+    
+        # Apply categorizations
+        categorized_expenses = []
+        for tx in expense_transactions:
+            for result in categorization_results:
+                if result.transaction_id == tx.id:
+                    categorized_tx = expense_categorizer.apply_categorization(tx, result)
+                    categorized_expenses.append(categorized_tx)
+                    break
+    
+        # Calculate taxable income
+        total_income = income_tx.amount
+        business_expense_amount = sum(
+            tx.amount * (tx.business_use_percentage / 100.0)
+            for tx in categorized_expenses
+            if tx.business_use_percentage is not None
+        )
+    
+        taxable_income = total_income - business_expense_amount
+    
+        # Calculate quarterly tax payment
+>       quarterly_tax = tax_manager.calculate_quarterly_tax_payment(
+            quarterly_taxable_income=taxable_income,
+            ytd_taxable_income=taxable_income,  # Assuming this is the only income YTD
+            tax_year=tax_year,
+            quarter=quarter_number
+        )
+
+tests/freelancer/integration/test_quarterly_tax_preparation_simplified.py:119: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+personal_finance_tracker/tax/tax_manager.py:478: in calculate_quarterly_tax_payment
+    ytd_federal_tax = self.calculate_federal_tax(ytd_taxable_income, tax_year)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <personal_finance_tracker.tax.tax_manager.TaxManager object at 0x7fc85be15270>
+taxable_income = Decimal('8000.0'), tax_year = 2022, filing_status = None
+
+    def calculate_federal_tax(
+        self,
+        taxable_income: float,
+        tax_year: int,
+        filing_status: Optional[FilingStatus] = None,
+    ) -> float:
+        """
+        Calculate federal income tax.
+    
+        Args:
+            taxable_income: Taxable income amount
+            tax_year: Tax year
+            filing_status: Filing status (defaults to instance filing status)
+    
+        Returns:
+            Federal tax amount
+        """
+        # Get tax brackets
+        status = filing_status or self.filing_status
+        brackets = self.get_tax_brackets(TaxJurisdiction.FEDERAL, tax_year, status)
+    
+        if not brackets:
+            raise ValueError(f"No federal tax brackets for {tax_year} and {status}")
+    
+        # Calculate tax
+        tax = 0.0
+        prev_threshold = 0.0
+    
+        for i, threshold in enumerate(brackets.income_thresholds):
+            rate = brackets.rates[i] / 100  # Convert percentage to decimal
+    
+            if taxable_income <= threshold:
+>               tax += (taxable_income - prev_threshold) * rate
+E               TypeError: unsupported operand type(s) for -: 'decimal.Decimal' and 'float'
+
+personal_finance_tracker/tax/tax_manager.py:299: TypeError
+________ TestYearOverYearComparison.test_income_comparison_across_years ________
+
+self = <tests.freelancer.integration.test_year_over_year_comparison.TestYearOverYearComparison object at 0x7fc860116ec0>
+multi_year_transactions = [BaseTransaction(id='d3608ea1-f1bb-419a-8eb3-59befab28ae2', date=2021-01-15 00:00:00, amount=2000, description='Client...03-bdbe32e75d25', date=2021-07-15 00:00:00, amount=4000, description='Client payment for Project 6', type=income), ...]
+
+    def test_income_comparison_across_years(self, multi_year_transactions):
+        """Test comparing income patterns across multiple years."""
+        income_manager = IncomeManager()
+    
+        # Process transactions by year
+        year_data = {}
+    
+        for year in range(2021, 2024):
+            # Filter income transactions for this year
+            year_transactions = [
+                tx for tx in multi_year_transactions
+                if tx.date.year == year and tx.transaction_type == TransactionType.INCOME
+            ]
+    
+            # Define start and end dates for the year
+            start_date = datetime(year, 1, 1)
+            end_date = datetime(year, 12, 31)
+    
+            # Calculate monthly income for the year
+            monthly_income_dict = income_manager.calculate_monthly_income(year_transactions, start_date, end_date)
+    
+            # Convert to list format for compatibility with existing code
+            monthly_income = [{"month": month, "amount": amount} for month, amount in monthly_income_dict.items()]
+    
+            # Store year data
+            year_data[year] = {
+                "transactions": year_transactions,
+                "monthly_income": monthly_income,
+                "total_income": sum(month["amount"] for month in monthly_income),
+                "month_count": len(monthly_income),
+                "average_monthly": sum(month["amount"] for month in monthly_income) / max(1, len(monthly_income)),
+            }
+    
+        # Compare total income year-over-year
+>       assert year_data[2022]["total_income"] > year_data[2021]["total_income"]
+E       assert 0 > 0
+
+tests/freelancer/integration/test_year_over_year_comparison.py:365: AssertionError
+_______ TestYearOverYearComparison.test_expense_comparison_across_years ________
+
+self = <tests.freelancer.integration.test_year_over_year_comparison.TestYearOverYearComparison object at 0x7fc860117040>
+multi_year_transactions = [BaseTransaction(id='eb5533ba-4d37-433d-a0d3-bf76717efe14', date=2021-01-15 00:00:00, amount=2000, description='Client...9a-588f7109eb6e', date=2021-07-15 00:00:00, amount=4000, description='Client payment for Project 6', type=income), ...]
+
+    def test_expense_comparison_across_years(self, multi_year_transactions):
+        """Test comparing expense patterns across multiple years."""
+        categorizer = ExpenseCategorizer()
+    
+        # Process expenses by year and category
+        year_data = {}
+    
+        for year in range(2021, 2024):
+            # Filter expense transactions for this year
+            year_transactions = [
+                tx for tx in multi_year_transactions
+                if tx.date.year == year and tx.transaction_type == TransactionType.EXPENSE
+            ]
+    
+            # Generate expense summary for the year
+            start_date = datetime(year, 1, 1)
+            end_date = datetime(year, 12, 31)
+    
+            expense_summary = categorizer.generate_expense_summary(
+                year_transactions, start_date, end_date
+            )
+    
+            # Store data for analysis
+            year_data[year] = {
+                "transactions": year_transactions,
+                "summary": expense_summary,
+                "total_expenses": expense_summary.total_expenses,
+                "business_expenses": expense_summary.business_expenses,
+                "personal_expenses": expense_summary.personal_expenses,
+                "by_category": expense_summary.by_category,
+            }
+    
+        # Compare total expenses year-over-year
+        # Should increase due to inflation and business growth
+>       assert year_data[2022]["total_expenses"] > year_data[2021]["total_expenses"]
+E       assert 0.0 > 0.0
+
+tests/freelancer/integration/test_year_over_year_comparison.py:438: AssertionError
+_________ TestYearOverYearComparison.test_tax_comparison_across_years __________
+
+self = <tests.freelancer.integration.test_year_over_year_comparison.TestYearOverYearComparison object at 0x7fc8601171c0>
+multi_year_transactions = [BaseTransaction(id='d99a57fe-ab5b-4723-8ffd-21ca470a68b5', date=2021-01-15 00:00:00, amount=2000, description='Client...f3-85522e4a4646', date=2021-07-15 00:00:00, amount=4000, description='Client payment for Project 6', type=income), ...]
+
+    def test_tax_comparison_across_years(self, multi_year_transactions):
+        """Test comparing tax liabilities across multiple years with simplified tax calculations."""
+        categorizer = ExpenseCategorizer()
+    
+        # Process taxes by year
+        year_data = {}
+    
+        for year in range(2021, 2024):
+            # Filter transactions for this year
+            year_transactions = [tx for tx in multi_year_transactions if tx.date.year == year]
+    
+            # Split into income and expenses
+            income_transactions = [
+                tx for tx in year_transactions
+                if tx.transaction_type == TransactionType.INCOME
+            ]
+    
+            expense_transactions = [
+                tx for tx in year_transactions
+                if tx.transaction_type == TransactionType.EXPENSE
+            ]
+    
+            tax_transactions = [
+                tx for tx in year_transactions
+                if tx.transaction_type == TransactionType.TAX_PAYMENT
+            ]
+    
+            # Calculate total income
+            total_income = sum(tx.amount for tx in income_transactions)
+    
+            # Generate expense summary
+            start_date = datetime(year, 1, 1)
+            end_date = datetime(year, 12, 31)
+    
+            expense_summary = categorizer.generate_expense_summary(
+                expense_transactions, start_date, end_date
+            )
+    
+            # Calculate taxable income
+            taxable_income = total_income - expense_summary.business_expenses
+    
+            # Simplified tax calculation - use basic rates
+            if taxable_income <= 10000:
+                tax_rate = 0.10  # 10%
+            elif taxable_income <= 50000:
+                tax_rate = 0.15  # 15%
+            else:
+                tax_rate = 0.25  # 25%
+    
+            # Calculate tax liability using simplified rate
+            tax_liability = taxable_income * tax_rate
+    
+            # Calculate effective tax rate
+            effective_tax_rate = tax_liability / max(1.0, total_income)
+    
+            # Calculate total tax payments
+            tax_payments = sum(tx.amount for tx in tax_transactions)
+    
+            # Store year data
+            year_data[year] = {
+                "total_income": total_income,
+                "business_expenses": expense_summary.business_expenses,
+                "taxable_income": taxable_income,
+                "tax_liability": tax_liability,
+                "tax_payments": tax_payments,
+                "effective_tax_rate": effective_tax_rate,
+                "tax_rate": tax_rate,
+            }
+    
+        # Compare tax liabilities year-over-year (should increase with income)
+>       assert year_data[2022]["tax_liability"] > year_data[2021]["tax_liability"]
+E       assert 0.0 > 0.0
+
+tests/freelancer/integration/test_year_over_year_comparison.py:565: AssertionError
+____________ TestYearOverYearComparison.test_income_growth_analysis ____________
+
+self = <tests.freelancer.integration.test_year_over_year_mocks.TestYearOverYearComparison object at 0x7fc860117a60>
+
+    def test_income_growth_analysis(self):
+        """Test analyzing income growth across multiple years."""
+        # Create income transactions for 3 years
+        income_2021 = [
+            Transaction(
+                id=uuid.uuid4(),
+                date=datetime(2021, month, 15),
+                amount=5000.0 + random.uniform(-500, 500),  # Randomize income a bit
+                description=f"2021 - Month {month} income",
+                transaction_type=TransactionType.INCOME,
+                account_id="checking123",
+            )
+            for month in range(1, 13)
+        ]
+    
+        income_2022 = [
+            Transaction(
+                id=uuid.uuid4(),
+                date=datetime(2022, month, 15),
+                amount=6000.0 + random.uniform(-500, 500),  # Income increased in 2022
+                description=f"2022 - Month {month} income",
+                transaction_type=TransactionType.INCOME,
+                account_id="checking123",
+            )
+            for month in range(1, 13)
+        ]
+    
+        income_2023 = [
+            Transaction(
+                id=uuid.uuid4(),
+                date=datetime(2023, month, 15),
+                amount=7500.0 + random.uniform(-500, 500),  # Income increased in 2023
+                description=f"2023 - Month {month} income",
+                transaction_type=TransactionType.INCOME,
+                account_id="checking123",
+            )
+            for month in range(1, 13)
+        ]
+    
+        # Calculate total income by year
+        total_2021 = sum(t.amount for t in income_2021)
+        total_2022 = sum(t.amount for t in income_2022)
+        total_2023 = sum(t.amount for t in income_2023)
+    
+        # Calculate year-over-year growth
+        growth_2021_2022 = (total_2022 - total_2021) / total_2021 * 100
+        growth_2022_2023 = (total_2023 - total_2022) / total_2022 * 100
+    
+        # Calculate income stability (standard deviation as percentage of mean)
+        def income_stability(transactions):
+            amounts = [t.amount for t in transactions]
+            mean = sum(amounts) / len(amounts)
+            variance = sum((x - mean) ** 2 for x in amounts) / len(amounts)
+            std_dev = variance ** 0.5
+            return (std_dev / mean) * 100  # Lower is more stable
+    
+>       stability_2021 = income_stability(income_2021)
+
+tests/freelancer/integration/test_year_over_year_mocks.py:75: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+transactions = [BaseTransaction(id='970ef383-b654-4818-b440-cf5936e52002', date=2021-01-15 00:00:00, amount=5323.857347565532, descri...1250414df', date=2021-06-15 00:00:00, amount=4859.618321703276, description='2021 - Month 6 income', type=income), ...]
+
+    def income_stability(transactions):
+        amounts = [t.amount for t in transactions]
+        mean = sum(amounts) / len(amounts)
+        variance = sum((x - mean) ** 2 for x in amounts) / len(amounts)
+>       std_dev = variance ** 0.5
+E       TypeError: unsupported operand type(s) for ** or pow(): 'decimal.Decimal' and 'float'
+
+tests/freelancer/integration/test_year_over_year_mocks.py:72: TypeError
+___________ TestYearOverYearComparison.test_expense_category_trends ____________
+
+self = <tests.freelancer.integration.test_year_over_year_mocks.TestYearOverYearComparison object at 0x7fc860117be0>
+
+    def test_expense_category_trends(self):
+        """Test analyzing expense category trends across multiple years."""
+        # Create expense categories with increasing business ratio over years
+    
+        # 2021 expenses - 60% business, 40% personal
+        expenses_2021 = []
+    
+        # Business expenses 2021
+        for i in range(10):
+            expenses_2021.append(Transaction(
+                id=uuid.uuid4(),
+                date=datetime(2021, random.randint(1, 12), random.randint(1, 28)),
+                amount=2000.0 + random.uniform(-500, 500),
+                description=f"2021 Business expense {i+1}",
+                transaction_type=TransactionType.EXPENSE,
+                account_id="checking123",
+                category=random.choice([
+                    ExpenseCategory.BUSINESS_SUPPLIES,
+                    ExpenseCategory.SOFTWARE,
+                    ExpenseCategory.EQUIPMENT
+                ]),
+                business_use_percentage=100.0,
+            ))
+    
+        # Personal expenses 2021
+        for i in range(7):
+            expenses_2021.append(Transaction(
+                id=uuid.uuid4(),
+                date=datetime(2021, random.randint(1, 12), random.randint(1, 28)),
+                amount=1500.0 + random.uniform(-300, 300),
+                description=f"2021 Personal expense {i+1}",
+                transaction_type=TransactionType.EXPENSE,
+                account_id="checking123",
+                category=ExpenseCategory.PERSONAL,
+                business_use_percentage=0.0,
+            ))
+    
+        # 2022 expenses - 70% business, 30% personal
+        expenses_2022 = []
+    
+        # Business expenses 2022
+        for i in range(14):
+            expenses_2022.append(Transaction(
+                id=uuid.uuid4(),
+                date=datetime(2022, random.randint(1, 12), random.randint(1, 28)),
+                amount=2200.0 + random.uniform(-500, 500),
+                description=f"2022 Business expense {i+1}",
+                transaction_type=TransactionType.EXPENSE,
+                account_id="checking123",
+                category=random.choice([
+                    ExpenseCategory.BUSINESS_SUPPLIES,
+                    ExpenseCategory.SOFTWARE,
+                    ExpenseCategory.EQUIPMENT,
+                    ExpenseCategory.MARKETING
+                ]),
+                business_use_percentage=100.0,
+            ))
+    
+        # Personal expenses 2022
+        for i in range(6):
+            expenses_2022.append(Transaction(
+                id=uuid.uuid4(),
+                date=datetime(2022, random.randint(1, 12), random.randint(1, 28)),
+                amount=1600.0 + random.uniform(-300, 300),
+                description=f"2022 Personal expense {i+1}",
+                transaction_type=TransactionType.EXPENSE,
+                account_id="checking123",
+                category=ExpenseCategory.PERSONAL,
+                business_use_percentage=0.0,
+            ))
+    
+        # 2023 expenses - 80% business, 20% personal
+        expenses_2023 = []
+    
+        # Business expenses 2023
+        for i in range(16):
+            expenses_2023.append(Transaction(
+                id=uuid.uuid4(),
+                date=datetime(2023, random.randint(1, 12), random.randint(1, 28)),
+                amount=2500.0 + random.uniform(-500, 500),
+                description=f"2023 Business expense {i+1}",
+                transaction_type=TransactionType.EXPENSE,
+                account_id="checking123",
+                category=random.choice([
+                    ExpenseCategory.BUSINESS_SUPPLIES,
+                    ExpenseCategory.SOFTWARE,
+                    ExpenseCategory.EQUIPMENT,
+                    ExpenseCategory.MARKETING,
+                    ExpenseCategory.PROFESSIONAL_DEVELOPMENT
+                ]),
+                business_use_percentage=100.0,
+            ))
+    
+        # Personal expenses 2023
+        for i in range(4):
+            expenses_2023.append(Transaction(
+                id=uuid.uuid4(),
+                date=datetime(2023, random.randint(1, 12), random.randint(1, 28)),
+                amount=1700.0 + random.uniform(-300, 300),
+                description=f"2023 Personal expense {i+1}",
+                transaction_type=TransactionType.EXPENSE,
+                account_id="checking123",
+                category=ExpenseCategory.PERSONAL,
+                business_use_percentage=0.0,
+            ))
+    
+        # Calculate business vs personal ratio for each year
+        def calculate_ratio(transactions):
+            business_expenses = sum(
+                t.amount * (t.business_use_percentage / 100.0)
+                for t in transactions
+                if t.transaction_type == TransactionType.EXPENSE and t.business_use_percentage is not None
+            )
+    
+            total_expenses = sum(
+                t.amount
+                for t in transactions
+                if t.transaction_type == TransactionType.EXPENSE
+            )
+    
+            return (business_expenses / total_expenses) * 100 if total_expenses > 0 else 0
+    
+        ratio_2021 = calculate_ratio(expenses_2021)
+        ratio_2022 = calculate_ratio(expenses_2022)
+        ratio_2023 = calculate_ratio(expenses_2023)
+    
+        # Verify business expense ratio is increasing
+>       assert 50 < ratio_2021 < 70  # Around 60%
+E       assert 50 < 0
+
+tests/freelancer/integration/test_year_over_year_mocks.py:218: AssertionError
+___________ TestYearOverYearComparison.test_tax_liability_comparison ___________
+
+self = <tests.freelancer.integration.test_year_over_year_mocks.TestYearOverYearComparison object at 0x7fc860117d60>
+
+    def test_tax_liability_comparison(self):
+        """Test comparing tax liabilities across multiple years."""
+        # Create income and expenses for multiple years with increasing income
+        all_transactions = []
+    
+        # 2021 - Base income
+        income_2021 = 60000.0
+        expenses_2021 = 15000.0
+    
+        all_transactions.append(Transaction(
+            id=uuid.uuid4(),
+            date=datetime(2021, 6, 30),
+            amount=income_2021,
+            description="2021 income",
+            transaction_type=TransactionType.INCOME,
+            account_id="checking123",
+        ))
+    
+        all_transactions.append(Transaction(
+            id=uuid.uuid4(),
+            date=datetime(2021, 6, 30),
+            amount=expenses_2021,
+            description="2021 business expenses",
+            transaction_type=TransactionType.EXPENSE,
+            account_id="checking123",
+            category=ExpenseCategory.BUSINESS_SUPPLIES,
+            business_use_percentage=100.0,
+        ))
+    
+        # 2022 - 20% income increase
+        income_2022 = income_2021 * 1.2
+        expenses_2022 = expenses_2021 * 1.15  # 15% expense increase
+    
+        all_transactions.append(Transaction(
+            id=uuid.uuid4(),
+            date=datetime(2022, 6, 30),
+            amount=income_2022,
+            description="2022 income",
+            transaction_type=TransactionType.INCOME,
+            account_id="checking123",
+        ))
+    
+        all_transactions.append(Transaction(
+            id=uuid.uuid4(),
+            date=datetime(2022, 6, 30),
+            amount=expenses_2022,
+            description="2022 business expenses",
+            transaction_type=TransactionType.EXPENSE,
+            account_id="checking123",
+            category=ExpenseCategory.BUSINESS_SUPPLIES,
+            business_use_percentage=100.0,
+        ))
+    
+        # 2023 - Another 20% income increase
+        income_2023 = income_2022 * 1.2
+        expenses_2023 = expenses_2022 * 1.15  # 15% expense increase
+    
+        all_transactions.append(Transaction(
+            id=uuid.uuid4(),
+            date=datetime(2023, 6, 30),
+            amount=income_2023,
+            description="2023 income",
+            transaction_type=TransactionType.INCOME,
+            account_id="checking123",
+        ))
+    
+        all_transactions.append(Transaction(
+            id=uuid.uuid4(),
+            date=datetime(2023, 6, 30),
+            amount=expenses_2023,
+            description="2023 business expenses",
+            transaction_type=TransactionType.EXPENSE,
+            account_id="checking123",
+            category=ExpenseCategory.BUSINESS_SUPPLIES,
+            business_use_percentage=100.0,
+        ))
+    
+        # Calculate tax liabilities (simplified for mock test)
+        def calculate_tax(year_transactions, year):
+            income = sum(
+                t.amount
+                for t in year_transactions
+                if t.transaction_type == TransactionType.INCOME and t.date.year == year
+            )
+    
+            expenses = sum(
+                t.amount * (t.business_use_percentage / 100.0)
+                for t in year_transactions
+                if t.transaction_type == TransactionType.EXPENSE
+                and t.date.year == year
+                and t.business_use_percentage is not None
+            )
+    
+            taxable_income = income - expenses
+    
+            # Simplified progressive tax brackets
+            if taxable_income <= 20000:
+                return taxable_income * 0.10
+            elif taxable_income <= 50000:
+                return 2000 + (taxable_income - 20000) * 0.15
+            elif taxable_income <= 100000:
+                return 2000 + 4500 + (taxable_income - 50000) * 0.25
+            else:
+                return 2000 + 4500 + 12500 + (taxable_income - 100000) * 0.35
+    
+        tax_2021 = calculate_tax(all_transactions, 2021)
+        tax_2022 = calculate_tax(all_transactions, 2022)
+        tax_2023 = calculate_tax(all_transactions, 2023)
+    
+        # Calculate effective tax rates
+        taxable_2021 = income_2021 - expenses_2021
+        taxable_2022 = income_2022 - expenses_2022
+        taxable_2023 = income_2023 - expenses_2023
+    
+        rate_2021 = tax_2021 / taxable_2021 * 100 if taxable_2021 > 0 else 0
+        rate_2022 = tax_2022 / taxable_2022 * 100 if taxable_2022 > 0 else 0
+        rate_2023 = tax_2023 / taxable_2023 * 100 if taxable_2023 > 0 else 0
+    
+        # Verify tax liability increases with income
+>       assert tax_2022 > tax_2021
+E       assert 0.0 > 0.0
+
+tests/freelancer/integration/test_year_over_year_mocks.py:346: AssertionError
+_________ TestYearOverYearComparison.test_project_profitability_trends _________
+
+self = <tests.freelancer.integration.test_year_over_year_mocks.TestYearOverYearComparison object at 0x7fc860117c10>
+
+    def test_project_profitability_trends(self):
+        """Test analyzing project profitability trends across multiple years."""
+        # Create projects across multiple years with improving profitability
+    
+        # 2021 Projects (baseline profitability)
+        projects_2021 = [
+            # Project 1: 65% profit margin
+            {
+                "id": "project-2021-1",
+                "transactions": [
+                    Transaction(
+                        id=uuid.uuid4(),
+                        date=datetime(2021, 3, 15),
+                        amount=10000.0,
+                        description="Project 2021-1 income",
+                        transaction_type=TransactionType.INCOME,
+                        account_id="checking123",
+                        project_id="project-2021-1",
+                    ),
+                    Transaction(
+                        id=uuid.uuid4(),
+                        date=datetime(2021, 2, 10),
+                        amount=3500.0,
+                        description="Project 2021-1 expenses",
+                        transaction_type=TransactionType.EXPENSE,
+                        account_id="checking123",
+                        category=ExpenseCategory.BUSINESS_SUPPLIES,
+                        business_use_percentage=100.0,
+                        project_id="project-2021-1",
+                    ),
+                ]
+            },
+            # Project 2: 60% profit margin
+            {
+                "id": "project-2021-2",
+                "transactions": [
+                    Transaction(
+                        id=uuid.uuid4(),
+                        date=datetime(2021, 8, 20),
+                        amount=15000.0,
+                        description="Project 2021-2 income",
+                        transaction_type=TransactionType.INCOME,
+                        account_id="checking123",
+                        project_id="project-2021-2",
+                    ),
+                    Transaction(
+                        id=uuid.uuid4(),
+                        date=datetime(2021, 7, 15),
+                        amount=6000.0,
+                        description="Project 2021-2 expenses",
+                        transaction_type=TransactionType.EXPENSE,
+                        account_id="checking123",
+                        category=ExpenseCategory.BUSINESS_SUPPLIES,
+                        business_use_percentage=100.0,
+                        project_id="project-2021-2",
+                    ),
+                ]
+            },
+        ]
+    
+        # 2022 Projects (improved profitability)
+        projects_2022 = [
+            # Project 1: 70% profit margin
+            {
+                "id": "project-2022-1",
+                "transactions": [
+                    Transaction(
+                        id=uuid.uuid4(),
+                        date=datetime(2022, 4, 10),
+                        amount=12000.0,
+                        description="Project 2022-1 income",
+                        transaction_type=TransactionType.INCOME,
+                        account_id="checking123",
+                        project_id="project-2022-1",
+                    ),
+                    Transaction(
+                        id=uuid.uuid4(),
+                        date=datetime(2022, 3, 5),
+                        amount=3600.0,
+                        description="Project 2022-1 expenses",
+                        transaction_type=TransactionType.EXPENSE,
+                        account_id="checking123",
+                        category=ExpenseCategory.BUSINESS_SUPPLIES,
+                        business_use_percentage=100.0,
+                        project_id="project-2022-1",
+                    ),
+                ]
+            },
+            # Project 2: 72% profit margin
+            {
+                "id": "project-2022-2",
+                "transactions": [
+                    Transaction(
+                        id=uuid.uuid4(),
+                        date=datetime(2022, 9, 15),
+                        amount=18000.0,
+                        description="Project 2022-2 income",
+                        transaction_type=TransactionType.INCOME,
+                        account_id="checking123",
+                        project_id="project-2022-2",
+                    ),
+                    Transaction(
+                        id=uuid.uuid4(),
+                        date=datetime(2022, 8, 10),
+                        amount=5000.0,
+                        description="Project 2022-2 expenses",
+                        transaction_type=TransactionType.EXPENSE,
+                        account_id="checking123",
+                        category=ExpenseCategory.BUSINESS_SUPPLIES,
+                        business_use_percentage=100.0,
+                        project_id="project-2022-2",
+                    ),
+                ]
+            },
+        ]
+    
+        # 2023 Projects (further improved profitability)
+        projects_2023 = [
+            # Project 1: 75% profit margin
+            {
+                "id": "project-2023-1",
+                "transactions": [
+                    Transaction(
+                        id=uuid.uuid4(),
+                        date=datetime(2023, 2, 20),
+                        amount=14000.0,
+                        description="Project 2023-1 income",
+                        transaction_type=TransactionType.INCOME,
+                        account_id="checking123",
+                        project_id="project-2023-1",
+                    ),
+                    Transaction(
+                        id=uuid.uuid4(),
+                        date=datetime(2023, 1, 15),
+                        amount=3500.0,
+                        description="Project 2023-1 expenses",
+                        transaction_type=TransactionType.EXPENSE,
+                        account_id="checking123",
+                        category=ExpenseCategory.BUSINESS_SUPPLIES,
+                        business_use_percentage=100.0,
+                        project_id="project-2023-1",
+                    ),
+                ]
+            },
+            # Project 2: 78% profit margin
+            {
+                "id": "project-2023-2",
+                "transactions": [
+                    Transaction(
+                        id=uuid.uuid4(),
+                        date=datetime(2023, 7, 10),
+                        amount=20000.0,
+                        description="Project 2023-2 income",
+                        transaction_type=TransactionType.INCOME,
+                        account_id="checking123",
+                        project_id="project-2023-2",
+                    ),
+                    Transaction(
+                        id=uuid.uuid4(),
+                        date=datetime(2023, 6, 5),
+                        amount=4400.0,
+                        description="Project 2023-2 expenses",
+                        transaction_type=TransactionType.EXPENSE,
+                        account_id="checking123",
+                        category=ExpenseCategory.BUSINESS_SUPPLIES,
+                        business_use_percentage=100.0,
+                        project_id="project-2023-2",
+                    ),
+                ]
+            },
+        ]
+    
+        # Calculate profit margins by year
+        def calculate_profit_margin(projects):
+            all_transactions = []
+            for project in projects:
+                all_transactions.extend(project["transactions"])
+    
+            income = sum(
+                t.amount
+                for t in all_transactions
+                if t.transaction_type == TransactionType.INCOME
+            )
+    
+            expenses = sum(
+                t.amount * (t.business_use_percentage / 100.0)
+                for t in all_transactions
+                if t.transaction_type == TransactionType.EXPENSE and t.business_use_percentage is not None
+            )
+    
+            profit = income - expenses
+            margin = (profit / income) * 100 if income > 0 else 0
+    
+            return margin
+    
+        margin_2021 = calculate_profit_margin(projects_2021)
+        margin_2022 = calculate_profit_margin(projects_2022)
+        margin_2023 = calculate_profit_margin(projects_2023)
+    
+        # Verify profit margins improve year over year
+>       assert 60 < margin_2021 < 65
+E       assert 60 < 0
+
+tests/freelancer/integration/test_year_over_year_mocks.py:553: AssertionError
+_________ TestYearOverYearSimple.test_expense_comparison_across_years __________
+
+self = <tests.freelancer.integration.test_year_over_year_simple.TestYearOverYearSimple object at 0x7fc860117fa0>
+
+    def test_expense_comparison_across_years(self):
+        """Test comparing expense patterns across multiple years."""
+        # Create sample transactions
+        transactions = []
+    
+        # 2021 expenses
+        transactions.append(Transaction(
+            id=uuid.uuid4(),
+            date=datetime(2021, 6, 15),
+            amount=1000.0,
+            description="Software expenses 2021",
+            transaction_type=TransactionType.EXPENSE,
+            account_id="checking123",
+            category=ExpenseCategory.SOFTWARE,
+            business_use_percentage=100.0,
+        ))
+    
+        transactions.append(Transaction(
+            id=uuid.uuid4(),
+            date=datetime(2021, 7, 15),
+            amount=2000.0,
+            description="Personal expenses 2021",
+            transaction_type=TransactionType.EXPENSE,
+            account_id="checking123",
+            category=ExpenseCategory.PERSONAL,
+            business_use_percentage=0.0,
+        ))
+    
+        # 2022 expenses (higher)
+        transactions.append(Transaction(
+            id=uuid.uuid4(),
+            date=datetime(2022, 6, 15),
+            amount=1500.0,
+            description="Software expenses 2022",
+            transaction_type=TransactionType.EXPENSE,
+            account_id="checking123",
+            category=ExpenseCategory.SOFTWARE,
+            business_use_percentage=100.0,
+        ))
+    
+        transactions.append(Transaction(
+            id=uuid.uuid4(),
+            date=datetime(2022, 7, 15),
+            amount=2500.0,
+            description="Personal expenses 2022",
+            transaction_type=TransactionType.EXPENSE,
+            account_id="checking123",
+            category=ExpenseCategory.PERSONAL,
+            business_use_percentage=0.0,
+        ))
+    
+        # Split by year
+        expenses_2021 = [tx for tx in transactions if tx.date.year == 2021]
+        expenses_2022 = [tx for tx in transactions if tx.date.year == 2022]
+    
+        # Calculate totals
+        total_2021 = sum(tx.amount for tx in expenses_2021)
+        total_2022 = sum(tx.amount for tx in expenses_2022)
+    
+        # Verify expenses increased
+        assert total_2022 > total_2021
+    
+        # Calculate business expenses
+>       business_2021 = sum(
+            tx.amount * (tx.business_use_percentage / 100.0)
+            for tx in expenses_2021
+            if tx.category != ExpenseCategory.PERSONAL
+        )
+
+tests/freelancer/integration/test_year_over_year_simple.py:134: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+.0 = <list_iterator object at 0x7fc85bbb78b0>
+
+    business_2021 = sum(
+>       tx.amount * (tx.business_use_percentage / 100.0)
+        for tx in expenses_2021
+        if tx.category != ExpenseCategory.PERSONAL
+    )
+E   TypeError: unsupported operand type(s) for *: 'decimal.Decimal' and 'float'
+
+tests/freelancer/integration/test_year_over_year_simple.py:135: TypeError
+________ TestYearOverYearSimplified.test_income_comparison_across_years ________
+
+self = <tests.freelancer.integration.test_year_over_year_simplified.TestYearOverYearSimplified object at 0x7fc860154700>
+
+    def test_income_comparison_across_years(self):
+        """Test comparing income patterns across multiple years."""
+        income_manager = IncomeManager()
+    
+        # Create income transactions for two years
+        transactions = []
+    
+        # 2021 income (lower)
+        for month in range(1, 13):
+            if month in [1, 3, 5, 7, 9, 11]:  # Bi-monthly income
+                amount = 3000.0
+                tx = Transaction(
+                    id=uuid.uuid4(),
+                    date=datetime(2021, month, 15),
+                    amount=amount,
+                    description=f"Income for month {month}",
+                    transaction_type=TransactionType.INCOME,
+                    account_id="checking123",
+                )
+                transactions.append(tx)
+    
+        # 2022 income (higher)
+        for month in range(1, 13):
+            if month in [1, 3, 5, 7, 9, 11]:  # Same pattern but higher amount
+                amount = 4000.0
+                tx = Transaction(
+                    id=uuid.uuid4(),
+                    date=datetime(2022, month, 15),
+                    amount=amount,
+                    description=f"Income for month {month}",
+                    transaction_type=TransactionType.INCOME,
+                    account_id="checking123",
+                )
+                transactions.append(tx)
+    
+        # Process transactions by year
+        income_2021 = [tx for tx in transactions if tx.date.year == 2021]
+        income_2022 = [tx for tx in transactions if tx.date.year == 2022]
+    
+        # Calculate income for each year
+        monthly_income_2021 = income_manager.calculate_monthly_income(
+            income_2021,
+            start_date=datetime(2021, 1, 1),
+            end_date=datetime(2021, 12, 31)
+        )
+        monthly_income_2022 = income_manager.calculate_monthly_income(
+            income_2022,
+            start_date=datetime(2022, 1, 1),
+            end_date=datetime(2022, 12, 31)
+        )
+    
+        # Calculate totals
+        total_2021 = sum(monthly_income_2021.values())
+        total_2022 = sum(monthly_income_2022.values())
+    
+        # Verify income increased
+>       assert total_2022 > total_2021
+E       assert 0 > 0
+
+tests/freelancer/integration/test_year_over_year_simplified.py:86: AssertionError
+_______ TestYearOverYearSimplified.test_expense_comparison_across_years ________
+
+self = <tests.freelancer.integration.test_year_over_year_simplified.TestYearOverYearSimplified object at 0x7fc860154880>
+
+    def test_expense_comparison_across_years(self):
+        """Test comparing expense patterns across multiple years."""
+        categorizer = ExpenseCategorizer()
+    
+        # Create expense transactions for two years
+        transactions = []
+    
+        # 2021 expenses
+        # Business expenses
+        transactions.append(Transaction(
+            id=uuid.uuid4(),
+            date=datetime(2021, 6, 15),
+            amount=1000.0,
+            description="Software expenses",
+            transaction_type=TransactionType.EXPENSE,
+            account_id="checking123",
+            category=ExpenseCategory.SOFTWARE,
+            business_use_percentage=100.0,
+        ))
+    
+        # Personal expenses
+        transactions.append(Transaction(
+            id=uuid.uuid4(),
+            date=datetime(2021, 6, 20),
+            amount=2000.0,
+            description="Personal expenses",
+            transaction_type=TransactionType.EXPENSE,
+            account_id="checking123",
+            category=ExpenseCategory.PERSONAL,
+            business_use_percentage=0.0,
+        ))
+    
+        # 2022 expenses (higher)
+        # Business expenses
+        transactions.append(Transaction(
+            id=uuid.uuid4(),
+            date=datetime(2022, 6, 15),
+            amount=1500.0,
+            description="Software expenses",
+            transaction_type=TransactionType.EXPENSE,
+            account_id="checking123",
+            category=ExpenseCategory.SOFTWARE,
+            business_use_percentage=100.0,
+        ))
+    
+        # Personal expenses
+        transactions.append(Transaction(
+            id=uuid.uuid4(),
+            date=datetime(2022, 6, 20),
+            amount=2200.0,
+            description="Personal expenses",
+            transaction_type=TransactionType.EXPENSE,
+            account_id="checking123",
+            category=ExpenseCategory.PERSONAL,
+            business_use_percentage=0.0,
+        ))
+    
+        # Process by year
+        expenses_2021 = [tx for tx in transactions if tx.date.year == 2021]
+        expenses_2022 = [tx for tx in transactions if tx.date.year == 2022]
+    
+        # Generate expense summaries
+        summary_2021 = categorizer.generate_expense_summary(
+            expenses_2021,
+            start_date=datetime(2021, 1, 1),
+            end_date=datetime(2021, 12, 31)
+        )
+    
+        summary_2022 = categorizer.generate_expense_summary(
+            expenses_2022,
+            start_date=datetime(2022, 1, 1),
+            end_date=datetime(2022, 12, 31)
+        )
+    
+        # Verify total expenses increased
+>       assert summary_2022.total_expenses > summary_2021.total_expenses
+E       assert 0.0 > 0.0
+E        +  where 0.0 = ExpenseSummary(period_start=datetime.datetime(2022, 1, 1, 0, 0), period_end=datetime.datetime(2022, 12, 31, 0, 0), tot...expenses=0.0, personal_expenses=0.0, by_category={}, generation_date=datetime.datetime(2025, 6, 16, 4, 34, 53, 982735)).total_expenses
+E        +  and   0.0 = ExpenseSummary(period_start=datetime.datetime(2021, 1, 1, 0, 0), period_end=datetime.datetime(2021, 12, 31, 0, 0), tot...expenses=0.0, personal_expenses=0.0, by_category={}, generation_date=datetime.datetime(2025, 6, 16, 4, 34, 53, 982727)).total_expenses
+
+tests/freelancer/integration/test_year_over_year_simplified.py:167: AssertionError
+________________________ TestProjectProfiler.test_init _________________________
+
+self = <tests.freelancer.project.test_profitability_analyzer.TestProjectProfiler object at 0x7fc8601557e0>
+
+    def test_init(self):
+        """Test initialization of the project profiler."""
+        profiler = ProjectProfiler()
+>       assert profiler._profitability_cache == {}
+E       AttributeError: 'FreelancerProjectProfiler' object has no attribute '_profitability_cache'
+
+tests/freelancer/project/test_profitability_analyzer.py:29: AttributeError
+____________ TestProjectProfiler.test_analyze_project_profitability ____________
+
+self = <tests.freelancer.project.test_profitability_analyzer.TestProjectProfiler object at 0x7fc860155a20>
+sample_projects = [Project(id='project1', name='Website Redesign', client_id='client1', start_date=datetime.datetime(2022, 1, 1, 0, 0), ... 21, 0, 0), status='completed', hourly_rate=None, fixed_price=1000.0, estimated_hours=10.0, description=None, tags=[])]
+sample_time_entries = [TimeEntry(id=UUID('a18c1ca0-508b-44e4-9f8e-1bfc9525cb45'), project_id='project1', start_time=datetime.datetime(2022, ....datetime(2022, 1, 16, 13, 0), duration_minutes=240.0, description='Website design work', billable=True, tags=[]), ...]
+sample_transactions = [BaseTransaction(id='a1e32ef4-a09f-4d54-8dd3-4c392ad25adc', date=2022-01-15 00:00:00, amount=2500, description='Client...da-613ad6bf7db5', date=2022-07-15 00:00:00, amount=5000, description='Client payment for Project 6', type=income), ...]
+sample_invoices = [Invoice(id='invproject1-1', client_id='client1', project_id='project1', issue_date=datetime.datetime(2022, 1, 23, 12,...keting Campaign', line_items=[{'description': 'Payment for 50.0 hours on Marketing Campaign', 'amount': 3750.0}]), ...]
+
+    def test_analyze_project_profitability(
+        self, sample_projects, sample_time_entries, sample_transactions, sample_invoices
+    ):
+        """Test project profitability analysis for a single project."""
+        profiler = ProjectProfiler()
+    
+        # Test each project
+        for project in sample_projects:
+            # Run analysis
+>           analysis = profiler.analyze_project_profitability(
+                project, sample_time_entries, sample_transactions, sample_invoices
+            )
+
+tests/freelancer/project/test_profitability_analyzer.py:40: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+personal_finance_tracker/project/profitability_analyzer_migrated.py:164: in analyze_project_profitability
+    roi = FinancialCalculations.calculate_roi(total_profit, max(total_expenses, min_expenses))
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+gain = 0, cost = 0.01
+
+    @staticmethod
+    def calculate_roi(gain: Decimal, cost: Decimal) -> Decimal:
+        """Calculate return on investment as percentage."""
+        if cost == 0:
+            return Decimal('0')
+    
+>       roi = ((gain - cost) / cost) * Decimal('100')
+E       TypeError: unsupported operand type(s) for *: 'float' and 'decimal.Decimal'
+
+common/core/utils/financial_calculations.py:106: TypeError
+____________ TestProjectProfiler.test_analyze_client_profitability _____________
+
+self = <tests.freelancer.project.test_profitability_analyzer.TestProjectProfiler object at 0x7fc860155cc0>
+sample_clients = [Client(id='client1', name='TechCorp Inc.', contact_email='contact@techcorp.com', contact_phone=None, address=None, no...eting Solutions', contact_email='info@marketsolutions.com', contact_phone=None, address=None, notes=None, active=True)]
+sample_projects = [Project(id='project1', name='Website Redesign', client_id='client1', start_date=datetime.datetime(2022, 1, 1, 0, 0), ... 21, 0, 0), status='completed', hourly_rate=None, fixed_price=1000.0, estimated_hours=10.0, description=None, tags=[])]
+sample_time_entries = [TimeEntry(id=UUID('2b61d744-3866-4df8-a453-fdd8345417b6'), project_id='project1', start_time=datetime.datetime(2022, ....datetime(2022, 1, 16, 13, 0), duration_minutes=240.0, description='Website design work', billable=True, tags=[]), ...]
+sample_transactions = [BaseTransaction(id='98c5ff85-fe33-43ad-9d3b-30e52bdaa04f', date=2022-01-15 00:00:00, amount=2500, description='Client...4c-c51580166b4d', date=2022-07-15 00:00:00, amount=5000, description='Client payment for Project 6', type=income), ...]
+sample_invoices = [Invoice(id='invproject1-1', client_id='client1', project_id='project1', issue_date=datetime.datetime(2022, 1, 23, 12,...keting Campaign', line_items=[{'description': 'Payment for 50.0 hours on Marketing Campaign', 'amount': 3750.0}]), ...]
+
+    def test_analyze_client_profitability(
+        self,
+        sample_clients,
+        sample_projects,
+        sample_time_entries,
+        sample_transactions,
+        sample_invoices,
+    ):
+        """Test client profitability analysis across multiple projects."""
+        profiler = ProjectProfiler()
+    
+        # Test each client
+        for client in sample_clients:
+            # Run analysis
+>           analysis = profiler.analyze_client_profitability(
+                client,
+                sample_projects,
+                sample_time_entries,
+                sample_transactions,
+                sample_invoices,
+            )
+
+tests/freelancer/project/test_profitability_analyzer.py:78: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+personal_finance_tracker/project/profitability_analyzer_migrated.py:267: in analyze_client_profitability
+    analysis = self.analyze_project_profitability(
+personal_finance_tracker/project/profitability_analyzer_migrated.py:164: in analyze_project_profitability
+    roi = FinancialCalculations.calculate_roi(total_profit, max(total_expenses, min_expenses))
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+gain = 0, cost = 0.01
+
+    @staticmethod
+    def calculate_roi(gain: Decimal, cost: Decimal) -> Decimal:
+        """Calculate return on investment as percentage."""
+        if cost == 0:
+            return Decimal('0')
+    
+>       roi = ((gain - cost) / cost) * Decimal('100')
+E       TypeError: unsupported operand type(s) for *: 'float' and 'decimal.Decimal'
+
+common/core/utils/financial_calculations.py:106: TypeError
+________________ TestProjectProfiler.test_analyze_all_projects _________________
+
+self = <tests.freelancer.project.test_profitability_analyzer.TestProjectProfiler object at 0x7fc860155b10>
+sample_projects = [Project(id='project1', name='Website Redesign', client_id='client1', start_date=datetime.datetime(2022, 1, 1, 0, 0), ... 21, 0, 0), status='completed', hourly_rate=None, fixed_price=1000.0, estimated_hours=10.0, description=None, tags=[])]
+sample_time_entries = [TimeEntry(id=UUID('593b44c5-4c15-49f2-9f11-bbb3160a28ba'), project_id='project1', start_time=datetime.datetime(2022, ....datetime(2022, 1, 16, 13, 0), duration_minutes=240.0, description='Website design work', billable=True, tags=[]), ...]
+sample_transactions = [BaseTransaction(id='52ccb881-9b08-4912-a0a6-7b713bcc803c', date=2022-01-15 00:00:00, amount=2500, description='Client...30-f3bce5863be8', date=2022-07-15 00:00:00, amount=5000, description='Client payment for Project 6', type=income), ...]
+sample_invoices = [Invoice(id='invproject1-1', client_id='client1', project_id='project1', issue_date=datetime.datetime(2022, 1, 23, 12,...keting Campaign', line_items=[{'description': 'Payment for 50.0 hours on Marketing Campaign', 'amount': 3750.0}]), ...]
+
+    def test_analyze_all_projects(
+        self, sample_projects, sample_time_entries, sample_transactions, sample_invoices
+    ):
+        """Test analysis of all projects at once."""
+        profiler = ProjectProfiler()
+    
+        # Run analysis for all projects
+        start_time = time.time()
+>       all_projects = profiler.analyze_all_projects(
+            sample_projects, sample_time_entries, sample_transactions, sample_invoices
+        )
+
+tests/freelancer/project/test_profitability_analyzer.py:109: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+personal_finance_tracker/project/profitability_analyzer_migrated.py:346: in analyze_all_projects
+    analysis = self.analyze_project_profitability(
+personal_finance_tracker/project/profitability_analyzer_migrated.py:164: in analyze_project_profitability
+    roi = FinancialCalculations.calculate_roi(total_profit, max(total_expenses, min_expenses))
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+gain = 0, cost = 0.01
+
+    @staticmethod
+    def calculate_roi(gain: Decimal, cost: Decimal) -> Decimal:
+        """Calculate return on investment as percentage."""
+        if cost == 0:
+            return Decimal('0')
+    
+>       roi = ((gain - cost) / cost) * Decimal('100')
+E       TypeError: unsupported operand type(s) for *: 'float' and 'decimal.Decimal'
+
+common/core/utils/financial_calculations.py:106: TypeError
+______________ TestProjectProfiler.test_analyze_large_project_set ______________
+
+self = <tests.freelancer.project.test_profitability_analyzer.TestProjectProfiler object at 0x7fc860155f90>
+
+    def test_analyze_large_project_set(self):
+        """Test performance with a large set of projects (100+)."""
+        profiler = ProjectProfiler()
+    
+        # Generate a large set of projects
+        num_projects = 105  # Slightly over the 100 requirement
+        projects = []
+        time_entries = []
+        transactions = []
+        invoices = []
+    
+        # Base date for test data
+        base_date = datetime(2022, 1, 1)
+    
+        for i in range(num_projects):
+            # Create project
+            project_id = f"large_project_{i}"
+            client_id = f"client_{i % 10}"  # 10 clients
+    
+            start_date = base_date + timedelta(days=i % 30)
+            end_date = start_date + timedelta(days=30) if i % 3 == 0 else None
+            status = "completed" if end_date else "active"
+    
+            project = Project(
+                id=project_id,
+                name=f"Project {i}",
+                client_id=client_id,
+                start_date=start_date,
+                end_date=end_date,
+                status=status,
+                hourly_rate=75.0 + (i % 5) * 10,  # Vary hourly rates
+                estimated_hours=20.0 + (i % 8) * 5,  # Vary estimated hours
+            )
+            projects.append(project)
+    
+            # Add some time entries
+            hours = 15 + (i % 10) * 2  # Different hours per project
+            for j in range(int(hours)):
+                entry_date = start_date + timedelta(days=j)
+                time_entries.append(
+                    TimeEntry(
+                        id=uuid.uuid4(),
+                        project_id=project_id,
+                        start_time=datetime.combine(entry_date, datetime.min.time())
+                        + timedelta(hours=9),
+                        end_time=datetime.combine(entry_date, datetime.min.time())
+                        + timedelta(hours=10),
+                        description=f"Work on project {i}",
+                    )
+                )
+    
+            # Add some expenses
+            expense_count = 1 + i % 3
+            for j in range(expense_count):
+                transactions.append(
+                    Transaction(
+                        id=uuid.uuid4(),
+                        date=start_date + timedelta(days=j * 5),
+                        amount=50.0 + j * 20,
+                        description=f"Expense for project {i}",
+                        transaction_type=TransactionType.EXPENSE,
+                        account_id="checking123",
+                        project_id=project_id,
+                    )
+                )
+    
+            # Add an invoice
+            invoice_amount = project.hourly_rate * hours
+            invoice_date = start_date + timedelta(days=15)
+    
+            from personal_finance_tracker.models.common import Invoice
+    
+            invoices.append(
+                Invoice(
+                    id=f"inv_{project_id}",
+                    client_id=client_id,
+                    project_id=project_id,
+                    issue_date=invoice_date,
+                    due_date=invoice_date + timedelta(days=15),
+                    amount=invoice_amount,
+                    status="paid" if i % 4 != 0 else "sent",
+                    payment_date=(invoice_date + timedelta(days=10))
+                    if i % 4 != 0
+                    else None,
+                    description=f"Invoice for Project {i}",
+                    line_items=[
+                        {
+                            "description": f"Work on Project {i}",
+                            "amount": invoice_amount,
+                        }
+                    ],
+                )
+            )
+    
+        # Test performance
+        start_time = time.time()
+>       results = profiler.analyze_all_projects(
+            projects, time_entries, transactions, invoices
+        )
+
+tests/freelancer/project/test_profitability_analyzer.py:311: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+personal_finance_tracker/project/profitability_analyzer_migrated.py:346: in analyze_all_projects
+    analysis = self.analyze_project_profitability(
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = FreelancerProjectProfiler(caching=True, performance_tracking=True)
+project = Project(id='large_project_0', name='Project 0', client_id='client_0', start_date=datetime.datetime(2022, 1, 1, 0, 0), ... 1, 31, 0, 0), status='completed', hourly_rate=75.0, fixed_price=None, estimated_hours=20.0, description=None, tags=[])
+time_entries = [TimeEntry(id=UUID('bae8e63d-861c-410b-842a-4fc6275be0b0'), project_id='large_project_0', start_time=datetime.datetime...time.datetime(2022, 1, 6, 10, 0), duration_minutes=60.0, description='Work on project 0', billable=True, tags=[]), ...]
+transactions = [BaseTransaction(id='2bcaffc3-2445-4410-813c-37e8d240d11b', date=2022-01-01 00:00:00, amount=50.0, description='Expens...6e8-8891-541bd11dc158', date=2022-01-13 00:00:00, amount=90.0, description='Expense for project 2', type=expense), ...]
+invoices = [Invoice(id='inv_large_project_0', client_id='client_0', project_id='large_project_0', issue_date=datetime.datetime(20... 0, 0), description='Invoice for Project 5', line_items=[{'description': 'Work on Project 5', 'amount': 1875.0}]), ...]
+force_recalculation = False, kwargs = {}
+cache_key = 'project_large_project_0_-4003964685672575314', cached_result = None
+project_time_entries = [TimeEntry(id=UUID('bae8e63d-861c-410b-842a-4fc6275be0b0'), project_id='large_project_0', start_time=datetime.datetime...time.datetime(2022, 1, 6, 10, 0), duration_minutes=60.0, description='Work on project 0', billable=True, tags=[]), ...]
+total_hours = 15.0
+project_invoices = [Invoice(id='inv_large_project_0', client_id='client_0', project_id='large_project_0', issue_date=datetime.datetime(20...t_date=None, description='Invoice for Project 0', line_items=[{'description': 'Work on Project 0', 'amount': 1125.0}])]
+paid_invoices = [], total_revenue = 0
+
+    def analyze_project_profitability(
+        self,
+        project: Project,
+        time_entries: List[TimeEntry],
+        transactions: List[Transaction],
+        invoices: List[Invoice],
+        force_recalculation: bool = False,
+        **kwargs
+    ) -> ProjectProfitability:
+        """
+        Analyze the profitability of a single project with caching.
+    
+        Args:
+            project: Project to analyze
+            time_entries: Time entries associated with the project
+            transactions: Transactions associated with the project
+            invoices: Invoices associated with the project
+            force_recalculation: Whether to force recalculation
+    
+        Returns:
+            ProjectProfitability analysis result
+        """
+        # Generate cache key
+        cache_key = f"project_{project.id}_{hash(str(time_entries + transactions + invoices))}"
+    
+        # Check cache unless forced recalculation
+        if not force_recalculation:
+            cached_result = self.get_cached_result(cache_key)
+            if cached_result is not None:
+                return cached_result
+    
+        with self.measure_performance("single_project_analysis"):
+            # Filter to entries for this project
+            project_time_entries = [e for e in time_entries if e.project_id == project.id]
+    
+            # Calculate total hours
+            total_hours = sum(
+                entry.duration_minutes / 60
+                for entry in project_time_entries
+                if entry.duration_minutes is not None
+            )
+    
+            # Calculate total revenue from invoices
+            project_invoices = [i for i in invoices if i.project_id == project.id]
+            paid_invoices = [i for i in project_invoices if i.status == "paid"]
+            total_revenue = sum(invoice.amount for invoice in paid_invoices)
+    
+            # Calculate total expenses
+            project_expenses = [
+                t
+                for t in transactions
+                if (
+                    t.transaction_type == TransactionType.EXPENSE
+                    and t.project_id == project.id
+                )
+            ]
+            total_expenses = sum(t.amount for t in project_expenses)
+    
+            # Calculate profitability metrics using common library
+            total_profit = total_revenue - total_expenses
+    
+            # Use configuration for minimum values to avoid division by zero
+            min_hours = self.get_config_value("minimum_hours_for_rate_calculation", 0.01)
+            min_revenue = self.get_config_value("minimum_revenue_for_margin_calculation", 0.01)
+            min_expenses = self.get_config_value("minimum_expenses_for_roi_calculation", 0.01)
+    
+            effective_hourly_rate = total_revenue / max(total_hours, min_hours)
+>           profit_margin = 100 * total_profit / max(total_revenue, min_revenue)
+E           TypeError: unsupported operand type(s) for /: 'decimal.Decimal' and 'float'
+
+personal_finance_tracker/project/profitability_analyzer_migrated.py:161: TypeError
+_______________________ TestFinancialProjector.test_init _______________________
+
+self = <tests.freelancer.projection.test_financial_projector.TestFinancialProjector object at 0x7fc860156b90>
+
+    def test_init(self):
+        """Test initialization of the financial projector."""
+        projector = FinancialProjector()
+>       assert projector._projection_cache == {}
+E       AttributeError: 'FreelancerFinancialProjector' object has no attribute '_projection_cache'
+
+tests/freelancer/projection/test_financial_projector.py:34: AttributeError
+=============================== warnings summary ===============================
+personal_finance_tracker/models/common.py:270
+  /home/justinchiu_cohere_com/minicode/large_repos/personal_finance_tracker/unified/personal_finance_tracker/models/common.py:270: PydanticDeprecatedSince20: Pydantic V1 style `@validator` validators are deprecated. You should migrate to Pydantic V2 style `@field_validator` validators, see the migration guide for more details. Deprecated in Pydantic V2.0 to be removed in V3.0. See Pydantic V2 Migration Guide at https://errors.pydantic.dev/2.11/migration/
+    @validator("duration_minutes", always=True)
+
+personal_finance_tracker/income/models.py:36
+  /home/justinchiu_cohere_com/minicode/large_repos/personal_finance_tracker/unified/personal_finance_tracker/income/models.py:36: PydanticDeprecatedSince20: Pydantic V1 style `@validator` validators are deprecated. You should migrate to Pydantic V2 style `@field_validator` validators, see the migration guide for more details. Deprecated in Pydantic V2.0 to be removed in V3.0. See Pydantic V2 Migration Guide at https://errors.pydantic.dev/2.11/migration/
+    @validator("window_size")
+
+personal_finance_tracker/income/models.py:43
+  /home/justinchiu_cohere_com/minicode/large_repos/personal_finance_tracker/unified/personal_finance_tracker/income/models.py:43: PydanticDeprecatedSince20: Pydantic V1 style `@validator` validators are deprecated. You should migrate to Pydantic V2 style `@field_validator` validators, see the migration guide for more details. Deprecated in Pydantic V2.0 to be removed in V3.0. See Pydantic V2 Migration Guide at https://errors.pydantic.dev/2.11/migration/
+    @validator("alpha")
+
+personal_finance_tracker/income/models.py:50
+  /home/justinchiu_cohere_com/minicode/large_repos/personal_finance_tracker/unified/personal_finance_tracker/income/models.py:50: PydanticDeprecatedSince20: Pydantic V1 style `@validator` validators are deprecated. You should migrate to Pydantic V2 style `@field_validator` validators, see the migration guide for more details. Deprecated in Pydantic V2.0 to be removed in V3.0. See Pydantic V2 Migration Guide at https://errors.pydantic.dev/2.11/migration/
+    @validator("percentile")
+
+personal_finance_tracker/income/models.py:57
+  /home/justinchiu_cohere_com/minicode/large_repos/personal_finance_tracker/unified/personal_finance_tracker/income/models.py:57: PydanticDeprecatedSince20: Pydantic V1 style `@validator` validators are deprecated. You should migrate to Pydantic V2 style `@field_validator` validators, see the migration guide for more details. Deprecated in Pydantic V2.0 to be removed in V3.0. See Pydantic V2 Migration Guide at https://errors.pydantic.dev/2.11/migration/
+    @validator("emergency_buffer_months")
+
+personal_finance_tracker/income/models.py:64
+  /home/justinchiu_cohere_com/minicode/large_repos/personal_finance_tracker/unified/personal_finance_tracker/income/models.py:64: PydanticDeprecatedSince20: Pydantic V1 style `@validator` validators are deprecated. You should migrate to Pydantic V2 style `@field_validator` validators, see the migration guide for more details. Deprecated in Pydantic V2.0 to be removed in V3.0. See Pydantic V2 Migration Guide at https://errors.pydantic.dev/2.11/migration/
+    @validator("confidence_interval")
+
+personal_finance_tracker/project/models.py:51
+  /home/justinchiu_cohere_com/minicode/large_repos/personal_finance_tracker/unified/personal_finance_tracker/project/models.py:51: PydanticDeprecatedSince20: Pydantic V1 style `@validator` validators are deprecated. You should migrate to Pydantic V2 style `@field_validator` validators, see the migration guide for more details. Deprecated in Pydantic V2.0 to be removed in V3.0. See Pydantic V2 Migration Guide at https://errors.pydantic.dev/2.11/migration/
+    @validator("effective_hourly_rate", "profit_margin", "roi", pre=True, always=True)
+
+personal_finance_tracker/projection/models.py:40
+  /home/justinchiu_cohere_com/minicode/large_repos/personal_finance_tracker/unified/personal_finance_tracker/projection/models.py:40: PydanticDeprecatedSince20: Pydantic V1 style `@validator` validators are deprecated. You should migrate to Pydantic V2 style `@field_validator` validators, see the migration guide for more details. Deprecated in Pydantic V2.0 to be removed in V3.0. See Pydantic V2 Migration Guide at https://errors.pydantic.dev/2.11/migration/
+    @validator("probability")
+
+personal_finance_tracker/projection/models.py:77
+  /home/justinchiu_cohere_com/minicode/large_repos/personal_finance_tracker/unified/personal_finance_tracker/projection/models.py:77: PydanticDeprecatedSince20: Pydantic V1 style `@validator` validators are deprecated. You should migrate to Pydantic V2 style `@field_validator` validators, see the migration guide for more details. Deprecated in Pydantic V2.0 to be removed in V3.0. See Pydantic V2 Migration Guide at https://errors.pydantic.dev/2.11/migration/
+    @validator("confidence_interval")
+
+personal_finance_tracker/projection/models.py:99
+  /home/justinchiu_cohere_com/minicode/large_repos/personal_finance_tracker/unified/personal_finance_tracker/projection/models.py:99: PydanticDeprecatedSince20: Pydantic V1 style `@validator` validators are deprecated. You should migrate to Pydantic V2 style `@field_validator` validators, see the migration guide for more details. Deprecated in Pydantic V2.0 to be removed in V3.0. See Pydantic V2 Migration Guide at https://errors.pydantic.dev/2.11/migration/
+    @validator("confidence_level")
+
+personal_finance_tracker/tax/models.py:50
+  /home/justinchiu_cohere_com/minicode/large_repos/personal_finance_tracker/unified/personal_finance_tracker/tax/models.py:50: PydanticDeprecatedSince20: Pydantic V1 style `@validator` validators are deprecated. You should migrate to Pydantic V2 style `@field_validator` validators, see the migration guide for more details. Deprecated in Pydantic V2.0 to be removed in V3.0. See Pydantic V2 Migration Guide at https://errors.pydantic.dev/2.11/migration/
+    @validator("rates")
+
+personal_finance_tracker/tax/models.py:77
+  /home/justinchiu_cohere_com/minicode/large_repos/personal_finance_tracker/unified/personal_finance_tracker/tax/models.py:77: PydanticDeprecatedSince20: Pydantic V1 style `@validator` validators are deprecated. You should migrate to Pydantic V2 style `@field_validator` validators, see the migration guide for more details. Deprecated in Pydantic V2.0 to be removed in V3.0. See Pydantic V2 Migration Guide at https://errors.pydantic.dev/2.11/migration/
+    @validator("effective_rate", "marginal_rate")
+
+personal_finance_tracker/tax/models.py:124
+  /home/justinchiu_cohere_com/minicode/large_repos/personal_finance_tracker/unified/personal_finance_tracker/tax/models.py:124: PydanticDeprecatedSince20: Pydantic V1 style `@validator` validators are deprecated. You should migrate to Pydantic V2 style `@field_validator` validators, see the migration guide for more details. Deprecated in Pydantic V2.0 to be removed in V3.0. See Pydantic V2 Migration Guide at https://errors.pydantic.dev/2.11/migration/
+    @validator("effective_tax_rate")
+
+personal_finance_tracker/expense/models.py:39
+  /home/justinchiu_cohere_com/minicode/large_repos/personal_finance_tracker/unified/personal_finance_tracker/expense/models.py:39: PydanticDeprecatedSince20: Pydantic V1 style `@validator` validators are deprecated. You should migrate to Pydantic V2 style `@field_validator` validators, see the migration guide for more details. Deprecated in Pydantic V2.0 to be removed in V3.0. See Pydantic V2 Migration Guide at https://errors.pydantic.dev/2.11/migration/
+    @validator("business_use_percentage")
+
+personal_finance_tracker/expense/models.py:102
+  /home/justinchiu_cohere_com/minicode/large_repos/personal_finance_tracker/unified/personal_finance_tracker/expense/models.py:102: PydanticDeprecatedSince20: Pydantic V1 style `@validator` validators are deprecated. You should migrate to Pydantic V2 style `@field_validator` validators, see the migration guide for more details. Deprecated in Pydantic V2.0 to be removed in V3.0. See Pydantic V2 Migration Guide at https://errors.pydantic.dev/2.11/migration/
+    @validator("business_use_percentage")
+
+personal_finance_tracker/expense/models.py:123
+  /home/justinchiu_cohere_com/minicode/large_repos/personal_finance_tracker/unified/personal_finance_tracker/expense/models.py:123: PydanticDeprecatedSince20: Pydantic V1 style `@validator` validators are deprecated. You should migrate to Pydantic V2 style `@field_validator` validators, see the migration guide for more details. Deprecated in Pydantic V2.0 to be removed in V3.0. See Pydantic V2 Migration Guide at https://errors.pydantic.dev/2.11/migration/
+    @validator("confidence_score")
+
+personal_finance_tracker/expense/models.py:130
+  /home/justinchiu_cohere_com/minicode/large_repos/personal_finance_tracker/unified/personal_finance_tracker/expense/models.py:130: PydanticDeprecatedSince20: Pydantic V1 style `@validator` validators are deprecated. You should migrate to Pydantic V2 style `@field_validator` validators, see the migration guide for more details. Deprecated in Pydantic V2.0 to be removed in V3.0. See Pydantic V2 Migration Guide at https://errors.pydantic.dev/2.11/migration/
+    @validator("business_use_percentage")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+--------------------------------- JSON report ----------------------------------
+report saved to: report.json
+=========================== short test summary info ============================
+FAILED tests/freelancer/expense/test_categorizer.py::TestExpenseCategorizer::test_init
+FAILED tests/freelancer/expense/test_categorizer.py::TestExpenseCategorizer::test_add_categorization_rule
+FAILED tests/freelancer/expense/test_categorizer.py::TestExpenseCategorizer::test_update_categorization_rule
+FAILED tests/freelancer/expense/test_categorizer.py::TestExpenseCategorizer::test_remove_categorization_rule
+FAILED tests/freelancer/expense/test_categorizer.py::TestExpenseCategorizer::test_add_mixed_use_item
+FAILED tests/freelancer/expense/test_categorizer.py::TestExpenseCategorizer::test_categorize_transaction
+FAILED tests/freelancer/expense/test_categorizer.py::TestExpenseCategorizer::test_categorize_transactions
+FAILED tests/freelancer/expense/test_categorizer.py::TestExpenseCategorizer::test_apply_categorization
+FAILED tests/freelancer/expense/test_categorizer.py::TestExpenseCategorizer::test_generate_expense_summary
+FAILED tests/freelancer/expense/test_categorizer.py::TestExpenseCategorizer::test_get_audit_trail
+FAILED tests/freelancer/expense/test_categorizer.py::TestExpenseCategorizer::test_correct_categorization
+FAILED tests/freelancer/expense/test_categorizer.py::TestExpenseCategorizer::test_rule_matching
+FAILED tests/freelancer/income/test_income_manager.py::TestIncomeManager::test_init
+FAILED tests/freelancer/income/test_income_manager.py::TestIncomeManager::test_calculate_monthly_income
+FAILED tests/freelancer/income/test_income_manager.py::TestIncomeManager::test_smooth_income_moving_average
+FAILED tests/freelancer/income/test_income_manager.py::TestIncomeManager::test_smooth_income_exponential_smoothing
+FAILED tests/freelancer/income/test_income_manager.py::TestIncomeManager::test_smooth_income_percentile_based
+FAILED tests/freelancer/income/test_income_manager.py::TestIncomeManager::test_smooth_income_seasonal_adjustment
+FAILED tests/freelancer/income/test_income_manager.py::TestIncomeManager::test_smooth_income_rolling_median
+FAILED tests/freelancer/income/test_income_manager.py::TestIncomeManager::test_smooth_income_with_target
+FAILED tests/freelancer/income/test_income_manager.py::TestIncomeManager::test_forecast_revenue
+FAILED tests/freelancer/income/test_income_manager.py::TestIncomeManager::test_extremely_irregular_income
+FAILED tests/freelancer/income/test_income_manager.py::TestIncomeManager::test_income_smoothing_with_large_dataset
+FAILED tests/freelancer/integration/test_categorization_recovery.py::TestCategorizationRecovery::test_recover_from_delayed_categorization_errors
+FAILED tests/freelancer/integration/test_categorization_recovery_mocks.py::TestCategorizationRecoveryMocks::test_recover_from_delayed_categorization_errors
+FAILED tests/freelancer/integration/test_categorization_recovery_mocks.py::TestCategorizationRecoveryMocks::test_recover_from_multiple_categorization_errors
+FAILED tests/freelancer/integration/test_categorization_recovery_simplified.py::TestCategorizationRecoverySimplified::test_recover_from_delayed_categorization_errors
+FAILED tests/freelancer/integration/test_categorization_recovery_simplified.py::TestCategorizationRecoverySimplified::test_recover_from_multiple_categorization_errors
+FAILED tests/freelancer/integration/test_expense_tax_integration.py::TestExpenseTaxIntegration::test_business_expenses_impact_on_tax_liability
+FAILED tests/freelancer/integration/test_expense_tax_integration.py::TestExpenseTaxIntegration::test_expense_recategorization_tax_impact
+FAILED tests/freelancer/integration/test_integration_mocks.py::TestIntegrationWithMocks::test_expense_categorization_impacts_tax_liability
+FAILED tests/freelancer/integration/test_integration_mocks.py::TestIntegrationWithMocks::test_categorization_correction_tax_impact
+FAILED tests/freelancer/integration/test_integration_mocks.py::TestIntegrationWithMocks::test_multi_year_project_profitability
+FAILED tests/freelancer/integration/test_multi_year_projects.py::TestMultiYearProjects::test_project_profitability_across_tax_years
+FAILED tests/freelancer/integration/test_multi_year_projects.py::TestMultiYearProjects::test_tax_implications_of_cross_year_project
+FAILED tests/freelancer/integration/test_multi_year_projects.py::TestMultiYearProjects::test_cross_year_project_cash_flow
+FAILED tests/freelancer/integration/test_quarterly_tax_mocks.py::TestQuarterlyTaxPreparationMocks::test_comprehensive_quarterly_tax_preparation
+FAILED tests/freelancer/integration/test_quarterly_tax_preparation.py::TestQuarterlyTaxPreparation::test_comprehensive_quarterly_tax_preparation
+FAILED tests/freelancer/integration/test_quarterly_tax_preparation_mock.py::TestQuarterlyTaxPreparationMock::test_comprehensive_quarterly_tax_preparation
+FAILED tests/freelancer/integration/test_quarterly_tax_preparation_simplified.py::TestQuarterlyTaxPreparationSimplified::test_comprehensive_quarterly_tax_preparation
+FAILED tests/freelancer/integration/test_year_over_year_comparison.py::TestYearOverYearComparison::test_income_comparison_across_years
+FAILED tests/freelancer/integration/test_year_over_year_comparison.py::TestYearOverYearComparison::test_expense_comparison_across_years
+FAILED tests/freelancer/integration/test_year_over_year_comparison.py::TestYearOverYearComparison::test_tax_comparison_across_years
+FAILED tests/freelancer/integration/test_year_over_year_mocks.py::TestYearOverYearComparison::test_income_growth_analysis
+FAILED tests/freelancer/integration/test_year_over_year_mocks.py::TestYearOverYearComparison::test_expense_category_trends
+FAILED tests/freelancer/integration/test_year_over_year_mocks.py::TestYearOverYearComparison::test_tax_liability_comparison
+FAILED tests/freelancer/integration/test_year_over_year_mocks.py::TestYearOverYearComparison::test_project_profitability_trends
+FAILED tests/freelancer/integration/test_year_over_year_simple.py::TestYearOverYearSimple::test_expense_comparison_across_years
+FAILED tests/freelancer/integration/test_year_over_year_simplified.py::TestYearOverYearSimplified::test_income_comparison_across_years
+FAILED tests/freelancer/integration/test_year_over_year_simplified.py::TestYearOverYearSimplified::test_expense_comparison_across_years
+FAILED tests/freelancer/project/test_profitability_analyzer.py::TestProjectProfiler::test_init
+FAILED tests/freelancer/project/test_profitability_analyzer.py::TestProjectProfiler::test_analyze_project_profitability
+FAILED tests/freelancer/project/test_profitability_analyzer.py::TestProjectProfiler::test_analyze_client_profitability
+FAILED tests/freelancer/project/test_profitability_analyzer.py::TestProjectProfiler::test_analyze_all_projects
+FAILED tests/freelancer/project/test_profitability_analyzer.py::TestProjectProfiler::test_analyze_large_project_set
+FAILED tests/freelancer/projection/test_financial_projector.py::TestFinancialProjector::test_init
+================== 56 failed, 97 passed, 17 warnings in 1.85s ==================

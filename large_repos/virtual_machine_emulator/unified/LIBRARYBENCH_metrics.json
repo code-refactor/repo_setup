@@ -1,0 +1,740 @@
+{
+    "total_logprobs": -78800.98299197796,
+    "total_tokens": 156741,
+    "unified/vm_emulator/scheduling/scheduler.py": {
+        "logprobs": -2670.2529539910533,
+        "metrics": {
+            "loc": 975,
+            "sloc": 431,
+            "lloc": 357,
+            "comments": 96,
+            "multi": 256,
+            "blank": 186,
+            "cyclomatic": 160,
+            "internal_imports": []
+        }
+    },
+    "unified/vm_emulator/core/memory_refactored.py": {
+        "logprobs": -1464.7758895251566,
+        "metrics": {
+            "loc": 346,
+            "sloc": 213,
+            "lloc": 119,
+            "comments": 29,
+            "multi": 47,
+            "blank": 54,
+            "cyclomatic": 59,
+            "internal_imports": []
+        }
+    },
+    "unified/vm_emulator/threading/__init__.py": {
+        "logprobs": -181.707145095048,
+        "metrics": {
+            "loc": 1,
+            "sloc": 0,
+            "lloc": 1,
+            "comments": 0,
+            "multi": 0,
+            "blank": 0,
+            "cyclomatic": 0,
+            "internal_imports": []
+        }
+    },
+    "unified/vm_emulator/threading/thread.py": {
+        "logprobs": -783.1000088509209,
+        "metrics": {
+            "loc": 172,
+            "sloc": 95,
+            "lloc": 103,
+            "comments": 11,
+            "multi": 36,
+            "blank": 30,
+            "cyclomatic": 19,
+            "internal_imports": []
+        }
+    },
+    "unified/common/core/visualization.py": {
+        "logprobs": -1984.2960173572185,
+        "metrics": {
+            "loc": 421,
+            "sloc": 288,
+            "lloc": 224,
+            "comments": 24,
+            "multi": 10,
+            "blank": 90,
+            "cyclomatic": 90,
+            "internal_imports": []
+        }
+    },
+    "unified/common/core/metrics.py": {
+        "logprobs": -1223.677488612657,
+        "metrics": {
+            "loc": 311,
+            "sloc": 208,
+            "lloc": 192,
+            "comments": 15,
+            "multi": 10,
+            "blank": 57,
+            "cyclomatic": 57,
+            "internal_imports": []
+        }
+    },
+    "unified/vm_emulator/core/processor.py": {
+        "logprobs": -1486.1753162076257,
+        "metrics": {
+            "loc": 255,
+            "sloc": 156,
+            "lloc": 172,
+            "comments": 53,
+            "multi": 10,
+            "blank": 41,
+            "cyclomatic": 55,
+            "internal_imports": []
+        }
+    },
+    "unified/common/core/vm.py": {
+        "logprobs": -1100.6755455787886,
+        "metrics": {
+            "loc": 253,
+            "sloc": 143,
+            "lloc": 173,
+            "comments": 19,
+            "multi": 10,
+            "blank": 60,
+            "cyclomatic": 52,
+            "internal_imports": []
+        }
+    },
+    "unified/common/core/utils.py": {
+        "logprobs": -1093.5950232058458,
+        "metrics": {
+            "loc": 351,
+            "sloc": 209,
+            "lloc": 264,
+            "comments": 9,
+            "multi": 5,
+            "blank": 83,
+            "cyclomatic": 94,
+            "internal_imports": []
+        }
+    },
+    "unified/vm_emulator/synchronization/primitives.py": {
+        "logprobs": -1761.1069755874935,
+        "metrics": {
+            "loc": 935,
+            "sloc": 463,
+            "lloc": 357,
+            "comments": 68,
+            "multi": 216,
+            "blank": 184,
+            "cyclomatic": 109,
+            "internal_imports": []
+        }
+    },
+    "unified/common/__init__.py": {
+        "logprobs": -300.0289091042197,
+        "metrics": {
+            "loc": 11,
+            "sloc": 3,
+            "lloc": 4,
+            "comments": 0,
+            "multi": 5,
+            "blank": 3,
+            "cyclomatic": 0,
+            "internal_imports": []
+        }
+    },
+    "unified/common/core/instruction.py": {
+        "logprobs": -1103.861817835676,
+        "metrics": {
+            "loc": 271,
+            "sloc": 164,
+            "lloc": 195,
+            "comments": 16,
+            "multi": 5,
+            "blank": 60,
+            "cyclomatic": 65,
+            "internal_imports": []
+        }
+    },
+    "unified/vm_emulator/core/vm.py": {
+        "logprobs": -3503.273810874042,
+        "metrics": {
+            "loc": 878,
+            "sloc": 526,
+            "lloc": 379,
+            "comments": 134,
+            "multi": 79,
+            "blank": 152,
+            "cyclomatic": 129,
+            "internal_imports": []
+        }
+    },
+    "unified/secure_vm/scenarios.py": {
+        "logprobs": -4101.471312774972,
+        "metrics": {
+            "loc": 813,
+            "sloc": 512,
+            "lloc": 256,
+            "comments": 263,
+            "multi": 30,
+            "blank": 175,
+            "cyclomatic": 54,
+            "internal_imports": []
+        }
+    },
+    "unified/vm_emulator/core/latency.py": {
+        "logprobs": -1706.4541263586698,
+        "metrics": {
+            "loc": 722,
+            "sloc": 389,
+            "lloc": 280,
+            "comments": 63,
+            "multi": 152,
+            "blank": 129,
+            "cyclomatic": 90,
+            "internal_imports": []
+        }
+    },
+    "unified/vm_emulator/metrics/__init__.py": {
+        "logprobs": -178.545179846153,
+        "metrics": {
+            "loc": 1,
+            "sloc": 0,
+            "lloc": 1,
+            "comments": 0,
+            "multi": 0,
+            "blank": 0,
+            "cyclomatic": 0,
+            "internal_imports": []
+        }
+    },
+    "unified/tests/parallel_researcher/__init__.py": {
+        "logprobs": -171.86467408624,
+        "metrics": {
+            "loc": 1,
+            "sloc": 0,
+            "lloc": 1,
+            "comments": 0,
+            "multi": 0,
+            "blank": 0,
+            "cyclomatic": 0,
+            "internal_imports": []
+        }
+    },
+    "unified/secure_vm/cpu.py": {
+        "logprobs": -2595.299778645561,
+        "metrics": {
+            "loc": 688,
+            "sloc": 501,
+            "lloc": 366,
+            "comments": 75,
+            "multi": 5,
+            "blank": 108,
+            "cyclomatic": 105,
+            "internal_imports": []
+        }
+    },
+    "unified/secure_vm/visualization.py": {
+        "logprobs": -2444.132859650132,
+        "metrics": {
+            "loc": 506,
+            "sloc": 333,
+            "lloc": 259,
+            "comments": 35,
+            "multi": 43,
+            "blank": 90,
+            "cyclomatic": 104,
+            "internal_imports": []
+        }
+    },
+    "unified/vm_emulator/core/instruction.py": {
+        "logprobs": -541.6890215844074,
+        "metrics": {
+            "loc": 115,
+            "sloc": 84,
+            "lloc": 62,
+            "comments": 43,
+            "multi": 0,
+            "blank": 20,
+            "cyclomatic": 11,
+            "internal_imports": []
+        }
+    },
+    "unified/vm_emulator/memory/__init__.py": {
+        "logprobs": -194.355800152015,
+        "metrics": {
+            "loc": 1,
+            "sloc": 0,
+            "lloc": 1,
+            "comments": 0,
+            "multi": 0,
+            "blank": 0,
+            "cyclomatic": 0,
+            "internal_imports": []
+        }
+    },
+    "unified/vm_emulator/memory/patterns.py": {
+        "logprobs": -2671.7471525570973,
+        "metrics": {
+            "loc": 875,
+            "sloc": 448,
+            "lloc": 391,
+            "comments": 108,
+            "multi": 148,
+            "blank": 186,
+            "cyclomatic": 156,
+            "internal_imports": []
+        }
+    },
+    "unified/vm_emulator/memory/cache.py": {
+        "logprobs": -2101.6172328348243,
+        "metrics": {
+            "loc": 758,
+            "sloc": 342,
+            "lloc": 352,
+            "comments": 77,
+            "multi": 188,
+            "blank": 166,
+            "cyclomatic": 93,
+            "internal_imports": []
+        }
+    },
+    "unified/secure_vm/emulator.py": {
+        "logprobs": -2654.166648660873,
+        "metrics": {
+            "loc": 662,
+            "sloc": 454,
+            "lloc": 316,
+            "comments": 56,
+            "multi": 23,
+            "blank": 113,
+            "cyclomatic": 89,
+            "internal_imports": []
+        }
+    },
+    "unified/vm_emulator/memory/coherence.py": {
+        "logprobs": -3103.2597592783904,
+        "metrics": {
+            "loc": 978,
+            "sloc": 552,
+            "lloc": 413,
+            "comments": 109,
+            "multi": 150,
+            "blank": 174,
+            "cyclomatic": 172,
+            "internal_imports": []
+        }
+    },
+    "unified/conftest.py": {
+        "logprobs": -247.592231626473,
+        "metrics": {
+            "loc": 4,
+            "sloc": 1,
+            "lloc": 2,
+            "comments": 1,
+            "multi": 0,
+            "blank": 1,
+            "cyclomatic": 0,
+            "internal_imports": []
+        }
+    },
+    "unified/setup.py": {
+        "logprobs": -298.270221478401,
+        "metrics": {
+            "loc": 9,
+            "sloc": 8,
+            "lloc": 2,
+            "comments": 0,
+            "multi": 0,
+            "blank": 1,
+            "cyclomatic": 0,
+            "internal_imports": []
+        }
+    },
+    "unified/vm_emulator/threading/thread_manager.py": {
+        "logprobs": -1461.136543816157,
+        "metrics": {
+            "loc": 536,
+            "sloc": 236,
+            "lloc": 199,
+            "comments": 38,
+            "multi": 151,
+            "blank": 111,
+            "cyclomatic": 72,
+            "internal_imports": []
+        }
+    },
+    "unified/tests/security_researcher/conftest.py": {
+        "logprobs": -652.5693175873739,
+        "metrics": {
+            "loc": 92,
+            "sloc": 48,
+            "lloc": 32,
+            "comments": 2,
+            "multi": 22,
+            "blank": 17,
+            "cyclomatic": 7,
+            "internal_imports": []
+        }
+    },
+    "unified/vm_emulator/visualization/trace.py": {
+        "logprobs": -1943.9279292273961,
+        "metrics": {
+            "loc": 866,
+            "sloc": 504,
+            "lloc": 340,
+            "comments": 77,
+            "multi": 144,
+            "blank": 146,
+            "cyclomatic": 117,
+            "internal_imports": []
+        }
+    },
+    "unified/vm_emulator/core/race.py": {
+        "logprobs": -2096.3890470866845,
+        "metrics": {
+            "loc": 562,
+            "sloc": 328,
+            "lloc": 253,
+            "comments": 69,
+            "multi": 79,
+            "blank": 94,
+            "cyclomatic": 123,
+            "internal_imports": []
+        }
+    },
+    "unified/vm_emulator/synchronization/manager.py": {
+        "logprobs": -1339.5425884587362,
+        "metrics": {
+            "loc": 787,
+            "sloc": 399,
+            "lloc": 273,
+            "comments": 49,
+            "multi": 194,
+            "blank": 143,
+            "cyclomatic": 100,
+            "internal_imports": []
+        }
+    },
+    "unified/vm_emulator/__init__.py": {
+        "logprobs": -459.13405727061195,
+        "metrics": {
+            "loc": 23,
+            "sloc": 15,
+            "lloc": 8,
+            "comments": 10,
+            "multi": 0,
+            "blank": 4,
+            "cyclomatic": 0,
+            "internal_imports": []
+        }
+    },
+    "unified/common/core/__init__.py": {
+        "logprobs": -458.8857294587021,
+        "metrics": {
+            "loc": 38,
+            "sloc": 24,
+            "lloc": 10,
+            "comments": 7,
+            "multi": 5,
+            "blank": 9,
+            "cyclomatic": 0,
+            "internal_imports": []
+        }
+    },
+    "unified/common/core/cpu.py": {
+        "logprobs": -1252.720322498051,
+        "metrics": {
+            "loc": 315,
+            "sloc": 188,
+            "lloc": 217,
+            "comments": 38,
+            "multi": 10,
+            "blank": 65,
+            "cyclomatic": 74,
+            "internal_imports": []
+        }
+    },
+    "unified/vm_emulator/metrics/performance.py": {
+        "logprobs": -2024.7711815877644,
+        "metrics": {
+            "loc": 654,
+            "sloc": 340,
+            "lloc": 312,
+            "comments": 50,
+            "multi": 141,
+            "blank": 125,
+            "cyclomatic": 96,
+            "internal_imports": []
+        }
+    },
+    "unified/vm_emulator/core/vm_refactored.py": {
+        "logprobs": -2640.5056963180796,
+        "metrics": {
+            "loc": 522,
+            "sloc": 329,
+            "lloc": 307,
+            "comments": 60,
+            "multi": 10,
+            "blank": 107,
+            "cyclomatic": 108,
+            "internal_imports": []
+        }
+    },
+    "unified/vm_emulator/core/state.py": {
+        "logprobs": -1863.812221684116,
+        "metrics": {
+            "loc": 480,
+            "sloc": 294,
+            "lloc": 215,
+            "comments": 38,
+            "multi": 60,
+            "blank": 82,
+            "cyclomatic": 82,
+            "internal_imports": []
+        }
+    },
+    "unified/vm_emulator/scheduling/__init__.py": {
+        "logprobs": -191.65362405546,
+        "metrics": {
+            "loc": 1,
+            "sloc": 0,
+            "lloc": 1,
+            "comments": 0,
+            "multi": 0,
+            "blank": 0,
+            "cyclomatic": 0,
+            "internal_imports": []
+        }
+    },
+    "unified/tests/security_researcher/__init__.py": {
+        "logprobs": -195.8665256503973,
+        "metrics": {
+            "loc": 3,
+            "sloc": 0,
+            "lloc": 1,
+            "comments": 0,
+            "multi": 3,
+            "blank": 0,
+            "cyclomatic": 0,
+            "internal_imports": []
+        }
+    },
+    "unified/vm_emulator/patterns/__init__.py": {
+        "logprobs": -191.566603303141,
+        "metrics": {
+            "loc": 1,
+            "sloc": 0,
+            "lloc": 1,
+            "comments": 0,
+            "multi": 0,
+            "blank": 0,
+            "cyclomatic": 0,
+            "internal_imports": []
+        }
+    },
+    "unified/common/core/memory.py": {
+        "logprobs": -1173.8228385928337,
+        "metrics": {
+            "loc": 324,
+            "sloc": 202,
+            "lloc": 231,
+            "comments": 15,
+            "multi": 10,
+            "blank": 69,
+            "cyclomatic": 81,
+            "internal_imports": []
+        }
+    },
+    "unified/vm_emulator/patterns/algorithms.py": {
+        "logprobs": -2678.3099032271903,
+        "metrics": {
+            "loc": 957,
+            "sloc": 499,
+            "lloc": 269,
+            "comments": 127,
+            "multi": 189,
+            "blank": 153,
+            "cyclomatic": 63,
+            "internal_imports": []
+        }
+    },
+    "unified/secure_vm/__init__.py": {
+        "logprobs": -652.8612044756807,
+        "metrics": {
+            "loc": 34,
+            "sloc": 19,
+            "lloc": 7,
+            "comments": 16,
+            "multi": 7,
+            "blank": 5,
+            "cyclomatic": 0,
+            "internal_imports": []
+        }
+    },
+    "unified/vm_emulator/core/vm_wrapper.py": {
+        "logprobs": -1348.2222603561513,
+        "metrics": {
+            "loc": 238,
+            "sloc": 169,
+            "lloc": 145,
+            "comments": 13,
+            "multi": 10,
+            "blank": 32,
+            "cyclomatic": 39,
+            "internal_imports": []
+        }
+    },
+    "unified/common/core/trace.py": {
+        "logprobs": -1362.9891196993335,
+        "metrics": {
+            "loc": 345,
+            "sloc": 232,
+            "lloc": 216,
+            "comments": 14,
+            "multi": 10,
+            "blank": 70,
+            "cyclomatic": 87,
+            "internal_imports": []
+        }
+    },
+    "unified/secure_vm/emulator_refactored.py": {
+        "logprobs": -2938.255098730076,
+        "metrics": {
+            "loc": 726,
+            "sloc": 511,
+            "lloc": 372,
+            "comments": 49,
+            "multi": 13,
+            "blank": 127,
+            "cyclomatic": 105,
+            "internal_imports": []
+        }
+    },
+    "unified/secure_vm/memory.py": {
+        "logprobs": -1788.8089330957791,
+        "metrics": {
+            "loc": 440,
+            "sloc": 315,
+            "lloc": 271,
+            "comments": 23,
+            "multi": 5,
+            "blank": 71,
+            "cyclomatic": 99,
+            "internal_imports": []
+        }
+    },
+    "unified/vm_emulator/visualization/__init__.py": {
+        "logprobs": -198.2540357185373,
+        "metrics": {
+            "loc": 1,
+            "sloc": 0,
+            "lloc": 1,
+            "comments": 0,
+            "multi": 0,
+            "blank": 0,
+            "cyclomatic": 0,
+            "internal_imports": []
+        }
+    },
+    "unified/vm_emulator/core/program.py": {
+        "logprobs": -570.1301413233479,
+        "metrics": {
+            "loc": 172,
+            "sloc": 75,
+            "lloc": 73,
+            "comments": 0,
+            "multi": 62,
+            "blank": 32,
+            "cyclomatic": 17,
+            "internal_imports": []
+        }
+    },
+    "unified/vm_emulator/core/__init__.py": {
+        "logprobs": -208.892893195341,
+        "metrics": {
+            "loc": 1,
+            "sloc": 0,
+            "lloc": 1,
+            "comments": 0,
+            "multi": 0,
+            "blank": 0,
+            "cyclomatic": 0,
+            "internal_imports": []
+        }
+    },
+    "unified/secure_vm/attacks.py": {
+        "logprobs": -3452.996826908761,
+        "metrics": {
+            "loc": 818,
+            "sloc": 525,
+            "lloc": 344,
+            "comments": 118,
+            "multi": 42,
+            "blank": 131,
+            "cyclomatic": 125,
+            "internal_imports": []
+        }
+    },
+    "unified/vm_emulator/core/memory.py": {
+        "logprobs": -701.0786282981043,
+        "metrics": {
+            "loc": 215,
+            "sloc": 108,
+            "lloc": 76,
+            "comments": 7,
+            "multi": 58,
+            "blank": 41,
+            "cyclomatic": 33,
+            "internal_imports": []
+        }
+    },
+    "unified/vm_emulator/core/processor_refactored.py": {
+        "logprobs": -1650.9589466934872,
+        "metrics": {
+            "loc": 289,
+            "sloc": 180,
+            "lloc": 198,
+            "comments": 38,
+            "multi": 5,
+            "blank": 49,
+            "cyclomatic": 67,
+            "internal_imports": []
+        }
+    },
+    "unified/vm_emulator/synchronization/__init__.py": {
+        "logprobs": -188.785569315758,
+        "metrics": {
+            "loc": 1,
+            "sloc": 0,
+            "lloc": 1,
+            "comments": 0,
+            "multi": 0,
+            "blank": 0,
+            "cyclomatic": 0,
+            "internal_imports": []
+        }
+    },
+    "unified/vm_emulator/migration.py": {
+        "logprobs": -1447.1423029849486,
+        "metrics": {
+            "loc": 281,
+            "sloc": 188,
+            "lloc": 141,
+            "comments": 28,
+            "multi": 5,
+            "blank": 54,
+            "cyclomatic": 45,
+            "internal_imports": []
+        }
+    },
+    "total_loc": 21035,
+    "total_sloc": 12251,
+    "total_lloc": 9757,
+    "total_comments": 2190,
+    "total_multi": 2663,
+    "total_blank": 3900,
+    "total_cyclomatic": 3303,
+    "total_internal_imports": 0
+}
