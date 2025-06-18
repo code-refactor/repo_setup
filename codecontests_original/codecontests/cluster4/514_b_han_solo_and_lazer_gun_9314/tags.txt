@@ -1,0 +1,5 @@
+brute force
+data structures
+geometry
+implementation
+math

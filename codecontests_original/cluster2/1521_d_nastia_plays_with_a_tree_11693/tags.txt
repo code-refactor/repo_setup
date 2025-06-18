@@ -1,0 +1,8 @@
+constructive algorithms
+data structures
+dfs and similar
+dp
+dsu
+greedy
+implementation
+trees

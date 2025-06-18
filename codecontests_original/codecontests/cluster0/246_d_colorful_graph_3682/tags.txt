@@ -1,0 +1,3 @@
+brute force
+dfs and similar
+graphs

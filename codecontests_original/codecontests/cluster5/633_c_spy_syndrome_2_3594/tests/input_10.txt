@@ -1,0 +1,5 @@
+7
+abababc
+2
+ba
+cba

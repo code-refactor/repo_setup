@@ -1,0 +1,4 @@
+brute force
+geometry
+implementation
+math

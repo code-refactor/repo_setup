@@ -1,0 +1,7 @@
+brute force
+combinatorics
+dp
+graphs
+math
+probabilities
+trees
